@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+th, td {
+    padding: 2pt;
+    text-align: left;
+}
+
+.userPanel {
+    float: right;
+    padding: 3pt;
+}
+
+.userPanel p {
+    margin: 3pt;
+    font-size: x-small;
+}
+
+.userPanel img {
+    float: left;
+    width: 15%;
+    height: 15%;
+    border-radius: 50%;
+    margin-right: 5pt;
+}
+
+.userPanel hr {
+    margin-top: 6pt;
+    margin-bottom: 3pt;
+}
+
+.productImage {
+    width: 20%;
+    height: 20%;
+    border-radius: 10%;
+}
+
+.categoryImage {
+    margin-right: 8pt;
+    width: 60pt;
+    height: auto;
+    float: left;
+    border-radius: 10%;
+}
+
+td .categoryImage {
+    float: none;
+    margin: 0;
+    width: 40%;
+    height: 40%;
+}
+
+.hint {
+    color: gray;
+}
+
+.errorMessage {
+    color: red;
+}
+
+.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: gray;
+  }
+  
+  .topnav li {
+    float: left;
+  }
+  
+  .topnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 4pt 5pt;
+    text-decoration: none;
+  }
+  
+  .topnav .selected {
+    background-color: green;
+  }
+
+  .topnav li a:hover {
+    background-color: black;
+  }

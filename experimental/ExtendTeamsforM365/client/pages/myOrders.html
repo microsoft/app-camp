@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Northwind Orders</title>   
+    <link rel="icon" href="data:;base64,="> <!-- Suppress favicon error -->
+</head>
+
+<body>
+
+    <!-- <script type="module" src="/identity/userPanel.js"></script> -->   
+    <top-nav-panel></top-nav-panel>
+<div class="container">
+   
+    <div class="element" id="allOrders" style="display: none;">
+        <div class="content" id="content">
+            <p>Loading...</p>
+        </div>
+        <table id="orders">
+            <tr>
+              
+                <th>Order ID</th>
+                <th>Date</th>
+                <th>Customer name</th>
+                <th>Customer contact</th>
+                <th>Customer phone</th>
+                <th>Ship to</th>
+                <th>Address</th>
+                <th></th>
+            </tr>
+        </table>
+        <div id="message" class="errorMessage"></div>
+    </div>  
+    <div class="element" id="rODiv" style="display: none;">
+        <div class="content" id="rOContent">
+            <p>Loading...</p>
+        </div>
+        <table id="rOTable">
+            <tr>
+                <th>Order ID</th>
+                <th>Date</th>
+                <th>Customer name</th>
+                <th>Customer contact</th>
+                <th>Customer phone</th>
+                <th>Ship to</th>
+                <th>Address</th>
+            </tr>
+        </table>
+      
+    </div>
+    <div class="element"  style="display: none;" id="rODiv2">
+        <div class="content"><h3>Recently opened files</h3></div>
+        <table id="rOFiles">           
+        </table>
+    </div>
+    <div  id="rOchart" class="element" style="display: none;">
+        <div class="content" >
+            <h3>My orders report</h3>
+        </div>
+        <figure>
+            <div class="figure-content">
+            <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+            <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
+            <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="3"></circle>
+            
+            
+          <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#464775" stroke-width="3" stroke-dasharray="40 60" stroke-dashoffset="25"></circle>
+            <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#BDBDE6" stroke-width="3" stroke-dasharray="20 80" stroke-dashoffset="85"></circle>
+            <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#DFDEDE" stroke-width="3" stroke-dasharray="30 70" stroke-dashoffset="65"></circle>
+            <!-- unused 10% -->
+            <g class="chart-text">
+                <text x="50%" y="50%" class="chart-number">10</text>
+                <text x="50%" y="50%" class="chart-label">Orders</text>
+            </g>
+          
+          </svg>
+              </div>
+            <figcaption class="figure-key">
+             
+              <ul class="figure-key-list" aria-hidden="true" role="presentation">
+                <li>
+                  <span class="shape-circle shape-fuschia"></span> Closed (3)
+                </li>
+                <li>
+                  <span class="shape-circle shape-lemon-lime"></span> In progress (2)
+                </li>
+                <li>
+                  <span class="shape-circle shape-blue"></span> Started (5)
+                </li>
+              </ul>
+            
+            </figcaption>
+          </figure>
+       
+    </div>
+      
+    </div>
+</div>
+
+    <script type="module" src="/components/navigation.js"></script>
+    <script type="module" src="myOrders.js"></script>
+
+</body>
+
+</html>

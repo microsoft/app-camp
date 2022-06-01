@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Northwind Orders</title>
+  
+    <link rel="icon" href="data:;base64,="> <!-- Suppress favicon error -->
+</head>
+
+<body>
+<!-- 
+    <script type="module" src="/identity/userPanel.js"></script> -->
+    <script src='https://unpkg.com/markdown-it/dist/markdown-it.min.js'></script>
+    <script src='https://unpkg.com/adaptive-expressions/lib/browser.js'></script>
+    <script src='https://unpkg.com/adaptivecards-templating/dist/adaptivecards-templating.min.js'></script>
+    <script src='https://unpkg.com/adaptivecards/dist/adaptivecards.min.js'></script>
+    <top-nav-panel></top-nav-panel>
+    <script async defer src="https://teams.microsoft.com/share/launcher.js"></script>
+   
+    <div class="container">
+        <div class="element">
+            <div id="content">
+                <p>Loading...</p>
+            </div>
+            <div class="teams-share-button" data-href="" data-button-type="medium" data-icon-px-size="160" data-preview="true"></div>
+ 
+            <script async defer src="https://teams.microsoft.com/share/launcher.js"></script>
+            <table id="orderDetails">
+                <tr>
+                    <th>Quantity</th>
+                    <th>Product</th>
+                    <th>Unit price</th>
+                    <th>Discount</th>
+                </tr>
+            </table>
+            <div id="trackerBox" style="display: none;"></div>
+            <div id="message" class="errorMessage"></div>        
+            </div>
+            <!-- <div><button id="btnMail" style="display: none;">Chat</button></div> -->
+            <div class="element" id="chatBox" style="display: none;"></div>
+            <div class="element" id="mailBox" style="display: none;"></div>
+          
+        </div>
+   
+    </div>
+    <script type="module" src="/components/navigation.js"></script>
+    <script type="module" src="orderDetail.js"></script>
+
+</body>
+
+</html>

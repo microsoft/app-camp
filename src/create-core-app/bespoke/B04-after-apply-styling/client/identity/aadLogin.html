@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Northwind Login Page</title>
+    <link rel="stylesheet" href="/northwind.css" />
+    <link rel="icon" href="data:;base64,="> <!-- Suppress favicon error -->
+</head>
+
+<body>
+
+    <div id="teamsLoginLauncher" style="display:none">
+        <h2>Northwind Login (AAD Mapping)</h2>
+        <br />
+        <p>Please log in using your Northwind employee login it to link your Microsoft Teams login.</p>
+        <button id="teamsLoginLauncherButton">Log in</button>
+    </div>
+    <div id="message" class="errorMessage"></div>
+
+    <script type="module" src="/identity/aadLogin.js"></script>
+
+</body>
+
+</html>

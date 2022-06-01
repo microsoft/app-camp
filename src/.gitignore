@@ -1,0 +1,10 @@
+# Catch-all gitignore
+# It's still advisable to include a .gitignore in each lab solution 
+# This is here to handle folders that are only present in some branches
+
+node_modules
+package-lock.json
+.env
+manifest.json
+**/manifest/*.zip
+**/northwindDB/*.json

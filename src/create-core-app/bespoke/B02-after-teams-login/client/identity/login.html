@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Northwind Login Page</title>
+    <link rel="stylesheet" href="/northwind.css" />
+    <link rel="icon" href="data:;base64,="> <!-- Suppress favicon error -->
+</head>
+
+<body>
+
+    <h2>Northwind Login</h2>
+    <br />
+    <div id="loginPanel" style="display: none;">
+        <label>Username: </label>
+        <input type="text" id="username" />
+        <br /><br />
+        <label>Password: </label>
+        <input type="password" id="password" />
+        <br /><br />
+        <button id="loginButton">Log in</button>
+        <br /><br />
+        <div class="hint">
+            <p>Hint: This is just a mock login service. You can log in with any of these usernames. The password is not
+                checked.</p>
+            <ul id="hintList">
+                <li><b>davolio (Nancy Davolio)</b></li>
+                <li><b>fuller (Andrew Fuller)</b></li>
+                <li><b>leverling (Janet Leverling)</b></li>
+                <li><b>peacock (Margaret Peacock)</b></li>
+                <li><b>buchanan (Steven Buchanan)</b></li>
+                <li><b>suyama (Michael Suyama)</b></li>
+                <li><b>king (Robert King)</b></li>
+                <li><b>callahan (Laura Callahan)</b></li>
+                <li><b>dodsworth (Anne Dodsworth)</b></li>
+            </ul>
+        </div>
+    </div>
+    <div id="message" class="errorMessage"></div>
+
+    <script type="module" src="login.js"></script>
+
+</body>
+
+</html>
