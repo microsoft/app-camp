@@ -1,14 +1,13 @@
 import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
-import {
-    setLoggedinEmployeeId
-} from './identityClient.js';
+import { ensureTeamsSdkInitialized } from '../modules/teamsHelpers.js';
+import { setLoggedinEmployeeId } from './identityClient.js';
 
 (async () => {
 
     const teamsLoginLauncher = document.getElementById('teamsLoginLauncher');
     const teamsLoginLauncherButton = document.getElementById('teamsLoginLauncherButton');
 
-    await microsoftTeams.initialize();
+    await ensureTeamsSdkInitialized();
     const authToken = await microsoftTeams.authentication.getAuthToken();
 
     const response = await fetch(`/api/validateAadLogin`, {
