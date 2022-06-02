@@ -2,7 +2,7 @@ import {
    validateEmployeeLogin,
    setLoggedinEmployeeId
 } from './identityClient.js';
-import 'https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js';
+import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
 
 const loginPanel = document.getElementById('loginPanel');
 const usernameInput = document.getElementById('username');
@@ -34,9 +34,8 @@ if (window.location !== window.parent.location) {
       if (employeeId) {
          setLoggedinEmployeeId(employeeId);
          if (window.location.search.indexOf('teams=true') >= 0) {
-            microsoftTeams.initialize(() => {
-               microsoftTeams.authentication.notifySuccess(employeeId);
-            });
+            await microsoftTeams.app.initialize();
+            microsoftTeams.authentication.notifySuccess(employeeId);
          } else {
             window.location.href = document.referrer;
          }

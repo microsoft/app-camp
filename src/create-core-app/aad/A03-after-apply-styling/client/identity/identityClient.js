@@ -3,7 +3,7 @@ import { getEmployee } from '../modules/northwindDataService.js';
 import 'https://alcdn.msauth.net/browser/2.21.0/js/msal-browser.min.js';
 import { env } from '/modules/env.js';
 import { inTeams } from '/modules/teamsHelpers.js';
-import 'https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js';
+import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
 
 // interface IIdentityClient {
 //     async getLoggedinEmployeeId(): number;
@@ -78,13 +78,8 @@ async function getAccessToken2() {
 
     if (await inTeams()) {
 
-        microsoftTeams.initialize();
-        const accessToken = await new Promise((resolve, reject) => {
-            microsoftTeams.authentication.getAuthToken({
-                successCallback: (result) => { resolve(result); },
-                failureCallback: (error) => { reject(error); }
-            });
-        });
+        await microsoftTeams.app.initialize();
+        const accessToken = await microsoftTeams.authentication.getAuthToken();
         return accessToken;
 
     } else {

@@ -1,19 +1,15 @@
-import 'https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js';
+import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
 import {
     setLoggedinEmployeeId
 } from './identityClient.js';
 
-const teamsLoginLauncher = document.getElementById('teamsLoginLauncher');
-const teamsLoginLauncherButton = document.getElementById('teamsLoginLauncherButton');
+(async () => {
 
-microsoftTeams.initialize(async () => {
+    const teamsLoginLauncher = document.getElementById('teamsLoginLauncher');
+    const teamsLoginLauncherButton = document.getElementById('teamsLoginLauncherButton');
 
-    const authToken = await new Promise((resolve, reject) => {
-        microsoftTeams.authentication.getAuthToken({
-            successCallback: (result) => { resolve(result); },
-            failureCallback: (error) => { reject(error); }
-        });
-    });
+    await microsoftTeams.initialize();
+    const authToken = await microsoftTeams.authentication.getAuthToken();
 
     const response = await fetch(`/api/validateAadLogin`, {
         "method": "post",
@@ -35,36 +31,44 @@ microsoftTeams.initialize(async () => {
         }
     } else if (response.status === 404) {
 
-        // If here, AAD user logged in but there was no mapping to an employee ID. Get one now.
+        // If here, AAD user logged in but there was no mapping to an employee ID.
+        // Get one now using the bespoke authentication
         teamsLoginLauncherButton.addEventListener('click', async ev => {
-            microsoftTeams.authentication.authenticate({
-                url: `${window.location.origin}/identity/login.html?teams=true`,
-                width: 600,
-                height: 535,
-                successCallback: async (northwindCredentials) => {
-                    const response = await fetch(`/api/validateAadLogin`, {
-                        "method": "post",
-                        "headers": {
-                            "content-type": "application/json",
-                            "authorization": `Bearer ${authToken}`
-                        },
-                        "body": JSON.stringify({
-                            "username": northwindCredentials.username,
-                            "password": northwindCredentials.password
-                        }),
-                        "cache": "no-cache"
-                    });
-                    setLoggedinEmployeeId(northwindCredentials.employeeId);
-                    window.location.href = document.referrer;
+
+            // First, launch the original login page to get the user credentials
+            const northwindCredentials = await
+                microsoftTeams.authentication.authenticate({
+                    url: `${window.location.origin}/identity/login.html?teams=true`,
+                    width: 600,
+                    height: 535
+                });
+
+            // Now call the server with BOTH the Azure AD and original credentials
+            // Server is responsible for linking them in its database for next time
+            const response = await fetch(`/api/validateAadLogin`, {
+                "method": "post",
+                "headers": {
+                    "content-type": "application/json",
+                    "authorization": `Bearer ${authToken}`
                 },
-                failureCallback: (reason) => {
-                    throw `Error in teams.authentication.authenticate: ${reason}`
-                }
+                "body": JSON.stringify({
+                    "username": northwindCredentials.username,
+                    "password": northwindCredentials.password
+                }),
+                "cache": "no-cache"
             });
+
+            // Now log the user in with the bespoke system
+            setLoggedinEmployeeId(northwindCredentials.employeeId);
+            window.location.href = document.referrer;
         });
+
         teamsLoginLauncher.style.display = "inline";
 
     } else {
+
         console.log(`Error ${response.status} on /api/validateAadLogin: ${response.statusText}`);
+
     }
-});
+
+})();

@@ -138,7 +138,7 @@ async function getEmployeeIdForUser(aadUserId) {
 
     const idMapDB = await db.getTable("IdentityMap", "aadUserId");
     const identity = idMapDB.item(aadUserId);
-    return identity.employeeId;
+    return identity?.employeeId;
 }
 
 async function setEmployeeIdForUser(aadUserId, employeeId) {
