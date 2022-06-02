@@ -11,7 +11,7 @@ export function ensureTeamsSdkInitialized() {
 // async function returns true if we're running in Teams
 export async function inTeams() {
     try {
-        await ensureTeamsSdkInitialized(); // ensureTeamsSdkInitialized();
+        await ensureTeamsSdkInitialized();
         const context = await microsoftTeams.app.getContext();
         return (context.app.host.name === microsoftTeams.HostName.teams);
     }
