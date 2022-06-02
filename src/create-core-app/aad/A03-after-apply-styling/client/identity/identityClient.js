@@ -18,8 +18,8 @@ import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
 const msalConfig = {
     auth: {
         clientId: env.CLIENT_ID,
-        redirectUri: `https://${env.HOSTNAME}`,
-        postLogoutRedirectUri: `https://${env.HOSTNAME}`
+        redirectUri: `https://${env.HOST_NAME}`,
+        postLogoutRedirectUri: `https://${env.HOST_NAME}`
     },
     cache: {
         cacheLocation: "sessionStorage", // This configures where your cache will be stored
@@ -29,7 +29,7 @@ const msalConfig = {
 
 // MSAL request object to use over and over
 const msalRequest = {
-    scopes: [`api://${env.HOSTNAME}/${env.CLIENT_ID}/access_as_user`]
+    scopes: [`api://${env.HOST_NAME}/${env.CLIENT_ID}/access_as_user`]
 }
 
 const msalClient = new msal.PublicClientApplication (msalConfig);

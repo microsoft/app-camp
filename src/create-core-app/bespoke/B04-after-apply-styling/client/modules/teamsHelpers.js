@@ -5,7 +5,7 @@ export async function inTeams() {
     try {
         await microsoftTeams.app.initialize();
         const context = await microsoftTeams.app.getContext();
-        return (context.app.host.name === microsoftTeams.HostName.teams);
+        return (context.app.host.name === microsoftTeams.HOST_NAME.teams);
     }
     catch (e) {
         console.log(`${e} from Teams SDK, may be running outside of Teams`);    

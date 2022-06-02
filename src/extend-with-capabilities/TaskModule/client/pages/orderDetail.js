@@ -56,7 +56,7 @@ async function displayUI() {
                 fallbackUrl: null,
                 completionBotId: null,
             };
-            taskInfo.url = `https://${window.location.hostname}/pages/orderNotesForm.html`;
+            taskInfo.url = `https://${window.location.HOST_NAME}/pages/orderNotesForm.html`;
             taskInfo.title = "Task module order notes";
             taskInfo.height = 210;
             taskInfo.width = 400;

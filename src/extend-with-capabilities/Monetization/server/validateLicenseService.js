@@ -7,7 +7,7 @@ import { getOboAccessToken } from './identityService.js';
 
 export async function validateLicense(thisAppAccessToken) {
 
-    const audience = `api://${process.env.HOSTNAME}/${process.env.CLIENT_ID}`;
+    const audience = `api://${process.env.HOST_NAME}/${process.env.CLIENT_ID}`;
     return new Promise((resolve, reject) => {
 
         aad.verify(thisAppAccessToken, { audience: audience }, async (err, result) => {

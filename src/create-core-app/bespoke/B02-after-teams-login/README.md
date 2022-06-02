@@ -5,7 +5,7 @@
 1. Add Teams app packaging
   - add manifest folder and contents
   - modify package.json
-  - add TEAMS_APP_ID and HOSTNAME to the .env file
+  - add TEAMS_APP_ID and HOST_NAME to the .env file
   - npm run package to generate the app package
   - upload the app into Teams
 

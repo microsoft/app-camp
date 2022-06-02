@@ -9,7 +9,7 @@ fs.readFile('manifest/manifest.template.json', 'utf-8', (err, data) => {
 
     Object.keys(process.env).forEach((key) => {
         if (key.indexOf('TEAMS_APP_ID') === 0 ||
-            key.indexOf('HOSTNAME') === 0 ||
+            key.indexOf('HOST_NAME') === 0 ||
             key.indexOf('CLIENT_ID') === 0 ||
             key.indexOf('BOT_REG_AAD_APP_ID') === 0){
             data = data.split(`<${key}>`).join(process.env[key]);
