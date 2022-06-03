@@ -113,10 +113,6 @@ async function getAccessToken2() {
     }
 }
 
-// export async function setLoggedinEmployeeId(employeeId) {
-//     document.cookie = `employeeId=${employeeId};SameSite=None;Secure;path=/`;
-// }
-
 // Get the employee profile from our web service
 export async function getLoggedInEmployee() {
 

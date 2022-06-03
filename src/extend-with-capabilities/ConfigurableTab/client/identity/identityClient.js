@@ -2,8 +2,8 @@
 import { getEmployee } from '../modules/northwindDataService.js';
 import 'https://alcdn.msauth.net/browser/2.21.0/js/msal-browser.min.js';
 import { env } from '/modules/env.js';
-import { inTeams } from '/modules/teamsHelpers.js';
-import 'https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js';
+import { ensureTeamsSdkInitialized, inTeams } from '/modules/teamsHelpers.js';
+import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
 
 // interface IIdentityClient {
 //     async getLoggedinEmployeeId(): number;
@@ -76,17 +76,9 @@ export function getAccessToken() {
 
 async function getAccessToken2() {
 
-    if (await inTeams()) {
-
-        microsoftTeams.initialize();
-        const accessToken = await new Promise((resolve, reject) => {
-            microsoftTeams.authentication.getAuthToken({
-                successCallback: (result) => { resolve(result); },
-                failureCallback: (error) => { reject(error); }
-            });
-        });
-        return accessToken;
-
+    if (await inTeams()) {        
+        await ensureTeamsSdkInitialized();
+        return await microsoftTeams.authentication.getAuthToken();  
     } else {
 
         // If we were waiting for a redirect with an auth code, handle it here
@@ -120,10 +112,6 @@ async function getAccessToken2() {
         }
     }
 }
-
-// export async function setLoggedinEmployeeId(employeeId) {
-//     document.cookie = `employeeId=${employeeId};SameSite=None;Secure;path=/`;
-// }
 
 // Get the employee profile from our web service
 export async function getLoggedInEmployee() {
