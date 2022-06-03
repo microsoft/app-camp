@@ -1,4 +1,5 @@
-import 'https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js';
+import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
+import { ensureTeamsSdkInitialized } from './teamsHelpers.js';
 
 export async function hasValidLicense() {
 
@@ -6,12 +7,8 @@ export async function hasValidLicense() {
         microsoftTeams.initialize(() => { resolve(); });
     });
 
-    const authToken = await new Promise((resolve, reject) => {
-        microsoftTeams.authentication.getAuthToken({
-            successCallback: (result) => { resolve(result); },
-            failureCallback: (error) => { reject(error); }
-        });
-    });
+    await ensureTeamsSdkInitialized();
+    const authToken = await microsoftTeams.authentication.getAuthToken();
 
     const response = await fetch(`/api/validateLicense`, {
         "method": "post",
