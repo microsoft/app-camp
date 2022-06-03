@@ -29,7 +29,7 @@ function setTheme(theme) {
 
 // Inline code to set theme on any page using teamsHelpers
 (async () => {
-    await microsoftTeams.app.initialize();
+    await ensureTeamsSdkInitialized();
     const context = await microsoftTeams.app.getContext();
     setTheme(context.app.theme);
     
