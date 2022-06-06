@@ -1,13 +1,13 @@
 import {
     getLoggedInEmployee
 } from '../identity/identityClient.js';
+import { ensureTeamsSdkInitialized } from '../modules/teamsHelpers.js';
 async function displayUI() {   
 const messageDiv = document.getElementById('message');
     try {
         const employee = await getLoggedInEmployee();
         //taos- Initialize and get context for host information to show/hide hub specific displays
-        if(microsoftTeams.app !== undefined) {
-            await microsoftTeams.app.initialize();
+        if(await ensureTeamsSdkInitialized()) {            
             microsoftTeams.app.getContext().then(context=> {   
                 //main section content             
                 if (employee && context.app.host.name!==microsoftTeams.HostName.office ){   

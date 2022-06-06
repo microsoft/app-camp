@@ -3,6 +3,7 @@ import chatCard from '../cards/orderChatCard.js';
 import orderTrackerCard from '../cards/orderTrackerCard.js';
 import mailCard from '../cards/orderMailCard.js';
 import { env } from '/modules/env.js';
+import { ensureTeamsSdkInitialized } from '../modules/teamsHelpers.js';
 async function displayUI() {
     let orderDetails = {};
     const displayElement = document.getElementById('content');
@@ -44,7 +45,7 @@ async function displayUI() {
             var adaptiveCard = new AdaptiveCards.AdaptiveCard();           
             adaptiveCard.parse(card);
             trackerArea.appendChild(adaptiveCard.render()); 
-               
+              if(await ensureTeamsSdkInitialized()) {
              //chat support
             if(microsoftTeams.chat.isSupported()) { 
 
@@ -107,6 +108,7 @@ async function displayUI() {
             }else{
                 message.innerText = `Error: chat/mail not supported`;
             }
+        }
         }
     }
     catch (error) {            // If here, we had some other error

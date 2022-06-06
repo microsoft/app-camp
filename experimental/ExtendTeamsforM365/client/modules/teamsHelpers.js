@@ -1,23 +1,15 @@
 import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
-// async function returns true if we're running in Teams, Outlook, Office
-export async function inM365() {  
 
-  try {
-    //initialize SDK
-    await microsoftTeams.app.initialize();
-    const context = await microsoftTeams.app.getContext();
-    //check against the enum for hostnames
-    return Object.values(microsoftTeams.HostName)
-      .includes(context.app.host.name);
-  } catch (e) {
-    console.log('Error occurred: Not in M365', e);  
-    return false;
-  }
- 
+let teamsInitPromise;
+export function ensureTeamsSdkInitialized() {
+    if (!teamsInitPromise) {
+        teamsInitPromise = microsoftTeams.app.initialize();
+    }
+    return teamsInitPromise;
 }
 
 const displayTheme=async()=>{
-  if(await inM365()) {
+  if(await ensureTeamsSdkInitialized()) {
       const context= await microsoftTeams.app.getContext();  
       if(context) {
         setTheme(context.theme);     
