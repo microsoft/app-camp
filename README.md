@@ -76,6 +76,8 @@ This lab is intended for developers. Most of the labs don't assume a lot of spec
 
 Technical prerequisites are explained [in the repo wiki](https://github.com/OfficeDev/m365-msteams-northwind-app-samples/wiki/Prerequisites)
 
+[![pages-build-deployment](https://github.com/microsoft/app-camp/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/microsoft/app-camp/actions/workflows/pages/pages-build-deployment)
+
 ## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
