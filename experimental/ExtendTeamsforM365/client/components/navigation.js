@@ -1,4 +1,4 @@
-import { inM365 } from '../modules/teamsHelpers.js';
+import { ensureTeamsSdkInitialized } from '../modules/teamsHelpers.js';
 
 const topNavLinks = [
     { "text": "Home", "url": "/index.html" },
@@ -10,7 +10,7 @@ export class topNavPanel extends HTMLElement {
 
     async connectedCallback() {
 
-        if (!(await inM365())) {
+        if (!(await ensureTeamsSdkInitialized())) {
             let listItemHtml = "";
             topNavLinks.forEach(link => {
                 if (window.location.href.indexOf(link.url) < 0) {
