@@ -1,2 +1,8 @@
 site_name: Teams app camps
 site_url: https://microsoft.github.io/app-camp
+nav: 
+- Home: 'index.md'
+- Path-A: 
+  - LabO1: 'index.md'
+  - Lab02: 'index.md'
+theme: readthedocs
