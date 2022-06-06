@@ -32,7 +32,7 @@ export async function initializeIdentityService(app) {
 }
 
 async function validateApiRequest(req, res, next) {
-    const audience = `api://${process.env.HOSTNAME}/${process.env.CLIENT_ID}`;
+    const audience = `api://${process.env.HOST_NAME}/${process.env.CLIENT_ID}`;
     const token = req.headers['authorization'].split(' ')[1];
     if (req.path === "/messages") {
         console.log('Request for bot, validation will be performed by Bot Framework Adapter');
@@ -55,7 +55,7 @@ async function validateApiRequest(req, res, next) {
 // see the lab instructions
 async function validateAadLogin(req, res) {
 
-    const audience = `api://${process.env.HOSTNAME}/${process.env.CLIENT_ID}`;
+    const audience = `api://${process.env.HOST_NAME}/${process.env.CLIENT_ID}`;
     const token = req.headers['authorization'].split(' ')[1];
 
     const aadUserId = await new Promise((resolve, reject) => {

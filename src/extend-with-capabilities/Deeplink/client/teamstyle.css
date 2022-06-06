@@ -64,7 +64,11 @@
 }
 
 body {
-  background-color: var(--background-color);
+ /* 
+  * Allow Teams to set the background color to avoid flickering background
+  * until the inline code runs that sets the style sheet
+   background-color: var(--background-color); 
+  */
   color: var(--font-color);
   box-sizing: border-box;
   font-size: 14px;

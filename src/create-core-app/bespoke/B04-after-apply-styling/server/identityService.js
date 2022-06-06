@@ -89,7 +89,7 @@ async function validateEmployeeLogin(username, password) {
 // an exception.
 async function validateAndMapAadLogin(req, res) {
 
-    const audience = `api://${process.env.HOSTNAME}/${process.env.CLIENT_ID}`;
+    const audience = `api://${process.env.HOST_NAME}/${process.env.CLIENT_ID}`;
     const token = req.headers['authorization'].split(' ')[1];
 
     const aadUserId = await new Promise((resolve, reject) => {
@@ -138,7 +138,7 @@ async function getEmployeeIdForUser(aadUserId) {
 
     const idMapDB = await db.getTable("IdentityMap", "aadUserId");
     const identity = idMapDB.item(aadUserId);
-    return identity.employeeId;
+    return identity?.employeeId;
 }
 
 async function setEmployeeIdForUser(aadUserId, employeeId) {

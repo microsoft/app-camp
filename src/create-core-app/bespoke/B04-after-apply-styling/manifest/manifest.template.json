@@ -1,14 +1,14 @@
 {
-  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.8/MicrosoftTeams.schema.json",
-  "manifestVersion": "1.8",
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.12/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.12",
   "version": "1.4.0",
   "id": "<TEAMS_APP_ID>",
   "packageName": "io.github.officedev.teamsappcamp1.northwind",
   "developer": {
     "name": "Northwind Traders",
-    "websiteUrl": "https://<HOSTNAME>/",
-    "privacyUrl": "https://<HOSTNAME>/privacy.html",
-    "termsOfUseUrl": "https://<HOSTNAME>/termsofuse.html"
+    "websiteUrl": "https://<HOST_NAME>/",
+    "privacyUrl": "https://<HOST_NAME>/privacy.html",
+    "termsOfUseUrl": "https://<HOST_NAME>/termsofuse.html"
   },
   "icons": {
       "color": "northwind192.png",
@@ -27,8 +27,8 @@
     {
       "entityId": "Orders",
       "name": "My Orders",
-      "contentUrl": "https://<HOSTNAME>/pages/myOrders.html",
-      "websiteUrl": "https://<HOSTNAME>/pages/myOrders.html",
+      "contentUrl": "https://<HOST_NAME>/pages/myOrders.html",
+      "websiteUrl": "https://<HOST_NAME>/pages/myOrders.html",
       "scopes": [
         "personal"
       ]
@@ -36,8 +36,8 @@
     {
       "entityId": "Products",
       "name": "Products",
-      "contentUrl": "https://<HOSTNAME>/pages/categories.html",
-      "websiteUrl": "https://<HOSTNAME>/pages/categories.html",
+      "contentUrl": "https://<HOST_NAME>/pages/categories.html",
+      "websiteUrl": "https://<HOST_NAME>/pages/categories.html",
       "scopes": [
         "personal"
       ]
@@ -49,10 +49,10 @@
       "messageTeamMembers"
   ],
   "validDomains": [
-      "<HOSTNAME>"
+      "<HOST_NAME>"
   ],
   "webApplicationInfo": {
       "id": "<CLIENT_ID>",
-      "resource": "api://<HOSTNAME>/<CLIENT_ID>"
+      "resource": "api://<HOST_NAME>/<CLIENT_ID>"
   }
 }
