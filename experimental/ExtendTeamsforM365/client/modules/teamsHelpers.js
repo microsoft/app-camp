@@ -1,15 +1,27 @@
 import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
 
 let teamsInitPromise;
+//to avoid SDK timeout issue
 export function ensureTeamsSdkInitialized() {
     if (!teamsInitPromise) {
         teamsInitPromise = microsoftTeams.app.initialize();
     }
     return teamsInitPromise;
 }
+// async function returns true if we're running in M365
+export async function inM365() {
+  try {
+      await ensureTeamsSdkInitialized();
+      return await microsoftTeams.app.getContext();
+  }
+  catch (e) {
+      console.log(`${e} from Teams SDK, may be running outside of M365`);    
+      return false;
+  }
+}
 
 const displayTheme=async()=>{
-  if(await ensureTeamsSdkInitialized()) {
+  if(await inM365()) {
       const context= await microsoftTeams.app.getContext();  
       if(context) {
         setTheme(context.theme);     

@@ -2,7 +2,7 @@
 import { getEmployee } from '../modules/northwindDataService.js';
 import 'https://alcdn.msauth.net/browser/2.21.0/js/msal-browser.min.js';
 import { env } from '/modules/env.js';
-import { ensureTeamsSdkInitialized } from '/modules/teamsHelpers.js';
+import { inM365 } from '/modules/teamsHelpers.js';
 import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
 
 // interface IIdentityClient {
@@ -76,7 +76,7 @@ export function getAccessToken() {
 
 async function getAccessToken2() {
 
-    if (await ensureTeamsSdkInitialized()) {
+    if (await inM365()) {
         //get token
         return await microsoftTeams.authentication.getAuthToken({});
     } else {

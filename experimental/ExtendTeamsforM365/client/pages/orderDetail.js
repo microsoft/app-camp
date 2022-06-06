@@ -3,7 +3,7 @@ import chatCard from '../cards/orderChatCard.js';
 import orderTrackerCard from '../cards/orderTrackerCard.js';
 import mailCard from '../cards/orderMailCard.js';
 import { env } from '/modules/env.js';
-import { ensureTeamsSdkInitialized } from '../modules/teamsHelpers.js';
+import { inM365 } from '../modules/teamsHelpers.js';
 async function displayUI() {
     let orderDetails = {};
     const displayElement = document.getElementById('content');
@@ -45,7 +45,7 @@ async function displayUI() {
             var adaptiveCard = new AdaptiveCards.AdaptiveCard();           
             adaptiveCard.parse(card);
             trackerArea.appendChild(adaptiveCard.render()); 
-              if(await ensureTeamsSdkInitialized()) {
+              if(await inM365()) {
              //chat support
             if(microsoftTeams.chat.isSupported()) { 
 
