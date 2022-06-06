@@ -5,4 +5,7 @@ nav:
 - Path-A: 
   - LabO1: 'index.md'
   - Lab02: 'index.md'
-theme: readthedocs
+theme:
+  name: 'material'
+  palette: 'black'
+  logo: 'images/code-lab-banner-transparent.png'
