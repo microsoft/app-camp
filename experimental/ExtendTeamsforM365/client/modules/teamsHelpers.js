@@ -8,14 +8,15 @@ export function ensureTeamsSdkInitialized() {
     }
     return teamsInitPromise;
 }
-// async function returns context if we're running in M365
+// async function returns true/false if we're running in M365
 export async function inM365() {
   try {
       await ensureTeamsSdkInitialized();
-      return await microsoftTeams.app.getContext();
+      return true;     
   }
   catch (e) {
-      console.log(`${e} from Teams SDK, may be running outside of M365`);  
+      console.log(`${e} from Teams SDK, may be running outside of M365`);
+      return false; 
   }
 }
 
