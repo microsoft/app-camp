@@ -1,11 +1,21 @@
-site_name: Teams app camps
+site_name: Teams app camp
 site_url: https://microsoft.github.io/app-camp
 nav: 
 - Home: 'index.md'
-- Path-A: 
-  - LabO1: 'index.md'
-  - Lab02: 'index.md'
+- Prerequisites: 'https://github.com/microsoft/app-camp/wiki/Prerequisites'
+- Core application development  (AAD apps): 
+  - Start with Azure Active Directory: 'aad/A01-begin-app.md'
+  - Create a Teams app with Azure AD Teams SSO: 'aad/A02-after-teams-sso.md'
+- Core application development  (Non AAD apps): 
+  - Start with Azure Active Directory: 'aad/A01-begin-app.md'
+  - Create a Teams app with Azure AD Teams SSO: 'aad/A02-after-teams-sso.md'
+- Extend core application:
+  - Add a configurable tab: 'aad/ConfigurableTab.md'
 theme:
   name: 'material'
-  palette: 'black'
+  palette: 
+    primary: 'brown'
+    accent: 'deep orange'
   logo: 'assets/code-lab-banner-transparent.png'
+  features:
+        - navigation.tabs
