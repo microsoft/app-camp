@@ -2,7 +2,7 @@ site_name: Teams app camp
 site_url: https://microsoft.github.io/app-camp
 nav: 
 - Home: 'index.md'
-- Prerequisites: 'https://github.com/microsoft/app-camp/wiki/Prerequisites'
+- Getting started: 'getting-started.md'
 - Core app lab(path A): 
   - Start with Azure Active Directory: 'aad/A01-begin-app.md'
   - Create a Teams app with Azure AD Teams SSO: 'aad/A02-after-teams-sso.md'
@@ -27,4 +27,6 @@ theme:
     accent: 'deep orange'
   logo: 'assets/code-lab-banner-transparent.png'
   features:
-        - navigation.tabs
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
