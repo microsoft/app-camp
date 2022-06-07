@@ -2,6 +2,15 @@
 
 This page contains resources for the Microsoft [Teams App Camp](../README.md).
 
+For an overview of Teams app development, check out this video by Bob and Rabia!
+
+<iframe src="https://www.youtube.com/embed/EQuB8l4sccg" 
+    width="560" 
+    height="315"
+    frameborder="0" 
+    allowfullscreen>
+</iframe>
+
 * [Free M365 Developer Tenant](https://developer.microsoft.com/en-us/microsoft-365/dev-program)
 * [Targeted Release](https://docs.microsoft.com/en-us/microsoft-365/admin/manage/release-options-in-office-365?WT.mc_id=m365-58890-cxa) - set your developer tenant to get the latest features
 * [Microsoft 365 Developer Channel](https://www.youtube.com/c/Microsoft365Developer)
