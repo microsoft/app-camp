@@ -8,4 +8,4 @@ nav:
 theme:
   name: 'material'
   palette: 'black'
-  logo: 'images/code-lab-banner-transparent.png'
+  logo: 'assets/code-lab-banner-transparent.png'
