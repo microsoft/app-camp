@@ -27,11 +27,7 @@ const displayTheme=async()=>{
         setTheme(context.theme);     
         switch(context.app.host.name){
           case microsoftTeams.HostName.teams:{
-            setHostAppTheme("../styles/northwind-teams.css");
-            // When the theme changes, update the CSS again: Only for teams
-            microsoftTeams.app.registerOnThemeChangeHandler((theme) => {
-            setTheme(theme);
-          });
+            setHostAppTheme("../styles/northwind-teams.css");           
           };        
           break;
           case microsoftTeams.HostName.outlook:{
@@ -45,6 +41,10 @@ const displayTheme=async()=>{
           default:{ //any other hub for future
             setHostAppTheme("../styles/northwind.css");
           }
+          // When the theme changes
+           microsoftTeams.app.registerOnThemeChangeHandler((theme) => {
+            setTheme(theme);
+          });
         }    
       }  
   }
