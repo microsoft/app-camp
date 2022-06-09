@@ -138,6 +138,10 @@ A03-after-apply-styling
 In the project structure, on the right under `A03-after-apply-styling`, you will see emoji 🆕 near the files & folders.
 They are the new files and folders that you need to add into the project structure.
 
+## Optional video: Lab Briefing
+
+<img style="height: 50%; width: 50%" src="/app-camp/assets/VideoThumbnails/Placeholder11.PNG"></img>
+
 ## Exercise 1: Add CSS
 
 ### Step 1: Create a CSS file for Teams theme styles
@@ -391,41 +395,36 @@ To import the `teamstyle.css` so it is loaded in all pages, add this statement a
 
 ### Step 1: Modify modules\teamsHelpers.js
 
-Import the Teams JavaScript SDK, which creates a global object `microsoftTeams` that we can use to access the SDK. You could also load it using a `<script>` tag or, if you bundle your client-side JavaScript, using the [@microsoft/teams-js](https://www.npmjs.com/package/@microsoft/teams-js) npm package.
-Copy below import statement to the top of the file:
-
-```javascript
-import 'https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js';
-```
-
-The Teams client supports three themes—light mode, dark mode, and high contrast mode (which is an acceissibility feature for users with low visual acuity). As the users switch the themes, your application should also switch its theme so as to blend in. To detect theme switching in Teams client we'll have to use the global `microsoftTeams`'s context.
+The Teams client supports three themes: light mode, dark mode, and high contrast mode, which is an acceissibility feature for users with low visual acuity. As the users switch the themes, your application should also switch its theme so as to blend in. To detect theme switching in Teams client we'll have to use the global `microsoftTeams`'s context.
 
 We 'll add a function `setTheme()` to switch the css between the application's native style and the team's themes. Add this code to teamsHelpers.js:
 
 ```javascript
-function setTheme (theme) {
+// Set the CSS to reflect the desired theme
+function setTheme(theme) {
     const el = document.documentElement;
-    el.setAttribute('data-theme', theme); // switching CSS
+    el.setAttribute('data-theme', theme);
 };
 ```
 
-Every time the theme is detected/changed, the script applies a data-theme value in the root of the content, like, `<html data-theme='dark'>`, so the `teamstyle.css` will use a correct set of colors & styles for each theme. The color change is done with the CSS variables.
+In order to display the application in a particular theme, `setTheme()` applies a data-theme value in the root of the content, like, `<html data-theme='dark'>`, so the `teamstyle.css` will use a correct set of colors & styles for each theme. The color change is done with the CSS variables.
 
-Now add in-line code into teamsHelpers.js to detect current context with `getContext()` and set the theme to match the current theme in Microsoft Teams. The code also registers an event handler that updates the application's theme when a user changes the theme in Microsoft Teams.
+Now add in-line code into teamsHelpers.js to detect current context with `getContext()` and set the theme to match the current theme in Microsoft Teams. The code also registers an event handler that updates the application's theme when a user changes the theme in Microsoft Teams. Note that some browsers and the Teams desktop client will not honor the `await` keyword for inline code; therefore this code has been wrapped in an [immediately-invoked function expression](https://developer.mozilla.org/en-US/docs/Glossary/IIFE).
 
 Copy and paste below code block for this purpose:
 
 ```javascript
-microsoftTeams.initialize(() => {
-    // Set the CSS to reflect the current Teams theme
-    microsoftTeams.getContext((context) => {
-        setTheme(context.theme);
-    });
+// Inline code to set theme on any page using teamsHelpers
+(async () => {
+    await ensureTeamsSdkInitialized();
+    const context = await microsoftTeams.app.getContext();
+    setTheme(context.app.theme);
+    
     // When the theme changes, update the CSS again
     microsoftTeams.registerOnThemeChangeHandler((theme) => {
         setTheme(theme);
-    });
-});
+    });    
+})();
 ```
 ### Step 2: Start your local project
 
@@ -447,7 +446,7 @@ Here's how to [change themes in teams client.](https://support.microsoft.com/off
 
 ## Next steps
 
-Congratulations! You have completed all core application development labs in **path A**. You may continue with any of the following labs.
+Congratulations! You have completed all core application development labs in **path A**. It's time to choose your own adventure! Please continue with any of the following labs.
 
 - [Add a Configurable Tab](./ConfigurableTab.md)
 - [Add a Deep link to a personal Tab](./Deeplink.md)

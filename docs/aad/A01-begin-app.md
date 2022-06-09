@@ -55,7 +55,7 @@ In this lab you will learn to:
 - How to use the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview?WT.mc_id=m365-58890-cxa)
 - How to validate an [Azure AD access token](https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens?WT.mc_id=m365-58890-cxa) in a NodeJS application
 
-## Optional video: Lab Overview
+## Optional video: Lab Briefing
 
 <img style="height: 50%; width: 50%" src="/app-camp/assets/VideoThumbnails/Placeholder10.PNG"></img>
 
@@ -107,7 +107,7 @@ Log in with any Microsoft personal or work and school account, enter your inform
 
 Follow the wizard and select your administrator username and password, tenant domain name, etc. The domain name you choose is just the left-most portion - for example if you enter "Contoso" your domain will be "Contoso.onmicrosoft.com".
 
-Remember this information as you'll need it throughout the labs! You will log in as <username>@<domain>.onmicrosoft.com with the password you chose. You'll be prompted for your phone number and then the system will set up your subscription.
+Remember this information as you'll need it throughout the labs! You will log in as &gt;username&lt;@&gt;domain&lt;.onmicrosoft.com with the password you chose. You'll be prompted for your phone number and then the system will set up your subscription.
 
 Eventually you'll be prompted to log into your new tenant. Be sure to use the new administrator credentials you just created, not the ones you used when you signed up for the developer program.
 
@@ -119,6 +119,9 @@ Eventually you'll be prompted to log into your new tenant. Be sure to use the ne
 
 ---
 😎 CHANGES ROLL OUT FIRST TO "TARGETED RELEASE" TENANTS. You may want to [enable Targeted Release](https://docs.microsoft.com/microsoft-365/admin/manage/release-options-in-office-365?WT.mc_id=m365-58890-cxa) in your developer tenant and keep production on Standard Release so you have a head start to test out new features.
+
+---
+😎 YOU MAY BE ASKED TO ENABLE MULTI-FACTOR AUTHENTICATION (MFA). [This is certainly a good idea!](https://www.microsoft.com/security/blog/2019/08/20/one-simple-action-you-can-take-to-prevent-99-9-percent-of-account-attacks/). Just follow the instructions. If you really must turn off MFA, [here are instructions](https://docs.microsoft.com/en-us/answers/questions/101179/how-to-disable-the-two-factor-authentication-from.html). 
 
 ---
 
@@ -329,22 +332,23 @@ Now that you've defined the application URI, the "Add a scope" flyout will allow
 
 ### Step 1: Download the starting application
 
-The starting application is in github at [https://github.com/OfficeDev/m365-msteams-northwind-app-samples](https://github.com/OfficeDev/m365-msteams-northwind-app-samples). Select the "Code" button and clone or download the content to your computer.
+Begin by downloading the app-camp repository at [https://github.com/microsoft/app-camp](https://github.com/microsoft/app-camp_/). Select the "Code" button and clone or download the content to your computer.
 
 ![Download the lab source code](../../assets/01-001-CloneRepo.png)
 
-The starting code for the "A" path is in the `src\create-core-app\aad\A01-begin-app\` folder. Copy this folder to another location on your computer; this will be your working copy to keep the original source separate. Folders are also provided with the final code for the other labs.
+The starting code is in the `src/create-core-app/aad/A01-begin-app/` folder. Copy this folder to another location on your computer; this will be your working copy to keep the original source separate. Folders are also provided with the final code for the other labs.
 
 ### Step 2: Install the app's dependencies
 
 
-Using a command line tool of your choice, navigate to your working copy of the `A01-begin-app\` directory and type the command:
+Using a command line tool of your choice, navigate to your working copy of the `A01-begin-app` directory and type the command:
 
 ~~~shell
 npm install
 ~~~
 
 This will install the libraries required to run the server side of your solution.
+
 #### Step 3: Download the sample data
 
 The Northwind Orders application uses the venerable Northwind database for sample data. The Northwind Database originally shipped with Microsoft Access, then SQL Server, and now is [available as a test OData service](https://services.odata.org/V4/Northwind/) from the [OData organization](https://www.odata.org/). In this step, you'll download the entire Northwind database from this test service to local JSON files, which are used by the Northwind Orders application.
@@ -409,10 +413,7 @@ Try logging out and logging in; you should be able to view the orders for anothe
 
 ## Known issues
 
-The application does not implement paging for large data sets, so lists of orders etc. are limited to the first 10 results.
-
 While it will work on mobile devices, the application is not responsive and will not look good on these devices. This will be addressed in a future version of the lab.
-  
 
 ## Next steps
 
