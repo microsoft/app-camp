@@ -91,41 +91,53 @@ Copy below block of code and paste it above the `<table>` element of the page.
 
 **2.\client\pages\orderDetail.js**
 
-In the displayUI() function, define two constants to get the two HTML elements we just added.
+At the top of the file, import the Teams SDK and Teams helper module.
+
+```javascript
+import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
+import { ensureTeamsSdkInitialized, inTeams } from '/modules/teamsHelpers.js';
+```
+
+Now in the displayUI() function, define two constants to get the two HTML elements we just added.
 
 ```javascript
  const btnTaskModuleElement = document.getElementById('btnTaskModule');
  const orderElement=document.getElementById('orderContent');
 ```
-To open the dialog, add an event listener for the button `btnTaskModule`.
+
+To open the task module, add an event listener for the button `btnTaskModule`.
 Paste below code in the dislayUI() function in the end, before closing the `try` block.
 
 ```javascript
- btnTaskModuleElement.addEventListener('click',  ev => {  
-            let submitHandler = (err, result) => {                 
+btnTaskModuleElement.addEventListener('click', async ev => {
+    if (!await inTeams()) {
+        alert ('Sorry this button only works in Microsoft Teams');
+    } else {              
+        let taskInfo = {
+            title: null,
+            height: null,
+            width: null,
+            url: null,
+            card: null,
+            fallbackUrl: null,
+            completionBotId: null,
+        };
+        taskInfo.url = `https://${window.location.hostname}/pages/orderNotesForm.html`;
+        taskInfo.title = "Task module order notes";
+        taskInfo.height = 210;
+        taskInfo.width = 400;
+        
+        await ensureTeamsSdkInitialized();
+        microsoftTeams.tasks.startTask(taskInfo, (err, result) => {                 
                 const postDate = new Date().toLocaleString()
                 const newComment = document.createElement('p');  
                 newComment.innerHTML=`<div><b>Posted on:</b>${postDate}</div>
                 <div><b>Notes:</b>${result.notes}</div><br/>
                 -----------------------------` 
                 orderElement.append(newComment);
-            }                     
-            let taskInfo = {
-                title: null,
-                height: null,
-                width: null,
-                url: null,
-                card: null,
-                fallbackUrl: null,
-                completionBotId: null,
-            };
-            taskInfo.url = `https://${window.location.hostname}/pages/orderNotesForm.html`;
-            taskInfo.title = "Task module order notes";
-            taskInfo.height = 210;
-            taskInfo.width = 400;
-           //open the dialog
-            microsoftTeams.tasks.startTask(taskInfo, submitHandler);
         });
+    }
+});
 ```
 To open a dialog from a tab, use `microsoftTeams.tasks.startTask()`.
 You can pass the [taskInfo](https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/task-modules/invoking-task-modules#the-taskinfo-object) object and a callback function called `submitHandler` to pass the results back from the dialog.
@@ -133,10 +145,6 @@ You can pass the [taskInfo](https://docs.microsoft.com/en-us/microsoftteams/plat
 The final look of displayUI() function is as below:
 
 ```javascript
-import {
-    getOrder
-} from '../modules/northwindDataService.js';
-
 async function displayUI() {
 
     const displayElement = document.getElementById('content');
@@ -173,37 +181,40 @@ async function displayUI() {
             });
 
         }
-        btnTaskModuleElement.addEventListener('click',  ev => {  
-            let submitHandler = (err, result) => {                 
-                const postDate = new Date().toLocaleString()
-                const newComment = document.createElement('p');  
-                newComment.innerHTML=`<div><b>Posted on:</b>${postDate}</div>
-                <div><b>Notes:</b>${result.notes}</div><br/>
-                -----------------------------` 
-                orderElement.append(newComment);
-            }                     
-            let taskInfo = {
-                title: null,
-                height: null,
-                width: null,
-                url: null,
-                card: null,
-                fallbackUrl: null,
-                completionBotId: null,
-            };
-            taskInfo.url = `https://${window.location.hostname}/pages/orderNotesForm.html`;
-            taskInfo.title = "Task module order notes";
-            taskInfo.height = 210;
-            taskInfo.width = 400;
-           
-            microsoftTeams.tasks.startTask(taskInfo, submitHandler);
+        btnTaskModuleElement.addEventListener('click', async ev => {
+            if (!await inTeams()) {
+                alert ('Sorry this button only works in Microsoft Teams');
+            } else {              
+                let taskInfo = {
+                    title: null,
+                    height: null,
+                    width: null,
+                    url: null,
+                    card: null,
+                    fallbackUrl: null,
+                    completionBotId: null,
+                };
+                taskInfo.url = `https://${window.location.hostname}/pages/orderNotesForm.html`;
+                taskInfo.title = "Task module order notes";
+                taskInfo.height = 210;
+                taskInfo.width = 400;
+                
+                await ensureTeamsSdkInitialized();
+                microsoftTeams.tasks.startTask(taskInfo, (err, result) => {                 
+                        const postDate = new Date().toLocaleString()
+                        const newComment = document.createElement('p');  
+                        newComment.innerHTML=`<div><b>Posted on:</b>${postDate}</div>
+                        <div><b>Notes:</b>${result.notes}</div><br/>
+                        -----------------------------` 
+                        orderElement.append(newComment);
+                });
+            }
         });
     }
     catch (error) {            // If here, we had some other error
         message.innerText = `Error: ${JSON.stringify(error)}`;
     }
 }
-displayUI();
 ```
 
 ### Exercise 2: Test the changes
