@@ -6,7 +6,7 @@ This lab is part of Path B, which begins with a Northwind Orders application tha
 
 In this lab you will implement an identity mapping scheme to allow Northwind users to log in using Azure AD when they're in Microsoft Teams, even as they continue to log into Northwind's bespoke authentication system outside of Teams. 
 
-The completed solution can be found in the [B03-TeamsSSO-IdMapping](../../B03-TeamSSO-IdMapping/) folder, but the instructions will guide you through modifying the app running in your working folder. 
+The completed solution can be found in the [B03-TeamsSSO-IdMapping](https://github.com/microsoft/app-camp/tree/main/src/create-core-app/bespoke/B03-after-teams-sso) folder, but the instructions will guide you through modifying the app running in your working folder. 
 
 Note that as you complete the labs, the original app should still work outside of Teams! This is often a requirement of ISV's who have an app in market and need to serve an existing customer base outside of Teams.
 
@@ -14,7 +14,6 @@ Note that as you complete the labs, the original app should still work outside o
 * [B02-after-teams-login: Creating a Teams application](../bespoke/B02-after-teams-login.md)
 * [B03-after-teams-sso: Adding Azure AD SSO to your app](../bespoke/B03-after-teams-sso.md)(📍You are here)
 * [B04-after-apply-styling: Teams styling and themes](../bespoke/B04-after-apply-styling.md)
-
 
 
 In this lab you will learn to:
@@ -286,7 +285,7 @@ Add a comma after the validDomains property and then add a new property, `webApp
 ~~~json
   "webApplicationInfo": {
       "id": "<CLIENT_ID>",
-      "resource": "api://<HOSTNAME>/<CLIENT_ID>"
+      "resource": "api://<HOST_NAME>/<CLIENT_ID>"
   }
 ~~~
 
@@ -297,12 +296,12 @@ This provides the Azure AD app registration information to Microsoft Teams for u
 
 Open the file manifest/makePackage.js in your code editor. Notice that the code only makes a few of the environment variables available when it creates manifest.json. We just added some references to `CLIENT_ID`, so we need to handle them in the makePackage.js code.
 
-In the `if` statement where the code checks for the `TEAMS_APP_ID` and `HOSTNAME` environment variables, add the `CLIENT_ID` as well like this:
+In the `if` statement where the code checks for the `TEAMS_APP_ID` and `HOST_NAME` environment variables, add the `CLIENT_ID` as well like this:
 
 ~~~javascript
     Object.keys(process.env).forEach((key) => {
         if (key.indexOf('TEAMS_APP_ID') === 0 ||
-            key.indexOf('HOSTNAME') === 0 ||
+            key.indexOf('HOST_NAME') === 0 ||
             key.indexOf('CLIENT_ID') === 0) {
             data = data.split(`<${key}>`).join(process.env[key]);
             console.log (`Inserted ${key} value of ${process.env[key]}`);
@@ -387,22 +386,17 @@ In your working folder, create a file /client/identity/aadLogin.html and paste i
 Now create another file, /client/identity/aadLogin.js and insert this code:
 
 ~~~javascript
-import 'https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js';
-import {
-    setLoggedinEmployeeId
-} from './identityClient.js';
+import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
+import { ensureTeamsSdkInitialized } from '../modules/teamsHelpers.js';
+import { setLoggedinEmployeeId } from './identityClient.js';
 
-const teamsLoginLauncher = document.getElementById('teamsLoginLauncher');
-const teamsLoginLauncherButton = document.getElementById('teamsLoginLauncherButton');
+(async () => {
 
-microsoftTeams.initialize(async () => {
+    const teamsLoginLauncher = document.getElementById('teamsLoginLauncher');
+    const teamsLoginLauncherButton = document.getElementById('teamsLoginLauncherButton');
 
-    const authToken = await new Promise((resolve, reject) => {
-        microsoftTeams.authentication.getAuthToken({
-            successCallback: (result) => { resolve(result); },
-            failureCallback: (error) => { reject(error); }
-        });
-    });
+    await ensureTeamsSdkInitialized();
+    const authToken = await microsoftTeams.authentication.getAuthToken();
 
     const response = await fetch(`/api/validateAadLogin`, {
         "method": "post",
@@ -424,40 +418,47 @@ microsoftTeams.initialize(async () => {
         }
     } else if (response.status === 404) {
 
-        // If here, AAD user logged in but there was no mapping to an employee ID. Get one now.
+        // If here, AAD user logged in but there was no mapping to an employee ID.
+        // Get one now using the bespoke authentication
         teamsLoginLauncherButton.addEventListener('click', async ev => {
-            microsoftTeams.authentication.authenticate({
-                url: `${window.location.origin}/identity/login.html?teams=true`,
-                width: 600,
-                height: 535,
-                successCallback: async (northwindCredentials) => {
-                    const response = await fetch(`/api/validateAadLogin`, {
-                        "method": "post",
-                        "headers": {
-                            "content-type": "application/json",
-                            "authorization": `Bearer ${authToken}`
-                        },
-                        "body": JSON.stringify({
-                            "username": northwindCredentials.username,
-                            "password": northwindCredentials.password
-                        }),
-                        "cache": "no-cache"
-                    });
-                    setLoggedinEmployeeId(northwindCredentials.employeeId);
-                    window.location.href = document.referrer;
+
+            // First, launch the original login page to get the user credentials
+            const northwindCredentials = await
+                microsoftTeams.authentication.authenticate({
+                    url: `${window.location.origin}/identity/login.html?teams=true`,
+                    width: 600,
+                    height: 535
+                });
+
+            // Now call the server with BOTH the Azure AD and original credentials
+            // Server is responsible for linking them in its database for next time
+            const response = await fetch(`/api/validateAadLogin`, {
+                "method": "post",
+                "headers": {
+                    "content-type": "application/json",
+                    "authorization": `Bearer ${authToken}`
                 },
-                failureCallback: (reason) => {
-                    throw `Error in teams.authentication.authenticate: ${reason}`
-                }
+                "body": JSON.stringify({
+                    "username": northwindCredentials.username,
+                    "password": northwindCredentials.password
+                }),
+                "cache": "no-cache"
             });
+
+            // Now log the user in with the bespoke system
+            setLoggedinEmployeeId(northwindCredentials.employeeId);
+            window.location.href = document.referrer;
         });
+
         teamsLoginLauncher.style.display = "inline";
 
     } else {
-        console.log(`Error ${response.status} on /api/validateAadLogin: ${response.statusText}`);
-    }
-});
 
+        console.log(`Error ${response.status} on /api/validateAadLogin: ${response.statusText}`);
+
+    }
+
+})();
 ~~~
 
 This code uses the Teams JavaScript SDK to obtain an Azure AD token using `microsoftTeams.authentication.getAuthToken()`, and then it calls the server side at /api/validateAadLogin using this token. The server will read the user's employeeId and return it. If the employee ID is not found, the server returns an HTTP 404 error and the code prompts the user to log in via the Northwind login page. When the user logs in, the code passes his or her credentials back to /api/validateAadLogin, which looks up the employeeId and writes it to the user's profile.
@@ -474,7 +475,7 @@ Open the file /client/identity/login.js in your code editor, and find the call t
     });
 ~~~
 
-The completed login script is [here at B03-after-teams-sso/client/identity/login.js](../../src/create-core-app/bespoke/B03-after-teams-sso/client/identity/login.js)
+The completed login script is [here at B03-after-teams-sso/client/identity/login.js](https://github.com/microsoft/app-camp/blob/main/src/create-core-app/bespoke/B03-after-teams-sso/client/identity/login.js)
 
 #### Step 4: Modify the logoff code
 
@@ -539,7 +540,7 @@ This code will handle the call to /api/validateAadLogin but the real work is don
 // an exception.
 async function validateAndMapAadLogin(req, res) {
 
-    const audience = `api://${process.env.HOSTNAME}/${process.env.CLIENT_ID}`;
+    const audience = `api://${process.env.HOST_NAME}/${process.env.CLIENT_ID}`;
     const token = req.headers['authorization'].split(' ')[1];
 
     const aadUserId = await new Promise((resolve, reject) => {
@@ -618,7 +619,7 @@ async function setEmployeeIdForUser(aadUserId, employeeId) {
 
 If `validateAndMapAadLogin()` fails to get an employee ID, and a username and password were provided, it looks up the employee ID and uses `setEmployeeIdForUser()` to write it to the JSON database.
 
-The finished [server/identityService.js file is here](../../src/create-core-app/bespoke/B03-after-teams-sso/server/identityService.js).
+The finished [server/identityService.js file is here](https://github.com/microsoft/app-camp/blob/main/src/create-core-app/bespoke/B03-after-teams-sso/server/identityService.js).
 
 ### Exercise 4: Test your application in Microsoft Teams
 
