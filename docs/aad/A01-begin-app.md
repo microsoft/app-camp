@@ -41,7 +41,7 @@ There are two options for doing the labs:
 
 * the "B" path is for developers with apps that use some other identity system. It includes a simple (and not secure!) cookie-based auth system based on the Employees table in the Northwind database. You will use an identity mapping scheme to allow your existing users to log in directly or via Azure AD Single Sign-On.
 
-This is the very first lab in Path A, which begins with an application that already uses Azure AD.
+**This is the very first lab in Path A, which begins with an application that already uses Azure AD.**
 
 In this lab you will set up the Northwind Orders application, which can be found in the [A01-begin-app](../../src/create-core-app/aad/A01-begin-app/) folder. The labs that follow will lead you step by step into extending the web application to be a Microsoft Teams application as well. 
 
@@ -49,12 +49,15 @@ In this lab you will set up the Northwind Orders application, which can be found
 * [A02-after-teams-sso: Creating a Teams app with Azure ADO SSO](./A02-after-teams-sso.md)
 * [A03-after-apply-styling: Teams styling and themes](./A03-after-apply-styling.md)
 
-
 In this lab you will learn to:
 
 - [Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app?WT.mc_id=m365-58890-cxa)
 - How to use the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview?WT.mc_id=m365-58890-cxa)
 - How to validate an [Azure AD access token](https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens?WT.mc_id=m365-58890-cxa) in a NodeJS application
+
+## Optional video: Lab Overview
+
+<img style="height: 50%; width: 50%" src="/app-camp/assets/VideoThumbnails/Placeholder10.PNG"></img>
 
 ## Features
 

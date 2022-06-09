@@ -8,10 +8,11 @@ Welcome to App Camp! In this on-demand workshop, you'll learn how to build Teams
 
 This web site will guide you through a set of videos and hands-on lab exercises in which you will port a simiple web application to being a full-featured Teams application. The initial core labs will bring the web application into Teams as a personal tab with Azure AD Single Sign-on. Then the "extended" labs are available to teach you how to add features such as messaging extensions, adaptive cards, deep linking, and more. [One of the extended labs](./aad/Monetization.md) even shows you how to monetize your application in the Teams app store!
 
+<img style="height: 50%; width: 50%" src="./assets/VideoThumbnails/Placeholder01.PNG"></img>
+
+In this series of labs, you will port a simple "Northwind Orders" web application to become a full-fledged Microsoft Teams application. The core labs will show you how to make the web application into a Teams application with a personal tab and Azure AD Single Sign-on. From there, you can choose extended labs depending on the features you need in your application. After completing each lab, the solution will still work as the original stand-alone web application as well as in Microsoft Teams. This is intended to shwo how to extend an existing SaaS application into Microsoft Teams without disrupting non-Teams other users.
 
 ![app-camp](./assets/appcamp-readme.png)
-
-In this series of labs, you will port a simple "Northwind Orders" web application to become a full-fledged Microsoft Teams application. The core labs will show you how to make the web application into a Teams application with a personal tab and Azure AD Single Sign-on. From there, you can choose extended labs depending on the features you need in your application.
 
 To make the app understandable by a wide audience, it is written in vanilla JavaScript with no UI framework, however it does use modern browser capabilities such as web components, CSS variables, and ECMAScript modules. The server side is also in plain JavaScript, using [Express](https://expressjs.com/), the most popular web server platform for NodeJS. While the code is not production quality, the writers tried to follow best practices with respect to the various API's and SDK's in use, or to call out any exceptions in comments. As for things like robust exception handling, unit testing, build pipeline, etc., those are left to you, the developer; you probably already have a setup you want to use anyway.
 
@@ -25,7 +26,24 @@ To make the app understandable by a wide audience, it is written in vanilla Java
 - [Contributing](#contributing)
 - [Trademarks](#trademarks)
 
-## Paths 🛣️
+## Lab Prerequisites 📃 
+
+These labs are intended for developers. Most of the labs don't assume a lot of specialized knowledge; coding is in modern JavaScript without use of specialized frameworks or libraries. But if you're not comfortable with coding, you may find it a bit challenging. The idea is to teach you the principles so you can apply them with your choice of toolsets.
+
+To complete the labs you will need:
+
+ * A computer with permission to install software (Windows, Mac, or Linux)
+ * [NodeJS](https://nodejs.org/en/download/)
+ * A code editor such as [Visual Studio Code](https://code.visualstudio.com/download)
+ * [ngrok](https://ngrok.com/download) to simplify local debugging and allow debugging of bots and messaging extensions
+ * A Microsoft 365 tenant (available free!)
+
+Installation instructions are part of [the first lab](./aad/A01-begin-app.md); additional details are here [in the repo wiki](https://github.com/microsoft/app-camp/wiki/Prerequisites)
+
+[![pages-build-deployment](https://github.com/microsoft/app-camp/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/microsoft/app-camp/actions/workflows/pages/pages-build-deployment)
+
+
+## Choose a path 🛣️
 
 There are two paths for doing the core application development labs:
 
@@ -39,15 +57,18 @@ Links to resources referenced throughout App Camp can be found [here, on the Res
 
 ### Path A: Core application development
 
-**Mandatory** for AAD apps.
+##### Core labs:
+
+In this series of labs, you'll begin with a working web application and end with a Teams application that displays the application in a Teams tab with Azure AD Single Sign-on. These core labs are the basis for the extended labs. [These folders](https://github.com/microsoft/app-camp/tree/main/src/create-core-app/aad) hold the completed source codes following each of the labs.
 
 
-  - [Prerequisites 📃](#prerequisites)
   - [A01 - Start with Azure Active Directory](./aad/A01-begin-app.md)
   - [A02 - Create a Teams app with Azure AD Single Sign-On](./aad/A02-after-teams-sso.md)
   - [A03 - Teams styling and themes](./aad/A03-after-apply-styling.md)
 
-**Optional** for AAD apps. Choose your own adventure! 
+##### Extended Labs:
+
+Once you have successfully completed Lab A03, you're invited to choose your own adventure(s) and add features to your Teams application. The [solution files for each lab](https://github.com/microsoft/app-camp/tree/main/src/extend-with-capabilities) are based on completing the lab directly on top of the [Lab A03 solution](https://github.com/microsoft/app-camp/tree/main/src/create-core-app/aad/A03-after-apply-styling). An ["All" solution folder](https://github.com/microsoft/app-camp/tree/main/src/extend-with-capabilities/All) is provided showing all the extended labs completed on top of Lab A03.
 
 > For extending your application with capabilities below, make sure you complete your core Teams application lab.
 
@@ -67,13 +88,6 @@ Links to resources referenced throughout App Camp can be found [here, on the Res
   - [B03 - Enable Azure AD Single Sign-On](./bespoke/B03-after-teams-sso.md)
   - [B04 - Teams styling and themes](./bespoke/B04-after-apply-styling.md)
   
-## Prerequisites 📃 
-
-This lab is intended for developers. Most of the labs don't assume a lot of specialized knowledge; coding is in JavaScript without use of specialized frameworks or libraries. But if you're not comfortable with coding, you may find it a bit challenging.
-
-Technical prerequisites are explained [in the repo wiki](https://github.com/microsoft/app-camp/wiki/Prerequisites)
-
-[![pages-build-deployment](https://github.com/microsoft/app-camp/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/microsoft/app-camp/actions/workflows/pages/pages-build-deployment)
 
 ## Contributing
 
