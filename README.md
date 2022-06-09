@@ -12,6 +12,18 @@ Welcome to App Camp! In this on-demand workshop, you'll learn how to build Teams
   </a>
 </p>
   
+## About the app-camp repo
+
+* The /docs/ folder contains [the Teams App Camp web site](https://microsoft.github.io/app-camp) in Markdown format (mkdocs).
+
+* the /src/ folder contains the lab source code. 
+
+    * /src/create-core-app/aad contains the starter application for students starting with Azure AD (the "A" path), which is lab A01, and the finished solutions to the remaining core labs (A02-A03)
+    * /src/create/core-app/bespoke contains the starter application for students starting without Azure AD (the "B" path), which is lab B01, and the finished solutions to the remaining core labs (B02-B04)
+    * /src/extend-with-capabilities contains the finished solutions for all the "extended" labs assuming they were applied to the "A" path (if the lab is performed following lab A03)
+
+* the /experimental folder contains labs that are based on preview features in the platform
+
 ## Prerequisites 📃 
 
 This workshop is intended for developers. Most of the labs don't assume a lot of specialized knowledge; coding is  in JavaScript without use of specialized frameworks or libraries. But if you're not comfortable with coding, you may find it a bit challenging.
