@@ -1,7 +1,7 @@
 # This document is incomplete
 
 
-![Teams App Camp](../../assets/code-lab-banner.png)
+![Teams App Camp](./assets/code-lab-banner.png)
 
 # Selling Your SaaS-based Teams Extension
 
@@ -699,7 +699,7 @@ Notice that your username has been assigned a license. The sample app stored thi
 
 ## Known issues
 
-For the latest issues, or to file a bug report, see the [github issues list](https://github.com/OfficeDev/m365-msteams-northwind-app-samples/issues) for this repository.
+For the latest issues, or to file a bug report, see the [github issues list](https://github.com/microsoft/app-camp/issues) for this repository.
 
 ## Next steps
 

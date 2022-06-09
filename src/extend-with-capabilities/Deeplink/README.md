@@ -27,7 +27,7 @@ Version|Date|Author|Comments
 
 ## Minimal Path to Awesome
 
-- Clone or download the sample from [https://github.com/OfficeDev/m365-msteams-northwind-app-samples](https://github.com/OfficeDev/m365-msteams-northwind-app-samples)
+- Clone or download the sample from [https://github.com/microsoft/app-camp](https://github.com/microsoft/app-camp)
 
 - In a console, navigate to `src/extend-with-capabilities/Deeplink/` from the main folder `m365-msteams-northwind-app-samples`.
 

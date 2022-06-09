@@ -38,7 +38,7 @@ Version|Date|Author|Comments
 
 ## Minimal Path to Awesome
 
-- Clone or download the sample from [https://github.com/OfficeDev/m365-msteams-northwind-app-samples](https://github.com/OfficeDev/m365-msteams-northwind-app-samples)
+- Clone or download the sample from [https://github.com/microsoft/app-camp](https://github.com/microsoft/app-camp)
 
 - In a console, navigate to `src/extend-with-capabilities/MessagingExtension/` from the main folder `m365-msteams-northwind-app-samples`.
 
@@ -64,7 +64,7 @@ Version|Date|Author|Comments
     ```
 
 - Since messaging extensions utilize the  Bot Framework, you will need to register a new bot. 
-[Follow these instructions](https://github.com/OfficeDev/m365-msteams-northwind-app-samples/blob/main/lab-instructions/aad/MessagingExtension.md#exercise-1-bot-registration).
+[Follow these instructions](https://github.com/microsoft/app-camp/blob/main/lab-instructions/aad/MessagingExtension.md#exercise-1-bot-registration).
 
 
 - Update the `.env` configuration for the bot to use the Bot id and Client secret.

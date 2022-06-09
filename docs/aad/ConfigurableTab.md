@@ -230,7 +230,7 @@ If you click the small arrow to the right of the tab name and choose "Settings",
 
 ### Known issues
 
-For the latest issues, or to file a bug report, see the [github issues list](https://github.com/OfficeDev/m365-msteams-northwind-app-samples/issues) for this repository.
+For the latest issues, or to file a bug report, see the [github issues list](https://github.com/microsoft/app-camp/issues) for this repository.
 
 ### References
 
