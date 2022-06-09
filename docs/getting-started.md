@@ -23,11 +23,11 @@ To complete these labs you will need:
 If you don't yet have a tenant, please join the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program?WT.mc_id=m365-58890-cxa) to get a free one. Your tenant includes 25 [E5 user licenses](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans) and can be renewed as long as you keep developing!
 
 Click "Join now" to begin.
-![Signup](https://github.com/OfficeDev/m365-msteams-northwind-app-samples/blob/main/assets/01-003-JoinM365DevProgram1.png?raw=true)
+![Signup](./assets/01-003-JoinM365DevProgram1.png)
 
 Log in with any Microsoft personal or work and school account, enter your information, and click "Next". You will have an opportunity to choose what kind of "sandbox" you want; the "Instant sandbox" is recommended.
 
-![Signup](https://github.com/OfficeDev/m365-msteams-northwind-app-samples/blob/main/assets/01-004-JoinM365DevProgram2.png?raw=true)
+![Signup](./assets/01-004-JoinM365DevProgram2.png)
 
 Follow the wizard and select your administrator username and password, tenant domain name, etc. The domain name you choose is just the left-most portion - for example if you enter "Contoso" your domain will be "Contoso.onmicrosoft.com".
 
@@ -52,19 +52,19 @@ By default, end users can't upload Teams applications directly; instead an admin
 
   a. In the left panel of the admin center, click "Show all" to open up the entire navigation
 
-  ![M365 Admin](https://github.com/OfficeDev/m365-msteams-northwind-app-samples/blob/main/assets/01-005-M365Admin.png?raw=true)
+  ![M365 Admin](./assets/01-005-M365Admin.png)
 
   When the panel opens, click Teams to open the Microsoft Teams admin center.
 
-  ![M365 Admin](https://github.com/OfficeDev/m365-msteams-northwind-app-samples/blob/main/assets/01-006-M365Admin2.png?raw=true)
+  ![M365 Admin](./assets/01-006-M365Admin2.png)
 
   b. In the left of the Microsoft Teams admin center, open the Teams apps accordion 1️⃣ and select Setup Policies 2️⃣. You will see a list of App setup policies. Click the Global (Org-wide default) policy 3️⃣.
 
-  ![Teams admin](https://github.com/OfficeDev/m365-msteams-northwind-app-samples/blob/main/assets/01-007-TeamsAdmin1.png?raw=true)
+  ![Teams admin](./assets/01-007-TeamsAdmin1.png)
 
  c. Ensure the first switch, "Upload custom apps" is turned On. And select **Save** button at the end of this page.
 
- ![Teams admin](https://github.com/OfficeDev/m365-msteams-northwind-app-samples/blob/main/assets/01-008-TeamsAdmin2.png?raw=true)
+ ![Teams admin](./assets/01-008-TeamsAdmin2.png)
 
  We have been working to get this enabled by default on developer tenants, so it may already be set for you. The change can take up to 24 hours to take effect, but usually it's much faster.
 

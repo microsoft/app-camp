@@ -554,13 +554,13 @@ The full list of webhooks events is [documented here](https://docs.microsoft.com
 
 ### Step 3: Examine the license check
 
-In Exercise 2 you added [code to check if the user has a license](https://github.com/OfficeDev/m365-msteams-northwind-app-samples/blob/f6c90ed39adadc9950a5cdec8af8b917ff67a9b4/src/extend-with-capabilities/Monetization/server/validateLicenseService.js#L8). This call is handled here, in the [CheckOrAdtivateLicense](https://github.com/OfficeDev/office-add-in-saas-monetization-sample/blob/7673db6c8e6c809ae7aa0ba894460183aed964fc/MonetizationCodeSample/SaaSSampleWebApi/Controllers/SubscriptionsController.cs#L213) method in the Subscriptions controller. Notice that this code includes some business logic and accesses a license database in Azure SQL using Entity Framework. 
+In Exercise 2 you added [code to check if the user has a license](https://github.com/microsoft/app-camp/blob/f6c90ed39adadc9950a5cdec8af8b917ff67a9b4/src/extend-with-capabilities/Monetization/server/validateLicenseService.js#L8). This call is handled here, in the [CheckOrAdtivateLicense](https://github.com/OfficeDev/office-add-in-saas-monetization-sample/blob/7673db6c8e6c809ae7aa0ba894460183aed964fc/MonetizationCodeSample/SaaSSampleWebApi/Controllers/SubscriptionsController.cs#L213) method in the Subscriptions controller. Notice that this code includes some business logic and accesses a license database in Azure SQL using Entity Framework. 
 
 The point of this is that the application is managing licenses in its own way and keeping track of them in its own database. Microsoft Commercial Marketplace manages subscriptions which grant licenses, but each application can manage those licenses however it wants to. This allows applications flexibility in how they implement licensing.
 
 ## Lab feedback
 
-For the latest issues, or to file a bug report, see the [github issues list](https://github.com/OfficeDev/m365-msteams-northwind-app-samples/issues) for this repository.
+For the latest issues, or to file a bug report, see the [github issues list](https://github.com/microsoft/app-camp/issues) for this repository.
 
 ## Next steps
 

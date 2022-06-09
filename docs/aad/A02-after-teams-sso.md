@@ -158,10 +158,13 @@ A02-after-teams-sso
 </tr>
 </table>
 
+## Video: Lab Briefing (optional)
+
+<img style="height: 50%; width: 50%" src="/app-camp/assets/VideoThumbnails/Placeholder12.PNG"></img>
 
 ## Exercise 1: Authorize Microsoft Teams to log users into your application
 
-Microsoft Teams provides a Single Sign-On (SSO) capability so users are silently logged into your application using the same credentials they used to log into Microsoft Teams. This requires giving Microsoft Teams permission to issue Azure AD tokens on behalf of your application. In this exercise, you'll provide that permission.
+The starting application logs users into Azure Active Directory using the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview). While this works well in a web browser, it won't work reliably in a Microsoft Teams application. Instead, Microsoft Teams provides a Single Sign-On (SSO) capability so users are silently logged into your application using the same credentials they used to log into Microsoft Teams. This requires giving Microsoft Teams permission to issue Azure AD tokens on behalf of your application. In this exercise, you'll provide that permission.
 
 ### Step 1: Return to your app registration
 
@@ -205,7 +208,7 @@ Go to your local copy of the `A02-TeamsSSO` folder on your computer and copy the
 
 ### Step 2: Examine the manifest template
 
-In the manifest folder you just copied, open [manifest.template.json](../../src/create-core-app/aad/A02-after-teams-sso/manifest/manifest.template.json) in your code editor. This is the JSON that Teams needs to display your application.
+In the manifest folder you just copied, open [manifest.template.json](https://github.com/microsoft/app-camp/blob/main/src/create-core-app/aad/A02-after-teams-sso/manifest/manifest.template.json) in your code editor. This is the JSON that Teams needs to display your application.
 
 Notice that the template contains tokens such as`<HOSTNAME>` and `<CLIENT_ID>`. A small build script will take these values from your .env file and plug them into the manifest. However there's one token, `<TEAMS_APP_ID>` that's not yet in the .env file; we'll add that in the next step.
 
@@ -288,46 +291,57 @@ Go ahead and run it, and two new files, manifest.json and northwind.zip (the app
 Create a file called `teamsHelpers.js` in the `client/modules folder`, and paste in this code:
 
 ~~~javascript
-// async function returns true if we're running in Teams
+import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
+
+// Ensure that the Teams SDK is initialized once no matter how often this is called
+let teamsInitPromise;
+export function ensureTeamsSdkInitialized() {
+    if (!teamsInitPromise) {
+        teamsInitPromise = microsoftTeams.app.initialize();
+    }
+    return teamsInitPromise;
+}
+
+// Function returns a promise which resolves to true if we're running in Teams
 export async function inTeams() {
-    return (window.parent === window.self && window.nativeInterface) ||
-        window.navigator.userAgent.includes("Teams/") ||
-        window.name === "embedded-page-container" ||
-        window.name === "extension-tab-frame";
+    try {
+        await ensureTeamsSdkInitialized();
+        const context = await microsoftTeams.app.getContext();
+        return (context.app.host.name === microsoftTeams.HostName.teams);
+    }
+    catch (e) {
+        console.log(`${e} from Teams SDK, may be running outside of Teams`);    
+        return false;
+    }
 }
 ~~~
 
-This function will allow your code to determine if it's running in Microsoft Teams, and is used in this and future labs.
+These functions are used throughout the application to manage the Microsoft Teams JavaScript SDK.
 
-> NOTE: There is no official way to do this with the Teams JavaScript SDK v1. The official guidance is to pass some indication that the app is running in Teams via the app's URL path or query string. This is not a single-page app, however, so we're using a workaround to avoid updating every page to generate hyperlinks that support Teams-specific URLs. This workaround is used by the [yo teams generator](https://github.com/wictorwilen/msteams-react-base-component/blob/master/src/useTeams.ts#L10), so it's well tested and in wide use, though not officially supported.
----
+Before using the Microsoft Teams JavaScript SDK for the first time on a page, you need to call the [`microsoftTeams.app.initialize()` function](https://docs.microsoft.com/en-us/javascript/api/@microsoft/teams-js/app?view=msteams-client-js-latest#@microsoft-teams-js-app-initialize). The first function in **teamsHelpers.js** will ensure that `initialize()` has been called exactly once on the page.
+
+The `inTeams()` function is used to determine if the application is running in Microsoft Teams or not. You may want to check out the [`microsoftTeams.Hostname` enumeration](https://docs.microsoft.com/en-us/javascript/api/@microsoft/teams-js/hostname?view=msteams-client-js-latest) to see other places where Teams applications will be able to run in the near future!
 
 ### Step 2: Update the login code for Teams SSO
 
 Open the `client/identity/identityClient.js` file and add these import statements near the top.
 
 ~~~javascript
-import { inTeams } from '/modules/teamsHelpers.js';
-import 'https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js';
+import { ensureTeamsSdkInitialized, inTeams } from '/modules/teamsHelpers.js';
+import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
 ~~~
 
-The first import, of course, is the inTeams() function we just added. It's a [JavaScript module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) so there is no bundling; the browser will resolve the import at runtime. 
+The first import, of course, is the Teams helper functions we just added. It's a [JavaScript module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) so there is no bundling; the browser will resolve the import at runtime. 
 
 The second import will load the Teams JavaScript SDK, which creates a global object `microsoftTeams` that we can use to access the SDK. You could also load it using a `<script>` tag or, if you bundle your client-side JavaScript, using the [@microsoft/teams-js](https://www.npmjs.com/package/@microsoft/teams-js) npm package.
 
 Now modify the `getAccessToken2()` function to include this code at the top:
 
 ~~~javascript
-    if (await inTeams()) {
+    if (await inTeams()) {        
 
-        microsoftTeams.initialize();
-        const accessToken = await new Promise((resolve, reject) => {
-            microsoftTeams.authentication.getAuthToken({
-                successCallback: (result) => { resolve(result); },
-                failureCallback: (error) => { reject(error); }
-            });
-        });
-        return accessToken;
+        await ensureTeamsSdkInitialized();
+        return await microsoftTeams.authentication.getAuthToken();  
 
     } else {
       // existing code
@@ -341,16 +355,10 @@ The completed `getAccessToken2()` function should look like this:
 ~~~javascript
 async function getAccessToken2() {
 
-    if (await inTeams()) {
+    if (await inTeams()) {    
 
-        microsoftTeams.initialize();
-        const accessToken = await new Promise((resolve, reject) => {
-            microsoftTeams.authentication.getAuthToken({
-                successCallback: (result) => { resolve(result); },
-                failureCallback: (error) => { reject(error); }
-            });
-        });
-        return accessToken;
+        await ensureTeamsSdkInitialized();
+        return await microsoftTeams.authentication.getAuthToken();
 
     } else {
 
@@ -433,7 +441,7 @@ Now modify the `connectedCallback()` function, which displays the navigation web
 ~~~
 
 
-> NOTE: Web components are encapsulated custom HTML elements. They're not a Teams thing, nor do they use React or another UI library; they're built right into modern web browsers. You can learn more [in this article](https://developer.mozilla.org/en-US/docs/Web/Web_Components.)
+> NOTE: Web components are encapsulated custom HTML elements. They're not a Teams thing, nor do they use React or another UI library; they're built right into modern web browsers! You can learn more [in this article](https://developer.mozilla.org/en-US/docs/Web/Web_Components.)
 
 ## Exercise 4: Test your application in Microsoft Teams
 
@@ -471,7 +479,7 @@ The application should appear without any login prompt. The app's navigation sho
 
 ## Known issues
 
-For the latest issues, or to file a bug report, see the [github issues list](https://github.com/OfficeDev/m365-msteams-northwind-app-samples/issues) for this repository.
+For the latest issues, or to file a bug report, see the [github issues list](https://github.com/microsoft/app-camp/issues) for this repository.
 
 ## References
 

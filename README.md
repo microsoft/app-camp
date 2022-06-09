@@ -74,7 +74,7 @@ Selling Your SaaS-based Teams Extension
 
 This lab is intended for developers. Most of the labs don't assume a lot of specialized knowledge; coding is  in JavaScript without use of specialized frameworks or libraries. But if you're not comfortable with coding, you may find it a bit challenging.
 
-Technical prerequisites are explained [in the repo wiki](https://github.com/OfficeDev/m365-msteams-northwind-app-samples/wiki/Prerequisites)
+Technical prerequisites are explained [in the repo wiki](https://github.com/microsoft/app-camp/wiki/Prerequisites)
 
 [![pages-build-deployment](https://github.com/microsoft/app-camp/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/microsoft/app-camp/actions/workflows/pages/pages-build-deployment)
 

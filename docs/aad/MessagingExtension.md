@@ -25,7 +25,7 @@ We will cover the following concepts in this exercise:
 - A search based messaging extension to search for products and share result in the form of a rich  card in a conversation.
 - In the rich  card, provide an input field and a submit button for users to take action to update stock value of a product in the Northwind Database, all happening in the same conversation
 
-> A fully working sample can be found [here](https://github.com/OfficeDev/m365-msteams-northwind-app-samples/tree/main/src/extend-with-capabilities/MessagingExtension/)
+> A fully working sample can be found [here](https://github.com/microsoft/app-camp/tree/main/src/extend-with-capabilities/MessagingExtension/)
 
 ### Exercise 1: Bot registration
 ---
@@ -75,7 +75,7 @@ The terminal will display a screen like below; Save the URL for [Step 2](#ex1-st
 
 There are new files and folders that you need to add into the project structure.
 
-- Create a new `images` folder under `client` folder and copy over the [9 image files](https://github.com/OfficeDev/m365-msteams-northwind-app-samples/tree/main/src/extend-with-capabilities/MessagingExtension/client/images) needed for the rich adaptive cards to display products' inventory.
+- Create a new `images` folder under `client` folder and copy over the [9 image files](https://github.com/microsoft/app-camp/tree/main/src/extend-with-capabilities/MessagingExtension/client/images) needed for the rich adaptive cards to display products' inventory.
     > Northwind Database does not have nice images for us to show rich cards with images so we have added some images and mapped them to each product using hashing mechanism.
     As long as you got the names of the images right, we don't have to worry what images your want to add in the folder 😉. You can get creative here!
 

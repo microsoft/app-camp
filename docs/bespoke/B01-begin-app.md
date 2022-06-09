@@ -75,7 +75,7 @@ The terminal will display a screen like this; note the https forwarding URL for 
 ### Exercise 2: Configure and run the application
 #### Step 1: Download the starting application
 
-The starting application is in github at [https://github.com/OfficeDev/m365-msteams-northwind-app-samples](https://github.com/OfficeDev/TeamsAppCamp1). Click the "Code" button and clone or download the content to your computer.
+The starting application is in github at [https://github.com/microsoft/app-camp](https://github.com/OfficeDev/TeamsAppCamp1). Click the "Code" button and clone or download the content to your computer.
 
 ![Download the lab source code](../../assets/01-001-CloneRepo.png)
 
