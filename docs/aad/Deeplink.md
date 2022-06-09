@@ -179,8 +179,8 @@ The **entityId** identifies the tab; in this case it is `Orders`, which is the i
 Add import statements for the Microsoft Teams SDK and the inTeams helper function.
 
 ```javascript
-import 'https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js';
-import { inTeams } from '../modules/teamsHelpers.js';
+import { ensureTeamsSdkInitialized, inTeams } from '../modules/teamsHelpers.js';
+import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
 ```
 
 Using the `My Orders` tab as the base, we will redirect the deeplink to `Order details` page to show the order only if the **subEntitiyId** is present in the teams context. In the `displayUI()` function, at the top of the `try` block, add code to check for a **subEntityId** and do the redirect if it's found.
@@ -188,14 +188,11 @@ Using the `My Orders` tab as the base, we will redirect the deeplink to `Order d
 ```javascript
 // Handle incoming deep links by redirecting to the selected order
 if (await inTeams()) {
-
-    microsoftTeams.initialize(async () => {
-        microsoftTeams.getContext(async (context) => {
-            if (context.subEntityId) {
-                window.location.href = `/pages/orderDetail.html?orderId=${context.subEntityId}`;
-            }
-        });
-    });
+    await ensureTeamsSdkInitialized();
+    const context = await microsoftTeams.app.getContext();
+    if (context.subEntityId) {
+        window.location.href = `/pages/orderDetail.html?orderId=${context.subEntityId}`;
+    }
 }
 
 ```
@@ -213,20 +210,21 @@ async function displayUI() {
 
         // Handle incoming deep links by redirecting to the selected order
         if (await inTeams()) {
-
-            microsoftTeams.initialize(async () => {
-                microsoftTeams.getContext(async (context) => {
-                    if (context.subEntityId) {
-                        window.location.href = `/pages/orderDetail.html?orderId=${context.subEntityId}`;
-                    }
-                });
-            });
+            await ensureTeamsSdkInitialized();
+            const context = await microsoftTeams.app.getContext();
+            if (context.subEntityId) {
+                window.location.href = `/pages/orderDetail.html?orderId=${context.subEntityId}`;
+            }
         }
 
         // Display order data
         const employee = await getLoggedInEmployee();
         if (employee) {
-            displayElement.innerHTML = `<h3>Orders for ${employee.displayName}<h3>`;
+            
+            displayElement.innerHTML = `
+                <h3>Orders for ${employee.displayName}<h3>
+            `;
+
             employee.orders.forEach(order => {
                 const orderRow = document.createElement('tr');
                 orderRow.innerHTML = `<tr>
@@ -234,8 +232,9 @@ async function displayUI() {
                 <td>${(new Date(order.orderDate)).toDateString()}</td>
                 <td>${order.shipName}</td>
                 <td>${order.shipAddress}, ${order.shipCity} ${order.shipRegion || ''} ${order.shipPostalCode || ''} ${order.shipCountry}</td>
-                </tr>`;
+            </tr>`;
                 ordersElement.append(orderRow);
+
             });
         }
     }
@@ -244,6 +243,7 @@ async function displayUI() {
     }
 }
 ```
+
 **5. server\server.js**
 
 We need the teams app id from the manifest (which is added based on the value in the .env file).
@@ -255,7 +255,7 @@ app.get('/modules/env.js', (req, res) => {
   res.contentType("application/javascript");
   res.send(`
     export const env = {
-      HOSTNAME: "${process.env.HOSTNAME}",
+      HOST_NAME: "${process.env.HOST_NAME}",
       TENANT_ID: "${process.env.TENANT_ID}",
       CLIENT_ID: "${process.env.CLIENT_ID}"<b>,
       TEAMS_APP_ID: "${process.env.TEAMS_APP_ID}"</b>

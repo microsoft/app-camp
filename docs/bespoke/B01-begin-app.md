@@ -55,6 +55,7 @@ ngrok is a tunneling program that allows you to access your local web server (ru
 The free version of ngrok will assign a URL similar to https://something.ngrok.io, where "something" is a random identifier. As long as ngrok is running (leave it going in a command or terminal window), you can browse your web site at that URL. If you start and stop ngrok, or try to keep it running for more than 8 hours, you'll get a new identifier and you'll need to update your app registration, environment variables, etc. The paid version of ngrok allows you to reserve the same URL for use over time, removing the need to update it when you return to the lab.
 
 While ngrok isn't strictly required for developing Microsoft Teams applications, it makes things much easier, especially if Bots are involved. An example of this is the Messaging Extension lab since Messaging Extensions use a Bot to communicate with Microsoft Teams. If you or your company aren't comfortable with running ngrok (some companies block it on their corporate networks), please check out [this video](https://www.youtube.com/watch?v=A5U-3o-mHD0) which explains the details and work-arounds.
+
 #### Step 4: Start ngrok
 
 In the command line tool of your choice, navigate to the folder where you've saved **ngrok.exe** and run this command:
@@ -75,11 +76,11 @@ The terminal will display a screen like this; note the https forwarding URL for 
 ### Exercise 2: Configure and run the application
 #### Step 1: Download the starting application
 
-The starting application is in github at [https://github.com/microsoft/app-camp](https://github.com/OfficeDev/TeamsAppCamp1). Click the "Code" button and clone or download the content to your computer.
+The starting application is in github at [https://github.com/microsoft/app-camp](https://github.com/microsoft/app-camp). Click the "Code" button and clone or download the content to your computer.
 
 ![Download the lab source code](../../assets/01-001-CloneRepo.png)
 
-The starting code for the "B" path is in the B01-Start-BespokeAuth folder. Copy this folder to nother location on your computer; this will be your working copy to keep the original source separate. Folders are also provided with the final code for the other labs.
+The starting code for the "B" path is in the **src/create-core-app/bespoke/B01-begin-app** folder. Copy this folder to nother location on your computer; this will be your working copy to keep the original source separate. Folders are also provided with the final code for the other labs.
 
 #### Step 2: Install the app's dependencies
 
@@ -159,13 +160,11 @@ Try logging out and logging in; you should be able to view the orders for anothe
 
 ---
 
+### Next lab
+
+[Here is the next lab](./B02-after-teams-login.md), in which you will create a simple Teams application that displays pages from the app you just set up.
+
 ### Known issues
 
-The application does not implement paging for large data sets, so lists of orders etc. are limited to the first 10 results.
-
 While it will work on mobile devices, the application is not responsive and will not look good on these devices. This will be addressed in a future version of the lab.
-### References
-
-
-
 

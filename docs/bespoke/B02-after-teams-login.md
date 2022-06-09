@@ -9,8 +9,6 @@ In this lab you will build the application you created in Lab B01 into a Microso
 * [B03-after-teams-sso: Adding Azure AD SSO to your app](../bespoke/B03-after-teams-sso.md)
 * [B04-after-apply-styling: Teams styling and themes](../bespoke/B04-after-apply-styling.md)
 
-
-
 In this lab you will learn to:
 
 - Create a Microsoft Teams app manifest and package that can be installed into Teams
@@ -159,6 +157,9 @@ Eventually you'll be prompted to log into your new tenant. Be sure to use the ne
 😎 CHANGES ROLL OUT FIRST TO "TARGETED RELEASE" TENANTS. You may want to [enable Targeted Release](https://docs.microsoft.com/microsoft-365/admin/manage/release-options-in-office-365?WT.mc_id=m365-58890-cxa) in your developer tenant and keep production on Standard Release so you have a head start to test out new features.
 
 ---
+😎 YOU MAY BE ASKED TO ENABLE MULTI-FACTOR AUTHENTICATION (MFA). [This is certainly a good idea!](https://www.microsoft.com/security/blog/2019/08/20/one-simple-action-you-can-take-to-prevent-99-9-percent-of-account-attacks/). Just follow the instructions. If you really must turn off MFA, [here are instructions](https://docs.microsoft.com/en-us/answers/questions/101179/how-to-disable-the-two-factor-authentication-from.html). 
+
+---
 
 #### Step 2: Enable Teams application uploads
 
@@ -200,9 +201,8 @@ The terminal will display a screen like this; note the https forwarding URL for 
 
 ![ngrok output](../../assets/01-002-ngrok.png)
 
----
-> **NOTE:** [This page](../../docs/ngrokReferences.md) lists all the exercies which involve the ngrok URL so you can easily update it if it changes.
----
+> **NOTE:** [This page](../ngrokReferences.md) lists all the exercies which involve the ngrok URL so you can easily update it if it changes.
+
 
 ### Exercise 3: Create the Teams application package
 
@@ -312,22 +312,35 @@ In this exercise you'll add code to move the login page into a separate popup wi
 Create a file called teamsHelpers.js in the client/modules folder, and paste in this code:
 
 ~~~javascript
+import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
+
+let teamsInitPromise;
+export function ensureTeamsSdkInitialized() {
+    if (!teamsInitPromise) {
+        teamsInitPromise = microsoftTeams.app.initialize();
+    }
+    return teamsInitPromise;
+}
+
 // async function returns true if we're running in Teams
 export async function inTeams() {
-    return (window.parent === window.self && window.nativeInterface) ||
-        window.navigator.userAgent.includes("Teams/") ||
-        window.name === "embedded-page-container" ||
-        window.name === "extension-tab-frame";
+    try {
+        await ensureTeamsSdkInitialized();
+        const context = await microsoftTeams.app.getContext();
+        return (context.app.host.name === microsoftTeams.HostName.teams);
+    }
+    catch (e) {
+        console.log(`${e} from Teams SDK, may be running outside of Teams`);    
+        return false;
+    }
 }
 ~~~
 
-Alternately you can copy the file from the B02-TeamsApp-BespokeAuth/client/modules folder into your working folder. 
+These functions are used throughout the application to manage the Microsoft Teams JavaScript SDK.
 
-The `inTeams()` function will allow your code to determine if it's running in Microsoft Teams, and is used in this and future labs.
+Before using the Microsoft Teams JavaScript SDK for the first time on a page, you need to call the `microsoftTeams.app.initialize()` function. The first function in teamsHelpers.js will ensure that `initialize()` has been called exactly once on the page.
 
----
-> NOTE: There is no official way to do this with the Teams JavaScript SDK v1. The official guidance is to pass some indication that the app is running in Teams via the app's URL path or query string. This is not a single-page app, however, so we're using a workaround to avoid updating every page to generate hyperlinks that support Teams-specific URLs. This workaround is used by the [yo teams generator](https://github.com/wictorwilen/msteams-react-base-component/blob/master/src/useTeams.ts#L10), so it's well tested and in wide use, though not officially supported.
----
+The `inTeams()` function is used to determine if the application is running in Microsoft Teams or not. You may want to check out the [`microsoftTeams.Hostname` enumeration](https://docs.microsoft.com/en-us/javascript/api/@microsoft/teams-js/hostname?view=msteams-client-js-latest) to see other places where Teams applications will be able to run in the near future!
 
 #### Step 2: Add a Teams launcher page
 
@@ -365,41 +378,32 @@ In your working folder, create a new file /client/identity/teamsLoginLauncher.ht
 Now create a corresponding JavaScript file, /client/identity/teamsLoginLauncher.js, or copy it from the B02-TeamsApp-BespokeAuth/client/identity folder:
 
 ~~~javascript
-import 'https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js';
+import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
+import { ensureTeamsSdkInitialized } from '../modules/teamsHelpers.js';
 
 const teamsLoginLauncherButton = document.getElementById('teamsLoginLauncherButton');
 
-microsoftTeams.initialize(() => {
-
-   teamsLoginLauncherButton.addEventListener('click', async ev => {
-      microsoftTeams.authentication.authenticate({
-         url: `${window.location.origin}/identity/login.html?teams=true`,
-         width: 600,
-         height: 535,
-         successCallback: (response) => {
-            window.location.href = document.referrer;
-         },
-         failureCallback: (reason) => {
-            throw `Error in teams.authentication.authenticate: ${reason}`
-         }
-      });
+teamsLoginLauncherButton.addEventListener('click', async ev => {
+   await ensureTeamsSdkInitialized();
+   await microsoftTeams.authentication.authenticate({
+      url: `${window.location.origin}/identity/login.html?teams=true`,
+      width: 600,
+      height: 535,
    });
-   
+   window.location.href = document.referrer;
 });
 ~~~
 
 The import statement loads the Teams JavaScript SDK, which is available for bundled apps as an npm package. In this case we're loading the CDN link (we could have used a `<script>` tag but we'd have to modify every page in the application). Since the Teams JavaScript SDK is packaged as a script and not a module (it has no `export`s), we will access the SDK using a global object `microsoftTeams`.
 
-The `microsoftTeams.initialize()` call must be called at least once before any other SDK call. Although you'll often see people calling this synchronously, it's safer to allow the function to call back in case it needs to run a long-running operation.
-
 The call to `microsoftTeams.authenticatation.authenticate()` is what launches the popup winodow.The popup will contain the same login page with minor modifications; these are applied in the next step. If the login is successful, the page will call an SDK function `notifySuccess()`, which will cause the `successCallback` to run and send the user to their originally requested page.
 
 #### Step 3: Modify the login page
 
-The only change needed in the login page is to return the logged in user credentials (the employee ID) to the teamsLoginLauncher page you added in the previous step. To do this, add these import statements at the top of /client/identity/login.js:
+The only change needed in the login page is to return the logged in user credentials (the employee ID) to the teamsLoginLauncher page you added in the previous step. To do this, add this import statement at the top of /client/identity/login.js:
 
 ~~~javascript
-import 'https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js';
+import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
 ~~~
 
 Now in the `logInUser()` function replace the line of code
@@ -412,22 +416,21 @@ with this:
 
 ~~~javascript
 if (window.location.search.indexOf('teams=true') >= 0) {
-    microsoftTeams.initialize(() => {
-        microsoftTeams.authentication.notifySuccess(employeeId);
-    });
+await microsoftTeams.app.initialize();
+microsoftTeams.authentication.notifySuccess(employeeId);
 } else {
-    window.location.href = document.referrer;
+window.location.href = document.referrer;
 }
 ~~~
 
-This will check if it's running in Teams (using a query string this time, since the `inTeams()` function doesn't work in a Teams popup) and if so, it calls the Teams JavaScript SDK function `notifySuccess()` to return the employee ID to the launcher page. The finished login.js should look like this:
+This will check if it's running in Teams (using a query string this time; we may replace that with a call to `inTeams()` in a future version. Note that this page runs in its own popup so we don't have to worry about calling `initialize()` more than once, we can just call it directly. If the login is successful and running in Teams, it calls the Teams JavaScript SDK function `notifySuccess()` to return the employee ID to the launcher page. The finished login.js should look like this:
 
 ~~~javascript
 import {
    validateEmployeeLogin,
    setLoggedinEmployeeId
 } from './identityClient.js';
-import 'https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js';
+import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
 
 const loginPanel = document.getElementById('loginPanel');
 const usernameInput = document.getElementById('username');
@@ -459,9 +462,8 @@ if (window.location !== window.parent.location) {
       if (employeeId) {
          setLoggedinEmployeeId(employeeId);
          if (window.location.search.indexOf('teams=true') >= 0) {
-            microsoftTeams.initialize(() => {
-               microsoftTeams.authentication.notifySuccess(employeeId);
-            });
+            await microsoftTeams.app.initialize();
+            microsoftTeams.authentication.notifySuccess(employeeId);
          } else {
             window.location.href = document.referrer;
          }

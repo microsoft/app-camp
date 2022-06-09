@@ -496,13 +496,13 @@ The npm script that builds a manifest file by taking the values from your local 
 Replace code block:
 <pre>
 if (key.indexOf('TEAMS_APP_ID') === 0 ||
-            key.indexOf('HOSTNAME') === 0 ||
+            key.indexOf('HOST_NAME') === 0 ||
             key.indexOf('CLIENT_ID') === 0) {
 </pre>
 With: 
 <pre>
  if (key.indexOf('TEAMS_APP_ID') === 0 ||
-            key.indexOf('HOSTNAME') === 0 ||
+            key.indexOf('HOST_NAME') === 0 ||
             key.indexOf('CLIENT_ID') === 0||
            <b> key.indexOf('BOT_REG_AAD_APP_ID') === 0) {</b>
 </pre>
@@ -519,9 +519,9 @@ Add the messaging extension command information (bolded) in the manifest after `
   "packageName": "io.github.officedev.teamsappcamp1.northwind",
   "developer": {
     "name": "Northwind Traders",
-    "websiteUrl": "https://&lt;HOSTNAME&gt;/",
-    "privacyUrl": "https://&lt;HOSTNAME&gt;/privacy.html",
-    "termsOfUseUrl": "https://&lt;HOSTNAME&gt;/termsofuse.html"
+    "websiteUrl": "https://&lt;HOST_NAME&gt;/",
+    "privacyUrl": "https://&lt;HOST_NAME&gt;/privacy.html",
+    "termsOfUseUrl": "https://&lt;HOST_NAME&gt;/termsofuse.html"
   },
   "icons": {
       "color": "northwind192.png",
@@ -538,7 +538,7 @@ Add the messaging extension command information (bolded) in the manifest after `
   "accentColor": "#FFFFFF",
   "configurableTabs": [
     {
-        "configurationUrl": "https://&lt;HOSTNAME&gt;/pages/tabConfig.html",
+        "configurationUrl": "https://&lt;HOST_NAME&gt;/pages/tabConfig.html",
         "canUpdateConfiguration": true,
         "scopes": [
             "team",
@@ -550,8 +550,8 @@ Add the messaging extension command information (bolded) in the manifest after `
     {
       "entityId": "Orders",
       "name": "My Orders",
-      "contentUrl": "https://&lt;HOSTNAME&gt;/pages/myOrders.html",
-      "websiteUrl": "https://&lt;HOSTNAME&gt;/pages/myOrders.html",
+      "contentUrl": "https://&lt;HOST_NAME&gt;/pages/myOrders.html",
+      "websiteUrl": "https://&lt;HOST_NAME&gt;/pages/myOrders.html",
       "scopes": [
         "personal"
       ]
@@ -559,8 +559,8 @@ Add the messaging extension command information (bolded) in the manifest after `
     {
       "entityId": "Products",
       "name": "Products",
-      "contentUrl": "https://&lt;HOSTNAME&gt;/pages/categories.html",
-      "websiteUrl": "https://&lt;HOSTNAME&gt;/pages/categories.html",
+      "contentUrl": "https://&lt;HOST_NAME&gt;/pages/categories.html",
+      "websiteUrl": "https://&lt;HOST_NAME&gt;/pages/categories.html",
       "scopes": [
         "personal"
       ]
@@ -611,11 +611,11 @@ Add the messaging extension command information (bolded) in the manifest after `
       "messageTeamMembers"
   ],
   "validDomains": [
-      "&lt;HOSTNAME&gt;"
+      "&lt;HOST_NAME&gt;"
   ],
   "webApplicationInfo": {
       "id": "&lt;CLIENT_ID&gt;",
-      "resource": "api://&lt;HOSTNAME>/&lt;CLIENT_ID&gt;"
+      "resource": "api://&lt;HOST_NAME>/&lt;CLIENT_ID&gt;"
   }
 }
 </pre>
@@ -792,7 +792,7 @@ COMPANY_NAME=Northwind Traders
 PORT=3978
 
 TEAMS_APP_ID=c42d89e3-19b2-40a3-b20c-44cc05e6ee26
-HOSTNAME=yourhostname.ngrok.io
+HOST_NAME=yourhostname.ngrok.io
 
 TENANT_ID=c8888ec7-a322-45cf-a170-7ce0bdb538c5
 CLIENT_ID=b323630b-b67c-4954-a6e2-7cfa7572bbc6

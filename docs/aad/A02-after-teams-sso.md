@@ -210,7 +210,7 @@ Go to your local copy of the `A02-TeamsSSO` folder on your computer and copy the
 
 In the manifest folder you just copied, open [manifest.template.json](https://github.com/microsoft/app-camp/blob/main/src/create-core-app/aad/A02-after-teams-sso/manifest/manifest.template.json) in your code editor. This is the JSON that Teams needs to display your application.
 
-Notice that the template contains tokens such as`<HOSTNAME>` and `<CLIENT_ID>`. A small build script will take these values from your .env file and plug them into the manifest. However there's one token, `<TEAMS_APP_ID>` that's not yet in the .env file; we'll add that in the next step.
+Notice that the template contains tokens such as`<HOST_NAME>` and `<CLIENT_ID>`. A small build script will take these values from your .env file and plug them into the manifest. However there's one token, `<TEAMS_APP_ID>` that's not yet in the .env file; we'll add that in the next step.
 
 Examine the `staticTabs` property in the manifest. It defines two tabs, one for the "My Orders" page and one for the "Products" page. The `contentUrl` is used within the Teams application, and `websiteUrl` is used if Teams can't render the tab and needs to launch it in a regular web browser. The Northwind Orders app will use the same code URL's for both.
 
@@ -219,8 +219,8 @@ Examine the `staticTabs` property in the manifest. It defines two tabs, one for 
   {
     "entityId": "Orders",
     "name": "My Orders",
-    "contentUrl": "https://<HOSTNAME>/pages/myOrders.html",
-    "websiteUrl": "https://<HOSTNAME>/pages/myOrders.html",
+    "contentUrl": "https://<HOST_NAME>/pages/myOrders.html",
+    "websiteUrl": "https://<HOST_NAME>/pages/myOrders.html",
     "scopes": [
       "personal"
     ]
@@ -228,8 +228,8 @@ Examine the `staticTabs` property in the manifest. It defines two tabs, one for 
   {
     "entityId": "Products",
     "name": "Products",
-    "contentUrl": "https://<HOSTNAME>/pages/categories.html",
-    "websiteUrl": "https://<HOSTNAME>/pages/categories.html",
+    "contentUrl": "https://<HOST_NAME>/pages/categories.html",
+    "websiteUrl": "https://<HOST_NAME>/pages/categories.html",
     "scopes": [
       "personal"
     ]
@@ -241,7 +241,7 @@ Now examine the `webApplicationInfo` property. It contains the information Teams
 ~~~json
   "webApplicationInfo": {
       "id": "<CLIENT_ID>",
-      "resource": "api://<HOSTNAME>/<CLIENT_ID>"
+      "resource": "api://<HOST_NAME>/<CLIENT_ID>"
   }
 ~~~
 

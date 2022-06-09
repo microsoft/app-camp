@@ -135,15 +135,13 @@ B04-after-apply-styling
 </table>
 
 
-### Exercise 1: Code changes
+### Exercise 1: Add CSS
 ---
 
-#### Step 1: Add new files & folders
+#### Step 1: Create a CSS file for Teams theme styles
 
-In the project structure, on the right under `B03-after-teams-sso`, you will see emoji 🆕 near the files & folders.
-They are the new files and folders that you need to add into the project structure.
 
-- Create a file `teamstyle.css` in `client` folder and copy below code block into it:
+Create a file `teamstyle.css` in the `client` folder and copy below code block into it. These styles are based on the [Teams UI Toolkit Figma](https://www.figma.com/community/file/916836509871353159). If you're working in React, you may want to use the [Teams UI Toolkit React Components](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/design/design-teams-app-ui-templates?WT.mc_id=m365-58890-cxa).
 
 ```css
 :root {
@@ -379,64 +377,50 @@ This CSS contains basic stylings for Teams UI. After applying the styles, the ex
 
 The CSS also includes dark and high-contrast mode. The color switch is done with [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/var()). In the next step, you will enable the theme switching functionality in JavaScript.
 
-#### Step 2: Update existing files
+### Step 2: Import the new CSS
 
-In the project structure, on the right under `B04-StyleAndThemes`, you will see emoji 🔺 near the files.
-They are the files that were updated to add the new features.
-Let's take files one by one to understand what changes you need to make for this exercise. 
+To import the `teamstyle.css` so it is loaded in all pages, add this statement at the top of your northwind.css file.
 
-**1. modules\teamsHelpers.js**
-
-- Import the Teams JavaScript SDK, which creates a global object `microsoftTeams` that we can use to access the SDK. You could also load it using a `<script>` tag or, if you bundle your client-side JavaScript, using the [@microsoft/teams-js](https://www.npmjs.com/package/@microsoft/teams-js) npm package.
-Copy below import statement to the top of the file:
-
-```javascript
-import 'https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js';
-```
-
-- The Teams client supports three themes—light mode, dark mode, and high contrast mode (which is an accessibility feature for users with low visual acuity). As the users switch the themes, your application should also switch its theme so as to blend in. To detect theme switching in Teams client we'll have to use the global `microsoftTeams`'s context.
-
-- We 'll add a function `setTheme()` to switch the css between the application's native style and the team's themes.
-Copy and paste below code block:
-```javascript
-function setTheme (theme) {
-    const el = document.documentElement;
-    el.setAttribute('data-theme', theme); // switching CSS
-};
-
-```
-> Every time the theme is detected/changed (which we will discuss in the next bullet point), the script applies a data-theme value in the root of the content, like, <html data-theme='dark'>, so the `teamstyle.css` can use a correct set of colors & styles for each theme. The color change is done with the CSS variables.
-
-- Initialize the teams SDK and detect current context with `getContext()` and set the theme.
-  When there is a theme change, update the CSS by registering an event handler for theme changes with `registerOnThemeChangeHandler()`.
-Copy and paste below code block for this purpose:
-```javascript
-microsoftTeams.initialize(() => {
-    // Set the CSS to reflect the current Teams theme
-    microsoftTeams.getContext((context) => {
-        setTheme(context.theme);
-    });
-    // When the theme changes, update the CSS again
-    microsoftTeams.registerOnThemeChangeHandler((theme) => {
-        setTheme(theme);
-    });
-});
-```
-**2. client\northwind.css**
-
-- Import the `teamstyle.css` so it is loaded in all pages.
-Copy below import statement to the top of the file:
 ```javascript
 @import "teamstyle.css";
 ```
-**3. manifest\manifest.template.json**
 
-Update version number from `1.3.0` to `1.4.0`.
-~~~json
-"version": "1.4.0"
-~~~
+## Exercise 2: Update and run the project
 
-#### Step 6: Start your local project
+### Step 1: Modify modules\teamsHelpers.js
+
+The Teams client supports three themes: light mode, dark mode, and high contrast mode, which is an acceissibility feature for users with low visual acuity. As the users switch the themes, your application should also switch its theme so as to blend in. To detect theme switching in Teams client we'll have to use the global `microsoftTeams`'s context.
+
+We 'll add a function `setTheme()` to switch the css between the application's native style and the team's themes. Add this code to teamsHelpers.js:
+
+```javascript
+// Set the CSS to reflect the desired theme
+function setTheme(theme) {
+    const el = document.documentElement;
+    el.setAttribute('data-theme', theme);
+};
+```
+
+In order to display the application in a particular theme, `setTheme()` applies a data-theme value in the root of the content, like, `<html data-theme='dark'>`, so the `teamstyle.css` will use a correct set of colors & styles for each theme. The color change is done with the CSS variables.
+
+Now add in-line code into teamsHelpers.js to detect current context with `getContext()` and set the theme to match the current theme in Microsoft Teams. The code also registers an event handler that updates the application's theme when a user changes the theme in Microsoft Teams. Note that some browsers and the Teams desktop client will not honor the `await` keyword for inline code; therefore this code has been wrapped in an [immediately-invoked function expression](https://developer.mozilla.org/en-US/docs/Glossary/IIFE).
+
+Copy and paste below code block for this purpose:
+
+```javascript
+// Inline code to set theme on any page using teamsHelpers
+(async () => {
+    await ensureTeamsSdkInitialized();
+    const context = await microsoftTeams.app.getContext();
+    setTheme(context.app.theme);
+    
+    // When the theme changes, update the CSS again
+    microsoftTeams.registerOnThemeChangeHandler((theme) => {
+        setTheme(theme);
+    });    
+})();
+```
+### Step 2: Start your local project
 
 Now it's time to run your updated application and run it in Microsoft Teams. Start the application by running below command: 
 
@@ -444,14 +428,30 @@ Now it's time to run your updated application and run it in Microsoft Teams. Sta
 npm start
 ```
 
-#### Step 7: Run the application in Teams client
----
-Once the teams tab app is added, the personal tab will open `My Orders` tab. The application will now have the team's native look and feel.
-<img src="../../assets/04-002-tabstyle.png" alt="Teams tab style">
-[Change themes in teams client.](https://support.microsoft.com/en-us/office/customize-your-teams-theme-51f24f07-1209-4f9d-8788-c0da4d98aede#:~:text=Select%20Settings%20and%20more%20near%20your%20profile%20picture.&text=Select%20General.,will%20change%20to%20your%20selection.)
+### Step 3: Run the application in Teams client
 
-Notice how the teams tab app also detects and changes it's theme.
+Once the teams tab app is added, the personal tab will open `My Orders` tab. The application will now have the team's native look and feel.
+
+<img src="../../assets/04-002-tabstyle.png" alt="Teams tab style">
+
+Here's how to [change themes in teams client.](https://support.microsoft.com/office/customize-your-teams-theme-51f24f07-1209-4f9d-8788-c0da4d98aede?WT.mc_id=m365-58890-cxa) Notice how the teams tab app also detects and changes its theme.
+
 <img src="../../assets/04-003-changetheme.gif" alt="Change theme">
 
-### References
----
+## Next steps
+
+Congratulations! You have completed all core application development labs in **path B**. 
+
+It's time to choose your own adventure by doing some or all of the extended labs! Note that the extended lab files are based on the "A" path; specifically they are based on the [lab A03](../aad/A03-after-apply-styling.md) solution files. So you have two choices:
+
+1. Switch to Path A now by doing the labs or make a copy of the [A03 solution files](https://github.com/microsoft/app-camp/tree/main/src/create-core-app/aad/A03-after-apply-styling) and apply your .env file settings there. The rest of the setup should be the same.
+
+2. Live dangerously and try following the labs building on the solution to lab B04 that you just completed. It has been said to work but isn't as thoroughly tested, so it's up to you if you're willing to debug the code.
+
+Here are the extended labs:
+
+- [Add a Configurable Tab](./ConfigurableTab.md)
+- [Add a Deep link to a personal Tab](./Deeplink.md)
+- [Add a Messaging Extension](./MessagingExtension.md)
+- [Add a Task Module](TaskModules.md)
+- [Selling Your SaaS-based Teams Extension](./Monetization.md)
