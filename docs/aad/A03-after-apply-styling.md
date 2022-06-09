@@ -138,9 +138,10 @@ A03-after-apply-styling
 In the project structure, on the right under `A03-after-apply-styling`, you will see emoji 🆕 near the files & folders.
 They are the new files and folders that you need to add into the project structure.
 
-## Optional video: Lab Briefing
 
-<img style="height: 50%; width: 50%" src="/app-camp/assets/VideoThumbnails/Placeholder11.PNG"></img>
+## Video: Lab Briefing (optional)
+
+<img style="height: 50%; width: 50%" src="/app-camp/assets/VideoThumbnails/Placeholder14.PNG"></img>
 
 ## Exercise 1: Add CSS
 

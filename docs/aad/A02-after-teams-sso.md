@@ -158,9 +158,9 @@ A02-after-teams-sso
 </tr>
 </table>
 
-## Optional video: Lab Briefing
+## Video: Lab Briefing (optional)
 
-<img style="height: 50%; width: 50%" src="/app-camp/assets/VideoThumbnails/Placeholder11.PNG"></img>
+<img style="height: 50%; width: 50%" src="/app-camp/assets/VideoThumbnails/Placeholder12.PNG"></img>
 
 ## Exercise 1: Authorize Microsoft Teams to log users into your application
 
