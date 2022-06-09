@@ -59,8 +59,7 @@ Links to resources referenced throughout App Camp can be found [here, on the Res
 
 ##### Core labs:
 
-In this series of labs, you'll begin with a working web application and end with a Teams application that displays the application in a Teams tab with Azure AD Single Sign-on. These core labs are the basis for the extended labs. [These folders](https://github.com/microsoft/app-camp/tree/main/src/create-core-app/aad) hold the completed source codes following each of the labs.
-
+In this series of labs, you'll begin with a working web application that uses the MSAL library to authorize Azure AD users. You'll extend this to also be a Teams application with Azure AD Single Sign-on. These core labs are the basis for the extended labs. [These folders](https://github.com/microsoft/app-camp/tree/main/src/create-core-app/aad) hold the completed source codes following each of the labs.
 
   - [A01 - Start with Azure Active Directory](./aad/A01-begin-app.md)
   - [A02 - Create a Teams app with Azure AD Single Sign-On](./aad/A02-after-teams-sso.md)
@@ -80,10 +79,11 @@ Once you have successfully completed Lab A03, you're invited to choose your own 
    
 ### Path B: Core application development
 
-**Mandatory** for non-AAD apps.
+##### Core labs:
+
+In this series of labs, you'll begin with a working web application that uses the a simple bespoke authentication scheme to authorize users stored in a database. You'll extend this to also be a Teams application with Azure AD Single Sign-on, where Azure AD users are mapped to the application's users to minimize changes to the application. If you're extending an application into Teams which uses some identity system other than Azure AD yet want to gain the benefits of Azure AD SSO, this pattern may work for you. [These folders](https://github.com/microsoft/app-camp/tree/main/src/create-core-app/bespoke) hold the completed source codes following each of the labs.
   
-  - [Prerequisites 📃](#prerequisites)
-  - [B01 - Start with a non-Azure Active Directory Identity System](.//bespoke/B01-begin-app.md)
+  - [B01 - Start with a non-Azure Active Directory Identity System](./bespoke/B01-begin-app.md)
   - [B02 - Teams App with Bespoke Authentication](./bespoke/B02-after-teams-login.md)
   - [B03 - Enable Azure AD Single Sign-On](./bespoke/B03-after-teams-sso.md)
   - [B04 - Teams styling and themes](./bespoke/B04-after-apply-styling.md)
