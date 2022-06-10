@@ -292,7 +292,7 @@ On selection, the message next to button changes from *Copy to clipboard* to *Li
 Login as another user who has Northwind Order app installed in their teams.
 Open the link in the browser. It should open in the personal tab with the order information displayed. This animated picture shows the solution in action.
 
-![order](../../assets/deeplink-working.gif)
+![order](../../assets/screenshots/deeplink-working.gif)
 
 ### Next steps
 
