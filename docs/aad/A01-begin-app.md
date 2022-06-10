@@ -2,46 +2,11 @@
 
 # Lab A01: Start with Azure Active Directory
 
-<!-- no toc -->
-  - [Overview](#overview)
-  - [Features](#features)
-  - [Exercise 1: Install prerequisites](#exercise-1-install-prerequisites)
-    - [Step 1: Install NodeJS](#step-1-install-nodejs)
-    - [Step 2: Install a Code Editor](#step-2-install-a-code-editor)
-    - [Step 3: Install ngrok](#step-3-install-ngrok)
-  - [Exercise 2: Set up your Microsoft 365 Subscription](#exercise-2-set-up-your-microsoft-365-subscription)
-    - [Step 1: Get a tenant](#step-1-get-a-tenant)
-    - [Step 2: Enable Teams application uploads](#step-2-enable-teams-application-uploads)
-  - [Exercise 3: Assign users as Northwind "Employees"](#exercise-3-assign-users-as-northwind-employees)
-    - [Step 1: Edit Azure AD users](#step-1-edit-azure-ad-users)
-    - [Step 2: Ensure the users have managers](#step-2-ensure-the-users-have-managers)
-    - [Step 3: Ensure the users are licensed for Microsoft 365](#step-3-ensure-the-users-are-licensed-for-microsoft-365)
-  - [Exercise 4: Register your application with Azure AD](#exercise-4-register-your-application-with-azure-ad)
-    - [Step 1: Start ngrok](#step-1-start-ngrok)
-    - [Step 2: Register your application in Azure Active Directory](#step-2-register-your-application-in-azure-active-directory)
-    - [Step 3: Grant your application permission to call the Microsoft Graph API](#step-3-grant-your-application-permission-to-call-the-microsoft-graph-api)
-    - [Step 4: Consent to the permission](#step-4-consent-to-the-permission)
-    - [Step 5: Expose an API](#step-5-expose-an-api)
-  - [Exercise 5: Configure and run the application](#exercise-5-configure-and-run-the-application)
-    - [Step 1: Download the starting application](#step-1-download-the-starting-application)
-    - [Step 2: Install the app's dependencies](#step-2-install-the-apps-dependencies)
-    - [Step 3: Download the sample data](#step-3-configure-the-app-settings)
-    - [Step 4: Configure the app settings](#step-4-configure-the-app-settings)
-    - [Step 5: Run the application](#step-5-run-the-application)
-  - [Known issues](#known-issues)
-  - [Next steps](#next-steps)
-
 ## Overview
 
-In this series of labs, you will port a simple "Northwind Orders" web application to become a full-fledged Microsoft Teams application. To make the app understandable by a wide audience, it is written in vanilla JavaScript with no UI framework, however it does use modern browser capabilities such as web components, CSS variables, and ECMAScript modules. The server side is also in JavaScript, using Express, the most popular web server platform for NodeJS.
+This is the very first lab in Path A, which begins with an application that already uses Azure AD.
 
-There are two options for doing the labs:
-
-* The "A" path is for developers with apps that are already based on Azure Active Directory. The starting app uses Azure Active Directory and the Microsoft Authentication Library (MSAL).
-
-* the "B" path is for developers with apps that use some other identity system. It includes a simple (and not secure!) cookie-based auth system based on the Employees table in the Northwind database. You will use an identity mapping scheme to allow your existing users to log in directly or via Azure AD Single Sign-On.
-
-**This is the very first lab in Path A, which begins with an application that already uses Azure AD.**
+---8<--- "are-you-on-the-right-path.md"
 
 In this lab you will set up the Northwind Orders application, which can be found in the [A01-begin-app](../../src/create-core-app/aad/A01-begin-app/) folder. The labs that follow will lead you step by step into extending the web application to be a Microsoft Teams application as well. 
 
@@ -56,9 +21,12 @@ In this lab you will learn to:
 - How to validate an [Azure AD access token](https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens?WT.mc_id=m365-58890-cxa) in a NodeJS application
 
 
-## Video: Lab Briefing (optional)
+???+ info "Video briefing"
+    <div class="video">
+      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <div>Welcome to App Camp!</div>
+    </div>
 
-<img style="height: 50%; width: 50%" src="/app-camp/assets/VideoThumbnails/Placeholder10.PNG"></img>
 
 ## Features
 

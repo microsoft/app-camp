@@ -21,3 +21,18 @@
     display: inline-block;
 }
 
+/* Style the top label on side nav */
+
+.md-nav__item:not(.md-nav__item .md-nav__item) > a, 
+.md-nav__item:not(.md-nav__item .md-nav__item) > label {
+    border-bottom: solid;
+    border-bottom-color: brown;
+    font-size: large;
+}
+
+/*
+.md-nav__link--active {
+    font-weight: bold;
+    color: black !important;
+}
+*/

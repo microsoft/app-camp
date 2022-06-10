@@ -1,4 +1,4 @@
-# Extended Labs
+# Choose your own adventure!
 
 If you have completed [Lab A03](./A03-after-apply-styling.md) then you're ready to choose your own adventure!
 
