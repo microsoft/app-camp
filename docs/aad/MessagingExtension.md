@@ -47,7 +47,7 @@ ngrok http 3978 -host-header=localhost
 ```
 The terminal will display a screen like below; Save the URL for [Step 2](#ex1-step3).
 
-<img src="../../assets/01-002-ngrok.png" alt="ngrok output"/>
+<img src="../../assets/screenshots/01-002-ngrok.png" alt="ngrok output"/>
 
 
 #### Step 2: Register your web service as an bot using Teams Developer Portal
@@ -833,11 +833,11 @@ In the Teams web or desktop UI, click "Apps" in the sidebar 1️⃣, then "Manag
 
 In this case, choose the first option 3️⃣.
 
-<img src="../../assets/03-005-InstallApp-1.png?raw=true" alt="Upload the app"/>
+<img src="../../assets/screenshots/03-005-InstallApp-1.png?raw=true" alt="Upload the app"/>
 
 Navigate to the Northwind.zip file in your manifest directory and upload it. 
 The Teams client will display the application information, add the application to a team or a group chat.
-<img src="../../assets/06-002-addapp.png?raw=true" alt="Add the app"/>
+<img src="../../assets/screenshots/06-002-addapp.png?raw=true" alt="Add the app"/>
 
 
 #### Step 4 : Run the application in Teams client
@@ -845,25 +845,25 @@ The Teams client will display the application information, add the application t
 We have added the app into a Group chat for demonstration. Go to the chat where the app is installed.
 
 Open the messaging extension app from the compose area.
-<img src="../../assets/06-003-openme.png?raw=true" alt="Open the app"/>
+<img src="../../assets/screenshots/06-003-openme.png?raw=true" alt="Open the app"/>
 
 Search for the product from the messaging extension (This should be easy if you have used [GIPHY](https://giphy.com/) before 😉)
-<img src="../../assets/06-004-searchproduct.png?raw=true" alt="Search product"/>
+<img src="../../assets/screenshots/06-004-searchproduct.png?raw=true" alt="Search product"/>
 
 Select the product you want to add in the conversation.
-<img src="../../assets/06-005-previewproduct.png?raw=true" alt="Select product"/>
+<img src="../../assets/screenshots/06-005-previewproduct.png?raw=true" alt="Select product"/>
 
 > A little preview will be shown in the message compose area. Note at the time this lab was created, there is an outstanding platform issue related to the preview. If you are in a Teams team, this will be blank. Hence showing this capability in a group chat.
 
 This is the product card, with a form to fill in and submit, incase the unit stock value has to be changed.
 
-<img src="../../assets/06-006-productcard.png?raw=true" alt="Product card"/>
+<img src="../../assets/screenshots/06-006-productcard.png?raw=true" alt="Product card"/>
 
 Fill in a new value in the form, and select **Update stock**.
-<img src="../../assets/06-007-updatepdt.png?raw=true" alt="Product update form"/>
+<img src="../../assets/screenshots/06-007-updatepdt.png?raw=true" alt="Product update form"/>
 
 Once it's success fully updated, the card refreshes to show the new stock value.
-<img src="../../assets/06-008-updated.png?raw=true" alt="Product updated"/>
+<img src="../../assets/screenshots/06-008-updated.png?raw=true" alt="Product updated"/>
 
 > The new stock values are not saved back into the northwind database as it is only read only for this lab. You can call your CRUD operations suitably in your application. Here we are manipulating the cache.
 

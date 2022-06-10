@@ -405,7 +405,7 @@ In this initial step, you'll run the application without a user license to see h
 3. Refresh the tab or browser if necessary. 
    The UI will begin to render, and then it will detect the license failure and display an error page.
 
-![Run application](../../assets/08-201-RunApp-1.png)
+![Run application](../../assets/screenshots/08-201-RunApp-1.png)
 
 > 📃 **NOTE:** The sample application checks the license in JavaScript, which is convenient for this lab but it would be easy for someone to bypass the license check. In a real application you'd probably check the license on all accesses to your application web site.
 
@@ -426,7 +426,7 @@ For this lab you will use an **AppSource** simulator to mock your interactions w
 
 2. Click the **Purchase** button to purchase a subscription to the Northwind Orders application.
 
-![Run application](../../assets/08-202-RunApp-2.png)
+![Run application](../../assets/screenshots/08-202-RunApp-2.png)
 
 > 📃 **NOTE:** The **AppSource** simulator has a mock offer name, "Contoso Apps", rather than showing the "Northwind Orders" app. This is just a constant defined in the monetization project's `SaasOfferMockData/Offers.cs` file.
 > 
@@ -440,7 +440,7 @@ Microsoft Teams currently supports only the per-user pricing model
 
 3. Select the "SeatBasedPlan" and click the **Purchase** button. Because this is a simulator, your credit card will not be charged.
 
-![Run application](../../assets/08-203-RunApp-3.png)
+![Run application](../../assets/screenshots/08-203-RunApp-3.png)
 
 The simulated purchase is now complete, so you will be redirected to the app's landing page. 
 
@@ -455,17 +455,17 @@ You will need to supply a page like this as part of your application; it interpr
 
 The sample app's landing page allows the user to select a region; the app stores this information in its own database. Notice the background color of these pages is blue; the blue pages are for your application to implement and are only a sample we've hosted based on [this sample](https://github.com/OfficeDev/office-add-in-saas-monetization-sample).
 
-![Run application](../../assets/08-204-RunApp-4.png)
+![Run application](../../assets/screenshots/08-204-RunApp-4.png)
 
 Once the region is selected, the sample app shows a welcome page with the user's name, which is obtained by [reading the user's profile with the Microsoft Graph API](https://docs.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&WT.mc_id=m365-58890-cxa). 
 
 4. Click **License Settings** to view the license assignment screen.
 
-![Run application](../../assets/08-205-RunApp-5.png)
+![Run application](../../assets/screenshots/08-205-RunApp-5.png)
 
 On this screen you can add individual user licenses using the **Add User** button, or you can set a policy that allows users to claim licenses on a first come, first served basis. Turn on the **First come first served** switch to enable this option.
 
-![Run application](../../assets/08-206-RunApp-6.png)
+![Run application](../../assets/screenshots/08-206-RunApp-6.png)
 
 > 📃**NOTE:** Everything on this screen is defined by this application. It's intended to be flexible since publishers have a wide range of licensing approaches. Apps can tell who's logging in via Azure AD and use the user ID and tenant ID to authorize access, provide personalization, etc.
 
@@ -476,13 +476,13 @@ Now that you've purchased a subscription, you can see the Northwind Orders appli
 1. Return to Microsoft Teams and refresh your application. 
     The license will be approved and the user can interact with the application normally.
 
-![Run application](../../assets/08-208-RunApp-8.png)
+![Run application](../../assets/screenshots/08-208-RunApp-8.png)
 
 2. Return to the licensing application.
    
    If you've closed the tab, you can find it at the mock AppSource URL you received earlier. 
 
-![Run application](../../assets/08-209-RunApp-9.png)
+![Run application](../../assets/screenshots/08-209-RunApp-9.png)
 
 Notice that your username has been assigned a license. The sample app stored this in a SQL Server database. When the Teams application called the licensing service, the access token contained the tenant ID and user ID, enabling the licensing service to determine that the user has a license.
 

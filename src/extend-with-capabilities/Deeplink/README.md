@@ -11,7 +11,7 @@ Copy the url to a particular order in `My orders` tab of the user.
 This link can then be shared via chat or email.
 Another user can open this url to view the order details in their own personal tab.
 
-![open deep link](../../../assets/deeplink-working.gif)
+![open deep link](../../../assets/screenshots/deeplink-working.gif)
 
 ## Version history
 

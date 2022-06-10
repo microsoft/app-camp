@@ -172,15 +172,15 @@ This will generate a new manifest.json file and a new application package (north
 
 If you already have a Team you can test with, skip to the next step. If not, begin by clicking the "Join or create a Team" button 1️⃣ and then "Create a team" 2️⃣.
 
-![Create a Team](../../assets/05-005-Create-a-team-1.png)
+![Create a Team](../../assets/screenshots/05-005-Create-a-team-1.png)
 
 Click "From scratch".
 
-![Create a Team](../../assets/05-006-Create-a-team-2.png)
+![Create a Team](../../assets/screenshots/05-006-Create-a-team-2.png)
 
 Then click your choice of "Private" or "Public". "Org-wide" is OK too but be aware this only works for Teams administrators and you can only have 5 of them in your tenant.
 
-![Create a Team](../../assets/05-007-Create-a-team-3.png)
+![Create a Team](../../assets/screenshots/05-007-Create-a-team-3.png)
 
 Then follow the wizard to give your Team a name and description and optionally add some members so you don't have to collaborate all by yourself.
 
@@ -202,25 +202,25 @@ In the Teams web or desktop UI, click "Apps" in the sidebar 1️⃣, then "Manag
 
 In this case, choose the first option 3️⃣.
 
-![Upload the app](../../assets/03-005-InstallApp-1.png)
+![Upload the app](../../assets/screenshots/03-005-InstallApp-1.png)
 
 Navigate to the Northwind.zip file in your manifest directory and upload it. Although the application is already installed, you are providing a newer version so it will update the application. 
 
 This time the "Add" button will have a little arrow in it so you can add the app to a particular Team or Group Chat. Click the little arrow 1️⃣ and then "Add to a Team" 2️⃣.
 
-![Add to Teams Channel](../../assets/05-001-Install-In-Channel.png)
+![Add to Teams Channel](../../assets/screenshots/05-001-Install-In-Channel.png)
 
 Type the name of a Team or channel in the search box 1️⃣ and select the one where you want to add the application 2️⃣. This will enable the "Set up" button 3️⃣; click it to add your app to the Team.
 
-![Add to Teams Channel](../../assets/05-002-Install-In-Channel-2.png)
+![Add to Teams Channel](../../assets/screenshots/05-002-Install-In-Channel-2.png)
 
 You should now see your configuration page, which provides the ability to select one product category 1️⃣ from the Northwind database. When you select one, the save event handler you declared with `registerOnSaveHandler()` runs and validates the form. If it's valid (it will always be in this case), the code calls `notifySuccess()`. which enables the "Save" button 2️⃣.
 
-![Configuration page](../../assets/05-003-Install-In-Channel-3.png)
+![Configuration page](../../assets/screenshots/05-003-Install-In-Channel-3.png)
 
 Click the Save button to view your new tab.
 
-![Channel tab](../../assets/05-004-Installed-In-Channel.png)
+![Channel tab](../../assets/screenshots/05-004-Installed-In-Channel.png)
 
 You can click the talk bubble in the upper left of the screen to open the chat; now people in the channel can chat about your app while they use it! This is a lot easier than navigating back and forth between the tab and the chat.
 

@@ -66,7 +66,7 @@ ngrok http 3978 -host-header=localhost
 
 The terminal will display a screen like this; note the https forwarding URL for use in this lab. Save this URL for use throughout the labs.
 
-![ngrok output](../../assets/01-002-ngrok.png)
+![ngrok output](../../assets/screenshots/01-002-ngrok.png)
 
 ---
 > **NOTE:** [This page](../../docs/ngrokReferences.md) lists all the exercies which involve the ngrok URL so you can easily update it if it changes.
@@ -78,7 +78,7 @@ The terminal will display a screen like this; note the https forwarding URL for 
 
 The starting application is in github at [https://github.com/microsoft/app-camp](https://github.com/microsoft/app-camp). Click the "Code" button and clone or download the content to your computer.
 
-![Download the lab source code](../../assets/01-001-CloneRepo.png)
+![Download the lab source code](../../assets/screenshots/01-001-CloneRepo.png)
 
 The starting code for the "B" path is in the **src/create-core-app/bespoke/B01-begin-app** folder. Copy this folder to nother location on your computer; this will be your working copy to keep the original source separate. Folders are also provided with the final code for the other labs.
 
@@ -127,7 +127,7 @@ At this point you should be able to browse to your ngrok URL (saved in Exercise 
 
 At first you will be directed to the Northwind login page.
 
-![Login page](../../assets/01b-001-Run-1.png)
+![Login page](../../assets/screenshots/01b-001-Run-1.png)
 
 The login system is ridiculously simple; usernames just the last names of each employee, which are stored in the Northwind employee database. Any employee last name with any password will work! As if that wasn't insecure enough, the employees are listed right on the page! (This is intended for instructional purposes, not to be secure. Do not use this code in a real application!)
 
@@ -135,21 +135,21 @@ Log in using one of the last names shown with a blank password; the system will 
 
 When you've logged in, you will see the Northwind Orders application. The home page contains two pieces of information from the user profile, the user's full name and a small profile card showing the user's name, job title, and a logoff button.
 
-![Home page](../../assets/01-040-Run-1.png)
+![Home page](../../assets/screenshots/01-040-Run-1.png)
 
 Click "My Orders" in the top navigation bar to view the employee's orders.
 
-![My Orders page](../../assets/01-041-Run-2.png)
+![My Orders page](../../assets/screenshots/01-041-Run-2.png)
 
 You can click on any order to view the details.
 
-![Viewing an order](../../assets/01-042-Run-3.png)
+![Viewing an order](../../assets/screenshots/01-042-Run-3.png)
 
 From here you can click on any product to view its details. Much of the data is hyperlinked in this fashion.
 
 You can also click on "Products" in the top navigation to view a list of product categories.
 
-![View product categories](../../assets/01-043-Run-4.png)
+![View product categories](../../assets/screenshots/01-043-Run-4.png)
 
 From there you can click into a product category to view a list of products, and then you can click into a product to see its details. The product detail page shows all the orders for the product, which leads to a list of orders, and so you can click your way around the sample data.
 

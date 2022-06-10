@@ -134,13 +134,13 @@ In this exercise you will deploy resources into your Azure subscription using an
     ```powershell
     Connect-Graph -Scopes "Application.ReadWrite.All, Directory.AccessAsUser.All DelegatedPermissionGrant.ReadWrite.All Directory.ReadWrite.All"
     ```
-![Graph consent](../../assets/08-001.png)
+![Graph consent](../../assets/screenshots/08-001.png)
 
 6. Click **Accept**.
 
 Once accepted, the browser will redirect and show the below message. You can close the browser and continue with the PowerShell command line.
 
- ![Graph consent redirect](../../assets/08-001-1.png)
+ ![Graph consent redirect](../../assets/screenshots/08-001-1.png)
 
 7. In the same PowerShell terminal window run `.\InstallApps.ps1`.
 
@@ -148,7 +148,7 @@ Once accepted, the browser will redirect and show the below message. You can clo
      
     ⚠️ You might get an error as shown below. It depends on the execution policy settings in PowerShell. If you do get the error, **move to [Step 2](#step-2-overcoming-install-errors)**. If you do not get the error **keep going**.
 
- ![execution policy](../../assets/08-001-2.png)
+ ![execution policy](../../assets/screenshots/08-001-2.png)
 
 8. Copy the values from the output and later you will need  these values to update the code and .`env` file for deploying add-ins. These values will also be pre-populated in `ARMParameters.json`. Do not change this file.
 9. Note how the `ARMParameters.json` file is now updated with the values of applications deployed.
@@ -170,7 +170,7 @@ You will set the execution policy to `Bypass` for now. Read more on execution po
 
     The script should now run to create all three applications in Azure AD. At the end of the script, your command line should display below information.:
 
-![app id secret](../../assets/08-002.png)
+![app id secret](../../assets/screenshots/08-002.png)
 
 3. Copy the values from the output and later you will need  these values to update the code and .env file for deploying Add-ins. These values will also be pre-populated in `ARMParameters.json`. Do not change this file.
 4. Notice how the `ARMParameters.json` file is now updated with the values of applications deployed.
@@ -180,31 +180,31 @@ You will set the execution policy to `Bypass` for now. Read more on execution po
 1. Open PowerShell 7 and run the Powershell command `Connect-AzAccount`. This will redirect you to login page.
 2. Confirm with the Global admin credentials. You will be redirected to a page displaying below.
 
-![Azure CLI consent redirect](../../assets/08-001-1.png)
+![Azure CLI consent redirect](../../assets/screenshots/08-001-1.png)
 
 3. Close the browser and continue with PowerShell. You will see similar output to that shown below in your command line, if everything is okay.
 
-![AZ CLI](../../assets/08-003.png)
+![AZ CLI](../../assets/screenshots/08-003.png)
 
 4. Run the script `.\DeployTemplate.ps1`. 
     When prompted, enter the name of the resource group to create.
 
-![AZ CLI](../../assets/08-004-1.png)
+![AZ CLI](../../assets/screenshots/08-004-1.png)
 
 Your resources will start to get deployed one after the other and you'll see the output as shown below if everything is okay.
 
-![AZ CLI](../../assets/08-004.png)
+![AZ CLI](../../assets/screenshots/08-004.png)
 
 You'll get a message on the command line that the ARM Template deployment was successfully as shown below.
 
-![AZ CLI](../../assets/08-005.png)
+![AZ CLI](../../assets/screenshots/08-005.png)
 
 5. Go to the `App registrations` in Azure AD in Azure portal. Use this [link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to navigate to it.
 
 Under **All applications**,  filter with Display name `Contoso Monetization`.
 You should see three apps as shown in the screen below:
 
-![AZ AD Apps](../../assets/08-006.png)
+![AZ AD Apps](../../assets/screenshots/08-006.png)
 
 ### Step 4: Deploy the applications to Azure
 
@@ -215,13 +215,13 @@ Here you'll deploy the server side code for the three applications.
 3. When prompted, enter the same resource group name you chose earlier.
     You will see the source code in your local machine getting built and packaged.
 
-![Build Apps](../../assets/08-007.png)
+![Build Apps](../../assets/screenshots/08-007.png)
 
 >📃 **NOTE:** You may see some warnings about file expiration, please ignore.
 
 The final messages may look like the image below.
 
- ![publish Apps](../../assets/08-008.png)
+ ![publish Apps](../../assets/screenshots/08-008.png)
 
 ### Step 5: Update .env file with deployed resources.
 
@@ -248,7 +248,7 @@ The licensing web service is secured using Azure AD. To call it the Northwind Or
 1. Return to the [Azure AD admin portal](https://aad.portal.azure.com/) and make sure you're logged in as the administrator of your development tenant. 
 2. Click 1️⃣ **Azure Active Directory** and then 2️⃣ **App Registrations** .
 
-![Return to your app registration](../../assets/03-001-AppRegistrationUpdate-1.png)
+![Return to your app registration](../../assets/screenshots/03-001-AppRegistrationUpdate-1.png)
 
 3. Select the app you registered earlier to view the application overview.
 
@@ -256,13 +256,13 @@ The licensing web service is secured using Azure AD. To call it the Northwind Or
 
 1. In the left navigation, click 1️⃣ **API permissions** and then 2️⃣ **+ Add a permission**.
 
-![Add Permission](../../assets/08-100-Add-Permission-0.png)
+![Add Permission](../../assets/screenshots/08-100-Add-Permission-0.png)
 
 2. In the flyout, select the **My APIs** tab.
 3. Find the licensing service you installed earlier in this lab. and click on it. By default, it will be called the "Contoso Monetization Code Sample Web API". 
 ⚠️ If you can't find it, you probably installed the licensing service in another tenant. No problem - just skip to [Step 2A](#step-2a-only-if-needed-add-permission-across-tenants).
 
-![Add permission](../../assets/08-100-Add-Permission.png)
+![Add permission](../../assets/screenshots/08-100-Add-Permission.png)
 
 4. Now select **Delegated permissions** and the one scope exposed by the licensing web API, "user_impersonation", will be displayed. 
 5. Select this permission and click **Add permissions**.
@@ -280,7 +280,7 @@ The licensing web service is secured using Azure AD. To call it the Northwind Or
    
 This allows the administrator of your M365 tenant to log in using a web browser for the purpose of consent. In a real application, you would create a web page that acknowledges the consent instead of using http://localhost, which will send the admin to an error page but only after doing the initial consent.
 
-![Adding a redirect address](../../assets/08-103-Cross-Tenant-Consent.png)
+![Adding a redirect address](../../assets/screenshots/08-103-Cross-Tenant-Consent.png)
 
 4. Construct a URL as follows: 
      ```url
@@ -300,7 +300,7 @@ You have added the permission but nobody has consented to it. Fortunately you're
    
    The message 3️⃣ **Granted for *tenant*** should be displayed for each permission.
 
-![Grant consent](../../assets/08-102-Grant-Consent.png)
+![Grant consent](../../assets/screenshots/08-102-Grant-Consent.png)
 
 ## Exercise 4: Northwind Orders calls the licensing service
 
@@ -627,7 +627,7 @@ In this initial step, you'll run the application without a user license to see h
 3. Refresh the tab or browser if necessary. 
    The UI will begin to render, and then it will detect the license failure and display an error page.
 
-![Run application](../../assets/08-201-RunApp-1.png)
+![Run application](../../assets/screenshots/08-201-RunApp-1.png)
 
 > 📃 **NOTE:** The sample application checks the license in JavaScript, which is convenient for this lab but it would be easy for someone to bypass the license check. In a real application you'd probably check the license on all accesses to your application web site.
 
@@ -642,7 +642,7 @@ This should display the **AppSource** simulator.
 
 2. Click the **Purchase** button to purchase a subscription to the Northwind Orders application.
 
-![Run application](../../assets/08-202-RunApp-2.png)
+![Run application](../../assets/screenshots/08-202-RunApp-2.png)
 
 > 📃 **NOTE:** The **AppSource** simulator has a mock offer name, "Contoso Apps", rather than showing the "Northwind Orders" app. This is just a constant defined in the monetization project's `SaasOfferMockData/Offers.cs` file. 
 > The real **AppSource** web page will show the application name and other information you configured in Partner Center.
@@ -656,7 +656,7 @@ Microsoft Teams only supports the per-user pricing model
 3. Select the "SiteBasedPlan" and click the **Purchase** button. 
 Because this is a simulator, your credit card will not be charged.
 
-![Run application](../../assets/08-203-RunApp-3.png)
+![Run application](../../assets/screenshots/08-203-RunApp-3.png)
 
 The simulated purchase is now complete, so you will be redirected to the app's landing page. 
 
@@ -666,17 +666,17 @@ You can find [the code for this](https://github.com/OfficeDev/office-add-in-saas
 
 The landing page gives the app a chance to interact with the user and capture any configuration information it needs. Users who purchase the app in the Teams store would be brought to this same page. The sample app's landing page allows the user to select a region; the app stores this information in its own database based on the Microsoft 365 tenant ID.
 
-![Run application](../../assets/08-204-RunApp-4.png)
+![Run application](../../assets/screenshots/08-204-RunApp-4.png)
 
 Once the region has been selected, the sample app shows a welcome page with the user's name, which is obtained by [reading the user's profile with the Microsoft Graph API](https://docs.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&WT.mc_id=m365-58890-cxa). 
 
 4. Click **License Settings** to view the license assignment screen.
 
-![Run application](../../assets/08-205-RunApp-5.png)
+![Run application](../../assets/screenshots/08-205-RunApp-5.png)
 
 On this screen you can add individual user licenses using the **Add User** button, or you can set a policy that allows users to claim licenses on a first come, first served basis. Turn on the **First come first served** switch to enable this option.
 
-![Run application](../../assets/08-206-RunApp-6.png)
+![Run application](../../assets/screenshots/08-206-RunApp-6.png)
 
 > 📃**NOTE:** Everything on this screen is defined by this application. It's intended to be flexible since publishers have a wide range of licensing approaches. Apps can tell who's logging in via Azure AD and use the user ID and tenant ID to authorize access, provide personalization, etc.
 
@@ -687,13 +687,13 @@ Now that you've purchased a subscription, you can see the Northwind Orders appli
 1. Return to Microsoft Teams and refresh your application. 
     The license will be approved and the user can interact with the application normally.
 
-![Run application](../../assets/08-208-RunApp-8.png)
+![Run application](../../assets/screenshots/08-208-RunApp-8.png)
 
 2. Return to the licensing application.
    
    If you've closed the tab, you can find it at https://(webAppSiteName).azurewebsites.net where `webAppSiteName` is the name you chose earlier in this lab. 
 
-![Run application](../../assets/08-209-RunApp-9.png)
+![Run application](../../assets/screenshots/08-209-RunApp-9.png)
 
 Notice that your username has been assigned a license. The sample app stored this in a SQL Server database. When the Teams application called the licensing service, the access token contained the tenant ID and user ID, enabling the licensing service to determine that the user has a license.
 

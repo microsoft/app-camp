@@ -1,38 +1,69 @@
-Trying to be consistent with Dan's tool and to a degree with Learn modules.
+# Guide to formatting lab content
 
-* There will be two labs, A (Azure AD start) and B (Bespoke auth start).
-* Labs contain exercises; each exercise will consist of one file, which contains sections and steps.
-* Exercises may contain sections, which are unnumbered and just help users to understand what they're looking at. Sections may not be used if we move to Dan's tool. (?)
-* Exercises always contain steps, which are numbered and would be used in Dan's tool
+## Formatting text elements
 
-Include a title at the top of each markdown file:
-## Exercise A01: Start with Azure Active Directory
+These text elements are embedded into the lab instructions, so the formatting is always in-line
 
-Section headings look like this, and are not numbered
-### Features
+| Element | Treatment | Example |
+|---|---|---|
+| Function names | monospaced with parenthesis | Then, call `myFunction()` to do something ... |
+| Language keywords | monospaced | ... insert at the top of the `try` block ... |
+| Symbols in code (variable, object names etc.) | monospaced | ... the `foo` object contains something random ... |
+| File and folder names | bold |  Copy the contents of **foo.js** into the **bar** folder |
+| Text on screen | enclose in double quotes | Now click on the "foo" button |
 
-Steps look like this and are numbered
-#### Step 1 - App Registration
+## Includes
 
-Tips look like this, with a cool smiley empticon:
+To include content from the /docs/includes folder, use this format:
 
----
-> 😎 DON'T DEVELOP IN PRODUCTION: It may be tempting to build solutions right where you work every day, but there are good reasons to have a dedicated dev tenant - and probably additional staging/test tenants. They're free, and you can safely experiment as a tenant admin without risking your production work. 
----
+--8<-- "test.md"
 
-Notes look like this:
+## Hyperlinks
 
----
-> **NOTE:** If you recently created your tenant, the **Teams** l
----
+Links within the labs can be relative and should open within the current window [like this](./labFormat.md).
 
-Callouts: Please add numbered callouts to your screen shots if users need to click or enter text in a particular spot. Refer to the callouts in the written instructions using the Unicode characters 1️⃣, 2️⃣, 3️⃣, 4️⃣, etc.
+Links that go outside the labs, including links to source code in the same repo, should open a new window [like this](https://github.com/microsoft/app-camp/blob/main/src/create-core-app/aad/A01-begin-app/client/index.html){target=_blank}
 
-Symbols in code: Please use `monospaced` text for variable names, function names, etc. Reference function names with a pair of parenthesis such as `myFunction()`.
+## Admonitions
 
-File names: Please [hyperlink](#) to files for easy navigation
+!!! note
+    Use this format to emphasize or clarify the instructions
 
-Images : Save your images in a folder in the repo. Please use the image tag and refer the github url of the image asset as shown below. This is to make the images available in Dan's training tool. Relative image URLs do not work there.
+!!! tip
+    Use this format to show tips and best practices
 
-`<img src="https://github.com/OfficeDev/TeamsAppCamp1/blob/main/Labs/Assets/06-006-productcard.png?raw=true" alt="Product card"/>`
+!!! warning
+    Use this format to warn the student about a common pitfall in completing the labs
+
+!!! danger
+    Use this format to warn the student about security issues or stability issues that may arise in a production application
+
+???+ info "Video briefing"
+    <div class="video">
+      <iframe src="//www.youtube.com/embed/EQuB8l4sccg" frameborder="0" allowfullscreen></iframe>
+      <div>Caption</div>
+    </div>
+
+???+ info "Video briefing"
+    <div class="video">
+      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <div>Caption</div>
+    </div>
+
+???+ info "More information"
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/EQuB8l4sccg" frameborder="0" allowfullscreen></iframe>
+      <div>Caption 1</div>
+    </div>
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/EQuB8l4sccg" frameborder="0" allowfullscreen></iframe>
+      <div>Caption 2</div>
+    </div>
+    <div class="tinyVideo">
+      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <div>Caption 3</div>
+    </div>
+
+??? info "TL;DR"
+    Use this format to provide ancillary details that may be of interest but are not essential
 

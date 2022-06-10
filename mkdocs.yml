@@ -1,32 +1,47 @@
 site_name: Teams app camp
 site_url: https://microsoft.github.io/app-camp
+repo_url: https://github.com/microsoft/app-camp
+repo_name: microsoft/app-camp
+edit_uri: ''                    # Disable edit button
+extra_css:
+    - assets/labStyles.css
 nav: 
 - Home: 'index.md'
-- Getting started: 'getting-started.md'
-- Core app lab(path A): 
+- Path A: 
   - Start with Azure Active Directory: 'aad/A01-begin-app.md'
   - Create a Teams app with Azure AD Teams SSO: 'aad/A02-after-teams-sso.md'
   - Teams styling and themes: 'aad/A03-after-apply-styling.md'
-- Core app lab(path B): 
+- Path B: 
   - Start with a non-Azure Active Directory Identity System: 'bespoke/B01-begin-app.md'
   - Teams App with Bespoke Authentication: 'bespoke/B02-after-teams-login.md'
   - Enable Azure AD Single Sign-On: 'bespoke/B03-after-teams-sso.md'
   - Teams styling and themes: 'bespoke/B04-after-apply-styling.md'
-- More app capabilities:
+- Extended labs:
+  - Choose your own adventure!: 'aad/ExtendedLabs.md'
   - Add a configurable tab: 'aad/ConfigurableTab.md'
   - Add a Deep link to a personal Tab: 'aad/Deeplink.md'
   - Add a Messaging Extension: 'aad/MessagingExtension.md'
   - Add a Task Module: 'aad/TaskModules.md'
   - Selling Your SaaS-based Teams Extension: 'aad/Monetization.md'
-- Resources:
-  - Find all resources: 'Resources.md'
+- Resources: 'Resources.md'
 theme:
   name: 'material'
   palette: 
     primary: 'brown'
     accent: 'deep orange'
   logo: 'assets/code-lab-banner-transparent.png'
+  icon:
+    repo: fontawesome/brands/github
   features:
+    - navigation.tabs         # Top nav
+    - navigation.tabs.sticky  # Make top nav stay vaisible
     - navigation.sections
-    - navigation.tabs
-    - navigation.tabs.sticky
+    - toc.integrate           # Integrate sections into left nav
+markdown_extensions:
+  - pymdownx.snippets:
+      base_path: docs/includes
+  - admonition
+  - pymdownx.details
+  - attr_list
+
+
