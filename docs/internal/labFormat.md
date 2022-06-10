@@ -33,21 +33,24 @@ Links that go outside the labs, including links to source code in the same repo,
     Use this format to show tips and best practices
 
 !!! warning
-    Use this format to warn the student about a common pitfall
+    Use this format to warn the student about a common pitfall in completing the labs
 
-!!! info "Video briefing"
+!!! danger
+    Use this format to warn the student about security issues or stability issues that may arise in a production application
+
+???+ info "Video briefing"
     <div class="video">
       <iframe src="//www.youtube.com/embed/EQuB8l4sccg" frameborder="0" allowfullscreen></iframe>
       <div>Caption</div>
     </div>
 
-!!! info "Video briefing"
+???+ info "Video briefing"
     <div class="video">
       <img src="/app-camp/assets/video-coming-soon.png"></img>
       <div>Caption</div>
     </div>
 
-!!! info "More information"
+???+ info "More information"
     <div class="tinyVideo">
       <iframe src="//www.youtube.com/embed/EQuB8l4sccg" frameborder="0" allowfullscreen></iframe>
       <div>Caption 1</div>
@@ -61,6 +64,6 @@ Links that go outside the labs, including links to source code in the same repo,
       <div>Caption 3</div>
     </div>
 
-??? info "Expand for more information"
-    Use this format to explain 
+??? info "TL;DR"
+    Use this format to provide ancillary details that may be of interest but are not essential
 

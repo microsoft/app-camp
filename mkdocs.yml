@@ -4,17 +4,16 @@ extra_css:
     - assets/labStyles.css
 nav: 
 - Home: 'index.md'
-- Getting started: 'getting-started.md'
-- Core app lab(path A): 
+- Core app lab (Path A): 
   - Start with Azure Active Directory: 'aad/A01-begin-app.md'
   - Create a Teams app with Azure AD Teams SSO: 'aad/A02-after-teams-sso.md'
   - Teams styling and themes: 'aad/A03-after-apply-styling.md'
-- Core app lab(path B): 
+- Core app lab (Path B): 
   - Start with a non-Azure Active Directory Identity System: 'bespoke/B01-begin-app.md'
   - Teams App with Bespoke Authentication: 'bespoke/B02-after-teams-login.md'
   - Enable Azure AD Single Sign-On: 'bespoke/B03-after-teams-sso.md'
   - Teams styling and themes: 'bespoke/B04-after-apply-styling.md'
-- More app capabilities:
+- Extended labs:
   - Add a configurable tab: 'aad/ConfigurableTab.md'
   - Add a Deep link to a personal Tab: 'aad/Deeplink.md'
   - Add a Messaging Extension: 'aad/MessagingExtension.md'
