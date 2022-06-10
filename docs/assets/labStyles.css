@@ -1,0 +1,23 @@
+.video {
+    max-width: 640px;
+    min-width: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.video > iframe,
+.video > img {
+    width: 32vw;
+    height: 18vw;
+}
+
+.tinyVideo {
+    max-width: 240px;
+    min-width: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: inline-block;
+}
+

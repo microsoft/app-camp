@@ -1,5 +1,7 @@
 site_name: Teams app camp
 site_url: https://microsoft.github.io/app-camp
+extra_css:
+    - assets/labStyles.css
 nav: 
 - Home: 'index.md'
 - Getting started: 'getting-started.md'
@@ -30,3 +32,10 @@ theme:
     - navigation.sections
     - navigation.tabs
     - navigation.tabs.sticky
+markdown_extensions:
+  - pymdownx.snippets:
+      base_path: docs/includes
+  - admonition
+  - pymdownx.details
+
+
