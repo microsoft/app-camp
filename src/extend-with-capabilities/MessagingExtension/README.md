@@ -6,18 +6,18 @@ This sample is a Search messaging extension created from using the core teams ap
 
 Users can search the Northwind database when composing a message and find the product.
 
-<img src="../../../../assets/06-004-searchproduct.png?raw=true" alt="Search product"/>
+<img src="../../../../assets/screenshots/06-004-searchproduct.png?raw=true" alt="Search product"/>
 
 Select a product and insert an adaptive card which is a form with product details and stock input, into the conversation.
 
-<img src="../../../assets/06-005-previewproduct.png?raw=true" alt="Select product"/>
+<img src="../../../assets/screenshots/06-005-previewproduct.png?raw=true" alt="Select product"/>
 
 The members in the team can then update stock information in the same conversation, by adding stock unit value in the input field and select **Update stock**.
 
-<img src="../../../assets/06-007-updatepdt.png?raw=true" alt="Product update form"/>
+<img src="../../../assets/screenshots/06-007-updatepdt.png?raw=true" alt="Product update form"/>
 
 Once it's successfully updated, the card refreshes to show the new stock value.
-<img src="../../../assets/06-008-updated.png?raw=true" alt="Product updated"/>
+<img src="../../../assets/screenshots/06-008-updated.png?raw=true" alt="Product updated"/>
 
 ## Frameworks
 

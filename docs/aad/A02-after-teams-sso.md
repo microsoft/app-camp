@@ -170,7 +170,7 @@ The starting application logs users into Azure Active Directory using the [Micro
 
 Return to the [Azure AD admin portal](https://aad.portal.azure.com/) and make sure you're logged in as the administrator of your development tenant. Click "Azure Active Directory" 1️⃣ and then "App Registrations" 2️⃣.
 
-![Return to your app registration](../../assets/03-001-AppRegistrationUpdate-1.png)
+![Return to your app registration](../../assets/screenshots/03-001-AppRegistrationUpdate-1.png)
 
 Select the app you registered earlier to view the application overview.
 
@@ -178,13 +178,13 @@ Select the app you registered earlier to view the application overview.
 
 Click "Expose an API" 1️⃣ and then "+ Add a client application" 2️⃣.
 
-![Open the Expose an API screen](../../assets/03-002-AppRegistrationUpdate-2.png)
+![Open the Expose an API screen](../../assets/screenshots/03-002-AppRegistrationUpdate-2.png)
 
 Paste the ID for the Teams mobile or desktop app, `1fec8e78-bce4-4aaf-ab1b-5451cc387264` into the flyout 1️⃣ and check the scope you created earlier 2️⃣ to allow Teams to issue tokens for that scope. Then click "Add application" 3️⃣ to save your work.
 
 Repeat the process for the Teams web application, `5e3ce6c0-2b1f-4285-8d4b-75ee78787346`.
 
-![Add a client application](../../assets/03-003-AppRegistrationUpdate-3.png)
+![Add a client application](../../assets/screenshots/03-003-AppRegistrationUpdate-3.png)
 
 ## Exercise 2: Create the Teams application package
 
@@ -463,17 +463,17 @@ In the Teams web or desktop UI, click "Apps" in the sidebar 1️⃣, then "Manag
 
 In this case, choose the first option 3️⃣.
 
-![Upload the app](../../assets/03-005-InstallApp-1.png)
+![Upload the app](../../assets/screenshots/03-005-InstallApp-1.png)
 
 Navigate to the Northwind.zip file in your manifest directory and upload it. Teams will display the application information; click the "Add" button to install it for your personal use.
 
-![Upload the app](../../assets/03-006-InstallApp-2.png)
+![Upload the app](../../assets/screenshots/03-006-InstallApp-2.png)
 
 ### Step 3: Run the application
 
 The application should appear without any login prompt. The app's navigation should not be displayed; instead users can navigate to "My Orders" or "Products" using the tabs in the Teams app.
 
-![Run the app](../../assets/03-007-RunApp-1.png)
+![Run the app](../../assets/screenshots/03-007-RunApp-1.png)
 
 > CHALLENGE: You might have noticed the logout button doesn't do anything in Teams! If you wish, hide the logout button just as you hid the navigation bar. The code is in client/identity/userPanel.js.
 

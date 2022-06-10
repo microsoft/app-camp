@@ -12,6 +12,18 @@ These text elements are embedded into the lab instructions, so the formatting is
 | File and folder names | bold |  Copy the contents of **foo.js** into the **bar** folder |
 | Text on screen | enclose in double quotes | Now click on the "foo" button |
 
+## Includes
+
+To include content from the /docs/includes folder, use this format:
+
+--8<-- "test.md"
+
+## Hyperlinks
+
+Links within the labs can be relative and should open within the current window [like this](./labFormat.md).
+
+Links that go outside the labs, including links to source code in the same repo, should open a new window [like this](https://github.com/microsoft/app-camp/blob/main/src/create-core-app/aad/A01-begin-app/client/index.html){target=_blank}
+
 ## Admonitions
 
 !!! note

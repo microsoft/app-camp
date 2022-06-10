@@ -4,13 +4,15 @@
 
 _Migrate applications into Microsoft Teams_
 
---8<-- "test.md"
-
-Welcome to App Camp! In this on-demand workshop, you'll learn how to build Teams applications "from scratch", which is important for developers who already have an application they want to extend into Microsoft Teams, or for developers who have a specific toolchain in mind. If you're starting from scratch and open to building a React application with NodeJS/Express support, we recommend you use the [Teams Toolkit](https://docs.microsoft.com/en-us/microsoftteams/platform/toolkit/visual-studio-code-overview) rather than building your application from scratch.
+Welcome to App Camp! In this on-demand workshop, you'll learn how to build Teams applications "from scratch", which is important for developers who already have an application they want to extend into Microsoft Teams, or for developers who have a specific toolchain in mind. If you're starting from scratch and open to building a React application with NodeJS/Express support, we recommend you use the [Teams Toolkit](https://docs.microsoft.com/en-us/microsoftteams/platform/toolkit/visual-studio-code-overview){target=_blank} rather than building your application from scratch.
 
 This web site will guide you through a set of videos and hands-on lab exercises in which you will port a simiple web application to being a full-featured Teams application. The initial core labs will bring the web application into Teams as a personal tab with Azure AD Single Sign-on. Then the "extended" labs are available to teach you how to add features such as messaging extensions, adaptive cards, deep linking, and more. [One of the extended labs](./aad/Monetization.md) even shows you how to monetize your application in the Teams app store!
 
-<img style="height: 50%; width: 50%" src="./assets/VideoThumbnails/Placeholder01.PNG"></img>
+!!! info "Video briefing"
+    <div class="video">
+      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <div>Welcome to App Camp!</div>
+    </div>
 
 In this series of labs, you will port a simple "Northwind Orders" web application to become a full-fledged Microsoft Teams application. The core labs will show you how to make the web application into a Teams application with a personal tab and Azure AD Single Sign-on. From there, you can choose extended labs depending on the features you need in your application. After completing each lab, the solution will still work as the original stand-alone web application as well as in Microsoft Teams. This is intended to shwo how to extend an existing SaaS application into Microsoft Teams without disrupting non-Teams other users.
 
@@ -18,16 +20,20 @@ In this series of labs, you will port a simple "Northwind Orders" web applicatio
 
 To make the app understandable by a wide audience, it is written in vanilla JavaScript with no UI framework, however it does use modern browser capabilities such as web components, CSS variables, and ECMAScript modules. The server side is also in plain JavaScript, using [Express](https://expressjs.com/), the most popular web server platform for NodeJS. While the code is not production quality, the writers tried to follow best practices with respect to the various API's and SDK's in use, or to call out any exceptions in comments. As for things like robust exception handling, unit testing, build pipeline, etc., those are left to you, the developer; you probably already have a setup you want to use anyway.
 
-**Document outline**
-<!-- no toc -->
-- [Paths 🛣️](#paths-️) - There are two options for the core labs; this section explains
-- [Labs 📚](#labs)
-  - [Path A: Core application development](#path-a-core-application-development)
-  - [Path B: Core application development](#path-b-core-application-development)
-- [Prerequisites 📃](#prerequisites)
-- [Contributing](#contributing)
-- [Trademarks](#trademarks)
-
+!!! info "More information"
+    To more fully understand the lab content, consider watching these videos first
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/EQuB8l4sccg" frameborder="0" allowfullscreen></iframe>
+      <div>Get started building Microsoft Teams apps</div>
+    </div>
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/SaBbfVgqZHc" frameborder="0" allowfullscreen></iframe>
+      <div>Understanding Single Sign-On (SSO) with Azure AD</div>
+    </div>
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/IQf2Zs9Mob8" frameborder="0" allowfullscreen></iframe>
+      <div>Publish your app in the Microsoft Teams app store</div>
+    </div>
 ## Lab Prerequisites 📃 
 
 These labs are intended for developers. Most of the labs don't assume a lot of specialized knowledge; coding is in modern JavaScript without use of specialized frameworks or libraries. But if you're not comfortable with coding, you may find it a bit challenging. The idea is to teach you the principles so you can apply them with your choice of toolsets.
@@ -35,15 +41,12 @@ These labs are intended for developers. Most of the labs don't assume a lot of s
 To complete the labs you will need:
 
  * A computer with permission to install software (Windows, Mac, or Linux)
- * [NodeJS](https://nodejs.org/en/download/)
- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/download)
- * [ngrok](https://ngrok.com/download) to simplify local debugging and allow debugging of bots and messaging extensions
- * A Microsoft 365 tenant (available free!)
+ * [NodeJS](https://nodejs.org/en/download/){target="_blank"}
+ * A code editor such as [Visual Studio Code](https://code.visualstudio.com/download){target="_blank"}
+ * [ngrok](https://ngrok.com/download){target="_blank"} to simplify local debugging and allow debugging of bots and messaging extensions
+ * A Microsoft 365 tenant [(available free!)](https://developer.microsoft.com/en-us/microsoft-365/dev-program){target="_blank"}
 
-Installation instructions are part of [the first lab](./aad/A01-begin-app.md); additional details are here [in the repo wiki](https://github.com/microsoft/app-camp/wiki/Prerequisites)
-
-[![pages-build-deployment](https://github.com/microsoft/app-camp/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/microsoft/app-camp/actions/workflows/pages/pages-build-deployment)
-
+Installation instructions are part of [the first lab](./aad/A01-begin-app.md); additional details are here [in the repo wiki](https://github.com/microsoft/app-camp/wiki/Prerequisites){target="_blank"}
 
 ## Choose a path 🛣️
 
@@ -108,3 +111,5 @@ trademarks or logos is subject to and must follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
+
+[![pages-build-deployment](https://github.com/microsoft/app-camp/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/microsoft/app-camp/actions/workflows/pages/pages-build-deployment)
