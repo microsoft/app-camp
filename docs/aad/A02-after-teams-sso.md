@@ -2,53 +2,61 @@
 
 # Lab A02: Create a Teams app with Azure AD Single Sign-On
 
-<!-- no toc -->
-  - [Overview](#overview)
-  - [Features](#features)
-  - [Project structure](#project-structure)
-  - [Exercise 1: Authorize Microsoft Teams to log users into your application](#exercise-1-authorize-microsoft-teams-to-log-users-into-your-application)
-    - [Step 1: Return to your app registration](#step-1-return-to-your-app-registration)
-    - [Step 2: Add the Teams client applications](#step-2-add-the-teams-client-applications)
-  - [Exercise 2: Create the Teams application package](#exercise-2-create-the-teams-application-package)
-    - [Step 1: Copy the *manifest* folder to your working directory](#step-1-copy-the-manifest-folder-to-your-working-directory)
-    - [Step 2: Examine the manifest template](#step-2-examine-the-manifest-template)
-    - [Step 3: Add the Teams App ID to the .env file](#step-3-add-the-teams-app-id-to-the-env-file)
-    - [Step 4: Add npm package to create .zip files](#step-4-add-npm-package-to-create-zip-files)
-    - [Step 5: Build the package](#step-5-build-the-package)
-  - [Exercise 3: Modify the application source code](#exercise-3-modify-the-application-source-code)
-    - [Step 1: Add a module with Teams helper functions](#step-1-add-a-module-with-teams-helper-functions)
-    - [Step 2: Update the login code for Teams SSO](#step-2-update-the-login-code-for-teams-sso)
-    - [Step 3: Hide the navigation within Teams](#step-3-hide-the-navigation-within-teams)
-    - [Exercise 4: Test your application in Microsoft Teams](#exercise-4-test-your-application-in-microsoft-teams)
-    - [Step 1: Start the application](#step-1-start-the-application)
-    - [Step 2: Upload the app package](#step-2-upload-the-app-package)
-  - [Known issues](#known-issues)
-  - [References](#references)
-  - [Next Steps](#next-steps)
-
 ## Overview
 
 This lab is part of Path A, which begins with a Northwind Orders application that already uses Azure AD.
 
-In this lab you will extend the Northwind Orders application as a personal tab in a Teams application. That means the application needs to run in an IFrame; if your app includes code that prevents this, you may need to modify it to look for the Teams referrer URL. 
+---8<--- "are-you-on-the-right-path.md"
+
+In this lab you will extend the Northwind Orders application as a personal tab in a Teams application. That means the application needs to run in an IFrame; if your app includes code that prevents this, you may need to modify it to look for the Teams referrer URL.
 
 The Northwind Orders app doesn't check for IFrames, but Azure AD does, so the existing site won't work without modifications. To accomodate this and to prevent extra user logins, you'll set this tab up to use Teams' Azure AD Single Sign-on. 
 
-The completed solution can be found in the [A02-after-teams-sso](../../src/create-core-app/aad/A02-after-teams-sso/) folder, but the instructions will guide you through modifying the app running in your working folder. 
+The completed solution can be found in the [A02-after-teams-sso](../../src/create-core-app/aad/A02-after-teams-sso/){target="_blank"} folder, but the instructions will guide you through modifying the app running in your working folder. 
 
 Note that as you complete the labs, the original app should still work outside of Teams! This is often a requirement of ISV's who have an app in market and need to serve an existing customer base outside of Teams.
 
 * [A01-begin-app: Setting up the application with Azure AD](./A01-begin-app.md) 
-* [A02-after-teams-sso: Creating a Teams app with Azure ADO SSO](./A02-after-teams-sso.md)(📍You are here)
+* [A02-after-teams-sso: Creating a Teams app with Azure ADO SSO](./A02-after-teams-sso.md) (📍You are here)
 * [A03-after-apply-styling: Teams styling and themes](./A03-after-apply-styling.md)
 
 
 In this lab you will learn to:
 
-- Create a Microsoft Teams app manifest and package that can be installed into Teams
+- Create an app manifest and package that can be installed into Teams
 - Update your Azure AD app registration to allow Teams to issue tokens on behalf of your application
 - Use the Microsoft Teams JavaScript SDK to request an Azure AD access token
 - Install and test your application in Microsoft Teams
+
+???+ info "Video briefing"
+    <div class="video">
+      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <div>Lab A02 Briefing</div>
+    </div>
+
+??? note "Table of Contents (open to display ►)"
+    - [Overview](#overview)
+    - [Features](#features)
+    - [Project structure](#project-structure)
+    - [Exercise 1: Authorize Microsoft Teams to log users into your application](#exercise-1-authorize-microsoft-teams-to-log-users-into-your-application)
+        - [Step 1: Return to your app registration](#step-1-return-to-your-app-registration)
+        - [Step 2: Add the Teams client applications](#step-2-add-the-teams-client-applications)
+    - [Exercise 2: Create the Teams application package](#exercise-2-create-the-teams-application-package)
+        - [Step 1: Copy the *manifest* folder to your working directory](#step-1-copy-the-manifest-folder-to-your-working-directory)
+        - [Step 2: Examine the manifest template](#step-2-examine-the-manifest-template)
+        - [Step 3: Add the Teams App ID to the .env file](#step-3-add-the-teams-app-id-to-the-env-file)
+        - [Step 4: Add npm package to create .zip files](#step-4-add-npm-package-to-create-zip-files)
+        - [Step 5: Build the package](#step-5-build-the-package)
+    - [Exercise 3: Modify the application source code](#exercise-3-modify-the-application-source-code)
+        - [Step 1: Add a module with Teams helper functions](#step-1-add-a-module-with-teams-helper-functions)
+        - [Step 2: Update the login code for Teams SSO](#step-2-update-the-login-code-for-teams-sso)
+        - [Step 3: Hide the navigation within Teams](#step-3-hide-the-navigation-within-teams)
+        - [Exercise 4: Test your application in Microsoft Teams](#exercise-4-test-your-application-in-microsoft-teams)
+        - [Step 1: Start the application](#step-1-start-the-application)
+        - [Step 2: Upload the app package](#step-2-upload-the-app-package)
+    - [Known issues](#known-issues)
+    - [References](#references)
+    - [Next Steps](#next-steps)
 
 ## Features
 
@@ -58,117 +66,114 @@ In this lab you will learn to:
 
 ## Project structure
 
-The project structure when you start of this lab and end of this lab is as follows.
-Use this depiction for comparison.
-On your left is the contents of folder  `A01-begin-app` and on your right is the contents of folder `A02-after-teams-sso`.
+??? note "Project files before and after this lab (open to display ►)"
+    The project structure when you start of this lab and end of this lab is as follows.
+    Use this depiction for comparison.
+    On your left is the contents of folder  `A01-begin-app` and on your right is the contents of folder `A02-after-teams-sso`.
 
-- 🆕 New files/folders
+    - 🆕 New files/folders
 
-- 🔺Files changed
+    - 🔺Files changed
 
 
-<table>
-<tr>
-<th >Project Structure Before </th>
-<th>Project Structure After</th>
-</tr>
-<tr>
-<td valign="top" >
-<pre>
-A01-begin-app
-    ├── client
-    │   ├── components
-    │       ├── 🔺navigation.js
-    │   └── identity
-    │       ├── 🔺identityClient.js
-    │       └── userPanel.js
-    ├── modules
-    │   └── env.js
-    │   └── northwindDataService.js
-    ├── pages
-    │   └── categories.html
-    │   └── categories.js
-    │   └── categoryDetails.html
-    │   └── categoryDetails.js
-    │   └── myOrders.html
-    │   └── orderDetail.html
-    │   └── orderDetail.js
-    │   └── privacy.html
-    │   └── productDetail.html
-    │   └── productDetail.js
-    │   └── termsofuse.html
-    ├── index.html
-    ├── index.js
-    ├── northwind.css
-    ├── server
-    │   └── constants.js
-    │   └── identityService.js
-    │   └── northwindDataService.js
-    │   └── server.js
-    ├── 🔺.env_Sample
-    ├── .gitignore
-    ├── 🔺package.json
-    ├── README.md
-</pre>
-</td>
-<td>
-<pre>
-A02-after-teams-sso
-    ├── client
-    │   ├── components
-    │       ├── 🔺navigation.js
-    │   └── identity
-    │       ├── 🔺identityClient.js
-    │       └── userPanel.js
-    ├── modules
-    │   └── env.js
-    │   └── northwindDataService.js
-    │   └── 🆕teamsHelpers.js
-    ├── pages
-    │   └── categories.html
-    │   └── categories.js
-    │   └── categoryDetails.html
-    │   └── categoryDetails.js
-    │   └── myOrders.html
-    │   └── orderDetail.html
-    │   └── orderDetail.js
-    │   └── privacy.html
-    │   └── productDetail.html
-    │   └── productDetail.js
-    │   └── termsofuse.html
-    ├── index.html
-    ├── index.js
-    ├── northwind.css
-    ├── 🆕manifest
-    │   └── 🆕makePackage.js
-    │   └── 🆕manifest.template.json
-    │   └── 🆕northwind32.png
-    │   └── 🆕northwind192.png
-    ├── server
-    │   └── constants.js
-    │   └── identityService.js
-    │   └── northwindDataService.js
-    │   └── server.js
-    ├── 🔺.env_Sample
-    ├── .gitignore
-    ├── 🔺package.json
-    ├── README.md
-</pre>
-</td>
-</tr>
-</table>
-
-## Video: Lab Briefing (optional)
-
-<img style="height: 50%; width: 50%" src="/app-camp/assets/VideoThumbnails/Placeholder12.PNG"></img>
+    <table>
+    <tr>
+    <th >Project Structure Before </th>
+    <th>Project Structure After</th>
+    </tr>
+    <tr>
+    <td valign="top" >
+    <pre>
+    A01-begin-app
+        ├── client
+        │   ├── components
+        │       ├── 🔺navigation.js
+        │   └── identity
+        │       ├── 🔺identityClient.js
+        │       └── userPanel.js
+        ├── modules
+        │   └── env.js
+        │   └── northwindDataService.js
+        ├── pages
+        │   └── categories.html
+        │   └── categories.js
+        │   └── categoryDetails.html
+        │   └── categoryDetails.js
+        │   └── myOrders.html
+        │   └── orderDetail.html
+        │   └── orderDetail.js
+        │   └── privacy.html
+        │   └── productDetail.html
+        │   └── productDetail.js
+        │   └── termsofuse.html
+        ├── index.html
+        ├── index.js
+        ├── northwind.css
+        ├── server
+        │   └── constants.js
+        │   └── identityService.js
+        │   └── northwindDataService.js
+        │   └── server.js
+        ├── 🔺.env_Sample
+        ├── .gitignore
+        ├── 🔺package.json
+        ├── README.md
+    </pre>
+    </td>
+    <td>
+    <pre>
+    A02-after-teams-sso
+        ├── client
+        │   ├── components
+        │       ├── 🔺navigation.js
+        │   └── identity
+        │       ├── 🔺identityClient.js
+        │       └── userPanel.js
+        ├── modules
+        │   └── env.js
+        │   └── northwindDataService.js
+        │   └── 🆕teamsHelpers.js
+        ├── pages
+        │   └── categories.html
+        │   └── categories.js
+        │   └── categoryDetails.html
+        │   └── categoryDetails.js
+        │   └── myOrders.html
+        │   └── orderDetail.html
+        │   └── orderDetail.js
+        │   └── privacy.html
+        │   └── productDetail.html
+        │   └── productDetail.js
+        │   └── termsofuse.html
+        ├── index.html
+        ├── index.js
+        ├── northwind.css
+        ├── 🆕manifest
+        │   └── 🆕makePackage.js
+        │   └── 🆕manifest.template.json
+        │   └── 🆕northwind32.png
+        │   └── 🆕northwind192.png
+        ├── server
+        │   └── constants.js
+        │   └── identityService.js
+        │   └── northwindDataService.js
+        │   └── server.js
+        ├── 🔺.env_Sample
+        ├── .gitignore
+        ├── 🔺package.json
+        ├── README.md
+    </pre>
+    </td>
+    </tr>
+    </table>
 
 ## Exercise 1: Authorize Microsoft Teams to log users into your application
 
-The starting application logs users into Azure Active Directory using the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview). While this works well in a web browser, it won't work reliably in a Microsoft Teams application. Instead, Microsoft Teams provides a Single Sign-On (SSO) capability so users are silently logged into your application using the same credentials they used to log into Microsoft Teams. This requires giving Microsoft Teams permission to issue Azure AD tokens on behalf of your application. In this exercise, you'll provide that permission.
+The starting application logs users into Azure Active Directory using the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview){target="_blank"}. While this works well in a web browser, it won't work reliably in a Microsoft Teams application. Instead, Microsoft Teams provides a Single Sign-On (SSO) capability so users are silently logged into your application using the same credentials they used to log into Microsoft Teams. This requires giving Microsoft Teams permission to issue Azure AD tokens on behalf of your application. In this exercise, you'll provide that permission.
 
 ### Step 1: Return to your app registration
 
-Return to the [Azure AD admin portal](https://aad.portal.azure.com/) and make sure you're logged in as the administrator of your development tenant. Click "Azure Active Directory" 1️⃣ and then "App Registrations" 2️⃣.
+Return to the [Azure AD admin portal](https://aad.portal.azure.com/){target="_blank"} and make sure you're logged in as the administrator of your development tenant. Click "Azure Active Directory" 1️⃣ and then "App Registrations" 2️⃣.
 
 ![Return to your app registration](../../assets/screenshots/03-001-AppRegistrationUpdate-1.png)
 
@@ -190,25 +195,22 @@ Repeat the process for the Teams web application, `5e3ce6c0-2b1f-4285-8d4b-75ee7
 
 Microsoft Teams applications don't run "inside" of Microsoft Teams, they just appear in the Teams user interface. A tab in Teams is just a web page, which could be hosted anywhere as long as the Teams client can reach it. 
 
-To create a Teams application, you need to create a file called *manifest.json* which contains the information Teams needs to display the app, such as the URL of the Northwind Orders application. This file is placed in a .zip file along with the application icons, and the resulting application package is uploaded into Teams or distributed through the Teams app store.
-
+To create a Teams application, you need to create a file called *manifest.json* which contains [the information Teams needs to display the app](https://docs.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema){target="_blank"}, such as the URL of the Northwind Orders application. This file is placed in a .zip file along with the application icons, and the resulting application package is uploaded into Teams or distributed through the Teams app store.
 
 In this exercise you'll create a manifest.json file and application package for the Northwind Orders app and upload it into Microsoft Teams.
 
 ### Step 1: Copy the *manifest* folder to your working directory
 
-Many developers use the [Teams Developer Portal](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/build-and-test/teams-developer-portal?WT.mc_id=m365-58890-cxa) to create an app package; this is preferred by many enterprise developer and systems integrators. However ISV's may want to keep the app package settings in their source control system, and that's the approach used in the lab. It's just a zip file; you can create it any way you want!
+Many developers use the [Teams Developer Portal](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/build-and-test/teams-developer-portal?WT.mc_id=m365-58890-cxa){target="_blank"} to create an app package; this is preferred by many enterprise developer and systems integrators. However ISV's may want to keep the app package settings in their source control system, and that's the approach used in the lab. It's just a zip file; you can create it any way you want!
 
----
-😎 THE TEAMS DEVELOPER PORTAL IS IMPORTANT EVEN IF YOU GENERATE YOUR OWN APP PACKAGE. Import your pacakge into the Teams Developer Portal to run validation checks prior to submitting it to the Teams app store! If you do this periodically during development you can catch issues earlier and avoid rework.
-
----
+!!! note "The Teams developer portal is important even if you generate your own app package!"
+    Import your pacakge into the Teams Developer Portal to run validation checks prior to submitting it to the Teams app store! If you do this periodically during development you can catch issues earlier and avoid rework.
 
 Go to your local copy of the `A02-TeamsSSO` folder on your computer and copy the *manifest* folder into the working folder you used in the previous lab. This folder contains a template for building the manifest.json file.
 
 ### Step 2: Examine the manifest template
 
-In the manifest folder you just copied, open [manifest.template.json](https://github.com/microsoft/app-camp/blob/main/src/create-core-app/aad/A02-after-teams-sso/manifest/manifest.template.json) in your code editor. This is the JSON that Teams needs to display your application.
+In the manifest folder you just copied, open [manifest.template.json](https://github.com/microsoft/app-camp/blob/main/src/create-core-app/aad/A02-after-teams-sso/manifest/manifest.template.json){target="_blank"} in your code editor. This is the JSON that Teams needs to display your application.
 
 Notice that the template contains tokens such as`<HOST_NAME>` and `<CLIENT_ID>`. A small build script will take these values from your .env file and plug them into the manifest. However there's one token, `<TEAMS_APP_ID>` that's not yet in the .env file; we'll add that in the next step.
 
