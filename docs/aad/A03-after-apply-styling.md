@@ -2,146 +2,154 @@
 
 # Lab A03: Teams styling and themes
 
-<!-- no toc -->
-- [Overview](#overview)
-- [Features](#features)
-- [Exercise 1: Add CSS](#exercise-1-add-css)
-  - [Step 1: Create a CSS file for Teams theme styles](#step-1-create-a-css-file-for-teams-theme-styles)
-  - [Step 2: Import the new CSS](#step-2-import-the-new-css)
-- [Exercise 2: Update and run the project](#exercise-2-update-and-run-the-project)
-  - [Step 1: Modify modules\teamsHelpers.js](#step-1-modify-modulesteamshelpersjs)
-  - [Step 2: Start your local project](#step-2-start-your-local-project)
-  - [Step 3: Run the application in Teams client](#step-3-run-the-application-in-teams-client)
-- [Next steps](#next-steps)
-
 ## Overview
 This lab is part of Path A, which begins with a Northwind Orders application that already uses Azure AD.
 
-In this lab you will begin with the application in folder `A02-after-teams-sso`, make changes as per the steps below to achieve what is in the folder `A03-after-apply-styling`.
+---8<--- "are-you-on-the-right-path.md"
 
-See project structures comparison in Exercise 1.
+In this lab you will begin with the completed  with the application in folder `A02-after-teams-sso`, make changes as per the steps below to achieve what is in the folder `A03-after-apply-styling`.
 
 * [A01-begin-app: Setting up the application with Azure AD](./A01-begin-app.md) 
 * [A02-after-teams-sso: Creating a Teams app with Azure ADO SSO](./A02-after-teams-sso.md)
 * [A03-after-apply-styling: Teams styling and themes](./A03-after-apply-styling.md)(📍You are here)
 
+In this lab you will learn to:
+
+ - Apply styles based on the Microsoft Teams figma to make your application look like it belongs in Microsoft Teams
+ - Display your application with the same color theme the user has selected in Microsoft Teams
+ - Switch your application's theme when the user changes the Microsoft Teams theme setting
+
+???+ info "Video briefing"
+    <div class="video">
+      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <div>Lab A03 Briefing</div>
+    </div>
+
+??? note "Table of Contents (open to display ►)"
+    - [Overview](#overview)
+    - [Features](#features)
+    - [Exercise 1: Add CSS](#exercise-1-add-css)
+      - [Step 1: Create a CSS file for Teams theme styles](#step-1-create-a-css-file-for-teams-theme-styles)
+      - [Step 2: Import the new CSS](#step-2-import-the-new-css)
+    - [Exercise 2: Update and run the project](#exercise-2-update-and-run-the-project)
+      - [Step 1: Modify modules\teamsHelpers.js](#step-1-modify-modulesteamshelpersjs)
+      - [Step 2: Start your local project](#step-2-start-your-local-project)
+      - [Step 3: Run the application in Teams client](#step-3-run-the-application-in-teams-client)
+    - [Next steps](#next-steps)
 
 ## Features
 
 - Apply teams styling and themes to your existing application.
+- Display and update themes along with the Microsoft Teams client
 
----
-The project structure when you start of this lab and end of this lab is as follows.
-Use this depiction for comparison.
-On your left is the contents of folder  `A03-TeamsSSO` and on your right is the contents of folder `A04-StyleAndThemes`.
+??? note "Project files before and after this lab (open to display ►)"
+    The project structure when you start of this lab and end of this lab is as follows.
+    Use this depiction for comparison.
+    On your left is the contents of folder  `A03-TeamsSSO` and on your right is the contents of folder `A04-StyleAndThemes`.
 
-- 🆕 New files/folders
+    - 🆕 New files/folders
 
-- 🔺Files changed
+    - 🔺Files changed
 
-<table>
-<tr>
-<th >Project Structure Before </th>
-<th>Project Structure After</th>
-</tr>
-<tr>
-<td valign="top" >
-<pre>
-A02-after-teams-sso
-    ├── client
-    │   ├── components
-    │       ├── navigation.js
-    │   └── identity
-    │       ├── identityClient.js
-    │       └── userPanel.js
-    ├── modules
-    │   └── env.js
-    │   └── northwindDataService.js
-    │   └── 🔺teamsHelpers.js
-    ├── pages
-    │   └── categories.html
-    │   └── categories.js
-    │   └── categoryDetails.html
-    │   └── categoryDetails.js
-    │   └── myOrders.html
-    │   └── orderDetail.html
-    │   └── orderDetail.js
-    │   └── privacy.html
-    │   └── productDetail.html
-    │   └── productDetail.js
-    │   └── termsofuse.html
-    ├── index.html
-    ├── index.js
-    ├── 🔺northwind.css
-    ├── manifest
-    │   └── makePackage.js
-    │   └── 🔺manifest.template.json
-    │   └── northwind32.png
-    │   └── northwind192.png
-    │   └── constants.js
-    │   └── identityService.js
-    │   └── northwindDataService.js
-    │   └── server.js
-    ├── .env_Sample
-    ├── .gitignore
-    ├── package.json
-    ├── README.md
-</pre>
-</td>
-<td>
-<pre>
-A03-after-apply-styling
-    ├── client
-    │   ├── components
-    │       ├── navigation.js
-    │   └── identity
-    │       ├── identityClient.js
-    │       └── userPanel.js
-    ├── modules
-    │   └── env.js
-    │   └── northwindDataService.js
-    │   └── 🔺teamsHelpers.js
-    ├── pages
-    │   └── categories.html
-    │   └── categories.js
-    │   └── categoryDetails.html
-    │   └── categoryDetails.js
-    │   └── myOrders.html
-    │   └── orderDetail.html
-    │   └── orderDetail.js
-    │   └── privacy.html
-    │   └── productDetail.html
-    │   └── productDetail.js
-    │   └── termsofuse.html
-    ├── index.html
-    ├── index.js
-    ├── 🔺northwind.css
-    ├── 🆕teamstyle.css
-    ├── manifest
-    │   └── makePackage.js
-    │   └── 🔺manifest.template.json
-    │   └── northwind32.png
-    │   └── northwind192.png
-    │   └── constants.js
-    │   └── identityService.js
-    │   └── northwindDataService.js
-    │   └── server.js
-    ├── .env_Sample
-    ├── .gitignore
-    ├── package.json
-    ├── README.md
-</pre>
-</td>
-</tr>
-</table>
+    <table>
+    <tr>
+    <th >Project Structure Before </th>
+    <th>Project Structure After</th>
+    </tr>
+    <tr>
+    <td valign="top" >
+    <pre>
+    A02-after-teams-sso
+        ├── client
+        │   ├── components
+        │       ├── navigation.js
+        │   └── identity
+        │       ├── identityClient.js
+        │       └── userPanel.js
+        ├── modules
+        │   └── env.js
+        │   └── northwindDataService.js
+        │   └── 🔺teamsHelpers.js
+        ├── pages
+        │   └── categories.html
+        │   └── categories.js
+        │   └── categoryDetails.html
+        │   └── categoryDetails.js
+        │   └── myOrders.html
+        │   └── orderDetail.html
+        │   └── orderDetail.js
+        │   └── privacy.html
+        │   └── productDetail.html
+        │   └── productDetail.js
+        │   └── termsofuse.html
+        ├── index.html
+        ├── index.js
+        ├── 🔺northwind.css
+        ├── manifest
+        │   └── makePackage.js
+        │   └── 🔺manifest.template.json
+        │   └── northwind32.png
+        │   └── northwind192.png
+        │   └── constants.js
+        │   └── identityService.js
+        │   └── northwindDataService.js
+        │   └── server.js
+        ├── .env_Sample
+        ├── .gitignore
+        ├── package.json
+        ├── README.md
+    </pre>
+    </td>
+    <td>
+    <pre>
+    A03-after-apply-styling
+        ├── client
+        │   ├── components
+        │       ├── navigation.js
+        │   └── identity
+        │       ├── identityClient.js
+        │       └── userPanel.js
+        ├── modules
+        │   └── env.js
+        │   └── northwindDataService.js
+        │   └── 🔺teamsHelpers.js
+        ├── pages
+        │   └── categories.html
+        │   └── categories.js
+        │   └── categoryDetails.html
+        │   └── categoryDetails.js
+        │   └── myOrders.html
+        │   └── orderDetail.html
+        │   └── orderDetail.js
+        │   └── privacy.html
+        │   └── productDetail.html
+        │   └── productDetail.js
+        │   └── termsofuse.html
+        ├── index.html
+        ├── index.js
+        ├── 🔺northwind.css
+        ├── 🆕teamstyle.css
+        ├── manifest
+        │   └── makePackage.js
+        │   └── 🔺manifest.template.json
+        │   └── northwind32.png
+        │   └── northwind192.png
+        │   └── constants.js
+        │   └── identityService.js
+        │   └── northwindDataService.js
+        │   └── server.js
+        ├── .env_Sample
+        ├── .gitignore
+        ├── package.json
+        ├── README.md
+    </pre>
+    </td>
+    </tr>
+    </table>
 
-In the project structure, on the right under `A03-after-apply-styling`, you will see emoji 🆕 near the files & folders.
-They are the new files and folders that you need to add into the project structure.
+    In the project structure, on the right under `A03-after-apply-styling`, you will see emoji 🆕 near the files & folders.
+    They are the new files and folders that you need to add into the project structure.
 
-
-## Video: Lab Briefing (optional)
-
-<img style="height: 50%; width: 50%" src="/app-camp/assets/VideoThumbnails/Placeholder14.PNG"></img>
 
 ## Exercise 1: Add CSS
 
