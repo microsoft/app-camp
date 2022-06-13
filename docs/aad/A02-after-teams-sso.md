@@ -20,7 +20,6 @@ Note that as you complete the labs, the original app should still work outside o
 * [A02-after-teams-sso: Creating a Teams app with Azure ADO SSO](./A02-after-teams-sso.md) (📍You are here)
 * [A03-after-apply-styling: Teams styling and themes](./A03-after-apply-styling.md)
 
-
 In this lab you will learn to:
 
 - Create an app manifest and package that can be installed into Teams
@@ -267,7 +266,7 @@ npm install adm-zip --save-dev
 
 ### Step 5: Build the package
 
-Open the **package.json** file in your working directory and add a script that will generate the app package. The [script code](../../src/create-core-app/aad/A02-after-teams-sso/manifest/makePackage.js) is in the manifest folder you just copied, so we just need to declare it in package.json. This is what `scripts` property should look like when you're done.
+Open the **package.json** file in your working directory and add a script that will generate the app package. The [script code](https://github.com/microsoft/app-camp/blob/main/src/create-core-app/aad/A02-after-teams-sso/manifest/makePackage.js){target="_blank"} is in the manifest folder you just copied, so we just need to declare it in package.json. This is what `scripts` property should look like when you're done.
 
 ~~~json
 "scripts": {
@@ -320,9 +319,9 @@ export async function inTeams() {
 
 These functions are used throughout the application to manage the Microsoft Teams JavaScript SDK.
 
-Before using the Microsoft Teams JavaScript SDK for the first time on a page, you need to call the [`microsoftTeams.app.initialize()` function](https://docs.microsoft.com/en-us/javascript/api/@microsoft/teams-js/app?view=msteams-client-js-latest#@microsoft-teams-js-app-initialize). The first function in **teamsHelpers.js** will ensure that `initialize()` has been called exactly once on the page.
+Before using the Microsoft Teams JavaScript SDK for the first time on a page, you need to call the [`microsoftTeams.app.initialize()` function](https://docs.microsoft.com/en-us/javascript/api/@microsoft/teams-js/app?view=msteams-client-js-latest#@microsoft-teams-js-app-initialize){target="_blank"}. The first function in **teamsHelpers.js** will ensure that `initialize()` has been called exactly once on the page.W
 
-The `inTeams()` function is used to determine if the application is running in Microsoft Teams or not. You may want to check out the [`microsoftTeams.Hostname` enumeration](https://docs.microsoft.com/en-us/javascript/api/@microsoft/teams-js/hostname?view=msteams-client-js-latest) to see other places where Teams applications will be able to run in the near future!
+The `inTeams()` function is used to determine if the application is running in Microsoft Teams or not. You may want to check out the [`microsoftTeams.Hostname` enumeration](https://docs.microsoft.com/en-us/javascript/api/@microsoft/teams-js/hostname?view=msteams-client-js-latest){target="_blank"} to see other places where Teams applications will be able to run in the near future!
 
 ### Step 2: Update the login code for Teams SSO
 
@@ -333,9 +332,9 @@ import { ensureTeamsSdkInitialized, inTeams } from '/modules/teamsHelpers.js';
 import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
 ~~~
 
-The first import, of course, is the Teams helper functions we just added. It's a [JavaScript module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) so there is no bundling; the browser will resolve the import at runtime. 
+The first import, of course, is the Teams helper functions we just added. It's a [JavaScript module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules){target="_blank"} so there is no bundling; the browser will resolve the import at runtime. 
 
-The second import will load the Teams JavaScript SDK, which creates a global object `microsoftTeams` that we can use to access the SDK. You could also load it using a `<script>` tag or, if you bundle your client-side JavaScript, using the [@microsoft/teams-js](https://www.npmjs.com/package/@microsoft/teams-js) npm package.
+The second import will load the Teams JavaScript SDK, which creates a global object `microsoftTeams` that we can use to access the SDK. You could also load it using a `<script>` tag or, if you bundle your client-side JavaScript, using the [@microsoft/teams-js](https://www.npmjs.com/package/@microsoft/teams-js){target="_blank"} npm package.
 
 Now modify the `getAccessToken2()` function to include this code at the top:
 
@@ -442,8 +441,8 @@ Now modify the `connectedCallback()` function, which displays the navigation web
     }
 ~~~
 
-
-> NOTE: Web components are encapsulated custom HTML elements. They're not a Teams thing, nor do they use React or another UI library; they're built right into modern web browsers! You can learn more [in this article](https://developer.mozilla.org/en-US/docs/Web/Web_Components.)
+!!! info "About web components"
+    Web components are encapsulated custom HTML elements. They're not a Teams thing, nor do they use React or another UI library; they're built right into modern web browsers! You can learn more [in this article](https://developer.mozilla.org/en-US/docs/Web/Web_Components.){target="_blank"}
 
 ## Exercise 4: Test your application in Microsoft Teams
 
@@ -477,11 +476,12 @@ The application should appear without any login prompt. The app's navigation sho
 
 ![Run the app](../../assets/screenshots/03-007-RunApp-1.png)
 
-> CHALLENGE: You might have noticed the logout button doesn't do anything in Teams! If you wish, hide the logout button just as you hid the navigation bar. The code is in client/identity/userPanel.js.
+!!! check "Challenge"
+    You might have noticed the logout button doesn't do anything in Teams! If you wish, hide the logout button just as you hid the navigation bar. The code is in client/identity/userPanel.js.
 
 ## Known issues
 
-For the latest issues, or to file a bug report, see the [github issues list](https://github.com/microsoft/app-camp/issues) for this repository.
+--8<-- "issuesLink.md"
 
 ## References
 
@@ -490,4 +490,4 @@ For the latest issues, or to file a bug report, see the [github issues list](htt
 
 ## Next Steps
 
-After completing this lab, you may continue to the next lab in this learning path, [A03-after-apply-styling: Teams styling and themes](./A03-after-apply-styling.md).
+After completing this lab, you may continue to the next lab in this learning path, [A03-after-apply-styling: Teams styling and themes](./A03-after-apply-styling.md){target="_blank"}.
