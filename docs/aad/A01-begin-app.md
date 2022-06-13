@@ -24,7 +24,7 @@ In this lab you will learn to:
 ???+ info "Video briefing"
     <div class="video">
       <img src="/app-camp/assets/video-coming-soon.png"></img>
-      <div>Welcome to App Camp!</div>
+      <div>Lab A01 Briefing!</div>
     </div>
 
 ??? note "Table of Contents (open to display ►)"

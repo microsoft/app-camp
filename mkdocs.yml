@@ -7,15 +7,15 @@ extra_css:
     - assets/labStyles.css
 nav: 
 - Home: 'index.md'
-- Path A: 
-  - Start with Azure Active Directory: 'aad/A01-begin-app.md'
-  - Create a Teams app with Azure AD Teams SSO: 'aad/A02-after-teams-sso.md'
-  - Teams styling and themes: 'aad/A03-after-apply-styling.md'
-- Path B: 
-  - Start with a non-Azure Active Directory Identity System: 'bespoke/B01-begin-app.md'
-  - Teams App with Bespoke Authentication: 'bespoke/B02-after-teams-login.md'
-  - Enable Azure AD Single Sign-On: 'bespoke/B03-after-teams-sso.md'
-  - Teams styling and themes: 'bespoke/B04-after-apply-styling.md'
+- A Path: 
+  - A01 - Start with Azure Active Directory: 'aad/A01-begin-app.md'
+  - A02 - Create a Teams app with Azure AD Teams SSO: 'aad/A02-after-teams-sso.md'
+  - A03 - Teams styling and themes: 'aad/A03-after-apply-styling.md'
+- B Path: 
+  - B01 - Start with a non-Azure Active Directory Identity System: 'bespoke/B01-begin-app.md'
+  - B02 - Teams App with Bespoke Authentication: 'bespoke/B02-after-teams-login.md'
+  - B03 - Enable Azure AD Single Sign-On: 'bespoke/B03-after-teams-sso.md'
+  - B04 - Teams styling and themes: 'bespoke/B04-after-apply-styling.md'
 - Extended labs:
   - Choose your own adventure!: 'aad/ExtendedLabs.md'
   - Add a configurable tab: 'aad/ConfigurableTab.md'
