@@ -18,8 +18,10 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    vertical-align: top;
     display: inline-block;
 }
+
 
 /* Style the top label on side nav */
 
@@ -29,6 +31,8 @@
     border-bottom-color: brown;
     font-size: large;
 }
+
+
 
 /*
 .md-nav__link--active {
