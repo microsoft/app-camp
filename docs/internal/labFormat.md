@@ -24,6 +24,8 @@ Links within the labs can be relative and should open within the current window 
 
 Links that go outside the labs, including links to source code in the same repo, should open a new window [like this](https://github.com/microsoft/app-camp/blob/main/src/create-core-app/aad/A01-begin-app/client/index.html){target=_blank}
 
+Please add this query string to links to Microsoft documentation: ?WT.mc_id=m365-58890-cxa
+
 ## Admonitions
 
 !!! note

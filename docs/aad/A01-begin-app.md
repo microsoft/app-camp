@@ -2,46 +2,11 @@
 
 # Lab A01: Start with Azure Active Directory
 
-<!-- no toc -->
-  - [Overview](#overview)
-  - [Features](#features)
-  - [Exercise 1: Install prerequisites](#exercise-1-install-prerequisites)
-    - [Step 1: Install NodeJS](#step-1-install-nodejs)
-    - [Step 2: Install a Code Editor](#step-2-install-a-code-editor)
-    - [Step 3: Install ngrok](#step-3-install-ngrok)
-  - [Exercise 2: Set up your Microsoft 365 Subscription](#exercise-2-set-up-your-microsoft-365-subscription)
-    - [Step 1: Get a tenant](#step-1-get-a-tenant)
-    - [Step 2: Enable Teams application uploads](#step-2-enable-teams-application-uploads)
-  - [Exercise 3: Assign users as Northwind "Employees"](#exercise-3-assign-users-as-northwind-employees)
-    - [Step 1: Edit Azure AD users](#step-1-edit-azure-ad-users)
-    - [Step 2: Ensure the users have managers](#step-2-ensure-the-users-have-managers)
-    - [Step 3: Ensure the users are licensed for Microsoft 365](#step-3-ensure-the-users-are-licensed-for-microsoft-365)
-  - [Exercise 4: Register your application with Azure AD](#exercise-4-register-your-application-with-azure-ad)
-    - [Step 1: Start ngrok](#step-1-start-ngrok)
-    - [Step 2: Register your application in Azure Active Directory](#step-2-register-your-application-in-azure-active-directory)
-    - [Step 3: Grant your application permission to call the Microsoft Graph API](#step-3-grant-your-application-permission-to-call-the-microsoft-graph-api)
-    - [Step 4: Consent to the permission](#step-4-consent-to-the-permission)
-    - [Step 5: Expose an API](#step-5-expose-an-api)
-  - [Exercise 5: Configure and run the application](#exercise-5-configure-and-run-the-application)
-    - [Step 1: Download the starting application](#step-1-download-the-starting-application)
-    - [Step 2: Install the app's dependencies](#step-2-install-the-apps-dependencies)
-    - [Step 3: Download the sample data](#step-3-configure-the-app-settings)
-    - [Step 4: Configure the app settings](#step-4-configure-the-app-settings)
-    - [Step 5: Run the application](#step-5-run-the-application)
-  - [Known issues](#known-issues)
-  - [Next steps](#next-steps)
-
 ## Overview
 
-In this series of labs, you will port a simple "Northwind Orders" web application to become a full-fledged Microsoft Teams application. To make the app understandable by a wide audience, it is written in vanilla JavaScript with no UI framework, however it does use modern browser capabilities such as web components, CSS variables, and ECMAScript modules. The server side is also in JavaScript, using Express, the most popular web server platform for NodeJS.
+This is the very first lab in Path A, which begins with an application that already uses Azure AD.
 
-There are two options for doing the labs:
-
-* The "A" path is for developers with apps that are already based on Azure Active Directory. The starting app uses Azure Active Directory and the Microsoft Authentication Library (MSAL).
-
-* the "B" path is for developers with apps that use some other identity system. It includes a simple (and not secure!) cookie-based auth system based on the Employees table in the Northwind database. You will use an identity mapping scheme to allow your existing users to log in directly or via Azure AD Single Sign-On.
-
-**This is the very first lab in Path A, which begins with an application that already uses Azure AD.**
+---8<--- "are-you-on-the-right-path.md"
 
 In this lab you will set up the Northwind Orders application, which can be found in the [A01-begin-app](../../src/create-core-app/aad/A01-begin-app/) folder. The labs that follow will lead you step by step into extending the web application to be a Microsoft Teams application as well. 
 
@@ -51,14 +16,46 @@ In this lab you will set up the Northwind Orders application, which can be found
 
 In this lab you will learn to:
 
-- [Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app?WT.mc_id=m365-58890-cxa)
-- How to use the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview?WT.mc_id=m365-58890-cxa)
-- How to validate an [Azure AD access token](https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens?WT.mc_id=m365-58890-cxa) in a NodeJS application
+- [Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app?WT.mc_id=m365-58890-cxa){target=_blank}
+- How to use the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview?WT.mc_id=m365-58890-cxa){target=_blank}
+- How to validate an [Azure AD access token](https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens?WT.mc_id=m365-58890-cxa){target=_blank} in a NodeJS application
 
 
-## Video: Lab Briefing (optional)
+???+ info "Video briefing"
+    <div class="video">
+      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <div>Welcome to App Camp!</div>
+    </div>
 
-<img style="height: 50%; width: 50%" src="/app-camp/assets/VideoThumbnails/Placeholder10.PNG"></img>
+??? note "Table of Contents (open to display ►)"
+    - [Overview](#overview)
+    - [Features](#features)
+    - [Exercise 1: Install prerequisites](#exercise-1-install-prerequisites)
+      - [Step 1: Install NodeJS](#step-1-install-nodejs)
+      - [Step 2: Install a Code Editor](#step-2-install-a-code-editor)
+      - [Step 3: Install ngrok](#step-3-install-ngrok)
+    - [Exercise 2: Set up your Microsoft 365 Subscription](#exercise-2-set-up-your-microsoft-365-subscription)
+      - [Step 1: Get a tenant](#step-1-get-a-tenant)
+      - [Step 2: Enable Teams application uploads](#step-2-enable-teams-application-uploads)
+    - [Exercise 3: Assign users as Northwind "Employees"](#exercise-3-assign-users-as-northwind-employees)
+      - [Step 1: Edit Azure AD users](#step-1-edit-azure-ad-users)
+      - [Step 2: Ensure the users have managers](#step-2-ensure-the-users-have-managers)
+      - [Step 3: Ensure the users are licensed for Microsoft 365](#step-3-ensure-the-users-are-licensed-for-microsoft-365)
+    - [Exercise 4: Register your application with Azure AD](#exercise-4-register-your-application-with-azure-ad)
+      - [Step 1: Start ngrok](#step-1-start-ngrok)
+      - [Step 2: Register your application in Azure Active Directory](#step-2-register-your-application-in-azure-active-directory)
+      - [Step 3: Grant your application permission to call the Microsoft Graph API](#step-3-grant-your-application-permission-to-call-the-microsoft-graph-api)
+      - [Step 4: Consent to the permission](#step-4-consent-to-the-permission)
+      - [Step 5: Expose an API](#step-5-expose-an-api)
+    - [Exercise 5: Configure and run the application](#exercise-5-configure-and-run-the-application)
+      - [Step 1: Download the starting application](#step-1-download-the-starting-application)
+      - [Step 2: Install the app's dependencies](#step-2-install-the-apps-dependencies)
+      - [Step 3: Download the sample data](#step-3-configure-the-app-settings)
+      - [Step 4: Configure the app settings](#step-4-configure-the-app-settings)
+      - [Step 5: Run the application](#step-5-run-the-application)
+    - [Known issues](#known-issues)
+    - [Next steps](#next-steps)
+
 
 ## Features
 
@@ -67,7 +64,7 @@ In this lab you will learn to:
 - View product details and orders for a product
 - View order details
 
-The application is based on the Northwind Traders Database, which is a sample relational database that originally shipped with Microsoft Access. The Northwind Traders Database is now available as a [demonstration OData service](https://services.odata.org/), which is queried in this lab. This is a read-only data source; some of the later exercises appear to update the data but the changes are only stored in the server memory and will only persist until the server is restarted.
+The application is based on the Northwind Traders Database, which is a sample relational database that originally shipped with Microsoft Access. The Northwind Traders Database is now available as a [demonstration OData service](https://services.odata.org/){target=_blank}, which is queried in this lab. This is a read-only data source; some of the later exercises appear to update the data but the changes are only stored in the server memory and will only persist until the server is restarted.
 
 ## Exercise 1: Install prerequisites
 
@@ -77,19 +74,25 @@ You can complete these labs on a Windows, Mac, or Linux machine, but you do need
 
 NodeJS is a program that allows you to run JavaScript on your computer; it uses the open source "V8" engine, which is used in popular web browsers such as Microsoft Edge and Google Chrome. You will need NodeJS to run the web server code used throughout this workshop.
 
-Browse to [https://nodejs.org/en/download/](https://nodejs.org/en/download/) and install the "LTS" (Long Term Support) version for your operating system. This lab has been tested using NodeJS version 14.17.4 and 16.14.0. If you already have another version of NodeJS installed, you may want to set up the [Node Version Manager](https://github.com/nvm-sh/nvm) (or [this variation](https://github.com/coreybutler/nvm-windows) for Microsoft Windows), which allows you to easily switch Node versions on the same computer.
+Browse to [https://nodejs.org/en/download/](https://nodejs.org/en/download/){target=_blank} and install the "LTS" (Long Term Support) version for your operating system. This lab has been tested using NodeJS version 14.17.4 and 16.14.0. If you already have another version of NodeJS installed, you may want to set up the [Node Version Manager](https://github.com/nvm-sh/nvm){target=_blank} (or [this variation](https://github.com/coreybutler/nvm-windows){target=_blank} for Microsoft Windows), which allows you to easily switch Node versions on the same computer.
 
 ### Step 2: Install a Code Editor
 
-You can really use any code editor you wish, but we recommend [Visual Studio Code](https://code.visualstudio.com/download).
+You can really use any code editor you wish, but we recommend [Visual Studio Code](https://code.visualstudio.com/download){target=_blank}.
 
 ### Step 3: Install ngrok
 
-ngrok is a tunneling program that allows you to access your local web server (running in NodeJS in this case) from the Internet. To complete this exercise, download and install ngrok from [here](https://ngrok.com/download).
+ngrok is a tunneling program that allows you to access your local web server (running in NodeJS in this case) from the Internet. To complete this exercise, download and install ngrok from [here](https://ngrok.com/download){target=_blank}.
 
 The free version of ngrok will assign a URL similar to https://something.ngrok.io, where "something" is a random identifier. As long as ngrok is running (leave it going in a command or terminal window), you can browse your web site at that URL. If you start and stop ngrok, or try to keep it running for more than 8 hours, you'll get a new identifier and you'll need to update your app registration, environment variables, etc. The paid version of ngrok allows you to reserve the same URL for use over time, removing the need to update it when you return to the lab.
 
-While ngrok isn't strictly required for developing Microsoft Teams applications, it makes things much easier, especially if Bots are involved. An example of this is the Messaging Extension lab since Messaging Extensions use a Bot to communicate with Microsoft Teams. If you or your company aren't comfortable with running ngrok (some companies block it on their corporate networks), please check out [this video](https://www.youtube.com/watch?v=A5U-3o-mHD0) which explains the details and work-arounds.
+While ngrok isn't strictly required for developing Microsoft Teams applications, it makes things much easier, especially if Bots are involved. An example of this is the Messaging Extension lab since Messaging Extensions use a Bot to communicate with Microsoft Teams.
+
+???+ info "More information"
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/A5U-3o-mHD0" frameborder="0" allowfullscreen></iframe>
+      <div>What is ngrok and do you really need it?</div>
+    </div>
 
 ## Exercise 2: Set up your Microsoft 365 Subscription
 
@@ -97,7 +100,7 @@ The initial Northwind Orders application doesn't require Microsoft 365, but it d
 
 ### Step 1: Get a tenant
 
-If you don't yet have a tenant, please join the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program?WT.mc_id=m365-58890-cxa) to get a free one. Your tenant includes 25 [E5 user licenses](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans) and can be renewed as long as you keep developing!
+If you don't yet have a tenant, please join the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program?WT.mc_id=m365-58890-cxa){target=_blank} to get a free one. Your tenant includes 25 [E5 user licenses](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans){target=_blank} and can be renewed as long as you keep developing!
 
 Select "Join now" to begin.
 ![Signup](../../assets/screenshots/01-003-JoinM365DevProgram1.png)
@@ -112,25 +115,29 @@ Remember this information as you'll need it throughout the labs! You will log in
 
 Eventually you'll be prompted to log into your new tenant. Be sure to use the new administrator credentials you just created, not the ones you used when you signed up for the developer program.
 
----
-😎 DON'T DEVELOP IN PRODUCTION: It may be tempting to build solutions right where you work every day, but there are good reasons to have a dedicated dev tenant - and probably additional staging/test tenants. They're free, and you can safely experiment as a tenant admin without risking your production work. 
 
----
-😎 NAVIGATING MANY TENANTS: Consider creating a browser profile for each tenant that will have its own favorites, stored credentials, and cookies so you can easily swtch between tenants as you work.
+!!! warning "Tip: Don't develop or do the labs in production!"
+    It may be tempting to build solutions right where you work every day, but there are good reasons to have a dedicated dev tenant - and probably additional staging/test tenants. They're free, and you can safely experiment as a tenant admin without risking your production work. 
 
----
-😎 CHANGES ROLL OUT FIRST TO "TARGETED RELEASE" TENANTS. You may want to [enable Targeted Release](https://docs.microsoft.com/microsoft-365/admin/manage/release-options-in-office-365?WT.mc_id=m365-58890-cxa) in your developer tenant and keep production on Standard Release so you have a head start to test out new features.
 
----
-😎 YOU MAY BE ASKED TO ENABLE MULTI-FACTOR AUTHENTICATION (MFA). [This is certainly a good idea!](https://www.microsoft.com/security/blog/2019/08/20/one-simple-action-you-can-take-to-prevent-99-9-percent-of-account-attacks/). Just follow the instructions. If you really must turn off MFA, [here are instructions](https://docs.microsoft.com/en-us/answers/questions/101179/how-to-disable-the-two-factor-authentication-from.html). 
+???+ info "More information"
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/DhhpJ1UjbJ0" frameborder="0" allowfullscreen></iframe>
+      <div>Setting up your Microsoft 365 Development tenant</div>
+    </div>
 
----
+!!! tip "Tip: Navigating many tenants"
+    Consider creating a browser profile for each tenant that will have its own favorites, stored credentials, and cookies so you can easily swtch between tenants as you work.
+
+!!! note "You may be asked to enable multi-factor authentication (MFA)"
+    [This is certainly a good idea!](https://www.microsoft.com/security/blog/2019/08/20/one-simple-action-you-can-take-to-prevent-99-9-percent-of-account-attacks/){target=_blank} Just follow the instructions. If you really must turn off MFA, [here are instructions](https://docs.microsoft.com/en-us/answers/questions/101179/how-to-disable-the-two-factor-authentication-from.html){target=_blank}. 
+
 
 ### Step 2: Enable Teams application uploads
 
 By default, end users can't upload Teams applications directly; instead an administrator needs to upload them into the enterprise app catalog. In this step you will enable direct uploads to make developement easier and allow installation directly from the Teams user interface.
 
-  a. Navigate to [https://admin.microsoft.com/](https://admin.microsoft.com/), which is the Microsoft 365 Admin Center.
+  a. Navigate to [https://admin.microsoft.com/](https://admin.microsoft.com/){target=_blank}, which is the Microsoft 365 Admin Center.
 
   b. In the left panel of the admin center, select "Show all" to open up the entire navigation
 
@@ -162,9 +169,9 @@ The Northwind Orders application expects each user's employee ID in Azure Active
 
 ### Step 1: Edit Azure AD users
 
- - Navigate to the Microsoft 365 admin center at https://admin.microsoft.com/ and log in as the administrator of your new dev tenant.
+ - Navigate to the Microsoft 365 admin center at [https://admin.microsoft.com/](https://admin.microsoft.com){target=_blank} and log in as the administrator of your new dev tenant.
 
- - In the left navigation, select "Show All" to reveal the full list of admin centers, and then select "Azure Active Directory". This will bring you to the [Azure AD admin center](https://aad.portal.azure.com/).
+ - In the left navigation, select "Show All" to reveal the full list of admin centers, and then select "Azure Active Directory". This will bring you to the [Azure AD admin center](https://aad.portal.azure.com/){target=_blank}.
 
 ![Navigating to the M365 Admin site](../../assets/screenshots/01-009-RegisterAADApp-1.png)
 
@@ -207,11 +214,18 @@ From the same user profile screen, select "Licenses" and ensure the user has an 
 
 ![Check license](../../assets/screenshots/01-032-CheckLicense.png)
 
-> NOTE: When you publish your application in the Microsoft Teams store, you will be responsible for your own license management and licenses for your application will not appear here along with the licenses for Microsoft products. In Lab 08, you will implement this strategy for the Northwind Orders app.
+!!! note
+    When you publish your application in the Microsoft Teams store, you will be responsible for your own license management and licenses for your application will not appear here along with the licenses for Microsoft products. In Lab 08, you will implement this strategy for the Northwind Orders app.
 
 ## Exercise 4: Register your application with Azure AD
 
-In order for users to log into your application with Azure AD, you need to register it. In this exercise you will register your application directly in the tenant you created in Exercise 2, however we'll set it up so it can be used from other tenants, such as those of customers who purchase your application in the Microsoft Teams store. To learn more about multi-tenant applications, see [this video](https://www.youtube.com/watch?v=RjGVOFm39j0&t=7s).
+In order for users to log into your application with Azure AD, you need to register it. In this exercise you will register your application directly in the tenant you created in Exercise 2, however we'll set it up so it can be used from other tenants, such as those of customers who purchase your application in the Microsoft Teams store.
+
+???+ info "More information"
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/RjGVOFm39j0" frameborder="0" allowfullscreen></iframe>
+      <div>Learn about multi-tenant applications</div>
+    </div>
 
 ### Step 1: Start ngrok
 
@@ -227,14 +241,14 @@ Save this URL for use throughout the labs.
 
 ![ngrok output](../../assets/screenshots/01-002-ngrok.png)
 
-> **NOTE:** Do not stop ngrok for the duration of these labs.
-> If you do stop ngrok, [this page](../../docs/ngrokReferences.md) lists all the exercises which involve the ngrok URL so you can easily update it if it changes.
+!!! warning
+    Do not stop ngrok for the duration of these labs. If you do stop ngrok and are assigned a new URL, [this page](http://devpoint19.lab/app-camp/ngrokReferences/){target="_blank"} lists all the exercises which involve the ngrok URL so you can easily update it.
 
 ### Step 2: Register your application in Azure Active Directory
 
  - Navigate to the Microsoft 365 admin center at https://admin.microsoft.com/ and log in as the administrator of your new dev tenant.
 
- - In the left navigation, select "Show More" to reveal the full list of admin centers, and then select "Azure Active Directory". This will bring you to the [Azure AD admin center](https://aad.portal.azure.com/).
+ - In the left navigation, select "Show More" to reveal the full list of admin centers, and then select "Azure Active Directory". This will bring you to the [Azure AD admin center](https://aad.portal.azure.com/){target="_blank"}.
 
 ![Navigating to the M365 Admin site](../../assets/screenshots/01-009-RegisterAADApp-1.png)
 
@@ -278,11 +292,12 @@ The secret will be displayed just this once on the "Certificates and secrets" sc
 ![Copy the app secret](../../assets/screenshots/01-016-RegisterAADApp-8.png)
 
 
----
-😎 MANAGING APP SECRETS IS AN ONGOING RESPONSIBILITY. App secrets have a limited lifetime, and if they expire your application may stop working. You can have multiple secrets, so plan to roll them over as you would with a digital certificate.
+!!! warning "Managing app secrets is an ongoing responsibility"
+    App secrets have a limited lifetime, and if they expire your application may stop working. You can have multiple secrets, so plan to roll them over as you would with a digital certificate.
 
----
-😎 KEEP YOUR SECRETS SECRET. Give each developer a free developer tenant and register their apps in their tenants so each developer has his or her own app secrets. Limit who has access to app secrets for production. If you're running in Microsoft Azure, a great place to store your secrets is [Azure KeyVault](https://azure.microsoft.com/en-us/services/key-vault/). You could deploy an app just like this one and store sensitive application settings in Keyvault. See [this article](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references?WT.mc_id=m365-58890-cxa) for more information.
+
+!!! danger "Keep your secrets secret!"
+    Give each developer a free developer tenant and register their apps in their tenants so each developer has his or her own app secrets. Limit who has access to app secrets for production. If you're running in Microsoft Azure, a great place to store your secrets is [Azure KeyVault](https://azure.microsoft.com/en-us/services/key-vault/){target="_blank"}. You could deploy an app just like this one and store sensitive application settings in Keyvault. See [this article](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references?WT.mc_id=m365-58890-cxa){target="_blank"} for more information.
 
 ---
 
@@ -294,7 +309,19 @@ The app registration created an identity for your application; now we need to gi
 
 ![Adding a permission](../../assets/screenshots/01-017-RegisterAADApp-9a.png)
 
-This permission is "delegated" (it acts on behalf of the logged-in user). For an explanation of application vs. delegated permissions, see [this documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#permission-types?WT.mc_id=m365-58890-cxa) or watch [this video](https://www.youtube.com/watch?v=SaBbfVgqZHc).
+This permission is "delegated" (it acts on behalf of the logged-in user). For an explanation of application vs. delegated permissions, see [this documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#permission-types?WT.mc_id=m365-58890-cxa){target="_blank"}.
+
+???+ info "More information"
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/SaBbfVgqZHc" frameborder="0" allowfullscreen></iframe>
+      <div>Understanding Single Sign-On (SSO) with Azure AD</div>
+    </div>
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/RjGVOFm39j0" frameborder="0" allowfullscreen></iframe>
+      <div>Learn about multi-tenant applications</div>
+    </div>
+
+ or watch [this video](https://www.youtube.com/watch?v=SaBbfVgqZHc).
 
 The permission is for calling the Microsoft Graph, and it allows reading the logged-in user's profile, which includes the user's Employee ID.
 
@@ -333,16 +360,19 @@ Now that you've defined the application URI, the "Add a scope" flyout will allow
 
 ### Step 1: Download the starting application
 
-Begin by downloading the app-camp repository at [https://github.com/microsoft/app-camp](https://github.com/microsoft/app-camp_/). Select the "Code" button and clone or download the content to your computer.
+Begin by downloading the app-camp repository at [https://github.com/microsoft/app-camp](https://github.com/microsoft/app-camp/){target="_blank"}. Select the "Code" button and clone or download the content to your computer.
 
 ![Download the lab source code](../../assets/screenshots/01-001-CloneRepo.png)
 
 The starting code is in the `src/create-core-app/aad/A01-begin-app/` folder. Copy this folder to another location on your computer; this will be your working copy to keep the original source separate. Folders are also provided with the final code for the other labs.
 
+!!! note
+    Be sure to copy the A01-begin-app folder to a working location where you can modify the contents as you complete the labs. That way you'll still have a clean copy to start from or to compare with your work.
+
 ### Step 2: Install the app's dependencies
 
 
-Using a command line tool of your choice, navigate to your working copy of the `A01-begin-app` directory and type the command:
+Using a command line tool of your choice, navigate to your working copy of the **A01-begin-app** directory and type the command:
 
 ~~~shell
 npm install
@@ -350,9 +380,12 @@ npm install
 
 This will install the libraries required to run the server side of your solution.
 
+!!! note
+    The client-side code is not bundled as it uses [JavaScript Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules){target="_blank"} (sometimes called ES Modules or ECMAScript Modules). The npm packages are used on the server side.
+
 #### Step 3: Download the sample data
 
-The Northwind Orders application uses the venerable Northwind database for sample data. The Northwind Database originally shipped with Microsoft Access, then SQL Server, and now is [available as a test OData service](https://services.odata.org/V4/Northwind/) from the [OData organization](https://www.odata.org/). In this step, you'll download the entire Northwind database from this test service to local JSON files, which are used by the Northwind Orders application.
+The Northwind Orders application uses the venerable Northwind database for sample data. The Northwind Database originally shipped with Microsoft Access, then SQL Server, and now is [available as a test OData service](https://services.odata.org/V4/Northwind/){target="_blank"} from the [OData organization](https://www.odata.org/){target="_blank"}. In this step, you'll download the entire Northwind database from this test service to local JSON files, which are used by the Northwind Orders application.
 
 Using a command line tool in your working directory, type:
 
@@ -415,6 +448,8 @@ Try logging out and logging in; you should be able to view the orders for anothe
 ## Known issues
 
 While it will work on mobile devices, the application is not responsive and will not look good on these devices. This will be addressed in a future version of the lab.
+
+--8<-- "issuesLink.md"
 
 ## Next steps
 
