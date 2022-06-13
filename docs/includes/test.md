@@ -1,2 +1,0 @@
-** INCLUDED TEXT **
-

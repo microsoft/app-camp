@@ -28,6 +28,9 @@ Please add this query string to links to Microsoft documentation: ?WT.mc_id=m365
 
 ## Admonitions
 
+!!! check "Challenge"
+    Here's something to try on your own
+
 !!! note
     Use this format to emphasize or clarify the instructions
 
