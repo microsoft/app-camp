@@ -1,12 +1,15 @@
-import 'https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js';
-function displayUI() {
-    microsoftTeams.initialize();
-    document.getElementById('orderForm').addEventListener("submit", (e) => {
+import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
+import { ensureTeamsSdkInitialized } from '../modules/teamsHelpers.js';
+import {env} from '../modules/env.js'
+async function displayUI() {
+    await ensureTeamsSdkInitialized();
+    document.getElementById('orderForm').addEventListener("submit", async (e) => {
         let orderFormInfo = {
             notes: document.forms["orderForm"]["notes"].value,
-        }
-        microsoftTeams.tasks.submitTask(orderFormInfo);
+        };     
+        await microsoftTeams.dialog.submit(orderFormInfo,env.TEAMS_APP_ID);
         return true;
     });
 }
 displayUI();
+
