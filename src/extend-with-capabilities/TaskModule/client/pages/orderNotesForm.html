@@ -6,21 +6,10 @@
     <title>Task Module: Update order notes</title>
     <link rel="stylesheet" href="/northwind.css" />
     <link rel="icon" href="data:;base64,="> <!-- Suppress favicon error -->
-    <script src="https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js"
-        asp-append-version="true"></script>
 </head>
     <body>
-        <script>
-            microsoftTeams.initialize();
-            function validateForm() {
-                var orderFormInfo = {
-                    notes: document.forms["orderForm"]["notes"].value,
-                }                        
-                microsoftTeams.tasks.submitTask(orderFormInfo);
-                return true;
-            }
-        </script>            
-        <form id="orderForm" onSubmit="validateForm()">
+                 
+        <form id="orderForm">
             <div>                
                <textarea id="notes" name="notes" rows="4" cols="50"></textarea>               
             </div>
@@ -28,6 +17,7 @@
                 <button type="submit" tabindex="2">Save</button>
             </div>
         </form>
+        <script type="module" src="orderNotesForm.js"></script>
     </body>
 
 </html>
