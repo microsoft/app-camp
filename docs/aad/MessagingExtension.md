@@ -1,18 +1,13 @@
 ![Teams App Camp](../../assets/code-lab-banner.png)
 
-## Add a Messaging Extension
+# Add a Messaging Extension
 
-This lab is part of extending app capabilities for your teams app which begins with a Northwind Orders core application using the `AAD` path. The [core app](../../src/create-core-app/aad/A03-after-apply-styling/) is the boilerplate application with which you will do this lab.
+---8<--- "extended-lab-intro.md"
 
-> Complete labs [A01](A01-begin-app.md)-[A03](A03-after-apply-styling.md) for deeper understanding of how the core application works, to set up AAD application registration etc. to update the `.env` file as per the `.env_sample`. This configuration is required for the success of the lab.
+In this lab, you'll add a Search Messaging Extension to the Northwind Orders application so users can access and share order information in Microsoft Teams conversations. The information will be shared on an adaptive card; users receiving the card can then take action on the data.
 
-The completed lab is [here](../../src/extend-with-capabilities/MessagingExtension/)
-
-So far you have see how you can bring your application into teams but in this exercise we will explore how you can streamline work using the capabilities in the Microsoft Teams development platform.
-
-Suppose you want to search some data in an external system (in our case the Northwind database) and share the result in a conversation. Or you want to do an action like create, add or update data into this external system and still share all this in a conversation in Teams. All this is possible using **Messaging extensions** capability in Teams. 
-
-
+!!! note "There are several kinds of messaging extensions
+    A Search Messaging extension is useful when you want to let users look up information in a Teams conversation. You can also create Action Messaging Extensions to do things like create, add or update data in your application, and still share all this in a conversation in Teams. All this is possible using **Messaging extensions** capability in Teams. 
 
 We will cover the following concepts in this exercise:
 
@@ -20,21 +15,24 @@ We will cover the following concepts in this exercise:
 - [Bot Framework](https://github.com/microsoft/botframework-sdk)
 - [Adaptive cards](https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/what-are-cards?WT.mc_id=m365-58890-cxa#adaptive-cards)
 
+???+ info "Video briefing"
+    <div class="video">
+      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <div>Search Messaging Extension with Adaptive Cards</div>
+    </div>
+
 ### Features
 
 - A search based messaging extension to search for products and share result in the form of a rich  card in a conversation.
 - In the rich  card, provide an input field and a submit button for users to take action to update stock value of a product in the Northwind Database, all happening in the same conversation
 
-> A fully working sample can be found [here](https://github.com/microsoft/app-camp/tree/main/src/extend-with-capabilities/MessagingExtension/)
-
 ### Exercise 1: Bot registration
----
+
 Messaging extensions allow users to bring the application into a conversation in Teams. You can search data in your application, perform actions on them and send back results of your interaction to your application as well as Teams to display all results in a rich card in the conversation.
 
-Since it is a conversation between your application's web service and teams, you'll need a secure communication protocol to send and receive messages like the **Bot Framework**'s messaging schema.
+Since it is a conversation between your application's web service and teams, you'll need a secure communication protocol to send and receive messages. Microsoft Teams uses the **Azure Bot Framework** for this purpose.
 
-You'll need to register your web service as a bot in the Bot Framework and update the app manifest file to define your web service so Teams client can know about it.
-
+For that reason, you'll need to register your web service as a bot in the Bot Framework and update the app manifest file to define your web service so Teams client can know about it.
 
 #### Step 1: Run ngrok 
 
@@ -75,16 +73,21 @@ The terminal will display a screen like below; Save the URL for [Step 2](#ex1-st
 
 There are new files and folders that you need to add into the project structure.
 
-- Create a new `images` folder under `client` folder and copy over the [9 image files](https://github.com/microsoft/app-camp/tree/main/src/extend-with-capabilities/MessagingExtension/client/images) needed for the rich adaptive cards to display products' inventory.
-    > Northwind Database does not have nice images for us to show rich cards with images so we have added some images and mapped them to each product using hashing mechanism.
+- Create a new `images` folder under `client` folder and copy over the [9 image files](https://github.com/microsoft/app-camp/tree/main/src/extend-with-capabilities/MessagingExtension/client/images){target="_blank"} needed for the rich adaptive cards to display products' inventory.
+
+!!! note
+    The Northwind Database does not have nice images for us to show rich cards with images so we have added some images and mapped them to each product using hashing mechanism.
     As long as you got the names of the images right, we don't have to worry what images your want to add in the folder 😉. You can get creative here!
 
-- Create a new `cards` folder under the  `server` folder and add three files `errorCard.js`,`productCard.js` and `stockUpdateSuccess.js`.   
-  They are adaptive cards needed for the messaging extension to display in a conversation based on what state the cards are in.
-  For e.g. if it's a product card, the bot will use `productCard.js`, if the form is submitted by a user to update the stock value, the bot will use the `stockUpdateSuccess.js` card to let users know the action is completed and incase of any error `errorCard.js` will be displayed.
-    
-    > Adaptive cards are json files but in our project since we own these JSON files and do not use any modern bundlers, we have created JS files out of them for the ease of importing content.
-- Copy below content into **errorCard.js**
+- Create a new `cards` folder under the  `server` folder and add three files `errorCard.js`,`productCard.js` and `stockUpdateSuccess.js`. They are adaptive cards needed for the messaging extension to display in a conversation based on what state the cards are in.
+
+For example, to display the product card, the bot code will use `productCard.js`; if the form is submitted by a user to update the stock value, the bot will use the `stockUpdateSuccess.js` card to let users know the action is completed; and in case of any error `errorCard.js` will be displayed.
+
+!!! note
+    Adaptive cards are light-weight interactive content you can place in Teams conversations and many other places. They are simple JSON. These files contain adaptive card templates which allow binding data to the JSON when the card is created.
+
+- Copy below content into **errorCard.js**. Notice the data binding expressions such as `${productName}` and `${unitsInStock}`.
+
 ```javascript
 export default{
     "type": "AdaptiveCard",
@@ -108,7 +111,9 @@ export default{
     ]
   }
 ```
+
 - Copy below content into **productCard.js**
+
 ```javascript
 export default
 {
@@ -225,7 +230,9 @@ export default
     ]
 }
 ```
+
 - Copy below content into **stockUpdateSuccess.js**
+
 ```javascript
 export default
 {
@@ -320,13 +327,20 @@ export default
     ]
 }
 ```
+
 - Create a file `bot.js` inside the `server` folder. This is the `StockManagerBot` for the messaging extension which will handle the search, display and update functionality of products within the conversation.
 
-    - **handleTeamsMessagingExtensionQuery()**- Used in creating a Search-based Message Extension when you query which then returns the `Messaging Extension Response` for the query.
-    - **handleTeamsMessagingExtensionSelectItem()**- Used in creating a Search-based Message Extension when select a search query result,  which then returns the `Messaging Extension Response` for the query.
+!!! note "Notice the event handlers"
+    The code contains these event handlers which are invoked by the Bot Framework adapter:
+
+    - **handleTeamsMessagingExtensionQuery()** - Used in creating a Search-based Message Extension when you query which then returns the `Messaging Extension Response` for the query.
+
+    - **handleTeamsMessagingExtensionSelectItem()** - Used in creating a Search-based Message Extension when select a search query result,  which then returns the `Messaging Extension Response` for the query.
+
     - **onInvokeActivity()** - If the bots receive a message activity, then the turn handler receives a notification of that incoming activity. The turn handler then sends the incoming activity to Team's activity handler `onInvokeActivity` which routes all Teams invoke activities. To implement our own logic for, you must override this method in your bot.
     
 - Copy the following content into **bot.js** file.
+
 ```javascript
 import { TeamsActivityHandler, CardFactory } from 'botbuilder';
 import { getProductByName, updateProductUnitStock } from './northwindDataService.js';
@@ -487,10 +501,11 @@ export class StockManagerBot extends TeamsActivityHandler {
 ```
 
 #### Step 2: Update existing files
+
 There are files that were updated to add the new features.
 Let's take files one by one to understand what changes you need to make for this exercise. 
 
-**1. manifest\makePackage.js**
+**1. manifest/makePackage.js**
 The npm script that builds a manifest file by taking the values from your local development configuration like `.env` file, need an extra token for the Bot we just created. Let's add that token `BOT_REG_AAD_APP_ID` (bot id) into the script.
 
 Replace code block:
@@ -507,7 +522,7 @@ With:
            <b> key.indexOf('BOT_REG_AAD_APP_ID') === 0) {</b>
 </pre>
 
-**2.manifest\manifest.template.json**
+**2.manifest/manifest.template.json**
 
 Add the messaging extension command information (bolded) in the manifest after `showLoadingIndicator` property:
 <pre>
@@ -626,7 +641,7 @@ Update the version number so it's greater than it was; for example if your manif
 "version": "1.5.0"
 ~~~
 
-**3.server\identityService.js**
+**3.server/identityService.js**
 
 Add a condition to let validation  be performed by Bot Framework Adapter.
 In the function `validateApiRequest()`, add an `if` condition and check if request is from `bot` then move to next step.
@@ -662,7 +677,8 @@ async function validateApiRequest(req, res, next) {
    <b> }</b>
 }
 </pre>
-**4.server\northwindDataService.js**
+
+**4.server/northwindDataService.js**
 
 Add two new functions as below
 - <b>getProductByName()</b> - This will search products by name and bring the top 5 results back to the messaging extension's search results.
@@ -701,7 +717,7 @@ export async function updateProductUnitStock(productId, unitsInStock) {
 }
 ```
 
-**5.server\server.js**
+**5.server/server.js**
 
 Import the needed modules for bot related code.
 Import required bot service from botbuilder package and the bot `StockManagerBot` from the newly added file `bot.js`
@@ -711,22 +727,29 @@ import {StockManagerBot} from './bot.js';
 import { BotFrameworkAdapter } from 'botbuilder';
 ```
 
-> As a standard , `app.listen()` should always be at the end of the file, so any code update should happen before this request.
+!!! note
+    As a standard , `app.listen()` should always be at the end of the file, so make sure your code updates happen before this request.
 
 A bot adapter authenticates and connects a bot to a service endpoint to send and receive message.
 So to authenticate, we'll need to pass the bot registration's AAD app id and app secret.
+
 Add below code to initialize the bot adapter.
+
 ```javascript
 const adapter = new BotFrameworkAdapter({
   appId: process.env.BOT_REG_AAD_APP_ID,
   appPassword:process.env.BOT_REG_AAD_APP_PASSWORD
 });
 ```
+
 Create the bot that will handle incoming messages.
+
 ```javascript
 const stockManagerBot = new StockManagerBot();
 ```
+
 For the main dialog add error handling.
+
 ```javascript
 // Catch-all for errors.
 const onTurnErrorHandler = async (context, error) => {
@@ -750,7 +773,9 @@ const onTurnErrorHandler = async (context, error) => {
 // Set the onTurnError for the singleton BotFrameworkAdapter.
 adapter.onTurnError = onTurnErrorHandler;
 ```
+
 Listen for incoming requests.
+
 ```javascript
 
 app.post('/api/messages', (req, res) => {
@@ -763,7 +788,7 @@ app.post('/api/messages', (req, res) => {
 
 ```
 
-
+The final **server/server.js** file should [look like this](https://github.com/microsoft/app-camp/blob/main/src/extend-with-capabilities/MessagingExtension/server/server.js){target="_blank"} (changes from other extended labs notwithstanding).
 
 **6. package.json**
 
@@ -782,6 +807,7 @@ Check if packages are added into `dependencies` in the package.json file:
     "adaptivecards-templating": "^2.2.0",   
     "botbuilder": "^4.15.0"
 ```
+
 **7. .env**
 
 Open the `.env` file in your working directory and add two new tokens `BOT_REG_AAD_APP_ID`(Bot id) and `BOT_REG_AAD_APP_PASSWORD`(client secret) with values copied in [Step 2](#ex1-step3).
@@ -805,6 +831,7 @@ BOT_REG_AAD_APP_PASSWORD=111111vk
 Now that you have applied all code changes, let's test the features.
 
 #### Step 1 : Create new teams app package
+
 Make sure the env file is configured as per the sample file .env_Sample.
 Make sure all npm packages are installed, run below script in the command line tool
 
@@ -825,6 +852,7 @@ npm start
 ```
 
 #### Step 3: Upload the app package
+
 In the Teams web or desktop UI, click "Apps" in the sidebar 1️⃣, then "Manage your apps" 2️⃣. At this point you have three choices:
 
 * Upload a custom app (upload the app for yourself or a specific team or group chat) - this only appears if you have enabled "Upload custom apps" in your setup policy; this was a step in the previous lab
@@ -833,11 +861,12 @@ In the Teams web or desktop UI, click "Apps" in the sidebar 1️⃣, then "Manag
 
 In this case, choose the first option 3️⃣.
 
-<img src="../../assets/screenshots/03-005-InstallApp-1.png?raw=true" alt="Upload the app"/>
+<img src="../../assets/screenshots/03-005-InstallApp-1.png" alt="Upload the app"/>
 
 Navigate to the Northwind.zip file in your manifest directory and upload it. 
 The Teams client will display the application information, add the application to a team or a group chat.
-<img src="../../assets/screenshots/06-002-addapp.png?raw=true" alt="Add the app"/>
+
+<img src="../../assets/screenshots/06-002-addapp.png" alt="Add the app"/>
 
 
 #### Step 4 : Run the application in Teams client
@@ -845,33 +874,34 @@ The Teams client will display the application information, add the application t
 We have added the app into a Group chat for demonstration. Go to the chat where the app is installed.
 
 Open the messaging extension app from the compose area.
-<img src="../../assets/screenshots/06-003-openme.png?raw=true" alt="Open the app"/>
+
+<img src="../../assets/screenshots/06-003-openme.png" alt="Open the app"/>
 
 Search for the product from the messaging extension (This should be easy if you have used [GIPHY](https://giphy.com/) before 😉)
-<img src="../../assets/screenshots/06-004-searchproduct.png?raw=true" alt="Search product"/>
+
+<img src="../../assets/screenshots/06-004-searchproduct.png" alt="Search product"/>
 
 Select the product you want to add in the conversation.
-<img src="../../assets/screenshots/06-005-previewproduct.png?raw=true" alt="Select product"/>
+<img src="../../assets/screenshots/06-005-previewproduct.png" alt="Select product"/>
 
-> A little preview will be shown in the message compose area. Note at the time this lab was created, there is an outstanding platform issue related to the preview. If you are in a Teams team, this will be blank. Hence showing this capability in a group chat.
+!!! note
+    A little preview will be shown in the message compose area. Note at the time this lab was created, there is an outstanding platform issue related to the preview. If you are in a Teams team, this will be blank. Hence showing this capability in a group chat.
 
 This is the product card, with a form to fill in and submit, incase the unit stock value has to be changed.
 
 <img src="../../assets/screenshots/06-006-productcard.png?raw=true" alt="Product card"/>
 
 Fill in a new value in the form, and select **Update stock**.
+
 <img src="../../assets/screenshots/06-007-updatepdt.png?raw=true" alt="Product update form"/>
 
 Once it's success fully updated, the card refreshes to show the new stock value.
 <img src="../../assets/screenshots/06-008-updated.png?raw=true" alt="Product updated"/>
 
-> The new stock values are not saved back into the northwind database as it is only read only for this lab. You can call your CRUD operations suitably in your application. Here we are manipulating the cache.
+The stock values are saved into the JSON version of the Northwind database; if you find the product in the Products tab, you'll see the new value.
 
 ### Next steps
 
-After completing this lab, you may continue with any of the following labs.
+After completing this lab, you may continue with additional extended labs!
 
-- [Add a Configurable Tab](./ConfigurableTab.md)
-- [Add a Deep link to a personal Tab](./Deeplink.md)
-- [Add a Task Module](TaskModules.md)
-- [Selling Your SaaS-based Teams Extension](./Monetization.md)
+---8<--- "extended-lab-links.md"
