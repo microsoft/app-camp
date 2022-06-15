@@ -1,0 +1,2 @@
+!!! important "Important!"
+    This lab builds on the completed solution to lab [A03-after-apply-styling.md](app-camp/aad/A03-after-apply-styling.md), which is the last of the "core" labs. If you haven't done them, you can [start here](/app-camp/aad/A01-begin-app.md).
