@@ -1,9 +1,8 @@
 ![Teams App Camp](../../assets/code-lab-banner.png)
 
-## Add a Configurable Tab
+# Add a Configurable Tab
 
-This lab is part of extending with capabilities for your teams app which begins with a Northwind Orders core application using the `AAD` path.
-> Complete labs [A01](A01-begin-app.md)-[A03](A03-after-apply-styling.md) to get to the Northwind Orders core application
+---8<--- "extended-lab-intro.md"
 
 Up to this point, the Northwind Teams application has had only "static" tabs. Static tabs are for personal use, and aren't part of a Teams channel or group chat. Each static tab has a single, static URL.
 
