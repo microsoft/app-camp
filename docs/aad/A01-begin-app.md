@@ -16,6 +16,8 @@ In this lab you will set up the Northwind Orders application, which can be found
 
 In this lab you will learn to:
 
+- Run a web application using NodeJS
+- Expose a local web application using ngrok
 - [Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app?WT.mc_id=m365-58890-cxa){target=_blank}
 - How to use the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview?WT.mc_id=m365-58890-cxa){target=_blank}
 - How to validate an [Azure AD access token](https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens?WT.mc_id=m365-58890-cxa){target=_blank} in a NodeJS application
@@ -55,7 +57,6 @@ In this lab you will learn to:
       - [Step 5: Run the application](#step-5-run-the-application)
     - [Known issues](#known-issues)
     - [Next steps](#next-steps)
-
 
 ## Features
 
@@ -299,8 +300,6 @@ The secret will be displayed just this once on the "Certificates and secrets" sc
 !!! danger "Keep your secrets secret!"
     Give each developer a free developer tenant and register their apps in their tenants so each developer has his or her own app secrets. Limit who has access to app secrets for production. If you're running in Microsoft Azure, a great place to store your secrets is [Azure KeyVault](https://azure.microsoft.com/en-us/services/key-vault/){target="_blank"}. You could deploy an app just like this one and store sensitive application settings in Keyvault. See [this article](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references?WT.mc_id=m365-58890-cxa){target="_blank"} for more information.
 
----
-
 ### Step 3: Verify permission to call the Microsoft Graph API
 
 The app registration created an identity for your application; now we need to give it permission to call the Microsoft Graph API. The Microsoft Graph is a RESTful API that allows you to access data in Azure AD and Microsoft 365, including Microsoft Teams.
@@ -447,7 +446,7 @@ Try logging out and logging in; you should be able to view the orders for anothe
 
 ## Known issues
 
-While it will work on mobile devices, the application is not responsive and will not look good on these devices. This will be addressed in a future version of the lab.
+While it will work on mobile devices, the application is not responsive and will not look good on these devices. This may be addressed in a future version of the lab.
 
 --8<-- "issuesLink.md"
 

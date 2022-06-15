@@ -481,6 +481,8 @@ The application should appear without any login prompt. The app's navigation sho
 
 ## Known issues
 
+While it will work on mobile devices, the application is not responsive and will not look good on these devices. This may be addressed in a future version of the lab.
+
 --8<-- "issuesLink.md"
 
 ## References

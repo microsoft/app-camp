@@ -2,28 +2,35 @@
 
 ## Lab B01: Start with a non-Azure Active Directory Identity System
 
-In this series of labs, you will port a simple "Northwind Orders" web application to become a full-fledged Microsoft Teams application. To make the app understandable by a wide audience, it is written in vanilla JavaScript with no UI framework, however it does use modern browser capabilities such as web components, CSS variables, and ECMAScript modules. The server side is also in JavaScript, using Express, the most popular web server platform for NodeJS.
 
-There are two options for doing the labs:
+## Overview
 
-* The "A" path is for developers with apps that are already based on Azure Active Directory. The starting app uses Azure Active Directory and the Microsoft Authentication Library (MSAL).
+This is the very first lab in Path B, which begins with an application that uses an authorization system other than Azure AD.
 
-* the "B" path is for developers with apps that use some other identity system. It includes a simple (and not secure!) cookie-based auth system based on the Employees table in the Northwind database. You will use an identity mapping scheme to allow your existing users to log in directly or via Azure AD Single Sign-On.
+You will learn a pattern for adding Azure AD authentication for users while maintaining another identity system's user profiles and authorization. This won't work everywhere but a number of partners have been successful with this kind of approach. In this case, the application has a simple cookie-based authentication scheme that's not secure but is easy to understand. 
 
-**This is the very first lab in Path B**, which begins with an application that has its own, bespoke identity system. You will learn a pattern for adding Azure AD authentication for users while maintaining the bespoke identity system's user profiles and authorization. This won't work everywhere but a number of partners have been successful with this kind of approach.
+If you use an identity provider such as Auth0, Google Identity Services, Identity Server, Okta, or Ping Federate, this is the path for you. Even Azure AD B2C - which isn't at all the same as Azure AD - would follow this path.
+
+---8<--- "are-you-on-the-right-path.md"
 
 In this lab you will set up the Northwind Orders application, which can be found in the [B01-begin-app](../../src/create-core-app/bespoke/B01-begin-app/) folder. The labs that follow will lead you step by step into extending the web application to be a Microsoft Teams application with Azure AD Single Sign-On. 
 
-* [B01-begin-app: Setting up the application with Azure AD](../bespoke/B01-begin-app.md) (📍You are here)
-* [B02-after-teams-login: Creating a Teams application](../bespoke/B02-after-teams-login.md)
-* [B03-after-teams-sso: Adding Azure AD SSO to your app](../bespoke/B03-after-teams-sso.md)
-* [B04-after-apply-styling: Teams styling and themes](../bespoke/B04-after-apply-styling.md)
+* [B01-begin-app: Setting up the application with Azure AD](./B01-begin-app.md) (📍You are here)
+* [B02-after-teams-login: Creating a Teams application](./B02-after-teams-login.md)
+* [B03-after-teams-sso: Adding Azure AD SSO to your app](./B03-after-teams-sso.md)
+* [B04-after-apply-styling: Teams styling and themes](./B04-after-apply-styling.md)
 
 
 In this lab you will learn to:
 
 - Run a web application using NodeJS
 - Expose a local web application using ngrok
+
+???+ info "Video briefing"
+    <div class="video">
+      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <div>"B Path" Lab Briefing</div>
+    </div>
 
 ### Features
 
@@ -42,19 +49,25 @@ You can complete these labs on a Windows, Mac, or Linux machine, but you do need
 
 NodeJS is a program that allows you to run JavaScript on your computer; it uses the open source "V8" engine, which is used in popular web browsers such as Microsoft Edge and Google Chrome. You will need NodeJS to run the web server code used throughout this workshop.
 
-Browse to [https://nodejs.org/en/download/](https://nodejs.org/en/download/) and install the "LTS" (Long Term Support) version for your operating system. This lab has been ested using NodeJS version 14.17.4 and 16.14.0. If you already have another version of NodeJS installed, you may want to set up the [Node Version Manager](https://github.com/nvm-sh/nvm) (or [this variation](https://github.com/coreybutler/nvm-windows) for Microsoft Windows), which allows you to easily switch Node versions on the same computer.
+Browse to [https://nodejs.org/en/download/](https://nodejs.org/en/download/){target=_blank} and install the "LTS" (Long Term Support) version for your operating system. This lab has been ested using NodeJS version 14.17.4 and 16.14.0. If you already have another version of NodeJS installed, you may want to set up the [Node Version Manager](https://github.com/nvm-sh/nvm){target=_blank} (or [this variation](https://github.com/coreybutler/nvm-windows){target=_blank} for Microsoft Windows), which allows you to easily switch Node versions on the same computer.
 
 #### Step 2: Install a Code Editor
 
-You can really use any code editor you wish, but we recommend [Visual Studio Code](https://code.visualstudio.com/download).
+You can really use any code editor you wish, but we recommend [Visual Studio Code](https://code.visualstudio.com/download){target=_blank}.
 
 #### Step 3: Install ngrok
 
-ngrok is a tunneling program that allows you to access your local web server (running in NodeJS in this case) from the Internet. To complete this exercise, download and install ngrok from [here](https://ngrok.com/download).
+ngrok is a tunneling program that allows you to access your local web server (running in NodeJS in this case) from the Internet. To complete this exercise, download and install ngrok from [here](https://ngrok.com/download){target=_blank}.
 
 The free version of ngrok will assign a URL similar to https://something.ngrok.io, where "something" is a random identifier. As long as ngrok is running (leave it going in a command or terminal window), you can browse your web site at that URL. If you start and stop ngrok, or try to keep it running for more than 8 hours, you'll get a new identifier and you'll need to update your app registration, environment variables, etc. The paid version of ngrok allows you to reserve the same URL for use over time, removing the need to update it when you return to the lab.
 
-While ngrok isn't strictly required for developing Microsoft Teams applications, it makes things much easier, especially if Bots are involved. An example of this is the Messaging Extension lab since Messaging Extensions use a Bot to communicate with Microsoft Teams. If you or your company aren't comfortable with running ngrok (some companies block it on their corporate networks), please check out [this video](https://www.youtube.com/watch?v=A5U-3o-mHD0) which explains the details and work-arounds.
+While ngrok isn't strictly required for developing Microsoft Teams applications, it makes things much easier, especially if Bots are involved. An example of this is the Messaging Extension lab since Messaging Extensions use a Bot to communicate with Microsoft Teams.
+
+???+ info "More information"
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/A5U-3o-mHD0" frameborder="0" allowfullscreen></iframe>
+      <div>What is ngrok and do you really need it?</div>
+    </div>
 
 #### Step 4: Start ngrok
 
@@ -68,19 +81,17 @@ The terminal will display a screen like this; note the https forwarding URL for 
 
 ![ngrok output](../../assets/screenshots/01-002-ngrok.png)
 
----
-> **NOTE:** [This page](../../docs/ngrokReferences.md) lists all the exercies which involve the ngrok URL so you can easily update it if it changes.
----
-
+!!! warning
+    Do not stop ngrok for the duration of these labs. If you do stop ngrok and are assigned a new URL, [this page](http://devpoint19.lab/app-camp/ngrokReferences/){target="_blank"} lists all the exercises which involve the ngrok URL so you can easily update it.
 
 ### Exercise 2: Configure and run the application
 #### Step 1: Download the starting application
 
-The starting application is in github at [https://github.com/microsoft/app-camp](https://github.com/microsoft/app-camp). Click the "Code" button and clone or download the content to your computer.
+The starting application is in github at [https://github.com/microsoft/app-camp](https://github.com/microsoft/app-camp){target="_blank"}. Click the "Code" button and clone or download the content to your computer.
 
 ![Download the lab source code](../../assets/screenshots/01-001-CloneRepo.png)
 
-The starting code for the "B" path is in the **src/create-core-app/bespoke/B01-begin-app** folder. Copy this folder to nother location on your computer; this will be your working copy to keep the original source separate. Folders are also provided with the final code for the other labs.
+The starting code for the "B" path is in the **src/create-core-app/bespoke/B01-begin-app** folder. Copy this folder to nother location on your computer; this will be your working copy to keep the original source separate. [Folders are also provided](https://github.com/microsoft/app-camp/tree/main/src/create-core-app/bespoke){target="_blank"} with the final code for the other labs.
 
 #### Step 2: Install the app's dependencies
 
@@ -94,7 +105,7 @@ This will install the libraries required to run the server side of your solution
 
 #### Step 3: Download the sample data
 
-The Northwind Orders application uses the venerable Northwind database for sample data. The Northwind Database originally shipped with Microsoft Access, then SQL Server, and now is [available as a test OData service](https://services.odata.org/V4/Northwind/) from the [OData organization](https://www.odata.org/). In this step, you'll download the entire Northwind database from this test service to local JSON files, which are used by the Northwind Orders application.
+The Northwind Orders application uses the venerable Northwind database for sample data. The Northwind Database originally shipped with Microsoft Access, then SQL Server, and now is [available as a test OData service](https://services.odata.org/V4/Northwind/){target="_blank"} from the [OData organization](https://www.odata.org/){target="_blank"}. In this step, you'll download the entire Northwind database from this test service to local JSON files, which are used by the Northwind Orders application.
 
 Using a command line tool in your working directory, type:
 
@@ -155,16 +166,16 @@ From there you can click into a product category to view a list of products, and
 
 Try logging out and logging in; you should be able to view the orders for another user based on the employee ID field in the Orders table.
 
----
-😎 LOGIN STATE IS STORED IN A BROWSER COOKIE: The sample login scheme uses a browser session cookie to establish who is logged in. **It is not secure - do not use this in a real application!** Also **be aware during testing** that your login will persist until you close all instances of your web browser. For example if you leave your browser logged in after this lab and then run Microsoft Teams in another instance of the same browser, your user will already be logged in when you get to the next lab.
+!!! danger The sample login scheme is not secure
+    The sample application uses a browser session cookie to establish who is logged in. **It is not secure and would be easy to fake - do not use this in a real application!** Also **be aware during testing** that your login will persist until you close all instances of your web browser. For example if you leave your browser logged in after this lab and then run Microsoft Teams in another instance of the same browser, your user will already be logged in when you get to the next lab.
 
----
+
+### Known issues
+
+While it will work on mobile devices, the application is not responsive and will not look good on these devices. This may be addressed in a future version of the lab.
+
+--8<-- "issuesLink.md"
 
 ### Next lab
 
 [Here is the next lab](./B02-after-teams-login.md), in which you will create a simple Teams application that displays pages from the app you just set up.
-
-### Known issues
-
-While it will work on mobile devices, the application is not responsive and will not look good on these devices. This will be addressed in a future version of the lab.
-
