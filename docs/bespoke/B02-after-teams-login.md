@@ -2,18 +2,28 @@
 
 ## Lab B02: Teams App with Bespoke Authentication
 
+This is parth of Path B, which begins with an application that uses an authorization system other than Azure AD.
+
+---8<--- "are-you-on-the-right-path.md"
+
 In this lab you will build the application you created in Lab B01 into a Microsoft Teams application. This application will still use the Northwind authentication, but since the Northwind login page won't work in the Teams tab IFrame, we'll use the Teams JavaScript SDK to show it in a pop-up.
 
-* [B01-begin-app: Setting up the application with Azure AD](../bespoke/B01-begin-app.md) 
-* [B02-after-teams-login: Creating a Teams application](../bespoke/B02-after-teams-login.md)(📍You are here)
-* [B03-after-teams-sso: Adding Azure AD SSO to your app](../bespoke/B03-after-teams-sso.md)
-* [B04-after-apply-styling: Teams styling and themes](../bespoke/B04-after-apply-styling.md)
+* [B01-begin-app: Setting up the application with Azure AD](./B01-begin-app.md) 
+* [B02-after-teams-login: Creating a Teams application](./B02-after-teams-login.md)(📍You are here)
+* [B03-after-teams-sso: Adding Azure AD SSO to your app](./B03-after-teams-sso.md)
+* [B04-after-apply-styling: Teams styling and themes](./B04-after-apply-styling.md)
 
 In this lab you will learn to:
 
 - Create a Microsoft Teams app manifest and package that can be installed into Teams
 - Use the Teams JavaScript SDK to display a login page in a pop-up window
 - Install and test your application in Microsoft Teams
+
+???+ info "Video briefing"
+    <div class="video">
+      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <div>"B Path" Lab Briefing</div>
+    </div>
 
 ### Features
 
@@ -22,108 +32,111 @@ In this lab you will learn to:
 - Application alters its appearance (hides the top navigation) when running in Teams, allowing Teams tab navigation instead
 
 ### Project structure
-The project structure when you start of this lab and end of this lab is as follows.
-Use this depiction for comparison.
-On your left is the contents of folder  `B01-Start-BespokeAuth` and on your right is the contents of folder `B02-TeamsApp-BespokeAuth`.
-- 🆕 New files/folders
 
-- 🔺Files changed
-<table>
-<tr>
-<th >Project Structure Before </th>
-<th>Project Structure After</th>
-</tr>
-<tr>
-<td valign="top" >
-<pre>
-B01-begin-app
-    ├── client
-    │   ├── components
-    │       ├── 🔺navigation.js
-    │   └── identity
-    │       ├── 🔺identityClient.js
-    │       └── login.html
-    │       └── 🔺login.js
-    │       └── userPanel.js
-    ├── modules
-    │   └── env.js
-    │   └── northwindDataService.js
-    ├── pages
-    │   └── categories.html
-    │   └── categories.js
-    │   └── categoryDetails.html
-    │   └── categoryDetails.js
-    │   └── myOrders.html
-    │   └── orderDetail.html
-    │   └── orderDetail.js
-    │   └── privacy.html
-    │   └── productDetail.html
-    │   └── productDetail.js
-    │   └── termsofuse.html
-    ├── index.html
-    ├── index.js
-    ├── northwind.css
-    ├── server
-    │   └── constants.js
-    │   └── identityService.js
-    │   └── northwindDataService.js
-    │   └── server.js
-    ├── 🔺.env_Sample
-    ├── .gitignore
-    ├── 🔺package.json
-    ├── README.md
-</pre>
-</td>
-<td>
-<pre>
-B02-after-teams-login
-    ├── client
-    │   ├── components
-    │       ├── 🔺navigation.js
-    │   └── identity
-    │       ├── 🔺identityClient.js
-    │       └── login.html
-    │       └── 🔺login.js
-    │       └── 🆕teamsLoginLauncher.html
-    │       └── 🆕teamsLoginLauncher.js
-    │       └── userPanel.js
-    ├── modules
-    │   └── env.js
-    │   └── northwindDataService.js
-    │   └── 🆕teamsHelpers.js
-    ├── pages
-    │   └── categories.html
-    │   └── categories.js
-    │   └── categoryDetails.html
-    │   └── categoryDetails.js
-    │   └── myOrders.html
-    │   └── orderDetail.html
-    │   └── orderDetail.js
-    │   └── privacy.html
-    │   └── productDetail.html
-    │   └── productDetail.js
-    │   └── termsofuse.html
-    ├── index.html
-    ├── index.js
-    ├── northwind.css
-    ├── 🆕manifest
-    │   └── 🆕makePackage.js
-    │   └── 🆕manifest.template.json
-    │   └── 🆕northwind32.png
-    │   └── 🆕northwind192.png
-    ├── server
-    │   └── constants.js
-    │   └── identityService.js
-    │   └── northwindDataService.js
-    │   └── server.js
-    ├── 🔺.env_Sample
-    ├── .gitignore
-    ├── 🔺package.json
-    ├── README.md
-</pre>
-</td>
-</tr>
-</table>
+??? note "Project files before and after this lab (open to display ►)"
+    The project structure when you start of this lab and end of this lab is as follows.
+    Use this depiction for comparison.
+
+    On your left is the contents of folder  `B01-Start-BespokeAuth` and on your right is the contents of folder `B02-TeamsApp-BespokeAuth`.
+    - 🆕 New files/folders
+
+    - 🔺Files changed
+    <table>
+    <tr>
+    <th >Project Structure Before </th>
+    <th>Project Structure After</th>
+    </tr>
+    <tr>
+    <td valign="top" >
+    <pre>
+    B01-begin-app
+        ├── client
+        │   ├── components
+        │       ├── 🔺navigation.js
+        │   └── identity
+        │       ├── 🔺identityClient.js
+        │       └── login.html
+        │       └── 🔺login.js
+        │       └── userPanel.js
+        ├── modules
+        │   └── env.js
+        │   └── northwindDataService.js
+        ├── pages
+        │   └── categories.html
+        │   └── categories.js
+        │   └── categoryDetails.html
+        │   └── categoryDetails.js
+        │   └── myOrders.html
+        │   └── orderDetail.html
+        │   └── orderDetail.js
+        │   └── privacy.html
+        │   └── productDetail.html
+        │   └── productDetail.js
+        │   └── termsofuse.html
+        ├── index.html
+        ├── index.js
+        ├── northwind.css
+        ├── server
+        │   └── constants.js
+        │   └── identityService.js
+        │   └── northwindDataService.js
+        │   └── server.js
+        ├── 🔺.env_Sample
+        ├── .gitignore
+        ├── 🔺package.json
+        ├── README.md
+    </pre>
+    </td>
+    <td>
+    <pre>
+    B02-after-teams-login
+        ├── client
+        │   ├── components
+        │       ├── 🔺navigation.js
+        │   └── identity
+        │       ├── 🔺identityClient.js
+        │       └── login.html
+        │       └── 🔺login.js
+        │       └── 🆕teamsLoginLauncher.html
+        │       └── 🆕teamsLoginLauncher.js
+        │       └── userPanel.js
+        ├── modules
+        │   └── env.js
+        │   └── northwindDataService.js
+        │   └── 🆕teamsHelpers.js
+        ├── pages
+        │   └── categories.html
+        │   └── categories.js
+        │   └── categoryDetails.html
+        │   └── categoryDetails.js
+        │   └── myOrders.html
+        │   └── orderDetail.html
+        │   └── orderDetail.js
+        │   └── privacy.html
+        │   └── productDetail.html
+        │   └── productDetail.js
+        │   └── termsofuse.html
+        ├── index.html
+        ├── index.js
+        ├── northwind.css
+        ├── 🆕manifest
+        │   └── 🆕makePackage.js
+        │   └── 🆕manifest.template.json
+        │   └── 🆕northwind32.png
+        │   └── 🆕northwind192.png
+        ├── server
+        │   └── constants.js
+        │   └── identityService.js
+        │   └── northwindDataService.js
+        │   └── server.js
+        ├── 🔺.env_Sample
+        ├── .gitignore
+        ├── 🔺package.json
+        ├── README.md
+    </pre>
+    </td>
+    </tr>
+    </table>
 
 ### Exercise 1 Set up your Microsoft 365 Subscription
 
@@ -132,7 +145,7 @@ To run your application in Microsoft Teams, you'll need a Microsoft 365 subscrip
 
 #### Step 1: Get a tenant
 
-If you don't yet have a tenant, please join the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program?WT.mc_id=m365-58890-cxa) to get a free one. Your tenant includes 25 [E5 user licenses](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans) and can be renewed as long as you keep developing!
+If you don't yet have a tenant, please join the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program?WT.mc_id=m365-58890-cxa){target="_blank"} to get a free one. Your tenant includes 25 [E5 user licenses](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans){target="_blank"} and can be renewed as long as you keep developing!
 
 Click "Join now" to begin.
 ![Signup](../../assets/screenshots/01-003-JoinM365DevProgram1.png)
@@ -147,19 +160,22 @@ Remember this information as you'll need it throughout the labs! You will log in
 
 Eventually you'll be prompted to log into your new tenant. Be sure to use the new administrator credentials you just created, not the ones you used when you signed up for the developer program.
 
----
-😎 DON'T DEVELOP IN PRODUCTION: It may be tempting to build solutions right where you work every day, but there are good reasons to have a dedicated dev tenant - and probably additional staging/test tenants. They're free, and you can safely experiment as a tenant admin without risking your production work. 
+!!! warning "Tip: Don't develop or do the labs in production!"
+    It may be tempting to build solutions right where you work every day, but there are good reasons to have a dedicated dev tenant - and probably additional staging/test tenants. They're free, and you can safely experiment as a tenant admin without risking your production work. 
 
----
-😎 NAVIGATING MANY TENANTS: Consider creating a browser profile for each tenant that will have its own favorites, stored credentials, and cookies so you can easily swtch between tenants as you work.
 
----
-😎 CHANGES ROLL OUT FIRST TO "TARGETED RELEASE" TENANTS. You may want to [enable Targeted Release](https://docs.microsoft.com/microsoft-365/admin/manage/release-options-in-office-365?WT.mc_id=m365-58890-cxa) in your developer tenant and keep production on Standard Release so you have a head start to test out new features.
+???+ info "More information"
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/DhhpJ1UjbJ0" frameborder="0" allowfullscreen></iframe>
+      <div>Setting up your Microsoft 365 Development tenant</div>
+    </div>
 
----
-😎 YOU MAY BE ASKED TO ENABLE MULTI-FACTOR AUTHENTICATION (MFA). [This is certainly a good idea!](https://www.microsoft.com/security/blog/2019/08/20/one-simple-action-you-can-take-to-prevent-99-9-percent-of-account-attacks/). Just follow the instructions. If you really must turn off MFA, [here are instructions](https://docs.microsoft.com/en-us/answers/questions/101179/how-to-disable-the-two-factor-authentication-from.html). 
+!!! tip "Tip: Navigating many tenants"
+    Consider creating a browser profile for each tenant that will have its own favorites, stored credentials, and cookies so you can easily swtch between tenants as you work.
 
----
+!!! note "You may be asked to enable multi-factor authentication (MFA)"
+    [This is certainly a good idea!](https://www.microsoft.com/security/blog/2019/08/20/one-simple-action-you-can-take-to-prevent-99-9-percent-of-account-attacks/){target=_blank} Just follow the instructions. If you really must turn off MFA, [here are instructions](https://docs.microsoft.com/en-us/answers/questions/101179/how-to-disable-the-two-factor-authentication-from.html){target=_blank}. 
+
 
 #### Step 2: Enable Teams application uploads
 
@@ -201,7 +217,8 @@ The terminal will display a screen like this; note the https forwarding URL for 
 
 ![ngrok output](../../assets/screenshots/01-002-ngrok.png)
 
-> **NOTE:** [This page](../ngrokReferences.md) lists all the exercies which involve the ngrok URL so you can easily update it if it changes.
+!!! warning
+    Do not stop ngrok for the duration of these labs. If you do stop ngrok and are assigned a new URL, [this page](http://devpoint19.lab/app-camp/ngrokReferences/){target="_blank"} lists all the exercises which involve the ngrok URL so you can easily update it.
 
 
 ### Exercise 3: Create the Teams application package
@@ -214,15 +231,15 @@ In this exercise you'll create a manifest.json file and application package for 
 
 #### Step 1: Copy the *manifest* folder to your working directory
 
-Many developers use the [Teams Developer Portal](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/build-and-test/teams-developer-portal?WT.mc_id=m365-58890-cxa) to create an app package; this is preferred by many enterprise developer and systems integrators. However ISV's may want to keep the app package settings in their source control system, and that's the approach used in the lab. It's just a zip file; you can create it any way you want!
+Many developers use the [Teams Developer Portal](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/build-and-test/teams-developer-portal?WT.mc_id=m365-58890-cxa){target="_blank"} to create an app package; this is preferred by many enterprise developer and systems integrators. However ISV's may want to keep the app package settings in their source control system, and that's the approach used in the lab. It's just a zip file; you can create it any way you want!
 
 Go to your local copy of the `B02-TeamsApp-BespokeAuth` folder on your computer and copy the *manifest* folder into the working folder you used in the previous lab. This folder contains a template for building the manifest.json file.
 
 #### Step 2: Examine the manifest template
 
-In the manifest folder you just copied, open [manifest.template.json](../../A03-TeamsSSO/manifest/manifest.template.json) in your code editor. This is the JSON that Teams needs to display your application.
+In the manifest folder you just copied, open [manifest.template.json](https://github.com/microsoft/app-camp/blob/main/src/create-core-app/bespoke/B02-after-teams-login/manifest/manifest.template.json){target="_blank"} in your code editor. This is the JSON that Teams needs to display your application.
 
-Notice that the template contains tokens such as`<HOSTNAME>` and `<TEAMS_APPI_D>`. A small build script will take these values from your .env file and plug them into the manifest. However the token `<TEAMS_APP_ID>` is not yet in the .env file; we'll add that in the next step.
+Notice that the template contains tokens such as`<HOST_NAME>` and `<TEAMS_APPI_D>`. A small build script will take these values from your .env file and plug them into the manifest. However the token `<TEAMS_APP_ID>` is not yet in the .env file; we'll add that in the next step.
 
 Examine the `staticTabs` property in the manifest. It defines two tabs, one for the "My Orders" page and one for the "Products" page. The `contentUrl` is used within the Teams application, and `websiteUrl` is used if Teams can't render the tab and needs to launch it in a regular web browser. The Northwind Orders app will use the same code URL's for both.
 
@@ -231,8 +248,8 @@ Examine the `staticTabs` property in the manifest. It defines two tabs, one for 
   {
     "entityId": "Orders",
     "name": "My Orders",
-    "contentUrl": "https://<HOSTNAME>/pages/myOrders.html",
-    "websiteUrl": "https://<HOSTNAME>/pages/myOrders.html",
+    "contentUrl": "https://<HOST_NAME>/pages/myOrders.html",
+    "websiteUrl": "https://<HOST_NAME>/pages/myOrders.html",
     "scopes": [
       "personal"
     ]
@@ -240,8 +257,8 @@ Examine the `staticTabs` property in the manifest. It defines two tabs, one for 
   {
     "entityId": "Products",
     "name": "Products",
-    "contentUrl": "https://<HOSTNAME>/pages/categories.html",
-    "websiteUrl": "https://<HOSTNAME>/pages/categories.html",
+    "contentUrl": "https://<HOST_NAME>/pages/categories.html",
+    "websiteUrl": "https://<HOST_NAME>/pages/categories.html",
     "scopes": [
       "personal"
     ]
@@ -254,14 +271,14 @@ Open the .env file in your working directory and add these lines, using the ngro
 
 ~~~text
 TEAMS_APP_ID=1331dbd6-08eb-4123-9713-017d9e0fc04a
-HOSTNAME=<something>.ngrok.io
+HOST_NAME=<something>.ngrok.io
 ~~~
 
 You should generate a different GUID for each application you register; this one is just here for your convenience. We could have hard-coded the app ID in the manifest.json template, but there are times when you need it in your code, so this will make that possible in the future.
 
 #### Step 4: Update your package.json file
 
-Open the package.json file in your working directory and add a script that will generate the app package. The [script code](../../B02-TeamsApp-BespokeAuth/manifest/makePackage.js) is in the manifest folder you just copied, so we just need to declare it in package.json. This is what `scripts` property should look like when you're done.
+Open the package.json file in your working directory and add a script that will generate the app package. The [script code](https://github.com/microsoft/app-camp/blob/main/src/create-core-app/bespoke/B02-after-teams-login/manifest/makePackage.js){target="_blank"} is in the manifest folder you just copied, so we just need to declare it in package.json. This is what `scripts` property should look like when you're done.
 
 ~~~json
 "scripts": {
@@ -340,7 +357,7 @@ These functions are used throughout the application to manage the Microsoft Team
 
 Before using the Microsoft Teams JavaScript SDK for the first time on a page, you need to call the `microsoftTeams.app.initialize()` function. The first function in teamsHelpers.js will ensure that `initialize()` has been called exactly once on the page.
 
-The `inTeams()` function is used to determine if the application is running in Microsoft Teams or not. You may want to check out the [`microsoftTeams.Hostname` enumeration](https://docs.microsoft.com/en-us/javascript/api/@microsoft/teams-js/hostname?view=msteams-client-js-latest) to see other places where Teams applications will be able to run in the near future!
+The `inTeams()` function is used to determine if the application is running in Microsoft Teams or not. You may want to check out the [`microsoftTeams.Hostname` enumeration](https://docs.microsoft.com/en-us/javascript/api/@microsoft/teams-js/hostname?view=msteams-client-js-latest){target="_blank"} to see other places where Teams applications will be able to run in the near future!
 
 #### Step 2: Add a Teams launcher page
 
@@ -531,9 +548,9 @@ async connectedCallback() {
 }
 ~~~
 
----
-> NOTE: Web components are encapsulated custom HTML elements. They're not a Teams thing, nor do they use React or another UI library; they're built right into modern web browsers. You can learn more [in this article](https://developer.mozilla.org/en-US/docs/Web/Web_Components.)
----
+!!! info "About web components"
+    Web components are encapsulated custom HTML elements. They're not a Teams thing, nor do they use React or another UI library; they're built right into modern web browsers! You can learn more [in this article](https://developer.mozilla.org/en-US/docs/Web/Web_Components.){target="_blank"}
+
 
 ### Exercise 4: Test your application in Microsoft Teams
 
@@ -569,9 +586,10 @@ The application should appear without any login prompt. The app's navigation sho
 
 ### Known issues
 
-The application does not implement paging for large data sets, so lists of orders etc. are limited to the first 10 results.
+While it will work on mobile devices, the application is not responsive and will not look good on these devices. This may be addressed in a future version of the lab.
 
-While it will work on mobile devices, the application is not responsive and will not look good on these devices. This will be addressed in a future version of the lab.
+--8<-- "issuesLink.md"
+
 ### References
 
 

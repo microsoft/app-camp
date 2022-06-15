@@ -15,7 +15,7 @@ In this lab you will begin with the completed  with the application in folder `A
 
 In this lab you will learn to:
 
- - Apply styles based on the Microsoft Teams figma to make your application look like it belongs in Microsoft Teams
+- Apply styles based on the [Microsoft Teams figma](https://www.figma.com/community/file/916836509871353159){target="_blank"} to make your application look like it belongs in Microsoft Teams
  - Display your application with the same color theme the user has selected in Microsoft Teams
  - Switch your application's theme when the user changes the Microsoft Teams theme setting
 
@@ -41,6 +41,8 @@ In this lab you will learn to:
 
 - Apply teams styling and themes to your existing application.
 - Display and update themes along with the Microsoft Teams client
+
+### Project structure
 
 ??? note "Project files before and after this lab (open to display ►)"
     The project structure when you start of this lab and end of this lab is as follows.
@@ -457,8 +459,4 @@ Here's how to [change themes in teams client.](https://support.microsoft.com/off
 
 Congratulations! You have completed all core application development labs in **path A**. It's time to choose your own adventure! Please continue with any of the following labs.
 
-- [Add a Configurable Tab](./ConfigurableTab.md)
-- [Add a Deep link to a personal Tab](./Deeplink.md)
-- [Add a Messaging Extension](./MessagingExtension.md)
-- [Add a Task Module](TaskModules.md)
-- [Selling Your SaaS-based Teams Extension](./Monetization.md)
+---8<--- "extended-lab-links.md"

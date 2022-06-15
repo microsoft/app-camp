@@ -2,26 +2,33 @@
 
 ## Lab B03: Enable Azure AD Single Sign-On
 
-This lab is part of Path B, which begins with a Northwind Orders application that does not use Azure AD authentication.
+This is parth of Path B, which begins with an application that uses an authorization system other than Azure AD.
 
-In this lab you will implement an identity mapping scheme to allow Northwind users to log in using Azure AD when they're in Microsoft Teams, even as they continue to log into Northwind's bespoke authentication system outside of Teams. 
+---8<--- "are-you-on-the-right-path.md"
 
-The completed solution can be found in the [B03-TeamsSSO-IdMapping](https://github.com/microsoft/app-camp/tree/main/src/create-core-app/bespoke/B03-after-teams-sso) folder, but the instructions will guide you through modifying the app running in your working folder. 
+In this lab you will build the application you created in Lab B01 into a Microsoft Teams application. This application will still use the Northwind authentication, but since the Northwind login page won't work in the Teams tab IFrame, we'll use the Teams JavaScript SDK to show it in a pop-up.
 
 Note that as you complete the labs, the original app should still work outside of Teams! This is often a requirement of ISV's who have an app in market and need to serve an existing customer base outside of Teams.
 
-* [B01-begin-app: Setting up the application with Azure AD](../bespoke/B01-begin-app.md) 
-* [B02-after-teams-login: Creating a Teams application](../bespoke/B02-after-teams-login.md)
-* [B03-after-teams-sso: Adding Azure AD SSO to your app](../bespoke/B03-after-teams-sso.md)(📍You are here)
-* [B04-after-apply-styling: Teams styling and themes](../bespoke/B04-after-apply-styling.md)
+* [B01-begin-app: Setting up the application with Azure AD](./B01-begin-app.md) 
+* [B02-after-teams-login: Creating a Teams application](./B02-after-teams-login.md)
+* [B03-after-teams-sso: Adding Azure AD SSO to your app](./B03-after-teams-sso.md)(📍You are here)
+* [B04-after-apply-styling: Teams styling and themes](./B04-after-apply-styling.md)
 
 
 In this lab you will learn to:
 
-- [Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app?WT.mc_id=m365-58890-cxa)
+- [Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app?WT.mc_id=m365-58890-cxa){target="_blank"}
 - Configure ans Azure AD app registration to allow Teams to issue tokens on behalf of your application
 - Use the Microsoft Teams JavaScript SDK to request an Azure AD access token
-- How to validate an [Azure AD access token](https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens?WT.mc_id=m365-58890-cxa) in a NodeJS application
+- How to validate an [Azure AD access token](https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens?WT.mc_id=m365-58890-cxa){target="_blank"} in a NodeJS application
+
+
+???+ info "Video briefing"
+    <div class="video">
+      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <div>"B Path" Lab Briefing</div>
+    </div>
 
 ### Features
 
@@ -31,129 +38,138 @@ In this lab you will learn to:
 
 ### Project structure
 
-The project structure when you start of this lab and end of this lab is as follows.
-Use this depiction for comparison.
-On your left is the contents of folder  `B02-after-teams-login` and on your right is the contents of folder `B03-after-teams-sso`.
-- 🆕 New files/folders
+??? note "Project files before and after this lab (open to display ►)"
+    The project structure when you start of this lab and end of this lab is as follows.
+    Use this depiction for comparison.
 
-- 🔺Files changed
-<table>
-<tr>
-<th >Project Structure Before </th>
-<th>Project Structure After</th>
-</tr>
-<tr>
-<td valign="top" >
-<pre>
-B02-after-teams-login
-    ├── client
-    │   ├── components
-    │       ├── navigation.js
-    │   └── identity
-    │       ├── 🔺identityClient.js
-    │       └── login.html
-    │       └── 🔺login.js
-    │       └── teamsLoginLauncher.html
-    │       └── teamsLoginLauncher.js
-    │       └── userPanel.js
-    ├── modules
-    │   └── env.js
-    │   └── northwindDataService.js
-    │   └── teamsHelpers.js
-    ├── pages
-    │   └── categories.html
-    │   └── categories.js
-    │   └── categoryDetails.html
-    │   └── categoryDetails.js
-    │   └── myOrders.html
-    │   └── orderDetail.html
-    │   └── orderDetail.js
-    │   └── privacy.html
-    │   └── productDetail.html
-    │   └── productDetail.js
-    │   └── termsofuse.html
-    ├── index.html
-    ├── index.js
-    ├── northwind.css
-    ├── manifest
-    │   └── 🔺makePackage.js
-    │   └── 🔺manifest.template.json
-    │   └── northwind32.png
-    │   └── northwind192.png
-    ├── server
-    │   └── constants.js
-    │   └── 🔺identityService.js
-    │   └── northwindDataService.js
-    │   └── server.js
-    ├── 🔺.env_Sample
-    ├── .gitignore
-    ├── 🔺package.json
-    ├── README.md
-</pre>
-</td>
-<td>
-<pre>
-B03-after-teams-sso
-    ├── client
-    │   ├── components
-    │       ├── navigation.js
-    │   └── identity
-    │       ├── 🆕aadLogin.html
-    │       └── 🆕aadLogin.js
-    │       ├── 🔺identityClient.js
-    │       └── login.html
-    │       └── 🔺login.js
-    │       └── teamsLoginLauncher.html
-    │       └── teamsLoginLauncher.js
-    │       └── userPanel.js
-    ├── modules
-    │   └── env.js
-    │   └── northwindDataService.js
-    │   └── teamsHelpers.js
-    ├── pages
-    │   └── categories.html
-    │   └── categories.js
-    │   └── categoryDetails.html
-    │   └── categoryDetails.js
-    │   └── myOrders.html
-    │   └── orderDetail.html
-    │   └── orderDetail.js
-    │   └── privacy.html
-    │   └── productDetail.html
-    │   └── productDetail.js
-    │   └── termsofuse.html
-    ├── index.html
-    ├── index.js
-    ├── northwind.css
-    ├── manifest
-    │   └── 🔺makePackage.js
-    │   └── 🔺manifest.template.json
-    │   └── northwind32.png
-    │   └── northwind192.png
-    ├── server
-    │   └── constants.js
-    │   └── 🔺identityService.js
-    │   └── northwindDataService.js
-    │   └── server.js
-    ├── 🔺.env_Sample
-    ├── .gitignore
-    ├── 🔺package.json
-    ├── README.md
-</pre>
-</td>
-</tr>
-</table>
+    On your left is the contents of folder  `B02-after-teams-login` and on your right is the contents of folder `B03-after-teams-sso`.
+    - 🆕 New files/folders
+
+    - 🔺Files changed
+    <table>
+    <tr>
+    <th >Project Structure Before </th>
+    <th>Project Structure After</th>
+    </tr>
+    <tr>
+    <td valign="top" >
+    <pre>
+    B02-after-teams-login
+        ├── client
+        │   ├── components
+        │       ├── navigation.js
+        │   └── identity
+        │       ├── 🔺identityClient.js
+        │       └── login.html
+        │       └── 🔺login.js
+        │       └── teamsLoginLauncher.html
+        │       └── teamsLoginLauncher.js
+        │       └── userPanel.js
+        ├── modules
+        │   └── env.js
+        │   └── northwindDataService.js
+        │   └── teamsHelpers.js
+        ├── pages
+        │   └── categories.html
+        │   └── categories.js
+        │   └── categoryDetails.html
+        │   └── categoryDetails.js
+        │   └── myOrders.html
+        │   └── orderDetail.html
+        │   └── orderDetail.js
+        │   └── privacy.html
+        │   └── productDetail.html
+        │   └── productDetail.js
+        │   └── termsofuse.html
+        ├── index.html
+        ├── index.js
+        ├── northwind.css
+        ├── manifest
+        │   └── 🔺makePackage.js
+        │   └── 🔺manifest.template.json
+        │   └── northwind32.png
+        │   └── northwind192.png
+        ├── server
+        │   └── constants.js
+        │   └── 🔺identityService.js
+        │   └── northwindDataService.js
+        │   └── server.js
+        ├── 🔺.env_Sample
+        ├── .gitignore
+        ├── 🔺package.json
+        ├── README.md
+    </pre>
+    </td>
+    <td>
+    <pre>
+    B03-after-teams-sso
+        ├── client
+        │   ├── components
+        │       ├── navigation.js
+        │   └── identity
+        │       ├── 🆕aadLogin.html
+        │       └── 🆕aadLogin.js
+        │       ├── 🔺identityClient.js
+        │       └── login.html
+        │       └── 🔺login.js
+        │       └── teamsLoginLauncher.html
+        │       └── teamsLoginLauncher.js
+        │       └── userPanel.js
+        ├── modules
+        │   └── env.js
+        │   └── northwindDataService.js
+        │   └── teamsHelpers.js
+        ├── pages
+        │   └── categories.html
+        │   └── categories.js
+        │   └── categoryDetails.html
+        │   └── categoryDetails.js
+        │   └── myOrders.html
+        │   └── orderDetail.html
+        │   └── orderDetail.js
+        │   └── privacy.html
+        │   └── productDetail.html
+        │   └── productDetail.js
+        │   └── termsofuse.html
+        ├── index.html
+        ├── index.js
+        ├── northwind.css
+        ├── manifest
+        │   └── 🔺makePackage.js
+        │   └── 🔺manifest.template.json
+        │   └── northwind32.png
+        │   └── northwind192.png
+        ├── server
+        │   └── constants.js
+        │   └── 🔺identityService.js
+        │   └── northwindDataService.js
+        │   └── server.js
+        ├── 🔺.env_Sample
+        ├── .gitignore
+        ├── 🔺package.json
+        ├── README.md
+    </pre>
+    </td>
+    </tr>
+    </table>
 
 
 ### Exercise 1: Register your application with Azure AD
 
-In order for users to log into your application with Azure AD, you need to register it. In this exercise you will register your application directly in the tenant you created in Lab B02, however we'll set it up so it can be used from other tenants, such as those of customers who purchase your application in the Microsoft Teams store. To learn more about multitenant applications, see [this video](https://www.youtube.com/watch?v=RjGVOFm39j0&t=7s).
+In order for users to log into your application with Azure AD, you need to register it. In this exercise you will register your application directly in the tenant you created in Lab B02, however we'll set it up so it can be used from other tenants, such as those of customers who purchase your application in the Microsoft Teams store.
+
+???+ info "More information"
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/RjGVOFm39j0" frameborder="0" allowfullscreen></iframe>
+      <div>Learn about multi-tenant applications</div>
+    </div>
+
 
 #### Step 1: Register your application in Azure Active Directory
 
  - Navigate to the Microsoft 365 admin center at https://admin.microsoft.com/ and log in as the administrator of your developer tenant.
 
- - In the left navigation, click "Show More" to reveal the full list of admin centers, and then click "Azure Active Directory". This will bring you to the [Azure AD admin center](https://aad.portal.azure.com/).
+ - In the left navigation, click "Show More" to reveal the full list of admin centers, and then click "Azure Active Directory". This will bring you to the [Azure AD admin center](https://aad.portal.azure.com/){target="_blank"}.
 
 ![Navigating to the M365 Admin site](../../assets/screenshots/01-009-RegisterAADApp-1.png)
 
@@ -196,14 +212,12 @@ The secret will be displayed just this once on the "Certificates and secrets" sc
 
 ![Copy the app secret](../../assets/screenshots/01-016-RegisterAADApp-8.png)
 
+!!! warning "Managing app secrets is an ongoing responsibility"
+    App secrets have a limited lifetime, and if they expire your application may stop working. You can have multiple secrets, so plan to roll them over as you would with a digital certificate.
 
----
-😎 MANAGING APP SECRETS IS AN ONGOING RESPONSIBILITY. App secrets have a limited lifetime, and if they expire your application may stop working. You can have multiple secrets, so plan to roll them over as you would with a digital certificate.
 
----
-😎 KEEP YOUR SECRETS SECRET. Give each developer a free developer tenant and register their apps in their tenants so each developer has his or her own app secrets. Limit who has access to app secrets for production. If you're running in Microsoft Azure, a great place to store your secrets is [Azure KeyVault](https://azure.microsoft.com/en-us/services/key-vault/). You could deploy an app just like this one and store sensitive application settings in Keyvault. See [this article](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references?WT.mc_id=m365-58890-cxa) for more information.
-
----
+!!! danger "Keep your secrets secret!"
+    Give each developer a free developer tenant and register their apps in their tenants so each developer has his or her own app secrets. Limit who has access to app secrets for production. If you're running in Microsoft Azure, a great place to store your secrets is [Azure KeyVault](https://azure.microsoft.com/en-us/services/key-vault/){target="_blank"}. You could deploy an app just like this one and store sensitive application settings in Keyvault. See [this article](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references?WT.mc_id=m365-58890-cxa){target="_blank"} for more information.
 
 #### Step 2: Grant your application permission to call the Microsoft Graph API
 
@@ -289,10 +303,9 @@ Add a comma after the validDomains property and then add a new property, `webApp
   }
 ~~~
 
-This provides the Azure AD app registration information to Microsoft Teams for use in the SSO process. The [finished manifest.template.json file is here](../../src/create-core-app/bespoke/B03-after-teams-sso/manifest/manifest.template.json) for your reference.
+This provides the Azure AD app registration information to Microsoft Teams for use in the SSO process. The [finished manifest.template.json file is here](https://github.com/microsoft/app-camp/blob/main/src/create-core-app/bespoke/B03-after-teams-sso/manifest/manifest.template.json){target="_blank"} for your reference.
 
 #### Step 3: Modify the packaging code to include the CLIENT_ID
-
 
 Open the file manifest/makePackage.js in your code editor. Notice that the code only makes a few of the environment variables available when it creates manifest.json. We just added some references to `CLIENT_ID`, so we need to handle them in the makePackage.js code.
 
@@ -475,7 +488,7 @@ Open the file /client/identity/login.js in your code editor, and find the call t
     });
 ~~~
 
-The completed login script is [here at B03-after-teams-sso/client/identity/login.js](https://github.com/microsoft/app-camp/blob/main/src/create-core-app/bespoke/B03-after-teams-sso/client/identity/login.js)
+The completed login script is [here at B03-after-teams-sso/client/identity/login.js](https://github.com/microsoft/app-camp/blob/main/src/create-core-app/bespoke/B03-after-teams-sso/client/identity/login.js){target="_blank"}
 
 #### Step 4: Modify the logoff code
 
@@ -619,14 +632,12 @@ async function setEmployeeIdForUser(aadUserId, employeeId) {
 
 If `validateAndMapAadLogin()` fails to get an employee ID, and a username and password were provided, it looks up the employee ID and uses `setEmployeeIdForUser()` to write it to the JSON database.
 
-The finished [server/identityService.js file is here](https://github.com/microsoft/app-camp/blob/main/src/create-core-app/bespoke/B03-after-teams-sso/server/identityService.js).
+The finished [server/identityService.js file is here](https://github.com/microsoft/app-camp/blob/main/src/create-core-app/bespoke/B03-after-teams-sso/server/identityService.js){target="_blank"}.
 
 ### Exercise 4: Test your application in Microsoft Teams
 
----
-😎 LOGIN STATE IS STORED IN A BROWSER COOKIE: The sample login scheme uses a browser session cookie to establish who is logged in. **It is not secure - do not use this in a real application!** Also **be aware during testing** that your login will persist until you close all instances of your web browser. For example if you leave your browser logged in after an earlier lab and then run Microsoft Teams in another instance of the same browser, your user will already be logged in.
-
----
+!!! danger While Azure AD is secure, the original login scheme in this sample is not!
+    The sample application uses a browser session cookie to establish who is logged in. **It is not secure and would be easy to fake - do not use this in a real application!** Also **be aware during testing** that your login will persist until you close all instances of your web browser. For example if you leave your browser logged in after this lab and then run Microsoft Teams in another instance of the same browser, your user will already be logged in when you get to the next lab.E
 
 #### Step 1: Start the application
 
@@ -658,13 +669,12 @@ The application should appear without any login prompt. The app's navigation sho
 
 ![Run the app](../../assets/screenshots/03-007-RunApp-1.png)
 
----
-> CHALLENGE: Notice the logout button doesn't do anything in Teams! If you wish, hide the logout button just as you hid the navigation bar. The code is in client/identity/userPanel.js.
----
+!!! check "Challenge"
+    You might have noticed the logout button doesn't do anything in Teams! If you wish, hide the logout button just as you hid the navigation bar. The code is in client/identity/userPanel.js.
 
 ### Known issues
 
-For the latest issues, or to file a bug report, see the [github issues list](https://github.com/microsoft/app-camp/issues) for this repository.
+--8<-- "issuesLink.md"
 
 ### References
 
