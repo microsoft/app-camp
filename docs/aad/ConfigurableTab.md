@@ -8,14 +8,20 @@ Up to this point, the Northwind Teams application has had only "static" tabs. St
 
 "Configurable" tabs are for sharing; they run in Teams channels and group chats. The idea is that a group of people shares the configuration, so there's shared context. In this lab you will add a configurable tab that displays a specific product category so, for example, the Beverages product team can share a tab with a list of beverages. This saves them navigating through the app every time they want to see Beverages.
 
-The Teams manifest for a static tab includes the tab's URL, but for a configurable tab it includes the URL of the tab's [_configuration page_](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/create-tab-pages/configuration-page?WT.mc_id=m365-58890-cxa). The configuration page will allow users to configure what information is shown on the tab; based on this the configuration page saves the actual tab URL and a unique _entity ID_ using the Teams JavaScript SDK. This URL can lead users directly to the information they want, or the tab to a page that looks at the entity ID to decide what to display. In this lab, the tab URL will display the product category directly, so the entity ID isn't really used. 
+The Teams manifest for a static tab includes the tab's URL, but for a configurable tab it includes the URL of the tab's [configuration page](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/create-tab-pages/configuration-page?WT.mc_id=m365-58890-cxa){target="_blank"}.  The configuration page will allow users to configure what information is shown on the tab; based on this the configuration page saves the actual tab URL and a unique *entity ID* using the Teams JavaScript SDK. This URL can lead users directly to the information they want, or the tab to a page that looks at the entity ID to decide what to display. In this lab, the tab URL will display the product category directly, so the entity ID isn't really used. 
 
-Configuration pages don't just work for tabs; they can also be used as setup pages for [Messaging Extensions](https://docs.microsoft.com/en-us/microsoftteams/platform/resources/messaging-extension-v3/search-extensions?WT.mc_id=m365-58890-cxa#handle-onquerysettingsurl-and-onsettingsupdate-events) or [Connectors](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/connectors-creating?WT.mc_id=m365-58890-cxa#integrate-the-configuration-experience), so they're worth learning about!
+Configuration pages don't just work for tabs; they can also be used as setup pages for [Messaging Extensions](https://docs.microsoft.com/en-us/microsoftteams/platform/resources/messaging-extension-v3/search-extensions?WT.mc_id=m365-58890-cxa#handle-onquerysettingsurl-and-onsettingsupdate-events){target="_blank"} or [Connectors](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/connectors-creating?WT.mc_id=m365-58890-cxa#integrate-the-configuration-experience){target="_blank"}, so they're worth learning about!
 
 In this lab you will learn to:
 
 - Create a configurable tab with accompanying configuration page
 - Add a configurable page to your Teams application
+
+???+ info "Video briefing"
+    <div class="video">
+      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <div>Configurable Tabs for Microsoft Teams</div>
+    </div>
 
 ### Features
 
@@ -25,7 +31,7 @@ In this lab you will learn to:
 
 #### Step 1: Add the configuration page markup
 
-Create a new file /client/pages/tabconfig.html and add this markup (or copy it from [here](../../src/extend-with-capabilities/ConfigurableTab/client/pages/tabConfig.html)):
+Create a new file /client/pages/tabconfig.html and add this markup (or copy it from [here](https://github.com/microsoft/app-camp/blob/main/src/extend-with-capabilities/ConfigurableTab/client/pages/tabConfig.html){target="_blank"}):
 
 ~~~html
 <!doctype html>
@@ -56,7 +62,7 @@ Create a new file /client/pages/tabconfig.html and add this markup (or copy it f
 
 #### Step 2: Add the configuration page script
 
-Create a new file, /client/pages/tabconfig.js, and paste in this code (or copy it from [here](../../src/extend-with-capabilities/ConfigurableTab/client/pages/tabConfig.js)):
+Create a new file, /client/pages/tabconfig.js, and paste in this code (or copy it from [here](https://github.com/microsoft/app-camp/blob/main/src/extend-with-capabilities/ConfigurableTab/client/pages/tabConfig.js){target="_blank"}):
 
 ~~~javascript
 import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
@@ -145,7 +151,7 @@ Now, immediately under the "accentColor" property, add a new property for "confi
 ~~~json
   "configurableTabs": [
     {
-        "configurationUrl": "https://<HOSTNAME>/pages/tabConfig.html",
+        "configurationUrl": "https://<HOST_NAME>/pages/tabConfig.html",
         "canUpdateConfiguration": true,
         "scopes": [
             "team",
@@ -229,19 +235,15 @@ If you click the small arrow to the right of the tab name and choose "Settings",
 
 ### Known issues
 
-For the latest issues, or to file a bug report, see the [github issues list](https://github.com/microsoft/app-camp/issues) for this repository.
+---8<--- "issuesLink.md"
 
 ### References
 
-* [Create a configuration page](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/create-tab-pages/configuration-page?WT.mc_id=m365-58890-cxa)
+* [Create a configuration page](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/create-tab-pages/configuration-page?WT.mc_id=m365-58890-cxa){target="_blank"}
 
 
 ### Next steps
 
-After completing this lab, you may continue with any of the following labs.
+After completing this lab, you may continue with additional extended labs!
 
-- [Add a Deep link to a personal Tab](./Deeplink.md)
-- [Add a Messaging Extension](./MessagingExtension.md)
-- [Add a Task Module](TaskModules.md)
-- [Selling Your SaaS-based Teams Extension](./Monetization.md)
-  
+---8<--- "extended-lab-links.md"
