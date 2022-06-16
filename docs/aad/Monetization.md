@@ -431,7 +431,7 @@ For this lab you will use an **AppSource** simulator to mock your interactions w
     The **AppSource** simulator has a mock offer name, "Contoso Apps", rather than showing the "Northwind Orders" app. This is just a constant defined in the monetization project's `SaasOfferMockData/Offers.cs` file.
     The real **AppSource** web page shows the application name and other information you would configure in Partner Center.
 
-The **AppSource** simulator displays the plans available for the offer. The simulator has two hard-coded plans, "SeatBasedPlan" (which uses a [per-user pricing model](https://docs.microsoft.com/en-us/azure/marketplace/create-new-saas-offer-plans){target="_blank"}), and a "SiteBasedPlan" (which uses a [flat-rate pricing model](https://docs.microsoft.com/en-us/azure/marketplace/plan-saas-offer?WT.mc_id=m365-58890-cxa#saas-pricing-models){target="_blank"}). 
+The **AppSource** simulator displays the plans available for the offer. The simulator has two hard-coded plans, "SeatBasedPlan" (which uses a [per-user pricing model](https://docs.microsoft.com/en-us/azure/marketplace/create-new-saas-offer-plans?WT.mc_id=m365-58890-cxa){target="_blank"}), and a "SiteBasedPlan" (which uses a [flat-rate pricing model](https://docs.microsoft.com/en-us/azure/marketplace/plan-saas-offer?WT.mc_id=m365-58890-cxa#saas-pricing-models){target="_blank"}). 
 
 The real **AppSource** would show the plans you had defined in Partner Center, the publisher's portal for defining and publishing **AppSource** offers.
 
@@ -497,7 +497,7 @@ In this exercise, you'll inspect key areas of the sample licensing service used 
 
 ### Step 1: Resolving the Marketplace Token
 
-When a user completes the process of purchasing your application in AppSource or the Microsoft Teams app store, they are directed to the app's [landing page](https://docs.microsoft.com/en-us/azure/marketplace/azure-ad-transactable-saas-landing-page){target="_blank"}. This URL is for a web page provided by the software vendor and registered in Partner Center. In this lab, the landing page is part of the [SaaSSampleWebApp](https://github.com/OfficeDev/office-add-in-saas-monetization-sample/tree/master/MonetizationCodeSample/SaaSSampleWebApp){target="_blank"} sample.
+When a user completes the process of purchasing your application in AppSource or the Microsoft Teams app store, they are directed to the app's [landing page](https://docs.microsoft.com/en-us/azure/marketplace/azure-ad-transactable-saas-landing-page?WT.mc_id=m365-58890-cxa){target="_blank"}. This URL is for a web page provided by the software vendor and registered in Partner Center. In this lab, the landing page is part of the [SaaSSampleWebApp](https://github.com/OfficeDev/office-add-in-saas-monetization-sample/tree/master/MonetizationCodeSample/SaaSSampleWebApp){target="_blank"} sample.
 
 Microsoft sends a marketplace token to the landing page; eventually this is resolved in the sample app's [Subscription service](https://github.com/OfficeDev/office-add-in-saas-monetization-sample/blob/7673db6c8e6c809ae7aa0ba894460183aed964fc/MonetizationCodeSample/SaaSSampleWebApi/Controllers/SubscriptionsController.cs#L134){target="_blank"}.
 
@@ -543,7 +543,7 @@ public async Task<IActionResult> ResolveAsync([FromForm] string AuthCode)
 }
 ~~~
 
-The sample calls the AppSource simulator to get information about the subscription that was purchased. In your service, you would call [this Marketplace API](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/pc-saas-fulfillment-subscription-api#resolve-a-purchased-subscription){target="_blank"} to do this exchange.
+The sample calls the AppSource simulator to get information about the subscription that was purchased. In your service, you would call [this Marketplace API](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/pc-saas-fulfillment-subscription-api?WT.mc_id=m365-58890-cxa#resolve-a-purchased-subscription){target="_blank"} to do this exchange.
 
 ### Step 2: Examine web hooks
 
@@ -553,7 +553,7 @@ In addition to a landing page, your application will need to provide a set of [w
 * **ChangeQuantity** - called when a user changes the quantity of seats in a per-seat SaaS offer
 * **Unsubscribe** - called when a user cancels their subscription
 
-The full list of webhooks events is [documented here](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/pc-saas-fulfillment-webhook){target="_blank"}.
+The full list of webhooks events is [documented here](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/pc-saas-fulfillment-webhook?WT.mc_id=m365-58890-cxa){target="_blank"}.
 
 ### Step 3: Examine the license check
 
