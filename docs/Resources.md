@@ -26,7 +26,7 @@ For an overview of Teams app development, check out this video by Bob and Rabia!
 * [Understand Teams app features](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/capabilities-overview?WT.mc_id=m365-58890-cxa) - Tabs, Bots, etc.
 * [Teams developer documentation](https://docs.microsoft.com/en-us/microsoftteams/platform?WT.mc_id=m365-58890-cxa)
 * [Adaptive Cards](https://adaptivecards.io)
-* [Task Modules](https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/what-are-task-modules?WT.mc_id=m365-58890-cxa) - Modal dialogs for Teams apps that can display a web page or adaptive card
+* [Dialog](https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/what-are-task-modules?WT.mc_id=m365-58890-cxa) - Modal dialogs for Teams apps that can display a web page or adaptive card
 * [Microsoft 365 Groups and Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/office-365-groups?WT.mc_id=m365-58890-cxa) - There's an M365 Group inside every Team to provide membership, a SharePoint site for file storage, an Exchange shared mailbox and calendar, etc.
 * [Upload a Teams application](https://docs.microsoft.com/en-us/microsoftteams/upload-custom-apps?WT.mc_id=m365-58890-cxa)
 * [App Store validation guidelines](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/appsource/prepare/teams-store-validation-guidelines?WT.mc_id=m365-58890-cxa)
