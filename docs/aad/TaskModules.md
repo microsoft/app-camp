@@ -142,7 +142,7 @@ btnTaskModuleElement.addEventListener('click', async ev => {
 ```
 
 To open a dialog from a tab, use `microsoftTeams.tasks.startTask()`.
-You can pass the [taskInfo](https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/task-modules/invoking-task-modules#the-taskinfo-object){target="_blank"} object and a callback function called `submitHandler` to pass the results back from the dialog.
+You can pass the [taskInfo](https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/task-modules/invoking-task-modules?WT.mc_id=m365-58890-cxa#the-taskinfo-object){target="_blank"} object and a callback function called `submitHandler` to pass the results back from the dialog.
 
 The final look of displayUI() function is as below:
 

@@ -101,7 +101,7 @@ The initial Northwind Orders application doesn't require Microsoft 365, but it d
 
 ### Step 1: Get a tenant
 
-If you don't yet have a tenant, please join the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program?WT.mc_id=m365-58890-cxa){target=_blank} to get a free one. Your tenant includes 25 [E5 user licenses](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans){target=_blank} and can be renewed as long as you keep developing!
+If you don't yet have a tenant, please join the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program?WT.mc_id=m365-58890-cxa){target=_blank} to get a free one. Your tenant includes 25 [E5 user licenses](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans?WT.mc_id=m365-58890-cxa){target=_blank} and can be renewed as long as you keep developing!
 
 Select "Join now" to begin.
 ![Signup](../../assets/screenshots/01-003-JoinM365DevProgram1.png)
@@ -243,7 +243,7 @@ Save this URL for use throughout the labs.
 ![ngrok output](../../assets/screenshots/01-002-ngrok.png)
 
 !!! warning
-    Do not stop ngrok for the duration of these labs. If you do stop ngrok and are assigned a new URL, [this page](http://devpoint19.lab/app-camp/ngrokReferences/){target="_blank"} lists all the exercises which involve the ngrok URL so you can easily update it.
+    Do not stop ngrok for the duration of these labs. If you do stop ngrok and are assigned a new URL, [this page](/app-camp/ngrokReferences/){target="_blank"} lists all the exercises which involve the ngrok URL so you can easily update it.
 
 ### Step 2: Register your application in Azure Active Directory
 

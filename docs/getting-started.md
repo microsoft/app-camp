@@ -42,7 +42,7 @@ Eventually you'll be prompted to log into your new tenant. Be sure to use the ne
 😎 NAVIGATING MANY TENANTS: Consider creating a browser profile for each tenant that will have its own favorites, stored credentials, and cookies so you can easily switch between tenants as you work.
 
 ---
-😎 CHANGES ROLL OUT FIRST TO "TARGETED RELEASE" TENANTS. You may want to [enable Targeted Release](https://docs.microsoft.com/microsoft-365/admin/manage/release-options-in-office-365) in your developer tenant and keep production on Standard Release so you have a head start to test out new features.
+😎 CHANGES ROLL OUT FIRST TO "TARGETED RELEASE" TENANTS. You may want to [enable Targeted Release](https://docs.microsoft.com/microsoft-365/admin/manage/release-options-in-office-365?WT.mc_id=m365-58890-cxa) in your developer tenant and keep production on Standard Release so you have a head start to test out new features.
 
 ---
 

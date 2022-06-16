@@ -357,7 +357,7 @@ These functions are used throughout the application to manage the Microsoft Team
 
 Before using the Microsoft Teams JavaScript SDK for the first time on a page, you need to call the `microsoftTeams.app.initialize()` function. The first function in teamsHelpers.js will ensure that `initialize()` has been called exactly once on the page.
 
-The `inTeams()` function is used to determine if the application is running in Microsoft Teams or not. You may want to check out the [`microsoftTeams.Hostname` enumeration](https://docs.microsoft.com/en-us/javascript/api/@microsoft/teams-js/hostname?view=msteams-client-js-latest){target="_blank"} to see other places where Teams applications will be able to run in the near future!
+The `inTeams()` function is used to determine if the application is running in Microsoft Teams or not. You may want to check out the [`microsoftTeams.Hostname` enumeration](https://docs.microsoft.com/en-us/javascript/api/@microsoft/teams-js/hostname?WT.mc_id=m365-58890-cxa){target="_blank"} to see other places where Teams applications will be able to run in the near future!
 
 #### Step 2: Add a Teams launcher page
 

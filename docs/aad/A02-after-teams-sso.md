@@ -168,7 +168,7 @@ In this lab you will learn to:
 
 ## Exercise 1: Authorize Microsoft Teams to log users into your application
 
-The starting application logs users into Azure Active Directory using the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview){target="_blank"}. While this works well in a web browser, it won't work reliably in a Microsoft Teams application. Instead, Microsoft Teams provides a Single Sign-On (SSO) capability so users are silently logged into your application using the same credentials they used to log into Microsoft Teams. This requires giving Microsoft Teams permission to issue Azure AD tokens on behalf of your application. In this exercise, you'll provide that permission.
+The starting application logs users into Azure Active Directory using the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview?WT.mc_id=m365-58890-cxa){target="_blank"}. While this works well in a web browser, it won't work reliably in a Microsoft Teams application. Instead, Microsoft Teams provides a Single Sign-On (SSO) capability so users are silently logged into your application using the same credentials they used to log into Microsoft Teams. This requires giving Microsoft Teams permission to issue Azure AD tokens on behalf of your application. In this exercise, you'll provide that permission.
 
 ### Step 1: Return to your app registration
 
@@ -319,9 +319,9 @@ export async function inTeams() {
 
 These functions are used throughout the application to manage the Microsoft Teams JavaScript SDK.
 
-Before using the Microsoft Teams JavaScript SDK for the first time on a page, you need to call the [`microsoftTeams.app.initialize()` function](https://docs.microsoft.com/en-us/javascript/api/@microsoft/teams-js/app?view=msteams-client-js-latest#@microsoft-teams-js-app-initialize){target="_blank"}. The first function in **teamsHelpers.js** will ensure that `initialize()` has been called exactly once on the page.W
+Before using the Microsoft Teams JavaScript SDK for the first time on a page, you need to call the [`microsoftTeams.app.initialize()` function](https://docs.microsoft.com/en-us/javascript/api/@microsoft/teams-js/app?view=msteams-client-js-latest?WT.mc_id=m365-58890-cxa#@microsoft-teams-js-app-initialize){target="_blank"}. The first function in **teamsHelpers.js** will ensure that `initialize()` has been called exactly once on the page.W
 
-The `inTeams()` function is used to determine if the application is running in Microsoft Teams or not. You may want to check out the [`microsoftTeams.Hostname` enumeration](https://docs.microsoft.com/en-us/javascript/api/@microsoft/teams-js/hostname?view=msteams-client-js-latest){target="_blank"} to see other places where Teams applications will be able to run in the near future!
+The `inTeams()` function is used to determine if the application is running in Microsoft Teams or not. You may want to check out the [`microsoftTeams.Hostname` enumeration](https://docs.microsoft.com/en-us/javascript/api/@microsoft/teams-js/hostname?WT.mc_id=m365-58890-cxa){target="_blank"} to see other places where Teams applications will be able to run in the near future!
 
 ### Step 2: Update the login code for Teams SSO
 
