@@ -2,34 +2,37 @@
 
 ## Add a Task Module 
 
-This lab is part of extending app capabilities for your teams app which begins with a Northwind Orders core application using the `AAD` path. The [core app](../../src/create-core-app/aad/A03-after-apply-styling/) is the boilerplate application with which you will do this lab.
+---8<--- "extended-lab-intro.md"
 
-> Complete labs [A01](A01-begin-app.md)-[A03](A03-after-apply-styling.md) for deeper understanding of how the core application works, to set up AAD application registration etc. to update the `.env` file as per the `.env_sample`. This configuration is required for the success of the lab.
+**Task modules** or **Dialogs** as they are called in [version 2 of the SDK](https://docs.microsoft.com/en-us/javascript/api/@microsoft/teams-js/dialog){target="_blank"} are modal pop-up experiences in Teams application that can display web pages as IFrames or adaptive cards. This can greatly simplify the user experience when a data input is required, and gives your application an opportunity to interact one-on-one with a user even in a group environment.
 
-The completed lab is [here](../../src/extend-with-capabilities/TaskModule)
+There are many ways you can incorporate a task module. In this lab we focus on using the app's own HTML form.
 
-**Task modules** are modal pop-up experiences in Teams application using html or JavaScript code, iframes or adaptive cards. This can greatly simplify the user experience when a data input is required. For simplicity let's call them a dialog for this lab. There are many ways you can incorporate a task module. In this lab we focus on using the app's own HTML form.
+In this lab you will learn to:
 
-In this exercise you will learn new concepts as below:
+- How to build a [Task module](https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/what-are-task-modules?WT.mc_id=m365-58890-cxa){target="_blank"} using a web page
+- How to launch a task module from a tab using the Teams JavaScript SDK
+- How to submit data from the task module back to the tab that launched it
 
-- [Task modules](https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/what-are-task-modules?WT.mc_id=m365-58890-cxa)
+The completed lab is [here](https://github.com/microsoft/app-camp/tree/main/src/extend-with-capabilities/TaskModule){target="_blank"}
 
+???+ info "Video briefing"
+    <div class="video">
+      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <div>Configurable Tabs for Microsoft Teams</div>
+    </div>
 
 ### Features
 
-- In the application's order details page, add a button to open a web based form to add notes for a particular order.
-
+- In the application's order details page, there will be a button that allows adding notes to the order
+- Pressing the button opens a task module to capture the notes
+- The notes are passed back to the order details page and displayed there
 
 ### Exercise 1: Code changes
----
 
-#### Step 1: Add new files
+#### Step 1: Add the HTML page that will be displayed in the task module
 
-There are new files and folders that you need to add into the project.
-
-**1.\client\pages\orderNotesForm.html**
-
-Create a new file `orderNotesForm.html` in the path `\client\pages`and copy below form HTML into it.
+In your working folder, under the `/client/pages` path, create a new file `orderNotesForm.html` and copy this code to it:
 
 ```HTML
 <!DOCTYPE html>
@@ -68,17 +71,14 @@ Create a new file `orderNotesForm.html` in the path `\client\pages`and copy belo
 
 ```
 
-This is a web form which captures an input `notes` which is a multi line text area.
-The form uses Microsoft Teams SDK's `microsoftTeams.tasks.submitTask` to pass the form values back into a callback function.
+This is a web form which captures an input `notes` which is a multi line text area. The form uses Microsoft Teams SDK's [`microsoftTeams.tasks.submitTask()` function](https://docs.microsoft.com/en-us/javascript/api/@microsoft/teams-js/dialog?view=msteams-client-js-latest#@microsoft-teams-js-dialog-submit){target="_blank"} to pass the form values back into a callback function.
 
 
-#### Step 2: Update existing files
+#### Step 2: Update the Order Detail HTML
 
+In this step, we'll add an "Add Notes" button to the Order Detail page and an HTML element to display the notes.
 
-**1.\client\pages\orderDetail.html**
-
-Add a content area to display all comments/notes for the order.
-Add a new button to open the web based form as a dialog.
+In your working folder, open **/client/pages/orderDetail.html**
 
 Copy below block of code and paste it above the `<table>` element of the page.
 
@@ -89,7 +89,9 @@ Copy below block of code and paste it above the `<table>` element of the page.
 <button id="btnTaskModule">Add notes</button>
 ```
 
-**2.\client\pages\orderDetail.js**
+#### Step 3: Update the Order Detail JavaScript
+
+In your working folder, open **/client/pages/orderDetail.js**.
 
 At the top of the file, import the Teams SDK and Teams helper module.
 
@@ -105,8 +107,7 @@ Now in the displayUI() function, define two constants to get the two HTML elemen
  const orderElement=document.getElementById('orderContent');
 ```
 
-To open the task module, add an event listener for the button `btnTaskModule`.
-Paste below code in the dislayUI() function in the end, before closing the `try` block.
+To open the task module, add an event listener for the button `btnTaskModule`. Paste below code in the `dislayUI()` function in the end, before closing the `try` block.
 
 ```javascript
 btnTaskModuleElement.addEventListener('click', async ev => {
@@ -139,8 +140,9 @@ btnTaskModuleElement.addEventListener('click', async ev => {
     }
 });
 ```
+
 To open a dialog from a tab, use `microsoftTeams.tasks.startTask()`.
-You can pass the [taskInfo](https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/task-modules/invoking-task-modules#the-taskinfo-object) object and a callback function called `submitHandler` to pass the results back from the dialog.
+You can pass the [taskInfo](https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/task-modules/invoking-task-modules#the-taskinfo-object){target="_blank"} object and a callback function called `submitHandler` to pass the results back from the dialog.
 
 The final look of displayUI() function is as below:
 
@@ -231,13 +233,15 @@ This lab assumes you already completed the Core lab and registered an Azure AD a
 
 ![task module working](../../assets/taskmodule-working.gif)
 
-> The comments are not saved back into the northwind database as it is read only for this lab. You can call your CRUD operations suitably in your application.
+!!! note 
+    The comments are not saved back into the northwind database at this time, so they'll only persist as long as you stay on the order details page.
+
+### Known issues
+
+---8<--- "issuesLink.md"
 
 ### Next steps
 
-After completing this lab, you may continue with any of the following labs.
+After completing this lab, you may continue with additional extended labs!
 
-- [Add a Configurable Tab](./ConfigurableTab.md)
-- [Add a Deep link to a personal Tab](./Deeplink.md)
-- [Add a Messaging Extension](./MessagingExtension.md)
-- [Selling Your SaaS-based Teams Extension](./Monetization.md)
+---8<--- "extended-lab-links.md"
