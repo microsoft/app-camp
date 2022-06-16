@@ -1,5 +1,5 @@
 import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
-import { ensureTeamsSdkInitialized, inTeams } from '/modules/teamsHelpers.js';
+import { ensureTeamsSdkInitialized, inTeams } from '../modules/teamsHelpers.js';
 import {
     getOrder
 } from '../modules/northwindDataService.js';
@@ -39,36 +39,42 @@ async function displayUI() {
 
             });
 
-        }
+        }     
         btnTaskModuleElement.addEventListener('click', async ev => {
-            if (!await inTeams()) {
-                alert ('Sorry this button only works in Microsoft Teams');
+            await ensureTeamsSdkInitialized();
+            if (!microsoftTeams.dialog.isSupported()) {
+                alert ('Sorry this button is not supported');
             } else {              
                 let taskInfo = {
                     title: null,
                     height: null,
                     width: null,
-                    url: null,
-                    card: null,
-                    fallbackUrl: null,
-                    completionBotId: null,
+                    url: null,               
+                    fallbackUrl: null                   
                 };
                 taskInfo.url = `https://${window.location.hostname}/pages/orderNotesForm.html`;
                 taskInfo.title = "Task module order notes";
-                taskInfo.height = 210;
-                taskInfo.width = 400;
-                
-                await ensureTeamsSdkInitialized();
-                microsoftTeams.tasks.startTask(taskInfo, (err, result) => {                 
+                taskInfo.size= {height:210,width: 400};   
+                let submitHandler = (response) => { 
+                    if(response.result){
+                        const result=response.result;
                         const postDate = new Date().toLocaleString()
-                        const newComment = document.createElement('p');  
-                        newComment.innerHTML=`<div><b>Posted on:</b>${postDate}</div>
-                        <div><b>Notes:</b>${result.notes}</div><br/>
-                        -----------------------------` 
-                        orderElement.append(newComment);
-                });
+                        const newComment = document.createElement('p');
+                            if (result.notes) {
+                                newComment.innerHTML = `<div><b>Posted on:</b>${postDate}</div>
+                            <div><b>Notes:</b>${result.notes}</div><br/>
+                            -----------------------------` 
+                            orderElement.append(newComment);
+                        } 
+                    }else{
+                        console.log(`Error in response from dialog.submit${response.err}`)
+                    }               
+                                    
+                    };
+                microsoftTeams.dialog.open(taskInfo,submitHandler)
             }
-        });
+        });               
+      
     }
     catch (error) {            // If here, we had some other error
         message.innerText = `Error: ${JSON.stringify(error)}`;
