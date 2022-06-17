@@ -15,8 +15,8 @@ async function displayUI() {
         if (await inTeams()) {
             await ensureTeamsSdkInitialized();
             const context = await microsoftTeams.app.getContext();
-            if (context.subEntityId) {
-                window.location.href = `/pages/orderDetail.html?orderId=${context.subEntityId}`;
+            if (context.page.subPageId) {
+                window.location.href = `/pages/orderDetail.html?orderId=${context.page.subPageId}`;
             }
         }
 
