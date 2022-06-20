@@ -1,4 +1,4 @@
-# Task module
+# Dialog
 
 ## Summary
 
@@ -10,7 +10,7 @@ In this sample, the student gets use a web page and a dialog to capture and send
 - Add information from the form back to tab
 
 
-![taskmodule working](../../../assets/taskmodule-working.gif)
+![dialog working](../../../assets/taskmodule-working.gif)
 
 
 
@@ -30,10 +30,10 @@ Version|Date|Author|Comments
 
 - Clone or download the sample from [https://github.com/microsoft/app-camp](https://github.com/microsoft/app-camp)
 
-- In a console, navigate to `src/extend-with-capabilities/TaskModule/` from the main folder `m365-msteams-northwind-app-samples`.
+- In a console, navigate to `src/extend-with-capabilities/Dialog/` from the main folder `m365-msteams-northwind-app-samples`.
 
     ```bash
-    cd src/extend-with-capabilities/TaskModule/
+    cd src/extend-with-capabilities/Dialog/
     ```
 
 - Install modules
