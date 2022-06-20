@@ -14,7 +14,7 @@ export class StockManagerBot extends TeamsActivityHandler {
             await next(); //go to the next handler 
         });
     }
-    //When you perform a search from the messaging extension app
+    //When you perform a search from the message extension app
     async handleTeamsMessagingExtensionQuery(context, query) {
         const { name, value } = query.parameters[0];
         if (name !== 'productName') {

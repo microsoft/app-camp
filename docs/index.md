@@ -6,7 +6,7 @@ _Migrate applications into Microsoft Teams_
 
 Welcome to App Camp! In this on-demand workshop, you'll learn how to build Teams applications "from scratch", which is important for developers who already have an application they want to extend into Microsoft Teams, or for developers who have a specific toolchain in mind. If you're starting from scratch and open to building a React application with NodeJS/Express support, we recommend you use the [Teams Toolkit](https://docs.microsoft.com/en-us/microsoftteams/platform/toolkit/visual-studio-code-overview?WT.mc_id=m365-58890-cxa){target=_blank} rather than building your application from scratch.
 
-This web site will guide you through a set of videos and hands-on lab exercises in which you will port a simiple web application to being a full-featured Teams application. The initial core labs will bring the web application into Teams as a personal tab with Azure AD Single Sign-on. Then the "extended" labs are available to teach you how to add features such as messaging extensions, adaptive cards, deep linking, and more. [One of the extended labs](./aad/Monetization.md) even shows you how to monetize your application in the Teams app store!
+This web site will guide you through a set of videos and hands-on lab exercises in which you will port a simiple web application to being a full-featured Teams application. The initial core labs will bring the web application into Teams as a personal tab with Azure AD Single Sign-on. Then the "extended" labs are available to teach you how to add features such as message extensions, adaptive cards, deep linking, and more. [One of the extended labs](./aad/Monetization.md) even shows you how to monetize your application in the Teams app store!
 
 ???+ info "Video briefing"
     <div class="video">
@@ -43,7 +43,7 @@ To complete the labs you will need:
  * A computer with permission to install software (Windows, Mac, or Linux)
  * [NodeJS](https://nodejs.org/en/download/){target="_blank"}
  * A code editor such as [Visual Studio Code](https://code.visualstudio.com/download){target="_blank"}
- * [ngrok](https://ngrok.com/download){target="_blank"} to simplify local debugging and allow debugging of bots and messaging extensions
+ * [ngrok](https://ngrok.com/download){target="_blank"} to simplify local debugging and allow debugging of bots and message extensions
  * A Microsoft 365 tenant [(available free!)](https://developer.microsoft.com/en-us/microsoft-365/dev-program){target="_blank"}
 
 Installation instructions are part of [the first lab](./aad/A01-begin-app.md); additional details are here [in the repo wiki](https://github.com/microsoft/app-camp/wiki/Prerequisites){target="_blank"}

@@ -1,34 +1,34 @@
 ![Teams App Camp](../../assets/code-lab-banner.png)
 
-# Add a Messaging Extension
+# Add a Message Extension
 
 ---8<--- "extended-lab-intro.md"
 
-In this lab, you'll add a Search Messaging Extension to the Northwind Orders application so users can access and share order information in Microsoft Teams conversations. The information will be shared on an adaptive card; users receiving the card can then take action on the data.
+In this lab, you'll add a Search Message Extension to the Northwind Orders application so users can access and share order information in Microsoft Teams conversations. The information will be shared on an adaptive card; users receiving the card can then take action on the data.
 
-!!! note "There are several kinds of messaging extensions
-    A Search Messaging extension is useful when you want to let users look up information in a Teams conversation. You can also create Action Messaging Extensions to do things like create, add or update data in your application, and still share all this in a conversation in Teams. All this is possible using **Messaging extensions** capability in Teams. 
+!!! note "There are several kinds of message extensions
+    A Search Message extension is useful when you want to let users look up information in a Teams conversation. You can also create Action Message Extensions to do things like create, add or update data in your application, and still share all this in a conversation in Teams. All this is possible using **Message extensions** capability in Teams. 
 
 We will cover the following concepts in this exercise:
 
-- [Messaging extensions](https://docs.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/what-are-messaging-extensions?tabs=nodejs&WT.mc_id=m365-58890-cxa)
+- [Message extensions](https://docs.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/what-are-messaging-extensions?tabs=nodejs&WT.mc_id=m365-58890-cxa)
 - [Bot Framework](https://github.com/microsoft/botframework-sdk)
 - [Adaptive cards](https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/what-are-cards?WT.mc_id=m365-58890-cxa#adaptive-cards)
 
 ???+ info "Video briefing"
     <div class="video">
       <img src="/app-camp/assets/video-coming-soon.png"></img>
-      <div>Search Messaging Extension with Adaptive Cards</div>
+      <div>Search Message Extension with Adaptive Cards</div>
     </div>
 
 ### Features
 
-- A search based messaging extension to search for products and share result in the form of a rich  card in a conversation.
+- A search based message extension to search for products and share result in the form of a rich  card in a conversation.
 - In the rich  card, provide an input field and a submit button for users to take action to update stock value of a product in the Northwind Database, all happening in the same conversation
 
 ### Exercise 1: Bot registration
 
-Messaging extensions allow users to bring the application into a conversation in Teams. You can search data in your application, perform actions on them and send back results of your interaction to your application as well as Teams to display all results in a rich card in the conversation.
+Message extensions allow users to bring the application into a conversation in Teams. You can search data in your application, perform actions on them and send back results of your interaction to your application as well as Teams to display all results in a rich card in the conversation.
 
 Since it is a conversation between your application's web service and teams, you'll need a secure communication protocol to send and receive messages. Microsoft Teams uses the **Azure Bot Framework** for this purpose.
 
@@ -79,7 +79,7 @@ There are new files and folders that you need to add into the project structure.
     The Northwind Database does not have nice images for us to show rich cards with images so we have added some images and mapped them to each product using hashing mechanism.
     As long as you got the names of the images right, we don't have to worry what images your want to add in the folder 😉. You can get creative here!
 
-- Create a new `cards` folder under the  `server` folder and add three files `errorCard.js`,`productCard.js` and `stockUpdateSuccess.js`. They are adaptive cards needed for the messaging extension to display in a conversation based on what state the cards are in.
+- Create a new `cards` folder under the  `server` folder and add three files `errorCard.js`,`productCard.js` and `stockUpdateSuccess.js`. They are adaptive cards needed for the message extension to display in a conversation based on what state the cards are in.
 
 For example, to display the product card, the bot code will use `productCard.js`; if the form is submitted by a user to update the stock value, the bot will use the `stockUpdateSuccess.js` card to let users know the action is completed; and in case of any error `errorCard.js` will be displayed.
 
@@ -328,14 +328,14 @@ export default
 }
 ```
 
-- Create a file `bot.js` inside the `server` folder. This is the `StockManagerBot` for the messaging extension which will handle the search, display and update functionality of products within the conversation.
+- Create a file `bot.js` inside the `server` folder. This is the `StockManagerBot` for the message extension which will handle the search, display and update functionality of products within the conversation.
 
 !!! note "Notice the event handlers"
     The code contains these event handlers which are invoked by the Bot Framework adapter:
 
-    - **handleTeamsMessagingExtensionQuery()** - Used in creating a Search-based Message Extension when you query which then returns the `Messaging Extension Response` for the query.
+    - **handleTeamsMessagingExtensionQuery()** - Used in creating a Search-based Message Extension when you query which then returns the `Message Extension Response` for the query.
 
-    - **handleTeamsMessagingExtensionSelectItem()** - Used in creating a Search-based Message Extension when select a search query result,  which then returns the `Messaging Extension Response` for the query.
+    - **handleTeamsMessagingExtensionSelectItem()** - Used in creating a Search-based Message Extension when select a search query result,  which then returns the `Message Extension Response` for the query.
 
     - **onInvokeActivity()** - If the bots receive a message activity, then the turn handler receives a notification of that incoming activity. The turn handler then sends the incoming activity to Team's activity handler `onInvokeActivity` which routes all Teams invoke activities. To implement our own logic for, you must override this method in your bot.
     
@@ -358,7 +358,7 @@ export class StockManagerBot extends TeamsActivityHandler {
             await next(); //go to the next handler 
         });
     }
-    //When you perform a search from the messaging extension app
+    //When you perform a search from the message extension app
     async handleTeamsMessagingExtensionQuery(context, query) {
         const { name, value } = query.parameters[0];
         if (name !== 'productName') {
@@ -524,7 +524,7 @@ With:
 
 **2.manifest/manifest.template.json**
 
-Add the messaging extension command information (bolded) in the manifest after `showLoadingIndicator` property:
+Add the message extension command information (bolded) in the manifest after `showLoadingIndicator` property:
 <pre>
 {
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.8/MicrosoftTeams.schema.json",
@@ -681,7 +681,7 @@ async function validateApiRequest(req, res, next) {
 **4.server/northwindDataService.js**
 
 Add two new functions as below
-- <b>getProductByName()</b> - This will search products by name and bring the top 5 results back to the messaging extension's search results.
+- <b>getProductByName()</b> - This will search products by name and bring the top 5 results back to the message extension's search results.
 - <b>updateProductUnitStock()</b> - This will update the value of unit stock based on the input action of a user on the product result card.
 
 Add the two new function definitions by appending below code block into the file:
@@ -873,11 +873,11 @@ The Teams client will display the application information, add the application t
 
 We have added the app into a Group chat for demonstration. Go to the chat where the app is installed.
 
-Open the messaging extension app from the compose area.
+Open the message extension app from the compose area.
 
 <img src="../../assets/screenshots/06-003-openme.png" alt="Open the app"/>
 
-Search for the product from the messaging extension (This should be easy if you have used [GIPHY](https://giphy.com/) before 😉)
+Search for the product from the message extension (This should be easy if you have used [GIPHY](https://giphy.com/) before 😉)
 
 <img src="../../assets/screenshots/06-004-searchproduct.png" alt="Search product"/>
 

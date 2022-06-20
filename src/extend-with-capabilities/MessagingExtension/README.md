@@ -1,8 +1,8 @@
-# Search Messaging Extension
+# Search Message Extension
 
 ## Summary
 
-This sample is a Search messaging extension created from using the core teams application built over the course of labs [A01](../../../lab-instructions/aad/A01-begin-app.md)-[A03](../../../lab-instructions/aad/A03-after-apply-styling.md) to get to the Northwind Orders core application. It inserts information about Northwind products into the compose box where team members can update stock value.
+This sample is a Search message extension created from using the core teams application built over the course of labs [A01](../../../lab-instructions/aad/A01-begin-app.md)-[A03](../../../lab-instructions/aad/A03-after-apply-styling.md) to get to the Northwind Orders core application. It inserts information about Northwind products into the compose box where team members can update stock value.
 
 Users can search the Northwind database when composing a message and find the product.
 
@@ -63,7 +63,7 @@ Version|Date|Author|Comments
     ngrok http -host-header=rewrite 3978
     ```
 
-- Since messaging extensions utilize the  Bot Framework, you will need to register a new bot. 
+- Since message extensions utilize the  Bot Framework, you will need to register a new bot. 
 [Follow these instructions](https://github.com/microsoft/app-camp/blob/main/lab-instructions/aad/MessagingExtension.md#exercise-1-bot-registration).
 
 
@@ -92,7 +92,7 @@ BOT_REG_AAD_APP_PASSWORD=&lt;Client Secret&gt;
 
 ## Features
 
-This is a simple Search messaging extension to show case how you can search and display data from a third party data base in Microsoft Teams. It also shows how you can update data in the third party data base all in the same conversation.
+This is a simple Search message extension to show case how you can search and display data from a third party data base in Microsoft Teams. It also shows how you can update data in the third party data base all in the same conversation.
 
 ## Debug and test locally
 
