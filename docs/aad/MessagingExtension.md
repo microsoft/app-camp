@@ -860,7 +860,7 @@ In the Teams web or desktop UI, click "Apps" in the sidebar 1️⃣, then "Manag
 * Upload an app to your org's app catalog (upload the app for use within your organization) - this only appears if you are a tenant administrator
 * Submit an app to your org (initiate a workflow asking a tenant administrator to install your app) - this appears for everyone
 
-In this case, choose the first option 3️⃣.
+In this case, choose the first option.
 
 <img src="../../assets/screenshots/03-005-InstallApp-1.png" alt="Upload the app"/>
 
