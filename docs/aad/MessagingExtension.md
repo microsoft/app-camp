@@ -503,9 +503,27 @@ export class StockManagerBot extends TeamsActivityHandler {
 #### Step 2: Update existing files
 
 There are files that were updated to add the new features.
-Let's take files one by one to understand what changes you need to make for this exercise. 
+Let's take files one by one to understand what changes you need to make for this exercise.
+ 
+**1. .env**
 
-**1. manifest/makePackage.js**
+Open the `.env` file in your working directory and add two new tokens `BOT_REG_AAD_APP_ID`(Bot id) and `BOT_REG_AAD_APP_PASSWORD`(client secret) with values copied in [Step 2](#ex1-step3).
+
+The .env file contents will now look like below:
+```
+COMPANY_NAME=Northwind Traders
+PORT=3978
+
+TEAMS_APP_ID=c42d89e3-19b2-40a3-b20c-44cc05e6ee26
+HOST_NAME=yourhostname.ngrok.io
+
+TENANT_ID=c8888ec7-a322-45cf-a170-7ce0bdb538c5
+CLIENT_ID=b323630b-b67c-4954-a6e2-7cfa7572bbc6
+CLIENT_SECRET=111111.ABCD
+BOT_REG_AAD_APP_ID=88888888-0d02-43af-85d7-72ba1d66ae1d
+BOT_REG_AAD_APP_PASSWORD=111111vk
+```
+**2. manifest/makePackage.js**
 The npm script that builds a manifest file by taking the values from your local development configuration like `.env` file, need an extra token for the Bot we just created. Let's add that token `BOT_REG_AAD_APP_ID` (bot id) into the script.
 
 Replace code block:
@@ -522,7 +540,7 @@ With:
            <b> key.indexOf('BOT_REG_AAD_APP_ID') === 0) {</b>
 </pre>
 
-**2.manifest/manifest.template.json**
+**3.manifest/manifest.template.json**
 
 Add the message extension command information (bolded) in the manifest after `showLoadingIndicator` property:
 <pre>
@@ -641,7 +659,7 @@ Update the version number so it's greater than it was; for example if your manif
 "version": "1.5.0"
 ~~~
 
-**3.server/identityService.js**
+**4.server/identityService.js**
 
 Add a condition to let validation  be performed by Bot Framework Adapter.
 In the function `validateApiRequest()`, add an `if` condition and check if request is from `bot` then move to next step.
@@ -678,7 +696,7 @@ async function validateApiRequest(req, res, next) {
 }
 </pre>
 
-**4.server/northwindDataService.js**
+**5.server/northwindDataService.js**
 
 Add two new functions as below
 - <b>getProductByName()</b> - This will search products by name and bring the top 5 results back to the message extension's search results.
@@ -717,7 +735,7 @@ export async function updateProductUnitStock(productId, unitsInStock) {
 }
 ```
 
-**5.server/server.js**
+**6.server/server.js**
 
 Import the needed modules for bot related code.
 Import required bot service from botbuilder package and the bot `StockManagerBot` from the newly added file `bot.js`
@@ -790,7 +808,7 @@ app.post('/api/messages', (req, res) => {
 
 The final **server/server.js** file should [look like this](https://github.com/microsoft/app-camp/blob/main/src/extend-with-capabilities/MessagingExtension/server/server.js){target="_blank"} (changes from other extended labs notwithstanding).
 
-**6. package.json**
+**7. package.json**
 
 You'll need to install additional packages for adaptive cards and botbuilder.
 Add below packages into the `package.json` file by run below script to install new packages:
@@ -808,24 +826,7 @@ Check if packages are added into `dependencies` in the package.json file:
     "botbuilder": "^4.15.0"
 ```
 
-**7. .env**
 
-Open the `.env` file in your working directory and add two new tokens `BOT_REG_AAD_APP_ID`(Bot id) and `BOT_REG_AAD_APP_PASSWORD`(client secret) with values copied in [Step 2](#ex1-step3).
-
-The .env file contents will now look like below:
-```
-COMPANY_NAME=Northwind Traders
-PORT=3978
-
-TEAMS_APP_ID=c42d89e3-19b2-40a3-b20c-44cc05e6ee26
-HOST_NAME=yourhostname.ngrok.io
-
-TENANT_ID=c8888ec7-a322-45cf-a170-7ce0bdb538c5
-CLIENT_ID=b323630b-b67c-4954-a6e2-7cfa7572bbc6
-CLIENT_SECRET=111111.ABCD
-BOT_REG_AAD_APP_ID=88888888-0d02-43af-85d7-72ba1d66ae1d
-BOT_REG_AAD_APP_PASSWORD=111111vk
-```
 ### Exercise 3: Test the changes
 ---
 Now that you have applied all code changes, let's test the features.
