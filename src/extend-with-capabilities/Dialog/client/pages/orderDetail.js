@@ -53,7 +53,7 @@ async function displayUI() {
                     fallbackUrl: null                   
                 };
                 taskInfo.url = `https://${window.location.hostname}/pages/orderNotesForm.html`;
-                taskInfo.title = "Task module order notes";
+                taskInfo.title = "Order notes";
                 taskInfo.size= {height:210,width: 400};   
                 let submitHandler = (response) => { 
                     if(response.result){

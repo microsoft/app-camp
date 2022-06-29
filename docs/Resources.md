@@ -26,7 +26,7 @@ For an overview of Teams app development, check out this video by Bob and Rabia!
 * [Understand Teams app features](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/capabilities-overview?WT.mc_id=m365-58890-cxa) - Tabs, Bots, etc.
 * [Teams developer documentation](https://docs.microsoft.com/en-us/microsoftteams/platform?WT.mc_id=m365-58890-cxa)
 * [Adaptive Cards](https://adaptivecards.io)
-* [Task Modules](https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/what-are-task-modules?WT.mc_id=m365-58890-cxa) - Modal dialogs for Teams apps that can display a web page or adaptive card
+* [Dialog](https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/what-are-task-modules?WT.mc_id=m365-58890-cxa) - Modal dialogs for Teams apps that can display a web page or adaptive card
 * [Microsoft 365 Groups and Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/office-365-groups?WT.mc_id=m365-58890-cxa) - There's an M365 Group inside every Team to provide membership, a SharePoint site for file storage, an Exchange shared mailbox and calendar, etc.
 * [Upload a Teams application](https://docs.microsoft.com/en-us/microsoftteams/upload-custom-apps?WT.mc_id=m365-58890-cxa)
 * [App Store validation guidelines](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/appsource/prepare/teams-store-validation-guidelines?WT.mc_id=m365-58890-cxa)
@@ -54,7 +54,7 @@ For an overview of Teams app development, check out this video by Bob and Rabia!
 * [Authenticate users in Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/authentication/authentication?WT.mc_id=m365-58890-cxa)
 * [Teams tab SSO](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/authentication/auth-aad-sso?WT.mc_id=m365-58890-cxa)
 * [Teams bot SSO](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/auth-aad-sso-bots?WT.mc_id=m365-58890-cxa)
-* [Teams messaging extension SSO](https://docs.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/how-to/enable-sso-auth-me?WT.mc_id=m365-58890-cxa)
+* [Teams message extension SSO](https://docs.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/how-to/enable-sso-auth-me?WT.mc_id=m365-58890-cxa)
 * [Claims in access tokens](https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens?WT.mc_id=m365-58890-cxa#claims-in-access-tokens) - When troubleshooting, paste an access token into https://jwt.ms; this document explains the claims within
 * [Multi-tenant architecture for SaaS apps with M365 and Azure AD (video)](https://www.youtube.com/watch?v=RjGVOFm39j0)
 * [Single sign-on in Microsoft Teams tabs with Azure Active Directory](https://www.youtube.com/watch?v=kruUnaZgQaY)
@@ -63,7 +63,7 @@ For an overview of Teams app development, check out this video by Bob and Rabia!
 ### Tabs
 
 * [Build Tabs for Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/what-are-tabs?WT.mc_id=m365-58890-cxa)
-* [Build a tab configuration page](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/create-tab-pages/configuration-page?WT.mc_id=m365-58890-cxa) - These are required for tabs in Teams channels and Group conversations. They can also be used as settings pages for messaging extensions and connectors.
+* [Build a tab configuration page](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/create-tab-pages/configuration-page?WT.mc_id=m365-58890-cxa) - These are required for tabs in Teams channels and Group conversations. They can also be used as settings pages for message extensions and connectors.
 
 ### Bots
 
@@ -80,10 +80,10 @@ For an overview of Teams app development, check out this video by Bob and Rabia!
 * [Activity feed](https://docs.microsoft.com/en-us/graph/teams-send-activityfeednotifications?WT.mc_id=m365-58890-cxa)
 * [Proactive bots](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages?WT.mc_id=m365-58890-cxa)
 
-### Messaging Extensions
+### Message Extensions
 
-* [Messaging extensions documentation](https://docs.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/what-are-messaging-extensions?WT.mc_id=m365-58890-cxa)
-* [Build a configuration page](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/create-tab-pages/configuration-page?WT.mc_id=m365-58890-cxa) - These can be used as settings pages for messaging extensions
+* [Message extensions documentation](https://docs.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/what-are-messaging-extensions?WT.mc_id=m365-58890-cxa)
+* [Build a configuration page](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/create-tab-pages/configuration-page?WT.mc_id=m365-58890-cxa) - These can be used as settings pages for message extensions
 
 ### Meeting Apps
 

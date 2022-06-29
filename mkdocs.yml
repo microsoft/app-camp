@@ -20,8 +20,8 @@ nav:
   - Choose your own adventure!: 'aad/ExtendedLabs.md'
   - Add a configurable tab: 'aad/ConfigurableTab.md'
   - Add a Deep link to a personal Tab: 'aad/Deeplink.md'
-  - Add a Messaging Extension: 'aad/MessagingExtension.md'
-  - Add a Task Module: 'aad/TaskModules.md'
+  - Add a Message Extension: 'aad/MessagingExtension.md'
+  - Add a Dialog: 'aad/Dialog.md'
   - Selling Your SaaS-based Teams Extension: 'aad/Monetization.md'
 - Resources: 'Resources.md'
 theme:

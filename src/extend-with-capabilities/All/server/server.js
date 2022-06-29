@@ -133,7 +133,7 @@ app.get('/modules/env.js', (req, res) => {
     };
   `);
 });
-//messaging extension
+//message extension
 const adapter = new BotFrameworkAdapter({
   appId: process.env.BOT_REG_AAD_APP_ID,
   appPassword: process.env.BOT_REG_AAD_APP_PASSWORD

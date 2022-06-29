@@ -14,7 +14,7 @@ Version|Date|Author|Comments
 -------|----|----|--------
 1.0|April 2022|Bob German, Tomomi Imura, Rabia Williams|Initial release
 1.1|April 2022|Rabia Williams|Use Teams JS SDK v2
-1.2|May 2022|Rabia Williams|Add Messaging extension to app
+1.2|May 2022|Rabia Williams|Add Message extension to app
 
 ## Disclaimer
 
@@ -83,7 +83,7 @@ Repeat the process for other M365 client applications [see here](https://docs.mi
     npm install
     ```
 - Bot registration
-Messaging extensions allow users to bring the application into a conversation in Teams. You can search data in your application, perform actions on them and send back results of your interaction to your application as well as Teams to display all results in a rich card in the conversation.
+Message extensions allow users to bring the application into a conversation in Teams. You can search data in your application, perform actions on them and send back results of your interaction to your application as well as Teams to display all results in a rich card in the conversation.
 
 Since it is a conversation between your application's web service and teams, you'll need a secure communication protocol to send and receive messages like the **Bot Framework**'s messaging schema.
 
@@ -156,7 +156,7 @@ Run below script to download local DB files
 
 ![app in outlook (windows)](../../assets/experimental/working-outlook.gif)
 
-- Search based messaging extension in both Teams and Outlook
+- Search based message extension in both Teams and Outlook
 
 ![ME in teams and outlook](../../assets/experimental/ME.gif)
 
@@ -166,7 +166,7 @@ Run below script to download local DB files
     - My Orders Report
     - Order details
     - Open chat with sales representatives from **Order details page**
-    - Search based messaging extension to search and update product stock
+    - Search based message extension to search and update product stock
     
 - In Office.com:
     - My Recent Order
@@ -176,8 +176,8 @@ Run below script to download local DB files
     - My Orders
     - Order details
     - Compose mail to sales representatives from **Order details page**
-    - Search based messaging extension to search and update product stock
+    - Search based message extension to search and update product stock
 - In Outlook (Web):
     - My Orders
     - Order details
-    - Search based messaging extension to search and update product stock
+    - Search based message extension to search and update product stock

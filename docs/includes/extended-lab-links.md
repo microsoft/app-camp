@@ -1,5 +1,5 @@
   - [Add a Configurable Tab](/app-camp/aad/ConfigurableTab)
   - [Add a Deep link to a personal Tab](/app-camp/aad/Deeplink)
-  - [Add a Messaging Extension](/app-camp/aad/MessagingExtension)
-  - [Add a Task Module ](/app-camp/aad/TaskModules)
+  - [Add a Message Extension](/app-camp/aad/MessagingExtension)
+  - [Add a Dialog ](/app-camp/aad/Dialog)
   - [Selling Your SaaS-based Teams Extension](/app-camp/aad/Monetization)
