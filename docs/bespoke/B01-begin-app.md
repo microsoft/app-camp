@@ -74,10 +74,12 @@ While ngrok isn't strictly required for developing Microsoft Teams applications,
 In the command line tool of your choice, navigate to the folder where you've saved **ngrok.exe** and run this command:
 
 ~~~shell
-ngrok http 3978 -host-header=localhost
+ngrok http 3978
 ~~~
 
-The terminal will display a screen like this; note the https forwarding URL for use in this lab. Save this URL for use throughout the labs.
+The terminal will display a screen like this; note the https forwarding URL for use in this lab. ngrok will tunnel requests on this URL to your local host on port 3978 for easy debugging.
+
+Save this URL for use throughout the labs.
 
 ![ngrok output](../../assets/screenshots/01-002-ngrok.png)
 
