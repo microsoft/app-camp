@@ -4,13 +4,14 @@ The free version of ngrok generates a new URL every time you run it, so if you p
 
 | Lab | Exercise | Step(s) | Use |
 |---|---|---|--|
-| A01 | 4 | 2 | Redirect URL in the app registration (under "Authentication") |
-| A01 | 4 | 4 | Application URI contains the ngrok URL |
-| A01 | 6 | 3 | The .env file contains the hostname portion of the ngrok URL |
-| A01 | 6 | 8 | Browse to the ngrok URL |
-| B02 | 3 | 4 | The .env file contains the hostname portion of the ngrok URL |
-| B03 | 1 | 1 | Redirect URL in the app registration (under "Authentication") |
-| A03 | 1 | 3 | Application URI contains the ngrok URL |
+| A01 | 4 | 2 | [Redirect URL in the app registration (under "Authentication")](https://microsoft.github.io/app-camp/aad/A01-begin-app/#step-2-register-your-application-in-azure-active-directory){target="_blank"} |
+| A01 | 4 | 5 | [Application URI contains the ngrok URL](https://microsoft.github.io/app-camp/aad/A01-begin-app/#step-5-expose-an-api){target="_blank"} |
+| A01 | 5 | 4 | [HOST_NAME in the .env file contains the hostname portion of the ngrok URL](https://microsoft.github.io/app-camp/aad/A01-begin-app/#step-4-configure-the-app-settings){target="_blank"} |
+| A01 | 5 | 5 | [Browse to the ngrok URL](https://microsoft.github.io/app-camp/aad/A01-begin-app/#step-5-run-the-application){target="_blank"} |
+| B01 | 2 | 3 | [Browse to the ngrok URL](https://microsoft.github.io/app-camp/bespoke/B01-begin-app/#step-5-run-the-application){target="_blank"}
+| B02 | 3 | 3 | [HOST_NAME in the .env file contains the hostname portion of the ngrok URL](https://microsoft.github.io/app-camp/bespoke/B02-after-teams-login/#step-3-add-the-teams-app-id-to-the-env-file){target="_blank"} |
+| B03 | 1 | 1 | [Redirect URL in the app registration (under "Authentication")](https://microsoft.github.io/app-camp/bespoke/B03-after-teams-sso/#step-1-register-your-application-in-azure-active-directory){target="_blank"} |
+| B03 | 1 | 3 | [Application URI contains the ngrok URL](https://microsoft.github.io/app-camp/bespoke/B03-after-teams-sso/#step-3-expose-an-api){target="_blank"} |
 
 
 
