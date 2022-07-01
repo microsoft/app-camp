@@ -37,7 +37,7 @@ where:
 - **subEntityId** - This is the ID for the item you are displaying information for. This is similar to query parameters. In our case in this lab, it will be the orderId. 
 
 !!! note
-    The subEntity ID is called the subPageID in version 2 of the Teams JavaScript SDK
+    The subEntityId is the query parameter name. When you pass this value, the context will store this information in page.subPageId in Teams JS v2 of the SDK. Previously this was stored in the context as subEntityId. There has been a visual change.
 
 Full details are [here in the documentation](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/build-and-test/deep-links?WT.mc_id=m365-58890-cxa){target="_blank"}.
 
@@ -196,7 +196,7 @@ import { ensureTeamsSdkInitialized, inTeams } from '../modules/teamsHelpers.js';
 import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
 ```
 
-Using the `My Orders` tab as the base, we will redirect the deeplink to the `Order details` page to show the order only if the **subEntitiyId** is present in the teams context. In the `displayUI()` function, at the top of the `try` block, add code to check for a **subEntityId** and do the redirect if it's found.
+Using the `My Orders` tab as the base, we will redirect the deeplink to the `Order details` page to show the order only if the **subEntitiyId** is present in the teams context. In the `displayUI()` function, at the top of the `try` block, add code to check for a **pages.subPageId**  which is where the passed subEntitiyId is stored in the context from v2 of the Teams JS SDK.Once it is found, do the redirect to the sub page.
 
 ```javascript
 // Handle incoming deep links by redirecting to the selected order
