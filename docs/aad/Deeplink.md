@@ -196,7 +196,7 @@ import { ensureTeamsSdkInitialized, inTeams } from '../modules/teamsHelpers.js';
 import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
 ```
 
-Using the `My Orders` tab as the base, we will redirect the deeplink to the `Order details` page to show the order only if the **subEntitiyId** is present in the teams context. In the `displayUI()` function, at the top of the `try` block, add code to check for a **pages.subPageId**  which is where the passed subEntitiyId is stored in the context from v2 of the Teams JS SDK.Once it is found, do the redirect to the sub page.
+Using the `My Orders` tab as the base, we will redirect the deeplink to the `Order details` page to show the order only if the **subEntitiyId** is present in the teams context. In the `displayUI()` function, at the top of the `try` block, add code to check for a **page.subPageId**  which is where the passed subEntitiyId is stored in the context from v2 of the Teams JS SDK.Once it is found, do the redirect to the sub page.
 
 ```javascript
 // Handle incoming deep links by redirecting to the selected order
