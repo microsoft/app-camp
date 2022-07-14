@@ -15,7 +15,7 @@ If you use an identity provider such as Auth0, Google Identity Services, Identit
 
 In this lab you will set up the Northwind Orders application, which can be found in the [B01-begin-app](../../src/create-core-app/bespoke/B01-begin-app/) folder. The labs that follow will lead you step by step into extending the web application to be a Microsoft Teams application with Azure AD Single Sign-On. 
 
-* [B01-begin-app: Setting up the application with Azure AD](./B01-begin-app.md) (📍You are here)
+* [B01-begin-app: Setting up the application](./B01-begin-app.md) (📍You are here)
 * [B02-after-teams-login: Creating a Teams application](./B02-after-teams-login.md)
 * [B03-after-teams-sso: Adding Azure AD SSO to your app](./B03-after-teams-sso.md)
 * [B04-after-apply-styling: Teams styling and themes](./B04-after-apply-styling.md)

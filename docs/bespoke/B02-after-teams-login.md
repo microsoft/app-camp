@@ -8,7 +8,7 @@ This is parth of Path B, which begins with an application that uses an authoriza
 
 In this lab you will build the application you created in Lab B01 into a Microsoft Teams application. This application will still use the Northwind authentication, but since the Northwind login page won't work in the Teams tab IFrame, we'll use the Teams JavaScript SDK to show it in a pop-up.
 
-* [B01-begin-app: Setting up the application with Azure AD](./B01-begin-app.md) 
+* [B01-begin-app: Setting up the application](./B01-begin-app.md) 
 * [B02-after-teams-login: Creating a Teams application](./B02-after-teams-login.md)(📍You are here)
 * [B03-after-teams-sso: Adding Azure AD SSO to your app](./B03-after-teams-sso.md)
 * [B04-after-apply-styling: Teams styling and themes](./B04-after-apply-styling.md)

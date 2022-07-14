@@ -10,7 +10,7 @@ In this lab you will build the application you created in Lab B01 into a Microso
 
 Note that as you complete the labs, the original app should still work outside of Teams! This is often a requirement of ISV's who have an app in market and need to serve an existing customer base outside of Teams.
 
-* [B01-begin-app: Setting up the application with Azure AD](./B01-begin-app.md) 
+* [B01-begin-app: Setting up the application](./B01-begin-app.md) 
 * [B02-after-teams-login: Creating a Teams application](./B02-after-teams-login.md)
 * [B03-after-teams-sso: Adding Azure AD SSO to your app](./B03-after-teams-sso.md)(📍You are here)
 * [B04-after-apply-styling: Teams styling and themes](./B04-after-apply-styling.md)

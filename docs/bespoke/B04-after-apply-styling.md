@@ -9,7 +9,7 @@ This is parth of Path B, which begins with an application that uses an authoriza
 In this lab you will begin with the application in folder `B03-TeamsSSO`, make changes as per the steps below to achieve what is in the folder `B04-StyleAndThemes`.
 See project structures comparison in Exercise 1.
 
-* [B01-begin-app: Setting up the application with Azure AD](./B01-begin-app.md) 
+* [B01-begin-app: Setting up the application](./B01-begin-app.md) 
 * [B02-after-teams-login: Creating a Teams application](./B02-after-teams-login.md)
 * [B03-after-teams-sso: Adding Azure AD SSO to your app](./B03-after-teams-sso.md)
 * [B04-after-apply-styling: Teams styling and themes](./B04-after-apply-styling.md)(📍You are here)
