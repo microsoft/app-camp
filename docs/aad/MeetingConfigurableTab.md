@@ -4,7 +4,8 @@
 
 This lab is part of extending with capabilities for your teams app which begins with a Northwind Orders core application using the `AAD` path.
 
-> Complete labs [A01](A01-begin-app.md)-[A03](A03-after-apply-styling.md) to get to the Northwind Orders core application and complete the [Configurable Tab Lab](ConfigurableTab.md) to add a configurable tab to your application
+!!! important "Important!"
+    This lab builds on the completed solution to the [Configurable Tab](ConfigurableTab.md) lab. Complete labs [A01](A01-begin-app.md)-[A03](A03-after-apply-styling.md) to get to the Northwind Orders core application and then complete the [Configurable Tab Lab](ConfigurableTab.md) to add a configurable tab to your application before beginning this lab.
 
 Following on from the previous lab where you created a Configurable Tab which could be configured to display a list products with a given category, in this lab you will extend the tab so that it can also be used in Microsoft Teams meetings.
 
@@ -19,7 +20,14 @@ In this lab you will learn to:
 - Use the Teams JS SDK to understand the current Microsoft Teams Frame Context
 - Use the Teams JS SDK to understand whether the tab is being shared to the Microsoft Teams Meeting Content Stage
 
-> Currently it is only possible to use tabs in Meetings using the Microsoft Teams Desktop Client, 
+!!! warning
+    Currently it is only possible to use tabs in Meetings using the Microsoft Teams Desktop Client.
+
+???+ info "Video briefing"
+    <div class="video">
+      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <div>Configurable Tabs in Microsoft Teams Meetings</div>
+    </div>
 
 ### Features
 
@@ -88,13 +96,13 @@ In the Teams web or desktop UI, click "Apps" in the sidebar 1️⃣, then "Manag
 * Upload an app to your org's app catalog (upload the app for use within your organization) - this only appears if you are a tenant administrator
 * Submit an app to your org (initiate a workflow asking a tenant administrator to install your app) - this appears for everyone
 
-In this case, choose the second option 2️⃣.
+In this case, choose the second option 3️⃣.
 
-![Upload the app](../assets/screenshots/03-005-InstallApp-1.png)
+![Upload the app](../assets/screenshots/UploadToOrgAppCatalog.png)
 
 Navigate to the Northwind.zip file in your manifest directory and upload it.
 
-Although the application is already installed, you are providing a newer version so it will update the application. 
+Although the application is already installed, you are providing a newer version so it will update the application.
 
 ### Exercise 2: Add your tab to the pre-meeting stage
 
@@ -182,7 +190,7 @@ export async function sharedToStage() {
 
 We can use the two helper functions that we just added to hide some of the table columns when the tab is shown in the side panel, but to not remove them when the same tab is presented to the stage so we can make utilise the full width of the meeting content stage.
 
-In `client/pages/categoryDetails.js`, add the following import statement to the top of the file. 
+In `client/pages/categoryDetail.js`, add the following import statement to the top of the file. 
 
 ```js
 import {
@@ -254,8 +262,5 @@ For the latest issues, or to file a bug report, see the [github issues list](htt
 
 After completing this lab, you may continue with any of the following labs.
 
-- [Add a Deep link to a personal Tab](./Deeplink.md)
-- [Add a Messaging Extension](./MessagingExtension.md)
-- [Add a Task Module](TaskModules.md)
-- [Selling Your SaaS-based Teams Extension](./Monetization.md)
+---8<--- "extended-lab-links.md"
   
