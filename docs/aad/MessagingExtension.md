@@ -52,11 +52,21 @@ The terminal will display a screen like below; Save the URL for [Step 2](#ex1-st
 
 <div id="ex1-step3"></div>
 
+Microsoft Teams will communicate with your web service using the [Azure Bot Service]. In order to use this service, you need to register a bot with Microsoft Azure. There are two ways to set this up: if you have an Azure subscription, you can register your bot using the [Azure Portal](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart-registration); if not, you can use the [Teams Developer Portal](https://docs.microsoft.com/microsoftteams/platform/concepts/build-and-test/teams-developer-portal).
+
+??? info "VIDEO: Register your bot using the Azure Portal"
+    <div class="video">
+      <iframe src="//www.youtube.com/embed/mASUW4Hxxc0" frameborder="0" allowfullscreen></iframe>
+      <div>Register and configure a bot in Microsoft Azure</div>
+    </div>
+
+These instructions will guide you through the second option, which is to register your bot using the Teams Developer Portal. The Teams Developer Portal is a valuable tool for Teams developers that is tightly integrated with the [Teams Toolkit](https://docs.microsoft.com/microsoftteams/platform/toolkit/visual-studio-code-overview).
+
 - Go to [https://dev.teams.microsoft.com/home/](https://dev.teams.microsoft.com/home/).
 - Select **Apps** on the left navigation.
-- Search for the app **Northwind Orders** 
+- Search for the app **Northwind Orders**. If you don't find it, simply create a new app at random; we really just need for the Developer Portal to register our bot and we won't be managing the manifest using Developer Portal.
 - On the left side, under **Configure**, select **App features**.
-- You will see the feature your app already has which is **Personal app**. From below features which are not selected, Select **Bot**.
+- From below features to add, select **Bot**.
 - To configure the bot, under **Identify your bot** , select the link **Create new bot**. This will take you to **Bot management** page.
 - Select the `+ New Bot ` button, which opens a dialog to input the bot name. Add a name and select **Add**.
 - Once the bot is added, you will be taken to the configuration page for the bot. Update the **Endpoint address** to the ngrok url and  append `/api/messages` to the url. Select **Save**.
