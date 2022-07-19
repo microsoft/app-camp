@@ -40,7 +40,6 @@ async function displayUI() {
                 <td>${product.supplierName} (${product.supplierCountry})</td>
             </tr>`;
                     productsElement.append(row);
-
                 });
 
                 if (await inSidePanel() && !(await sharedToStage())) {
