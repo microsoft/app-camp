@@ -14,7 +14,7 @@ This web site will guide you through a set of videos and hands-on lab exercises 
       <div>Welcome to Microsoft Teams App Camp!</div>
     </div>
 
-In this series of labs, you will port a simple "Northwind Orders" web application to become a full-fledged Microsoft Teams application. The core labs will show you how to make the web application into a Teams application with a personal tab and Azure AD Single Sign-on. From there, you can choose extended labs depending on the features you need in your application. After completing each lab, the solution will still work as the original stand-alone web application as well as in Microsoft Teams. This is intended to shwo how to extend an existing SaaS application into Microsoft Teams without disrupting non-Teams other users.
+In this series of labs, you will port a simple "Northwind Orders" web application to become a full-fledged Microsoft Teams application. The core labs will show you how to make the web application into a Teams application with a personal tab and Azure AD Single Sign-on. From there, you can choose extended labs depending on the features you need in your application. After completing each lab, the solution will still work as the original stand-alone web application as well as in Microsoft Teams. This is intended to show how to extend an existing SaaS application into Microsoft Teams without disrupting non-Teams other users.
 
 ![Map of Teams App Camp](./assets/appcamp-readme.png)
 
