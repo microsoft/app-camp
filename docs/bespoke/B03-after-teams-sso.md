@@ -200,7 +200,7 @@ You will be presented with the application overview. There are two values on thi
 
 When you've recorded these values, navigate to "Certificates & secrets" 3️⃣.
 
-![Adding a secret](../../assets//01-015-RegisterAADApp-7.png)
+![Adding a secret](../../assets/screenshots/01-015-RegisterAADApp-7.png)
 
 Now you will create a client secret, which is like a password for your application to use when it needs to authenticate with Azure AD.
 

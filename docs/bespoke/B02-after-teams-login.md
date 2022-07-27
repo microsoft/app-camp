@@ -218,7 +218,7 @@ The terminal will display a screen like this; note the https forwarding URL for 
 ![ngrok output](../../assets/screenshots/01-002-ngrok.png)
 
 !!! warning
-    Do not stop ngrok for the duration of these labs. If you do stop ngrok and are assigned a new URL, [this page](http://devpoint19.lab/app-camp/ngrokReferences/){target="_blank"} lists all the exercises which involve the ngrok URL so you can easily update it.
+    Do not stop ngrok for the duration of these labs. If you do stop ngrok and are assigned a new URL, [this page](/app-camp/ngrokReferences/){target="_blank"} lists all the exercises which involve the ngrok URL so you can easily update it.
 
 
 ### Exercise 3: Create the Teams application package

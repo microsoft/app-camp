@@ -181,7 +181,7 @@ app.post('/api/validateLicense', async (req, res) => {
 The app needs to be able to show if there is a licensing error. This step adds that code to the client.
 
 1. Add a new file, `client/pages/needLicense.html`. 
-2. Paste in the following HTML (or copy the file from [here](../../src/extend-with-capabilities/Monetization/client/pages/needLicense.html)).
+2. Paste in the following HTML (or copy the file from [here](https://github.com/microsoft/app-camp/blob/main/src/extend-with-capabilities/Monetization/client/pages/needLicense.html)).
 
 ~~~html
 <!doctype html>
@@ -209,7 +209,7 @@ The app needs to be able to show if there is a licensing error. This step adds t
 The HTML page needs some JavaScript to work properly.
 
 3. Create a file `/client/pages/needLicense.js`.
-4. Paste in the following code (or copy the file from [here](../../src/extend-with-capabilities/Monetization/client/pages/needLicense.js)).
+4. Paste in the following code (or copy the file from [here](https://github.com/microsoft/app-camp/blob/main/src/extend-with-capabilities/Monetization/client/pages/needLicense.js)).
 
 ```javascript
 const searchParams = new URLSearchParams(window.location.search);
@@ -226,7 +226,7 @@ if (searchParams.has('error')) {
 In this step, you will add client side function to check if the user has a license.
 
 1. Add a new file, `client/modules/northwindLicensing.js`.
-2. Paste in the following code (or copy the file from [here](../../src/extend-with-capabilities/Monetization/client/modules/northwindLicensing.js)). 
+2. Paste in the following code (or copy the file from [here](https://github.com/microsoft/app-camp/blob/main/src/extend-with-capabilities/Monetization/client/modules/northwindLicensing.js)). 
 
 This code calls the server-side API we just added using an Azure AD token obtained using Microsoft Teams SSO.
 
