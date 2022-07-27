@@ -12,7 +12,7 @@ In this lab you will extend the Northwind Orders application as a personal tab i
 
 The Northwind Orders app doesn't check for IFrames, but Azure AD does, so the existing site won't work without modifications. To accomodate this and to prevent extra user logins, you'll set this tab up to use Teams' Azure AD Single Sign-on. 
 
-The completed solution can be found in the [A02-after-teams-sso](../../src/create-core-app/aad/A02-after-teams-sso/){target="_blank"} folder, but the instructions will guide you through modifying the app running in your working folder. 
+The completed solution can be found in the [A02-after-teams-sso](https://github.com/microsoft/app-camp/blob/main/src/create-core-app/aad/A02-after-teams-sso/){target="_blank"} folder, but the instructions will guide you through modifying the app running in your working folder. 
 
 Note that as you complete the labs, the original app should still work outside of Teams! This is often a requirement of ISV's who have an app in market and need to serve an existing customer base outside of Teams.
 

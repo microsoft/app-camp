@@ -12,7 +12,7 @@ The free version of ngrok generates a new URL every time you run it, so if you p
 | B02 | 3 | 3 | [HOST_NAME in the .env file contains the hostname portion of the ngrok URL](https://microsoft.github.io/app-camp/bespoke/B02-after-teams-login/#step-3-add-the-teams-app-id-to-the-env-file){target="_blank"} |
 | B03 | 1 | 1 | [Redirect URL in the app registration (under "Authentication")](https://microsoft.github.io/app-camp/bespoke/B03-after-teams-sso/#step-1-register-your-application-in-azure-active-directory){target="_blank"} |
 | B03 | 1 | 3 | [Application URI contains the ngrok URL](https://microsoft.github.io/app-camp/bespoke/B03-after-teams-sso/#step-3-expose-an-api){target="_blank"} |
-
+| Message extension | 1 | 2 | [Application URI contains the ngrok URL](https://microsoft.github.io/app-camp/aad/MessagingExtension/#ex1-step3){target="_blank"} |
 
 
 

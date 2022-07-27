@@ -8,7 +8,7 @@ This is the very first lab in Path A, which begins with an application that alre
 
 ---8<--- "are-you-on-the-right-path.md"
 
-In this lab you will set up the Northwind Orders application, which can be found in the [A01-begin-app](../../src/create-core-app/aad/A01-begin-app/) folder. The labs that follow will lead you step by step into extending the web application to be a Microsoft Teams application as well. 
+In this lab you will set up the Northwind Orders application, which can be found in the [A01-begin-app](https://github.com/microsoft/app-camp/blob/main/src/create-core-app/aad/A01-begin-app) folder. The labs that follow will lead you step by step into extending the web application to be a Microsoft Teams application as well. 
 
 * A01-begin-app: Setting up the application with Azure AD (📍You are here)
 * [A02-after-teams-sso: Creating a Teams app with Azure ADO SSO](./A02-after-teams-sso.md)
@@ -275,7 +275,7 @@ You will be presented with the application overview. There are two values on thi
 
 When you've recorded these values, navigate to "Certificates & secrets" 3️⃣.
 
-![Adding a secret](../../assets//01-015-RegisterAADApp-7.png)
+![Adding a secret](../../assets/screenshots/01-015-RegisterAADApp-7.png)
 
 Now you will create a client secret, which is like a password for your application to use when it needs to authenticate with Azure AD.
 

@@ -13,7 +13,7 @@ If you use an identity provider such as Auth0, Google Identity Services, Identit
 
 ---8<--- "are-you-on-the-right-path.md"
 
-In this lab you will set up the Northwind Orders application, which can be found in the [B01-begin-app](../../src/create-core-app/bespoke/B01-begin-app/) folder. The labs that follow will lead you step by step into extending the web application to be a Microsoft Teams application with Azure AD Single Sign-On. 
+In this lab you will set up the Northwind Orders application, which can be found in the [B01-begin-app](https://github.com/microsoft/app-camp/tree/main/src/create-core-app/bespoke/B01-begin-app/) folder. The labs that follow will lead you step by step into extending the web application to be a Microsoft Teams application with Azure AD Single Sign-On. 
 
 * [B01-begin-app: Setting up the application](./B01-begin-app.md) (📍You are here)
 * [B02-after-teams-login: Creating a Teams application](./B02-after-teams-login.md)
@@ -84,7 +84,7 @@ Save this URL for use throughout the labs.
 ![ngrok output](../../assets/screenshots/01-002-ngrok.png)
 
 !!! warning
-    Do not stop ngrok for the duration of these labs. If you do stop ngrok and are assigned a new URL, [this page](http://devpoint19.lab/app-camp/ngrokReferences/){target="_blank"} lists all the exercises which involve the ngrok URL so you can easily update it.
+    Do not stop ngrok for the duration of these labs. If you do stop ngrok and are assigned a new URL, [this page](/app-camp/ngrokReferences/){target="_blank"} lists all the exercises which involve the ngrok URL so you can easily update it.
 
 ### Exercise 2: Configure and run the application
 #### Step 1: Download the starting application
