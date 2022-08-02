@@ -5,6 +5,16 @@ import { env } from '/modules/env.js';
 import { ensureTeamsSdkInitialized, inTeams } from '/modules/teamsHelpers.js';
 import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
 
+// interface IIdentityClient {
+//     async getLoggedinEmployeeId(): number;
+//     async setLoggedinEmployeeId(employeeId: number): void;
+//     async validateEmployeeLogin(surname: string, password: string): Number;
+//     async getLoggedInEmployee(): IEmployee;
+//     async Logoff(): void                    // Redirects and does not return
+//     async getFetchHeadersAnon(): string;    // headers for calling Fetch anonymously
+//     async getFetchHeadersAuth(): string;    // headers for calling Fetch with authentication
+// }
+
 const msalConfig = {
     auth: {
         clientId: env.CLIENT_ID,
@@ -22,7 +32,7 @@ const msalRequest = {
     scopes: [`api://${env.HOST_NAME}/${env.CLIENT_ID}/access_as_user`]
 }
 
-const msalClient = new msal.PublicClientApplication(msalConfig);
+const msalClient = new msal.PublicClientApplication (msalConfig);
 
 let getLoggedInEmployeeIdPromise;        // Cache the promise so we only do the work once on this page
 export function getLoggedinEmployeeId() {
@@ -66,9 +76,9 @@ export function getAccessToken() {
 
 async function getAccessToken2() {
 
-    if (await inTeams()) {
+    if (await inTeams()) {        
         await ensureTeamsSdkInitialized();
-        return await microsoftTeams.authentication.getAuthToken();
+        return await microsoftTeams.authentication.getAuthToken();  
     } else {
 
         // If we were waiting for a redirect with an auth code, handle it here
@@ -95,9 +105,9 @@ async function getAccessToken2() {
         } catch (error) {
             if (error instanceof msal.InteractionRequiredAuthError) {
                 console.warn("Silent token acquisition failed; acquiring token using redirect");
-                this.msalClient.acquireTokenRedirect(this.request);
+                msalClient.acquireTokenRedirect(msalRequest);
             } else {
-                throw (error);
+                throw (error.message);
             }
         }
     }

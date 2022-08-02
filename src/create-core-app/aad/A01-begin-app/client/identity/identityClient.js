@@ -97,16 +97,12 @@ async function getAccessToken2() {
     } catch (error) {
         if (error instanceof msal.InteractionRequiredAuthError) {
             console.warn("Silent token acquisition failed; acquiring token using redirect");
-            this.msalClient.acquireTokenRedirect(this.request);
+            msalClient.acquireTokenRedirect(msalRequest);
         } else {
-            throw (error);
+            throw (error.message);
         }
     }
 }
-
-// export async function setLoggedinEmployeeId(employeeId) {
-//     document.cookie = `employeeId=${employeeId};SameSite=None;Secure;path=/`;
-// }
 
 // Get the employee profile from our web service
 export async function getLoggedInEmployee() {
