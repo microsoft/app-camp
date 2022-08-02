@@ -107,7 +107,7 @@ async function getAccessToken2() {
                 console.warn("Silent token acquisition failed; acquiring token using redirect");
                 msalClient.acquireTokenRedirect(msalRequest);
             } else {
-                throw (error);
+                throw (error.message);
             }
         }
     }
