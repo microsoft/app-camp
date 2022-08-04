@@ -87,6 +87,9 @@ ngrok is a tunneling program that allows you to access your local web server (ru
 
 The free version of ngrok will assign a URL similar to https://something.ngrok.io, where "something" is a random identifier. As long as ngrok is running (leave it going in a command or terminal window), you can browse your web site at that URL. If you start and stop ngrok, or try to keep it running for more than 8 hours, you'll get a new identifier and you'll need to update your app registration, environment variables, etc. The paid version of ngrok allows you to reserve the same URL for use over time, removing the need to update it when you return to the lab.
 
+!!! Tip
+    If you restart ngrok and get a new URL under the free plan, you can refer to [this page](http://devpoint19.lab/app-camp/supplemental/ngrokReferences/) for details on all the places in the labs where you need to update the URL.
+
 While ngrok isn't strictly required for developing Microsoft Teams applications, it makes things much easier, especially if Bots are involved. An example of this is the Message Extension lab since Message Extensions use a Bot to communicate with Microsoft Teams.
 
 ???+ info "More information"
