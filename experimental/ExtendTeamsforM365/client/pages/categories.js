@@ -14,9 +14,9 @@ async function displayUI() {
             categories.forEach(category => {
                 const categoryRow = document.createElement('tr');
                 categoryRow.innerHTML = `<tr>
-                <td><img src="data:image/bmp;base64,${category.picture}" class="categoryImage"></image></td>
+                <td id='categoriesImgae'><img src="data:image/bmp;base64,${category.picture}" class="categoryImage"></image></td>
                 <td><a href="/pages/categoryDetail.html?categoryId=${category.categoryId}">${category.displayName}</a></td>
-                <td>${category.description}</td>
+                <td id='categoriesDescription'>${category.description}</td>
             </tr>`;
                 categoriesTable.append(categoryRow);
 

@@ -50,8 +50,8 @@ th, td {
 td .categoryImage {
     float: none;
     margin: 0;
-    width: 40%;
-    height: 40%;
+    width: 70%;
+    height: 70%;
 }
 
 .hint {
@@ -228,15 +228,15 @@ button#btnTaskModule {
 }
 
 div#allOrders {
-  width: 55%;
+  width: 59%;
 }
 div#allOrders, div#rODiv {
-  width: 55%;
+  width: 59%;
 }
 
 div#content {
   background: #ddd3;
-  padding: 10px;
+  padding: 10px;  
 }
 div#trackerBox{
   max-width: 500px;

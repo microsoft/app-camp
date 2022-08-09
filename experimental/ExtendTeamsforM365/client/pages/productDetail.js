@@ -37,7 +37,7 @@ async function displayUI() {
                     const orderRow = document.createElement('tr');
                     orderRow.innerHTML = `<tr>
                         <td><a href="/pages/orderDetail.html?orderId=${order.orderId}">${order.orderId}</a></td>
-                        <td>${order.orderDate}</td>
+                        <td id='ordersDate'>${(new Date(order.orderDate)).toLocaleDateString('en-us', { weekday:"short", year:"numeric", month:"short", day:"numeric"})}</td>
                         <td>${order.quantity}</td>
                         <td>${order.customerName}</td>
                         <td>${order.customerAddress}</td>

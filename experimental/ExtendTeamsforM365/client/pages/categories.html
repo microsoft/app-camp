@@ -6,6 +6,15 @@
     <title>Northwind Product Categories</title>
     <link rel="stylesheet" href="/northwind.css" />
     <link rel="icon" href="data:;base64,="> <!-- Suppress favicon error -->
+    <style>               
+        #categoriesImgae{        
+        width: 4rem;
+        }   
+
+        #categoriesDescription{        
+        width: 8rem;
+        }        
+    </style>
 </head>
 
 <body>
@@ -15,7 +24,7 @@
     <top-nav-panel></top-nav-panel>
 
     <h3>Northwind Product Categories</h3>
-    <table id="categories">
+    <table id="categories" style="overflow: auto;">
         <tr>
             <th></th>
             <th>Name</th>
