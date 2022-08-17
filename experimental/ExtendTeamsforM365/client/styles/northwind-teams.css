@@ -228,17 +228,13 @@ button#btnTaskModule {
 }
 
 div#allOrders {
-<<<<<<< HEAD
   width: 58%;
 }
 div#allOrders, div#rODiv {
   width: 58%;
-=======
-  width: 59%;
 }
 div#allOrders, div#rODiv {
   width: 59%;
->>>>>>> 37e1bc61835f6de26ce2cd5413adb665bd0b12a4
 }
 
 div#content {
