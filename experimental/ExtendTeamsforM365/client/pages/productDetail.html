@@ -6,6 +6,24 @@
     <title>Northwind Product</title>
     <link rel="stylesheet" href="/northwind.css" />
     <link rel="icon" href="data:;base64,="> <!-- Suppress favicon error -->
+    <style>
+        #orders{
+            width: 100%;
+        }
+        
+        #ordersDate{
+            white-space: nowrap;
+        }
+        #ordersAddress{
+            width: 8rem;
+        }
+
+        @media only screen and (max-width: 786px) {
+        div#allOrders {
+            width: auto !important;
+        }    
+    }        
+    </style>
 </head>
 
 <body>
@@ -17,9 +35,9 @@
     <div id="content">
         <p>Loading...</p>
     </div>
-    <table id="orders">
+    <table id="orders" style="overflow: auto;">
         <tr>
-            <th>Order ID</th>
+            <th style="white-space: nowrap;">Order ID</th>
             <th>Date</th>
             <th>Quantity</th>
             <th>Ship to</th>
