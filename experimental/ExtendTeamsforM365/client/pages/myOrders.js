@@ -45,7 +45,7 @@ const displayAllMyOrders=(employee)=> {
             <td id='ordersCustomerName'>${order.customerContact}</td>
             <td id='ordersPhoneNo'>${(order.customerPhone)}</td>
             <td>${order.shipName}</td>
-            <td>${order.shipAddress}</td>
+            <td id='ordersAddress'>${order.shipAddress}</td>
             <td>...</td>
             </tr>`;
         ordersElement.append(orderRow);
