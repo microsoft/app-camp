@@ -26,7 +26,7 @@ async function displayUI() {
             await ensureTeamsSdkInitialized();
             
             // Set up the save handler for when they save the config
-            microsoftTeams.settings.registerOnSaveHandler((saveEvent) => {
+            microsoftTeams.pages.config.registerOnSaveHandler((saveEvent) => {
 
                 const url = `${window.location.origin}/pages/categoryDetail.html?categoryId=${selectedCategoryId}`;
                 const entityId = `ProductCategory ${selectedCategoryId}`;

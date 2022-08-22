@@ -87,6 +87,9 @@ ngrok is a tunneling program that allows you to access your local web server (ru
 
 The free version of ngrok will assign a URL similar to https://something.ngrok.io, where "something" is a random identifier. As long as ngrok is running (leave it going in a command or terminal window), you can browse your web site at that URL. If you start and stop ngrok, or try to keep it running for more than 8 hours, you'll get a new identifier and you'll need to update your app registration, environment variables, etc. The paid version of ngrok allows you to reserve the same URL for use over time, removing the need to update it when you return to the lab.
 
+!!! Tip
+    If you restart ngrok and get a new URL under the free plan, you can refer to [this page](/app-camp/supplemental/ngrokReferences/){target="_blank"} for details on all the places in the labs where you need to update the URL.
+
 While ngrok isn't strictly required for developing Microsoft Teams applications, it makes things much easier, especially if Bots are involved. An example of this is the Message Extension lab since Message Extensions use a Bot to communicate with Microsoft Teams.
 
 ???+ info "More information"
@@ -238,7 +241,7 @@ Save this URL for use throughout the labs.
 ![ngrok output](../../assets/screenshots/01-002-ngrok.png)
 
 !!! warning
-    Do not stop ngrok for the duration of these labs. If you do stop ngrok and are assigned a new URL, [this page](/app-camp/ngrokReferences/){target="_blank"} lists all the exercises which involve the ngrok URL so you can easily update it.
+    Do not stop ngrok for the duration of these labs. If you do stop ngrok and are assigned a new URL, [this page](/app-camp/supplemental/ngrokReferences/){target="_blank"} lists all the exercises which involve the ngrok URL so you can easily update it.
 
 ### Step 2: Register your application in Azure Active Directory
 
@@ -297,13 +300,17 @@ The secret will be displayed just this once on the "Certificates and secrets" sc
 
 ### Step 3: Verify permission to call the Microsoft Graph API
 
-The app registration created an identity for your application; now we need to give it permission to call the Microsoft Graph API. The Microsoft Graph is a RESTful API that allows you to access data in Azure AD and Microsoft 365, including Microsoft Teams.
+The app registration created an identity for your application; now we need to add  permission to call the Microsoft Graph API. The Microsoft Graph is a RESTful API that allows you to access data in Azure AD and Microsoft 365, including Microsoft Teams.
 
 - While still in the app registration, navigate to "API Permissions" 1️⃣ and notice there is already a permission there, "User.Read" 2️⃣.
 
 ![Adding a permission](../../assets/screenshots/01-017-RegisterAADApp-9a.png)
 
-This permission is "delegated" (it acts on behalf of the logged-in user). For an explanation of application vs. delegated permissions, see [this documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#permission-types?WT.mc_id=m365-58890-cxa){target="_blank"}.
+The permission is for calling the Microsoft Graph, and it allows reading the logged-in user's profile, which includes the user's Employee ID. This permission is "delegated" (it acts on behalf of the logged-in user). For an explanation of application vs. delegated permissions, see [this documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#permission-types?WT.mc_id=m365-58890-cxa){target="_blank"}
+or watch [this video](https://www.youtube.com/watch?v=SaBbfVgqZHc).
+
+!!! note
+    If "User.Read" permission isn't already configured as in the screen shot above (it's included by default in newly registered applications), you need to click "Add a permission", then "Microsoft Graph", then "Delegated permissions", and then find and select the "User.Read" permission.
 
 ???+ info "More information"
     <div class="tinyVideo">
@@ -314,10 +321,6 @@ This permission is "delegated" (it acts on behalf of the logged-in user). For an
       <iframe src="//www.youtube.com/embed/RjGVOFm39j0" frameborder="0" allowfullscreen></iframe>
       <div>Learn about multi-tenant applications</div>
     </div>
-
- or watch [this video](https://www.youtube.com/watch?v=SaBbfVgqZHc).
-
-The permission is for calling the Microsoft Graph, and it allows reading the logged-in user's profile, which includes the user's Employee ID.
 
 The Northwind Orders application uses the Employee ID value in each users's Azure AD profile to locate the user in the Employees table in the Northwind database. The names probably won't match unless you rename them but in a real application the employees and Microsoft 365 users would be the same people.
 ### Step 4: Consent to the permission
