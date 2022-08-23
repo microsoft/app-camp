@@ -5,29 +5,7 @@
     <meta charset="UTF-8" />
     <title>Northwind Orders</title>   
     <link rel="icon" href="data:;base64,="> <!-- Suppress favicon error -->
-    <style>
-    #orders{
-        width: 100%;
-    }
     
-    #ordersDate{
-        white-space: nowrap;
-    } 
-
-    #ordersPhoneNo{
-        white-space: nowrap;
-    }
-    
-    div#content{
-       padding: 1px 1px 6px 8px !important;
-    }
-
-    @media only screen and (max-width: 785px) {
-        div#allOrders {
-            width:auto !important;
-        }    
-    }     
-</style>
 </head>
 
 <body>
@@ -37,13 +15,12 @@
 <div class="container">
    
     <div class="element" id="allOrders" style="display: none;">
-        <div class="content" id="content" >
+        <div class="content" id="content">
             <p>Loading...</p>
         </div>
         <table id="orders">
             <tr>
-              
-                <th style="white-space: nowrap;">Order ID</th>
+                <th class="nowrapItem">Order ID</th>
                 <th>Date</th>
                 <th>Customer name</th>
                 <th>Customer contact</th>

@@ -28,7 +28,7 @@ async function displayUI() {
                     const row = document.createElement('tr');
                     row.innerHTML = `<tr>
                 <td><a href="/pages/productDetail.html?productId=${product.productId}">${product.productName}</a></td>
-                <td id='unit'>${product.quantityPerUnit}</td>
+                <td class="nowrapItem">${product.quantityPerUnit}</td>
                 <td>${product.unitPrice}</td>
                 <td>${product.unitsInStock}</td>
                 <td>${product.unitsOnOrder}</td>

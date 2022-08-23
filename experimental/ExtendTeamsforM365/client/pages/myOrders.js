@@ -40,10 +40,10 @@ const displayAllMyOrders=(employee)=> {
         console.log(order)
         orderRow.innerHTML = `<tr>           
             <td><a href="/pages/orderDetail.html?orderId=${order.orderId}">${order.orderId}</a></td>
-            <td id='ordersDate'>${(new Date(order.orderDate).toLocaleDateString('en-us', { weekday:"short", year:"numeric", month:"short", day:"numeric"}))}</td>
-            <td >${order.customerName}</td>
+            <td class='nowrapItem'>${(new Date(order.orderDate).toLocaleDateString('en-us', { weekday:"short", year:"numeric", month:"short", day:"numeric"}))}</td>
+            <td>${order.customerName}</td>
             <td id='ordersCustomerName'>${order.customerContact}</td>
-            <td id='ordersPhoneNo'>${(order.customerPhone)}</td>
+            <td class='nowrapItem'>${order.customerPhone}</td>
             <td>${order.shipName}</td>
             <td id='ordersAddress'>${order.shipAddress}</td>
             <td>...</td>

@@ -5,7 +5,7 @@ import {
 async function displayUI() {
 
     const displayElement = document.getElementById('content');
-    const ordersElement = document.getElementById('orders');
+    const ordersElement = document.getElementById('productDetailOrders');
     const messageDiv = document.getElementById('message');
 
     try {
@@ -37,10 +37,10 @@ async function displayUI() {
                     const orderRow = document.createElement('tr');
                     orderRow.innerHTML = `<tr>
                         <td><a href="/pages/orderDetail.html?orderId=${order.orderId}">${order.orderId}</a></td>
-                        <td id='ordersDate'>${(new Date(order.orderDate)).toLocaleDateString('en-us', { weekday:"short", year:"numeric", month:"short", day:"numeric"})}</td>
+                        <td class='nowrapItem'>${(new Date(order.orderDate)).toLocaleDateString('en-us', { weekday:"short", year:"numeric", month:"short", day:"numeric"})}</td>
                         <td>${order.quantity}</td>
                         <td>${order.customerName}</td>
-                        <td id ='ordersAddress'>${order.customerAddress}</td>
+                        <td id ='productDetailsAddress'>${order.customerAddress}</td>
                     </tr>`;
                     ordersElement.append(orderRow);
 
