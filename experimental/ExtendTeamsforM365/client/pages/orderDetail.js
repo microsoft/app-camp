@@ -22,7 +22,7 @@ async function displayUI() {
                     <h2>Order details for ${order.orderId}</h2>
                     <p><b>Customer:</b> ${order.customerName}<br />
                     <b>Contact:</b> ${order.contactName}, ${order.contactTitle}<br />
-                    <b>Date:</b> ${new Date(order.orderDate).toDateString()}<br />
+                    <b>Date:</b> ${new Date(order.orderDate).toLocaleDateString('en-us', { weekday:"short", year:"numeric", month:"short", day:"numeric"})}<br />
                     <b> ${order.employeeTitle}</b>: ${order.employeeName} (${order.employeeId})
                     </p>
                 `;
