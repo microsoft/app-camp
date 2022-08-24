@@ -8,19 +8,17 @@ Welcome to App Camp! In this on-demand workshop, you'll learn how to build Teams
 
 This web site will guide you through a set of videos and hands-on lab exercises in which you will port a simiple web application to being a full-featured Teams application. The initial core labs will bring the web application into Teams as a personal tab with Azure AD Single Sign-on. Then the "extended" labs are available to teach you how to add features such as message extensions, adaptive cards, deep linking, and more. [One of the extended labs](./aad/Monetization.md) even shows you how to monetize your application in the Teams app store!
 
-???+ info "Video briefing"
+## Video Briefings
+
+These videos will help you understand the business of Teams applications, and will lay a foundation for understanding the technical aspects of the labs. You don't need to watch them in order to complete the labs, but they will help you understand.
+
+???+ info "Video Briefings"
     <div class="video">
       <img src="/app-camp/assets/video-coming-soon.png"></img>
       <div>Welcome to Microsoft Teams App Camp!</div>
     </div>
-
-In this series of labs, you will port a simple "Northwind Orders" web application to become a full-fledged Microsoft Teams application. The core labs will show you how to make the web application into a Teams application with a personal tab and Azure AD Single Sign-on. From there, you can choose extended labs depending on the features you need in your application. After completing each lab, the solution will still work as the original stand-alone web application as well as in Microsoft Teams. This is intended to show how to extend an existing SaaS application into Microsoft Teams without disrupting non-Teams other users.
-
-![Map of Teams App Camp](./assets/appcamp-readme.png)
-
-To make the app understandable by a wide audience, it is written in vanilla JavaScript with no UI framework, however it does use modern browser capabilities such as web components, CSS variables, and ECMAScript modules. The server side is also in plain JavaScript, using [Express](https://expressjs.com/), the most popular web server platform for NodeJS. While the code is not production quality, the writers tried to follow best practices with respect to the various API's and SDK's in use, or to call out any exceptions in comments. As for things like robust exception handling, unit testing, build pipeline, etc., those are left to you, the developer; you probably already have a setup you want to use anyway.
-
-???+ info "Business Briefing"
+    <p class="videoHeading">Business Briefing</p>
+    <p class="videoDescription">What's the business case for building Teams applications? How can putting your app in the Teams app store generate revenue for you? What benefits does Microsoft offer ISV's who build Teams applications? How will my application appear to Teams users, and how will it help them? These questions and more are answered in these videos.</p>
     <div class="tinyVideo">
       <iframe src="//www.youtube.com/embed/iho0LJrFp9s" frameborder="0" allowfullscreen></iframe>
       <div>Opportunity for Startups to Build and Grow on Microsoft Teams</div>
@@ -34,16 +32,19 @@ To make the app understandable by a wide audience, it is written in vanilla Java
       <div>Buying a Teams application</div>
     </div>
     <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/a5xwTOSfQNk" frameborder="0" allowfullscreen></iframe>
+      <div>Teams app capabilities with doodles!</div>
+    </div>
+    <div class="tinyVideo">
       <iframe src="//www.youtube.com/embed/JG5Am5nos1s" frameborder="0" allowfullscreen></iframe>
-      <div>Case study: DecisionPoint brings conversational BI to Teams</div>
+      <div>Success story: DecisionPoint brings conversational BI to Teams</div>
     </div>
     <div class="tinyVideo">
       <iframe src="//www.youtube.com/embed/rJf-Ertex6g" frameborder="0" allowfullscreen></iframe>
-      <div>Case study: My Serious Game brings their EdMill app to Teams </div>
+      <div>Success story: My Serious Game brings their EdMill app to Teams</div>
     </div>
-
-
-???+ info "Technical Briefing: Building your Teams application"
+    <p class="videoHeading">Technical Briefing: Building your Teams application</p>
+    <p class="videoDescription">These videos will help you understand how Teams applications and Azure AD SSO work, so you can better understand the labs as you do them.</p>
     <div class="tinyVideo">
       <iframe src="//www.youtube.com/embed/EQuB8l4sccg" frameborder="0" allowfullscreen></iframe>
       <div>Get started building Microsoft Teams apps</div>
@@ -56,8 +57,8 @@ To make the app understandable by a wide audience, it is written in vanilla Java
       <iframe src="//www.youtube.com/embed/RjGVOFm39j0" frameborder="0" allowfullscreen></iframe>
       <div>Multi-tenant architecture for SaaS apps with Microsoft 365 and Azure Active Directory</div>
     </div>
-
-???+ info "Technical Briefing: Monetizing your Teams application"
+    <p class="videoHeading">Technical Briefing: Monetizing your Teams application</p>
+    <p class="videoDescription">These videos explain the Microsoft Commercial Marketplace and how to integrate your application with the ecommerce system that drives it</p>
     <div class="tinyVideo">
       <iframe src="//www.youtube.com/embed/_-gbpXZx1D4" frameborder="0" allowfullscreen></iframe>
       <div>5 Steps to monetize your Teams application</div>
@@ -71,6 +72,13 @@ To make the app understandable by a wide audience, it is written in vanilla Java
       <div>Publish your app in the Microsoft Teams app store</div>
     </div>
 
+## Labs, labs, labs!
+
+In this series of labs, you will port a simple "Northwind Orders" web application to become a full-fledged Microsoft Teams application. The core labs will show you how to make the web application into a Teams application with a personal tab and Azure AD Single Sign-on. From there, you can choose extended labs depending on the features you need in your application. After completing each lab, the solution will still work as the original stand-alone web application as well as in Microsoft Teams. This is intended to show how to extend an existing SaaS application into Microsoft Teams without disrupting non-Teams other users.
+
+![Map of Teams App Camp](./assets/appcamp-readme.png)
+
+To make the app understandable by a wide audience, it is written in vanilla JavaScript with no UI framework, however it does use modern browser capabilities such as web components, CSS variables, and ECMAScript modules. The server side is also in plain JavaScript, using [Express](https://expressjs.com/), the most popular web server platform for NodeJS. While the code is not production quality, the writers tried to follow best practices with respect to the various API's and SDK's in use, or to call out any exceptions in comments. As for things like robust exception handling, unit testing, build pipeline, etc., those are left to you, the developer; you probably already have a setup you want to use anyway.
 
 ## Lab Prerequisites 📃 
 
@@ -86,10 +94,14 @@ To complete the labs you will need:
 
 Installation instructions are part of [the first lab](./aad/A01-begin-app.md); additional details are here [in the repo wiki](https://github.com/microsoft/app-camp/wiki/Prerequisites){target="_blank"}
 
-!!! tip
+???+ tip
     DON'T DEVELOP IN PRODUCTION
     
     It may be tempting to do labs or build solutions in the Microsoft 365 tenant where you work every day, but there are good reasons to have a dedicated dev tenant - and probably additional staging/test tenants as well. They're free, and you can safely experiment as a tenant admin without risking your production work.
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/DhhpJ1UjbJ0" frameborder="0" allowfullscreen></iframe>
+      <div>Set up your new Microsoft 365 Developer Subscription</div>
+    </div>
 
 ## Choose a path 🛣️
 
