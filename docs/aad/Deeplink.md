@@ -314,3 +314,5 @@ Now open the link in a new browser tab. It should open Microsoft Teams showing t
 After completing this lab, you may continue with additional extended labs!
 
 ---8<--- "extended-lab-links.md"
+
+<img src="https://telemetry.sharepointpnp.com/app-camp/labs/deep-link" />

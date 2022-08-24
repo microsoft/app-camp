@@ -288,3 +288,5 @@ This lab assumes you already completed the Core lab and registered an Azure AD a
 After completing this lab, you may continue with additional extended labs!
 
 ---8<--- "extended-lab-links.md"
+
+<img src="https://telemetry.sharepointpnp.com/app-camp/labs/dialog" />

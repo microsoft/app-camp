@@ -264,3 +264,4 @@ After completing this lab, you may continue with any of the following labs.
 
 ---8<--- "extended-lab-links.md"
   
+<img src="https://telemetry.sharepointpnp.com/app-camp/labs/meeting-tab" />

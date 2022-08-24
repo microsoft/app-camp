@@ -916,3 +916,5 @@ The stock values are saved into the JSON version of the Northwind database; if y
 After completing this lab, you may continue with additional extended labs!
 
 ---8<--- "extended-lab-links.md"
+
+<img src="https://telemetry.sharepointpnp.com/app-camp/labs/messaging-extension" />

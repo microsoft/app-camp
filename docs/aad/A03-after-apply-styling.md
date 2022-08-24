@@ -460,3 +460,5 @@ Here's how to [change themes in teams client.](https://support.microsoft.com/off
 Congratulations! You have completed all core application development labs in **path A**. It's time to choose your own adventure! Please continue with any of the following labs.
 
 ---8<--- "extended-lab-links.md"
+
+<img src="https://telemetry.sharepointpnp.com/app-camp/labs/a03" />

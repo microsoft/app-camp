@@ -680,4 +680,4 @@ The application should appear without any login prompt. The app's navigation sho
 
 [Single sign-on (SSO) support for Tabs](https://docs.microsoft.com/microsoftteams/platform/tabs/how-to/authentication/auth-aad-sso?WT.mc_id=m365-58890-cxa)
 
-
+<img src="https://telemetry.sharepointpnp.com/app-camp/labs/b03" />

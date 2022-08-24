@@ -69,3 +69,5 @@ By default, end users can't upload Teams applications directly; instead an admin
  We have been working to get this enabled by default on developer tenants, so it may already be set for you. The change can take up to 24 hours to take effect, but usually it's much faster.
 
 Thanks and enjoy the labs!
+
+<img src="https://telemetry.sharepointpnp.com/app-camp/getting-started" />

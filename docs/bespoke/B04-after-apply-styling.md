@@ -466,3 +466,5 @@ It's time to choose your own adventure by doing some or all of the extended labs
 Here are the extended labs:
 
 ---8<--- "extended-lab-links.md"
+
+<img src="https://telemetry.sharepointpnp.com/app-camp/labs/b04" />
