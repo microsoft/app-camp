@@ -14,8 +14,8 @@ In this lab you will learn new concepts as below:
 
 ???+ info "Video briefing"
     <div class="video">
-      <img src="/app-camp/assets/video-coming-soon.png"></img>
-      <div>Deep links to MIcrosoft Teams applications</div>
+      <iframe src="//www.youtube.com/embed/u0DV2QCEKJ4" frameborder="0" allowfullscreen></iframe>
+      <div>Deep links to Microsoft Teams applications</div>
     </div>
 
 ### Features

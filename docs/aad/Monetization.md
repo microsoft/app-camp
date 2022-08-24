@@ -14,10 +14,19 @@ The AppSource simulator, as well as a sample license service, can be found [in t
 
 If you'd like to install these services for yourself, the instructions are [here](/app-camp/supplemental/MonetizationLabSetup), but we've also hosted these services for you. These instructions assume you're just going to use the hosted services. In any case, be aware that the [license service](https://github.com/OfficeDev/office-add-in-saas-monetization-sample/tree/master/MonetizationCodeSample/SaaSSampleWebApi){target="_blank"}  and [web site with landing page](https://github.com/OfficeDev/office-add-in-saas-monetization-sample/tree/master/MonetizationCodeSample/SaaSSampleWebApp){target="_blank"}  are only samples and that your app would need to implement something similar!
 
+???+ info "Video briefing"
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/v-Ahdkjs7TY" frameborder="0" allowfullscreen></iframe>
+      <div>Anatomy of a SaaS Application</div>
+    </div>
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/qvLofi22paw" frameborder="0" allowfullscreen></iframe>
+      <div>Monetization lab walkthrough</div>
+    </div>
+
 !!! warning
     THE HOSTED SERVICES ARE TEMPORARY AND LIKELY TO MOVE. 
     Please be aware and check back here for updates.
-
 
 ## Exercise 1: Update .env
 

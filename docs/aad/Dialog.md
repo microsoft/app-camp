@@ -18,8 +18,8 @@ The completed lab is [here](https://github.com/microsoft/app-camp/tree/main/src/
 
 ???+ info "Video briefing"
     <div class="video">
-      <img src="/app-camp/assets/video-coming-soon.png"></img>
-      <div>Configurable Tabs for Microsoft Teams</div>
+      <iframe src="//www.youtube.com/embed/-4p1jr2znQM" frameborder="0" allowfullscreen></iframe>
+      <div>Using Dialogs in Microsoft Teams apps</div>
     </div>
 
 ### Features

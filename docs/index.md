@@ -20,8 +20,30 @@ In this series of labs, you will port a simple "Northwind Orders" web applicatio
 
 To make the app understandable by a wide audience, it is written in vanilla JavaScript with no UI framework, however it does use modern browser capabilities such as web components, CSS variables, and ECMAScript modules. The server side is also in plain JavaScript, using [Express](https://expressjs.com/), the most popular web server platform for NodeJS. While the code is not production quality, the writers tried to follow best practices with respect to the various API's and SDK's in use, or to call out any exceptions in comments. As for things like robust exception handling, unit testing, build pipeline, etc., those are left to you, the developer; you probably already have a setup you want to use anyway.
 
-???+ info "More information"
-    To more fully understand the lab content, consider watching these videos
+???+ info "Business Briefing"
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/iho0LJrFp9s" frameborder="0" allowfullscreen></iframe>
+      <div>Opportunity for Startups to Build and Grow on Microsoft Teams</div>
+    </div>
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/fk8ul9xcMpc" frameborder="0" allowfullscreen></iframe>
+      <div>Microsoft Teams Marketplace Strategy</div>
+    </div>
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/nKR4RWyGtHo" frameborder="0" allowfullscreen></iframe>
+      <div>Buying a Teams application</div>
+    </div>
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/JG5Am5nos1s" frameborder="0" allowfullscreen></iframe>
+      <div>Case study: DecisionPoint brings conversational BI to Teams</div>
+    </div>
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/rJf-Ertex6g" frameborder="0" allowfullscreen></iframe>
+      <div>Case study: My Serious Game brings their EdMill app to Teams </div>
+    </div>
+
+
+???+ info "Technical Briefing: Building your Teams application"
     <div class="tinyVideo">
       <iframe src="//www.youtube.com/embed/EQuB8l4sccg" frameborder="0" allowfullscreen></iframe>
       <div>Get started building Microsoft Teams apps</div>
@@ -31,9 +53,25 @@ To make the app understandable by a wide audience, it is written in vanilla Java
       <div>Understanding Single Sign-On (SSO) with Azure AD</div>
     </div>
     <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/RjGVOFm39j0" frameborder="0" allowfullscreen></iframe>
+      <div>Multi-tenant architecture for SaaS apps with Microsoft 365 and Azure Active Directory</div>
+    </div>
+
+???+ info "Technical Briefing: Monetizing your Teams application"
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/_-gbpXZx1D4" frameborder="0" allowfullscreen></iframe>
+      <div>5 Steps to monetize your Teams application</div>
+    </div>
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/v-Ahdkjs7TY" frameborder="0" allowfullscreen></iframe>
+      <div>Anatomy of a SaaS Application</div>
+    </div>
+    <div class="tinyVideo">
       <iframe src="//www.youtube.com/embed/IQf2Zs9Mob8" frameborder="0" allowfullscreen></iframe>
       <div>Publish your app in the Microsoft Teams app store</div>
     </div>
+
+
 ## Lab Prerequisites 📃 
 
 The labs are intended for developers. Most of the labs don't assume a lot of specialized knowledge; coding is in modern JavaScript without use of specialized frameworks or libraries. But if you're not comfortable with coding, you may find it a bit challenging. The idea is to teach developers the principles so they can apply them to their choice of toolsets.

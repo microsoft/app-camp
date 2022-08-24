@@ -21,9 +21,9 @@ In this lab you will learn to:
  - Display your application with the same color theme the user has selected in Microsoft Teams
  - Switch your application's theme when the user changes the Microsoft Teams theme setting
 
-???+ info "Video briefing"
+??? info "Video briefing"
     <div class="video">
-      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <iframe src="//www.youtube.com/embed/gzzvp9EyQkg" frameborder="0" allowfullscreen></iframe>
       <div>"B Path" Lab Briefing</div>
     </div>
 
