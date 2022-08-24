@@ -19,7 +19,7 @@ In this lab you will learn to:
 
 ???+ info "Video briefing"
     <div class="video">
-      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <iframe src="//www.youtube.com/embed/V8nb7N0hHmU" frameborder="0" allowfullscreen></iframe>
       <div>Configurable Tabs for Microsoft Teams</div>
     </div>
 

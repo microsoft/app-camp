@@ -22,10 +22,9 @@ In this lab you will learn to:
 - How to use the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview?WT.mc_id=m365-58890-cxa){target=_blank}
 - How to validate an [Azure AD access token](https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens?WT.mc_id=m365-58890-cxa){target=_blank} in a NodeJS application
 
-
 ???+ info "Video briefing"
     <div class="video">
-      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <iframe src="//www.youtube.com/embed/AiEDH6N1-ps" frameborder="0" allowfullscreen></iframe>
       <div>Lab A01 Briefing</div>
     </div>
 

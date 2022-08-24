@@ -19,9 +19,9 @@ In this lab you will learn to:
 - Use the Teams JavaScript SDK to display a login page in a pop-up window
 - Install and test your application in Microsoft Teams
 
-???+ info "Video briefing"
+??? info "Video briefing"
     <div class="video">
-      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <iframe src="//www.youtube.com/embed/gzzvp9EyQkg" frameborder="0" allowfullscreen></iframe>
       <div>"B Path" Lab Briefing</div>
     </div>
 

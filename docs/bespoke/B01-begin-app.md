@@ -28,7 +28,7 @@ In this lab you will learn to:
 
 ???+ info "Video briefing"
     <div class="video">
-      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <iframe src="//www.youtube.com/embed/gzzvp9EyQkg" frameborder="0" allowfullscreen></iframe>
       <div>"B Path" Lab Briefing</div>
     </div>
 

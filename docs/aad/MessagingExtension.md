@@ -17,7 +17,7 @@ We will cover the following concepts in this exercise:
 
 ???+ info "Video briefing"
     <div class="video">
-      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <iframe src="//www.youtube.com/embed/RJQf3vw4LFA" frameborder="0" allowfullscreen></iframe>
       <div>Search Message Extension with Adaptive Cards</div>
     </div>
 

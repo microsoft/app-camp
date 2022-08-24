@@ -24,9 +24,9 @@ In this lab you will learn to:
 - How to validate an [Azure AD access token](https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens?WT.mc_id=m365-58890-cxa){target="_blank"} in a NodeJS application
 
 
-???+ info "Video briefing"
+??? info "Video briefing"
     <div class="video">
-      <img src="/app-camp/assets/video-coming-soon.png"></img>
+      <iframe src="//www.youtube.com/embed/gzzvp9EyQkg" frameborder="0" allowfullscreen></iframe>
       <div>"B Path" Lab Briefing</div>
     </div>
 
