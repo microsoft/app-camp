@@ -13,7 +13,7 @@ This web site will guide you through a set of videos and hands-on lab exercises 
 These videos will help you understand the business of Teams applications, and will lay a foundation for understanding the technical aspects of the labs. You don't need to watch them in order to complete the labs, but they will help you understand.
 
 ???+ info "Video Briefings"
-    <div class="video">
+    <div class="tinyVideo">
       <img src="/app-camp/assets/video-coming-soon.png"></img>
       <div>Welcome to Microsoft Teams App Camp!</div>
     </div>
@@ -43,6 +43,7 @@ These videos will help you understand the business of Teams applications, and wi
       <iframe src="//www.youtube.com/embed/rJf-Ertex6g" frameborder="0" allowfullscreen></iframe>
       <div>Success story: My Serious Game brings their EdMill app to Teams</div>
     </div>
+    <p class="videoDescription">For more video case studies about successful Teams apps, please visit the <a href="https://cloudpartners.transform.microsoft.com/practices/modernworkisv?tab=success-stories" target="_blank">Modern Work ISV Program</a> page.</p>
     <p class="videoHeading">Technical Briefing: Building your Teams application</p>
     <p class="videoDescription">These videos will help you understand how Teams applications and Azure AD SSO work, so you can better understand the labs as you do them.</p>
     <div class="tinyVideo">
@@ -77,7 +78,7 @@ These videos will help you understand the business of Teams applications, and wi
     <p class="videoHeading">Start with the "core application"</p>
     <div class="tinyVideo">
       <iframe src="//www.youtube.com/embed/AiEDH6N1-ps" frameborder="0" allowfullscreen></iframe>
-      <div>Lab A01: Start with Azure Active Directory</div>
+      <div>Lab A01: Start with a simple web app that uses Azure AD</div>
     </div>
     <div class="tinyVideo">
       <iframe src="//www.youtube.com/embed/nMnUZ2PQKBc" frameborder="0" allowfullscreen></iframe>
@@ -114,11 +115,16 @@ These videos will help you understand the business of Teams applications, and wi
       <div>Add Monetization</div>
     </div>
 
-## Labs, labs, labs!
+## It's lab time!
 
 In this series of labs, you will port a simple "Northwind Orders" web application to become a full-fledged Microsoft Teams application. The core labs will show you how to make the web application into a Teams application with a personal tab and Azure AD Single Sign-on. From there, you can choose extended labs depending on the features you need in your application. After completing each lab, the solution will still work as the original stand-alone web application as well as in Microsoft Teams. This is intended to show how to extend an existing SaaS application into Microsoft Teams without disrupting non-Teams other users.
 
 ![Map of Teams App Camp](./assets/appcamp-readme.png)
+
+!!! tip
+    <span style="font-size: xx-large";>
+    If in doubt, [start here](./aad/A01-begin-app.md)! 🚶🏿🚶🏽‍♀️🚶
+    </span>
 
 To make the app understandable by a wide audience, it is written in vanilla JavaScript with no UI framework, however it does use modern browser capabilities such as web components, CSS variables, and ECMAScript modules. The server side is also in plain JavaScript, using [Express](https://expressjs.com/), the most popular web server platform for NodeJS. While the code is not production quality, the writers tried to follow best practices with respect to the various API's and SDK's in use, or to call out any exceptions in comments. As for things like robust exception handling, unit testing, build pipeline, etc., those are left to you, the developer; you probably already have a setup you want to use anyway.
 
