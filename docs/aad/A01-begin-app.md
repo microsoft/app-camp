@@ -450,3 +450,6 @@ While it will work on mobile devices, the application is not responsive and will
 ## Next steps
 
 After completing this lab, you may continue to the next lab in this learning path, [A02-after-teams-sso: Creating a Teams app with Azure ADO SSO](./A02-after-teams-sso.md).
+
+<img src="https://telemetry.sharepointpnp.com/app-camp/labs/a01" />
+

@@ -240,3 +240,5 @@ OFFER_ID=contoso_o365_addin
 Replace the values &lt;webApiSiteName&gt; and &lt;webApiClientId&gt; with the values from your `ARMParameters.json` file.
 
 Try visiting the **AppSource** simulator, which is at `https://(webAppSiteName).azurewebsites.net`; you should be able to log in using your tenant administrator account. **Don't** purchase a subscription yet, however!
+
+<img src="https://telemetry.sharepointpnp.com/app-camp/labs/monetization-azure-setup" />

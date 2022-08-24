@@ -125,5 +125,7 @@ For an overview of Teams app development, check out this video by Bob and Rabia!
 * [App Source simulator and monetized M365 app samples](https://aka.ms/TeamsMonetization/codesamples)
 
 
+<img src="https://telemetry.sharepointpnp.com/app-camp/resources" />
+
 
 

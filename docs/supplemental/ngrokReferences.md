@@ -1,4 +1,4 @@
-# ngrok URL use
+# ngrok URL reset instructions
 
 The free version of ngrok generates a new URL every time you run it, so if you put the labs aside and return to them later you will need to update the URL. This page lists all the places where the ngrok URL is used so you can return to them and update them.
 
@@ -18,8 +18,7 @@ Following these steps, you'll need to upgrade the app in Teams with the new app 
 | B03 | 1 | 3 | [Application URI contains the ngrok URL](https://microsoft.github.io/app-camp/bespoke/B03-after-teams-sso/#step-3-expose-an-api){target="_blank"} |
 | Message extension | 1 | 2 | [Application URI contains the ngrok URL](https://microsoft.github.io/app-camp/aad/MessagingExtension/#ex1-step3){target="_blank"} |
 
-
-
+<img src="https://telemetry.sharepointpnp.com/app-camp/labs/ngrok-reset-instructions" />
 
 
 

@@ -579,3 +579,5 @@ The point of this is that the application is managing licenses in its own way an
 After completing this lab, you may continue with additional extended labs!
 
 ---8<--- "extended-lab-links.md"
+
+<img src="https://telemetry.sharepointpnp.com/app-camp/labs/monetization" />
