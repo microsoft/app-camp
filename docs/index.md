@@ -72,6 +72,48 @@ These videos will help you understand the business of Teams applications, and wi
       <div>Publish your app in the Microsoft Teams app store</div>
     </div>
 
+??? info "Lab videos"
+    <p class=videoDescription>If you'd like to watch the labs before doing them, they are here. They're also posted at the beginning of each lab. The instructions should stand on their own - you don't need to watch in order to complete the labs - but they can help if you get stuck or want to understand the labs more deeply.</p>
+    <p class="videoHeading">Start with the "core application"</p>
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/AiEDH6N1-ps" frameborder="0" allowfullscreen></iframe>
+      <div>Lab A01: Start with Azure Active Directory</div>
+    </div>
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/nMnUZ2PQKBc" frameborder="0" allowfullscreen></iframe>
+      <div>Lab A02: Create a Teams app with Azure AD Single Sign-On</div>
+    </div>
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/pHm_pt5HewQ" frameborder="0" allowfullscreen></iframe>
+      <div>Lab A03: Teams styling and themes</div>
+    </div>
+    <p class="videoDescription">Use this alternative path if you want to learn how to integrate an identity system other than Azure Active Directory:</p>
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/gzzvp9EyQkg" frameborder="0" allowfullscreen></iframe>
+      <div>Labs B01-B04: Linking your identity system to Azure AD SSO</div>
+    </div>
+    <p class="videoHeading">Extended labs: Choose your own adventure!</p>
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/V8nb7N0hHmU" frameborder="0" allowfullscreen></iframe>
+      <div>Configurable Tab</div>
+    </div>
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/u0DV2QCEKJ4" frameborder="0" allowfullscreen></iframe>
+      <div>Deep Links</div>
+    </div>
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/-4p1jr2znQM" frameborder="0" allowfullscreen></iframe>
+      <div>Add a Dialog</div>
+    </div>
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/RJQf3vw4LFA" frameborder="0" allowfullscreen></iframe>
+      <div>Add a Message Extension with Adaptive Cards</div>
+    </div>
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/qvLofi22paw" frameborder="0" allowfullscreen></iframe>
+      <div>Add Monetization</div>
+    </div>
+
 ## Labs, labs, labs!
 
 In this series of labs, you will port a simple "Northwind Orders" web application to become a full-fledged Microsoft Teams application. The core labs will show you how to make the web application into a Teams application with a personal tab and Azure AD Single Sign-on. From there, you can choose extended labs depending on the features you need in your application. After completing each lab, the solution will still work as the original stand-alone web application as well as in Microsoft Teams. This is intended to show how to extend an existing SaaS application into Microsoft Teams without disrupting non-Teams other users.
