@@ -22,6 +22,15 @@
     display: inline-block;
 }
 
+.videoHeading {
+    padding: 6pt;
+    font-weight: 700;
+    background-color: rgba(0,184,212,.1);
+}
+
+.videoDescription {
+    font-style: italic;
+}
 
 /* Style the top label on side nav */
 
