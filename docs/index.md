@@ -115,6 +115,11 @@ These videos will help you understand the business of Teams applications, and wi
       <div>Add Monetization</div>
     </div>
 
+???+ attention "Key learning resource"
+    For a complete on-demand workshop focused on Commercial Marketplace, complete with hands-on labs and videos, please visit Mastering the Marketplace. Monetized Teams Store Apps are "SaaS Offers", so <a href="http://aka.ms/mastering-the-marketplace/saas" target="_blank">the link</a> will bring you directly into that section of the training.
+    <div style="display:flex; width:100%; justify-content: center;">
+    <a href="http://aka.ms/mastering-the-marketplace/saas" target="_blank">
+    <img src="assets/MasteringTheMarketplaceLogo.png" alt="Mastering the Marketplace logo"></img></a></div>
 ## It's lab time!
 
 In this series of labs, you will port a simple "Northwind Orders" web application to become a full-fledged Microsoft Teams application. The core labs will show you how to make the web application into a Teams application with a personal tab and Azure AD Single Sign-on. From there, you can choose extended labs depending on the features you need in your application. After completing each lab, the solution will still work as the original stand-alone web application as well as in Microsoft Teams. This is intended to show how to extend an existing SaaS application into Microsoft Teams without disrupting non-Teams other users.

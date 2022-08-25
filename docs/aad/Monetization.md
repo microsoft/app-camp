@@ -24,9 +24,11 @@ If you'd like to install these services for yourself, the instructions are [here
       <div>Monetization lab walkthrough</div>
     </div>
 
-!!! warning
-    THE HOSTED SERVICES ARE TEMPORARY AND LIKELY TO MOVE. 
-    Please be aware and check back here for updates.
+???+ attention "Key learning resource"
+    For a complete on-demand workshop focused on Commercial Marketplace, complete with hands-on labs and videos, please visit Mastering the Marketplace. Monetized Teams Store Apps are "SaaS Offers", so <a href="http://aka.ms/mastering-the-marketplace/saas" target="_blank">the link</a> will bring you directly into that section of the training.
+    <div style="display:flex; width:100%; justify-content: center;">
+    <a href="http://aka.ms/mastering-the-marketplace/saas" target="_blank">
+    <img src="/app-camp/assets/MasteringTheMarketplaceLogo.png" alt="Mastering the Marketplace logo"></img></a></div>
 
 ## Exercise 1: Update .env
 
@@ -42,6 +44,11 @@ SAAS_API=https://BGmonetizationwebapi.azurewebsites.net/api/Subscriptions/CheckO
 SAAS_SCOPES=api://dd82efdc-c77f-49c1-9b18-ca3d76a36264/user_impersonation
 OFFER_ID=contoso_o365_addin
 ```
+
+!!! warning
+    THE HOSTED SERVICES ARE TEMPORARY AND LIKELY TO MOVE. 
+    Please be aware and check back here for updates.
+
 
 ## Exercise 2: Northwind Orders calls the licensing service
 

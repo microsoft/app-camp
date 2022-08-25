@@ -124,6 +124,11 @@ For an overview of Teams app development, check out this video by Bob and Rabia!
 * [Managing the SaaS subscription life cycle](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/pc-saas-fulfillment-life-cycle?WT.mc_id=m365-58890-cxa)
 * [App Source simulator and monetized M365 app samples](https://aka.ms/TeamsMonetization/codesamples)
 
+For a complete on-demand workshop focused on Commercial Marketplace, complete with hands-on labs and videos, please visit Mastering the Marketplace. Monetized Teams Store Apps are "SaaS Offers", so <a href="http://aka.ms/mastering-the-marketplace/saas" target="_blank">the link</a> will bring you directly into that section of the training.
+<div style="display:flex; width:100%; justify-content: center;">
+<a href="http://aka.ms/mastering-the-marketplace/saas" target="_blank">
+<img src="/app-camp/assets/MasteringTheMarketplaceLogo.png" alt="Mastering the Marketplace logo"></img></a></div>
+
 
 <img src="https://telemetry.sharepointpnp.com/app-camp/resources" />
 
