@@ -13,8 +13,8 @@ This web site will guide you through a set of videos and hands-on lab exercises 
 These videos will help you understand the business of Teams applications, and will lay a foundation for understanding the technical aspects of the labs. You don't need to watch them in order to complete the labs, but they will help you understand.
 
 ???+ info "Video Briefings"
-    <div class="tinyVideo">
-      <img src="/app-camp/assets/video-coming-soon.png"></img>
+    <div class="video">
+      <iframe src="//www.youtube.com/embed/8hDT3n2YGvM" frameborder="0" allowfullscreen></iframe>
       <div>Welcome to Microsoft Teams App Camp!</div>
     </div>
     <p class="videoHeading">Business Briefing</p>
