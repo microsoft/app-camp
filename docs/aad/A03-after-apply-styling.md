@@ -1,4 +1,4 @@
-![Teams App Camp](../../assets/code-lab-banner.png)
+---8<--- "heading.md"
 
 # Lab A03: Teams styling and themes
 

@@ -1,4 +1,4 @@
-![Teams App Camp](../../assets/code-lab-banner.png)
+---8<--- "heading.md"
 
 ## Lab B01: Start with a non-Azure Active Directory Identity System
 

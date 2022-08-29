@@ -1,3 +1,5 @@
+---8<--- "heading.md"
+
 # Resources
 
 This page contains resources for the Microsoft [Teams App Camp](../README.md).

@@ -1,8 +1,8 @@
-![Teams App Camp](../../assets/code-lab-banner.png)
+---8<--- "heading.md"
 
 # Congratulations!
 
-You have completed the Meeting App with Configurable Tab lab in App Camp!
+You have completed the Meeting App with Configurable Tablab in App Camp!
 
 Thanks for participating in App Camp and for allowing us to count your lab completion. (No personal is collected; we only want to count how many people have completed the labs so we can continue to fund this work!)
 

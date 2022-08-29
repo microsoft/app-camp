@@ -1,4 +1,4 @@
-![Teams App Camp](../../assets/code-lab-banner.png)
+---8<--- "heading.md"
 
 ## Lab B03: Enable Azure AD Single Sign-On
 

@@ -1,4 +1,4 @@
-![Teams App Camp](./assets/code-lab-banner.png)
+---8<--- "heading.md"
 
 # Microsoft Teams App Camp On Demand
 
