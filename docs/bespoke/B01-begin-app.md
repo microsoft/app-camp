@@ -175,6 +175,8 @@ Try logging out and logging in; you should be able to view the orders for anothe
     The sample application uses a browser session cookie to establish who is logged in. **It is not secure and would be easy to fake - do not use this in a real application!** Also **be aware during testing** that your login will persist until you close all instances of your web browser. For example if you leave your browser logged in after this lab and then run Microsoft Teams in another instance of the same browser, your user will already be logged in when you get to the next lab.
 
 
+--8<-- "i-finished.md"
+
 ### Known issues
 
 While it will work on mobile devices, the application is not responsive and will not look good on these devices. This may be addressed in a future version of the lab.

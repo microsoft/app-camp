@@ -279,6 +279,8 @@ This lab assumes you already completed the Core lab and registered an Azure AD a
 !!! note 
     The comments are not saved back into the northwind database at this time, so they'll only persist as long as you stay on the order details page.
 
+--8<-- "i-finished.md"
+
 ### Known issues
 
 ---8<--- "issuesLink.md"

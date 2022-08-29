@@ -453,6 +453,8 @@ Here's how to [change themes in teams client.](https://support.microsoft.com/off
 
 <img src="../../assets/screenshots/04-003-changetheme.gif" alt="Change theme">
 
+--8<-- "i-finished.md"
+
 ## Next steps
 
 Congratulations! You have completed all core application development labs in **path B**. 

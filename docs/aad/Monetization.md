@@ -577,6 +577,8 @@ In Exercise 2 you added [code to check if the user has a license](https://github
 
 The point of this is that the application is managing licenses in its own way and keeping track of them in its own database. Microsoft Commercial Marketplace manages subscriptions which grant licenses, but each application can manage those licenses however it wants to. This allows applications flexibility in how they implement licensing.
 
+--8<-- "i-finished.md"
+
 ### Known issues
 
 ---8<--- "issuesLink.md"

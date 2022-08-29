@@ -301,6 +301,8 @@ Now open the link in a new browser tab. It should open Microsoft Teams showing t
 
 ![order](../../assets/screenshots/deeplink-working.gif)
 
+--8<-- "i-finished.md"
+
 ### References
 
 - [Deep links](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/build-and-test/deep-links?WT.mc_id=m365-58890-cxa)

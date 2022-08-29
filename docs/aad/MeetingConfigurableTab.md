@@ -247,6 +247,8 @@ After you have made the changes, you will need to close and re-open the app in t
 
 When you re-open the tab in the Meeting Side Panel, only three table columns will now be visible.
 
+--8<-- "i-finished.md"
+
 ### Known issues
 
 For the latest issues, or to file a bug report, see the [github issues list](https://github.com/microsoft/app-camp/issues) for this repository.

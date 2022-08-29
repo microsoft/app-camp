@@ -911,6 +911,8 @@ Once it's success fully updated, the card refreshes to show the new stock value.
 
 The stock values are saved into the JSON version of the Northwind database; if you find the product in the Products tab, you'll see the new value.
 
+--8<-- "i-finished.md"
+
 ### Next steps
 
 After completing this lab, you may continue with additional extended labs!
