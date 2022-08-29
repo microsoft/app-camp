@@ -14,7 +14,7 @@ These videos will help you understand the business of Teams applications, and wi
 
 ???+ info "Video Briefings"
     <div class="video">
-      <iframe src="//www.youtube.com/embed/8hDT3n2YGvM" frameborder="0" allowfullscreen></iframe>
+      <iframe src="//www.youtube.com/embed/RCyYRvSwjn4" frameborder="0" allowfullscreen></iframe>
       <div>Welcome to Microsoft Teams App Camp!</div>
     </div>
     <p class="videoHeading">Business Briefing</p>
