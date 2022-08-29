@@ -1,3 +1,5 @@
+---8<--- "heading.md"
+
 # Guide to formatting lab content
 
 ## Formatting text elements

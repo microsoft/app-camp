@@ -1,4 +1,4 @@
-![Teams App Camp](../../assets/code-lab-banner.png)
+---8<--- "heading.md"
 
 # Selling Your SaaS-based Teams Extension
 

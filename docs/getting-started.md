@@ -1,3 +1,5 @@
+---8<--- "heading.md"
+
 # Welcome to the best Microsoft Teams development lab ever!
 
 At least we hope so! This is, as far as we know, the first and only lab about _extending_ or _migrating_ an existing application to Microsoft Teams, rather than starting from scratch. You will be provided with a simple, working web-based application in the very first lab, and as you go through the labs, you'll extend it into a full-featured Teams application.
