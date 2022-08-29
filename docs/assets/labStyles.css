@@ -32,6 +32,19 @@
     font-style: italic;
 }
 
+button {
+    background-color: #795649;
+    font-size: xx-large;
+    color: white;
+    font-weight: bold;
+    padding: 3pt 6pt;
+}
+
+.largeButton {
+    padding: 30pt 36pt;
+}
+
+
 /* Style the top label on side nav */
 
 .md-nav__item:not(.md-nav__item .md-nav__item) > a, 

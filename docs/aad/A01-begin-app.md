@@ -441,6 +441,8 @@ From there you can select into a product category to view a list of products, an
 
 Try logging out and logging in; you should be able to view the orders for another user in your developer tenant who has an employee ID set to a Northwind employee ID.
 
+--8<-- "i-finished.md"
+
 ## Known issues
 
 While it will work on mobile devices, the application is not responsive and will not look good on these devices. This may be addressed in a future version of the lab.

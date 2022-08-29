@@ -233,6 +233,8 @@ You can click the talk bubble in the upper left of the screen to open the chat; 
 
 If you click the small arrow to the right of the tab name and choose "Settings", Teams will open the configuration page again so you can change the settings. This is possible because in the the Teams app manifest the `"canUpdateConfiguration"` property is set to true; if you set it to false, the settings option will not be available.
 
+--8<-- "i-finished.md"
+
 ### Known issues
 
 ---8<--- "issuesLink.md"
@@ -240,7 +242,6 @@ If you click the small arrow to the right of the tab name and choose "Settings",
 ### References
 
 * [Create a configuration page](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/create-tab-pages/configuration-page?WT.mc_id=m365-58890-cxa){target="_blank"}
-
 
 ### Next steps
 

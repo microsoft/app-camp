@@ -669,6 +669,8 @@ The application should appear without any login prompt. The app's navigation sho
 
 ![Run the app](../../assets/screenshots/03-007-RunApp-1.png)
 
+--8<-- "i-finished.md"
+
 !!! check "Challenge"
     You might have noticed the logout button doesn't do anything in Teams! If you wish, hide the logout button just as you hid the navigation bar. The code is in client/identity/userPanel.js.
 

@@ -584,6 +584,8 @@ The application should appear without any login prompt. The app's navigation sho
 
 ![Run the app](../../assets/screenshots/03-007-RunApp-1.png)
 
+--8<-- "i-finished.md"
+
 ### Known issues
 
 While it will work on mobile devices, the application is not responsive and will not look good on these devices. This may be addressed in a future version of the lab.
