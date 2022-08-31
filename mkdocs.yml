@@ -30,7 +30,7 @@ theme:
   palette: 
     primary: 'brown'
     accent: 'deep orange'
-  logo: 'assets/code-lab-banner-transparent.png'
+  logo: 'assets/code-lab-banner.png'
   icon:
     repo: fontawesome/brands/github
   features:
