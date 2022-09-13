@@ -115,3 +115,56 @@ td .categoryImage {
   div#trackerBox{
     max-width: 500px;
   }
+  
+  /*-------categories.html(start)-Added for mobile compatibility---------------*/
+  #categoriesPic {
+    width: 4rem;
+  }   
+
+  #categoriesDescription {
+    width: 8rem;
+  }
+
+  #categories{
+    overflow: auto;
+  }
+
+  table#products{
+    width: 100%;
+    overflow: auto;
+  }
+  table#products th{
+    width: 8rem;          
+  }
+  /*-------categories.html(end)----------------*/
+
+  /*-------myOrders.html(start)-Added for mobile compatibility---------------*/
+  #rOTable{
+    width: 100% !important;
+  }
+
+  .nowrapItem{
+    white-space: nowrap !important;
+  }
+    
+  div#content{
+    padding: 1px 1px 6px 8px !important;
+  }
+
+  @media only screen and (max-width: 785px) {
+    div#rODiv {
+        width:auto !important;
+    }
+  }
+  /*-------myOrders.html(end)----------------*/
+
+  /*-------productDetail.html(start)-Added for mobile compatibility---------------*/
+  #productDetailOrders{
+    width: 100%;
+    overflow: auto;
+  }
+
+  #productDetailsAddress{
+    width: 8rem;
+  }
+  /*-------productDetail.html(end)----------------*/
