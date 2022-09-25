@@ -42,10 +42,10 @@ const displayAllMyOrders=(employee)=> {
             <td><a href="/pages/orderDetail.html?orderId=${order.orderId}">${order.orderId}</a></td>
             <td class='nowrapItem'>${(new Date(order.orderDate).toLocaleDateString('en-us', { weekday:"short", year:"numeric", month:"short", day:"numeric"}))}</td>
             <td>${order.customerName}</td>
-            <td id='ordersCustomerName'>${order.customerContact}</td>
+            <td>${order.customerContact}</td>
             <td class='nowrapItem'>${order.customerPhone}</td>
             <td>${order.shipName}</td>
-            <td id='ordersAddress'>${order.shipAddress}</td>
+            <td>${order.shipAddress}</td>
             <td>...</td>
             </tr>`;
         ordersElement.append(orderRow);
@@ -67,10 +67,10 @@ const displayMyRecentOrders=(orders)=> {
     const orderRow = document.createElement('tr');
     orderRow.innerHTML = `<tr>
         <td><a href="/pages/orderDetail.html?orderId=${order.orderId}">${order.orderId}</a></td>
-        <td>${(new Date(order.orderDate)).toDateString()}</td>
+        <td class='nowrapItem'>${(new Date(order.orderDate).toLocaleDateString('en-us', { weekday:"short", year:"numeric", month:"short", day:"numeric"}))}</td>
         <td>${order.customerName}</td>
         <td>${order.customerContact}</td>
-        <td>${order.customerPhone}</td>
+        <td class='nowrapItem'>${order.customerPhone}</td>
         <td>${order.shipName}</td>
         <td>${order.shipAddress}</td>
         <td>...</td>
