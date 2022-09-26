@@ -30,6 +30,9 @@ In this lab you will learn to:
       <div>"B Path" Lab Briefing</div>
     </div>
 
+!!! note
+    This lab uses the account linking strategy explained in [this blog article](https://devblogs.microsoft.com/microsoft365dev/account-linking-with-microsoft-teams-single-sign-on/){target="_blank"}. Please check it out for more details. In addition, the author has created [a .NET sample](https://github.com/OfficeDev/Microsoft-Teams-Samples/tree/main/samples/account-linking/csharp){target="_blank"} showing this principle, so if you're a .NET developer this can give you a head start!
+
 ### Features
 
 - Microsoft Teams personal tab application transparently logs the user in

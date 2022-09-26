@@ -257,7 +257,9 @@ Open the .env file in your working directory and add this line to the values fro
 TEAMS_APP_ID=1331dbd6-08eb-4123-9713-017d9e0fc04a
 ~~~
 
-You should generate a different GUID for each application you register; this one is just here for your convenience. We could have hard-coded the app ID in the manifest.json template, but there are times when you need it in your code, so this will make that possible in the future.
+Be sure to complete the line by placing an end of line character at the end (using the enter key in your text editor).
+
+You should generate a different GUID for each application you register; this one is just here for your convenience. We could have hard-coded the app ID in the manifest.json template, but there are times when you need it in your code, so this will make that possible in the future. You can generate a new GUID at [this website](https://www.guidgen.com/){target="_blank"}
 
 ### Step 4: Add npm package to create .zip files
 

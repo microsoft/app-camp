@@ -84,6 +84,9 @@ You can really use any code editor you wish, but we recommend [Visual Studio Cod
 
 ngrok is a tunneling program that allows you to access your local web server (running in NodeJS in this case) from the Internet. To complete this exercise, [sign up for a free ngrok account](https://ngrok.com/){target=_blank} and install ngrok on your computer.
 
+!!! note
+    Whether you choose a free or paid ngrok account plan, you be given an auth token that you'll need to install on your computer. Simply follow the instructions on the ngrok web site for details.
+
 The free version of ngrok will assign a URL similar to https://something.ngrok.io, where "something" is a random identifier. As long as ngrok is running (leave it going in a command or terminal window), you can browse your web site at that URL. If you start and stop ngrok, or try to keep it running for more than 8 hours, you'll get a new identifier and you'll need to update your app registration, environment variables, etc. The paid version of ngrok allows you to reserve the same URL for use over time, removing the need to update it when you return to the lab.
 
 !!! Tip
@@ -173,6 +176,9 @@ The Northwind Orders application expects each user's employee ID in Azure Active
 
 ![Navigating to the M365 Admin site](../../assets/screenshots/01-009-RegisterAADApp-1.png)
 
+!!! note
+    The Users feature in the Microsoft 365 Admin site is useful for most things, but doesn't allow modifying some user properties such as the Employee ID. For that reason, you'll need to continue to the Users feature in the Azure Active Directory Admin Site.
+
 - Select "Azure Active Directory" again in the left navigation bar.
 
 ![Navigating to the M365 Admin site](../../assets/screenshots/01-010-RegisterAADApp-2.png)
@@ -181,7 +187,12 @@ The Northwind Orders application expects each user's employee ID in Azure Active
 
 ![Edit users](../../assets/screenshots/01-030-EditUsers-1.png)
 
-You can use existing users to run the Northwind Orders application (the names may not match the Northwind database unless you change them, but you'll know what's going on), or create new ones. It's easiest if one of the users is the administrator account you're logged into right now, so you can test the application without logging on and off, but that's up to you. Select on the user to view their user profile, and then select the "Edit" button.
+You can use existing users to run the Northwind Orders application (the names may not match the Northwind database unless you change them, but you'll know what's going on), or create new ones. It's easiest if one of the users is the administrator account you're logged into right now, so you can test the application without logging on and off, but that's up to you. 
+
+!!! note
+    If you didn't select the "Instant Sandbox" option when you set up your Microsoft 365 developer subscription, you will be the only user on the list. That's OK; just add more users as needed.
+
+Select on the user to view their user profile, and then select the "Edit" button.
 
 ![Edit user's employee ID](../../assets/screenshots/01-031-EditUser-2.png)
 
@@ -201,12 +212,10 @@ Change the Employee ID to the ID of one of the users in the Northwind datbase, w
 
 You may also choose to rename the users to match the database.
 
-### Step 2: Ensure the users have managers
-
 Still on the edit screen, assign a manager for each user by clicking "Edit" again and then click "Change" next to the manager field and select a manager.
 
 ![Assign a manager](../../assets/screenshots/01-033-EditUser3.png)
-### Step 3: Ensure the users are licensed for Microsoft 365
+### Step 2: Ensure the users are licensed for Microsoft 365
 
 From the same user profile screen, select "Licenses" and ensure the user has an Office 365 license so they can run Microsoft Teams.
 
@@ -289,7 +298,6 @@ The secret will be displayed just this once on the "Certificates and secrets" sc
 
 ![Copy the app secret](../../assets/screenshots/01-016-RegisterAADApp-8.png)
 
-
 !!! warning "Managing app secrets is an ongoing responsibility"
     App secrets have a limited lifetime, and if they expire your application may stop working. You can have multiple secrets, so plan to roll them over as you would with a digital certificate.
 
@@ -330,7 +338,7 @@ You have added the permission but nobody has consented to it. If you return to t
 
 ### Step 5: Expose an API
 
-The Northwind Orders app is a full stack application, with code running in the web browser and web server. The browser application accesses data by calling a web API on the server side. To allow this, we need to expose an API in our Azure AD application. This will allow the server to validate Azure AD access tokens from the web browser.
+The Northwind Orders app is a full stack application, with code running in the web browser and web server. The server code will validate each call from the browser using Azure Active Directory. To allow this, we need to expose an API in our Azure AD application. This will allow the server to validate Azure AD access tokens from the web browser.
 
 Select "Expose an API" 1️⃣ and then "Add a scope"2️⃣. Scopes expose an application's permissions; what you're doing here is adding a permission that your application's browser code can use it when calling the server. 
 
