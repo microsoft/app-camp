@@ -1,5 +1,11 @@
 ---8<--- "heading.md"
 
+<div style="width:300px; float: right; padding: 10px; border-width: 1px; border: 2px solid black;">
+<img src="/app-camp/assets/microsoftteams_appcamp-webheader.png"
+     style="" />
+Please join us for a free App Camp webinar on October 20, 2022 from 8-9am PDT! You'll meet the App Camp team and begin your journey to extending your app to Microsoft Teams and monetizing it in the Teams App Store and Microsoft App Source! Registration is open at <a href="https://aka.ms/TeamsAppCamp" target="_blank">https://aka.ms/TeamsAppCamp</a>. See you there!
+</div>
+
 # Microsoft Teams App Camp On Demand
 
 _Migrate applications into Microsoft Teams_
@@ -7,6 +13,7 @@ _Migrate applications into Microsoft Teams_
 Welcome to App Camp! In this on-demand workshop, you'll learn how to build Teams applications without special tools, which is important for developers who already have an application they want to extend into Microsoft Teams, or for developers who have a specific toolchain in mind. If you're starting a new application and you're open to building a React application with NodeJS/Express support, we recommend you use the [Teams Toolkit](https://docs.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-fundamentals?pivots=visual-studio-code?WT.mc_id=m365-58890-cxa){target=_blank}.
 
 This web site will guide you through a set of videos and hands-on lab exercises in which you will port a simple web application to being a full-featured Teams application. The initial core labs will bring the web application into Teams as a personal tab with Azure AD Single Sign-on. Then the "extended" labs are available to teach you how to add features such as message extensions, adaptive cards, deep linking, and more. [One of the extended labs](./aad/Monetization.md) even shows you how to monetize your application in the Teams app store!
+
 
 ## Video Briefings
 
