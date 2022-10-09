@@ -81,8 +81,19 @@ export default
                             "style": "tel"
                         }
                     ]
+                },
+                {
+                    "type": "Column",
+                    "width": 1,
+                    "items": [
+                        {
+                            "type": "Image",
+                            "url": "${imageUrl}",
+                            "size": "auto",
+                            "altText": "Image of product in warehouse"
+                        }
+                    ]
                 }
-               
             ]
         }
     ],
