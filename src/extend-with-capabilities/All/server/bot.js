@@ -53,11 +53,11 @@ export class StockManagerBot extends TeamsActivityHandler {
         const preview = CardFactory.thumbnailCard(pdt.productName);
         var template = new ACData.Template(pdtCardPayload);
         const imageGenerator = Math.floor((pdt.productId / 1) % 10);
-        const imgUrl = `https://${process.env.HOST_NAME}/images/${imageGenerator}.PNG`
+        const imgUrl = ``
         var card = template.expand({
             $root: {
                 productName: pdt.productName, unitsInStock: pdt.unitsInStock,
-                productId: pdt.productId, categoryId: pdt.categoryId, imageUrl: imgUrl
+                productId: pdt.productId, categoryId: pdt.categoryId
             }
         });
         var adaptiveCard = new AdaptiveCards.AdaptiveCard();
@@ -99,11 +99,11 @@ export class StockManagerBot extends TeamsActivityHandler {
                                 await updateProductUnitStock(data.pdtId, data.txtStock);
                                 var template = new ACData.Template(successCard);
                                 const imageGenerator = Math.floor((data.pdtId / 1) % 10);
-                                const imgUrl = `https://${process.env.HOST_NAME}/images/${imageGenerator}.PNG`
+                                const imgUrl = ``
                                 var card = template.expand({
                                     $root: {
-                                        productName: data.pdtName, unitsInStock: data.txtStock,
-                                        imageUrl: imgUrl
+                                        productName: data.pdtName, unitsInStock: data.txtStock
+                                      
                                     }
                                 });
                                 var responseBody = { statusCode: 200, type: "application/vnd.microsoft.card.adaptive", value: card }
