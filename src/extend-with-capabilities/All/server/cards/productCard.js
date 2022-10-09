@@ -42,7 +42,7 @@ export default
                         },
                         {
                             "type": "TextBlock",
-                            "text": "Use this form to chat with dealer or update the stock details of ${productName}  ",
+                            "text": "Use this form to update the stock details of ${productName}  ",
                             "isSubtle": true,
                             "wrap": true
                         }
