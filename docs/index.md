@@ -6,7 +6,7 @@
 Please join us for a free App Camp webinar on October 20, 2022 from 8-9am PDT! You'll meet the App Camp team and begin your journey to extending your app to Microsoft Teams and monetizing it in the Teams App Store and Microsoft App Source! Registration is open at <a href="https://aka.ms/TeamsAppCamp" target="_blank">https://aka.ms/TeamsAppCamp</a>. See you there!
 </div>
 
-# Microsoft Teams App Camp On Demand
+# Microsoft Teams App Camp
 
 _Migrate applications into Microsoft Teams_
 
