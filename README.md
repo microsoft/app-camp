@@ -1,6 +1,6 @@
 ![Teams App Camp](https://microsoft.github.io/app-camp/assets/code-lab-banner.png)
 
-# Microsoft Teams App Camp On Demand
+# Microsoft Teams App Camp
 
 _Migrate applications into Microsoft Teams_
 
