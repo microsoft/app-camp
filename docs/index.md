@@ -14,6 +14,10 @@ Welcome to App Camp! In this on-demand workshop, you'll learn how to build Teams
 
 This web site will guide you through a set of videos and hands-on lab exercises in which you will port a simple web application to being a full-featured Teams application. The initial core labs will bring the web application into Teams as a personal tab with Azure AD Single Sign-on. Then the "extended" labs are available to teach you how to add features such as message extensions, adaptive cards, deep linking, and more. [One of the extended labs](./aad/Monetization.md) even shows you how to monetize your application in the Teams app store!
 
+!!! warning "App Camp is not a starting application"
+    The App Camp solution is designed to be simple and easy to understand; it is NOT production ready and should not be used as the basis for your coding project. App Camp teaches the concepts that allow Teams apps to be built on existing apps or app frameworks. If you want to get started quickly on a new application, please use [Teams Toolkit](https://docs.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-fundamentals?pivots=visual-studio-code?WT.mc_id=m365-58890-cxa){target=_blank}.
+
+    If you're starting from scratch, you still can learn a lot about Teams applications and monetization here! Just don't use it as a code base!
 
 ## Video Briefings
 
@@ -127,6 +131,7 @@ These videos will help you understand the business of Teams applications, and wi
     <div style="display:flex; width:100%; justify-content: center;">
     <a href="http://aka.ms/mastering-the-marketplace/saas" target="_blank">
     <img src="assets/MasteringTheMarketplaceLogo.png" alt="Mastering the Marketplace logo"></img></a></div>
+
 ## It's lab time!
 
 In this series of labs, you will port a simple "Northwind Orders" web application to become a full-fledged Microsoft Teams application. The core labs will show you how to make the web application into a Teams application with a personal tab and Azure AD Single Sign-on. From there, you can choose extended labs depending on the features you need in your application. After completing each lab, the solution will still work as the original stand-alone web application as well as in Microsoft Teams. This is intended to show how to extend an existing SaaS application into Microsoft Teams without disrupting non-Teams other users.
