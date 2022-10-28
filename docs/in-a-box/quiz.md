@@ -180,7 +180,7 @@ These questions have been play tested in live App Camp workshops; they're design
 
     d. All of the above *
 
-    DISCUSS: _All these methods are available once your transactable SaaS offer is published in Partner Center and linked to an application in the Teams App Store._
+    DISCUSS: _All these methods are available once your transactable SaaS offer is published in Partner Center and linked to an application in the Teams App Store. If your SaaS offer runs on Azure, you can have the same offer available in Azure Marketplace and Azure Portal._
 
 3. **Partners set up the information needed to purchase their app (a "Transactable SaaS Offer") in what tool?**
 
@@ -204,19 +204,19 @@ These questions have been play tested in live App Camp workshops; they're design
 
     d. Not sure and I'm not sure who in my org to ask
 
-    DISCUSSION: _This is more of a survey than a quiz question. It's worth getting an early start in setting this up as there are legal aspects that may require approvals within an ISV's organization._
+    DISCUSSION: _This is more of a survey than a quiz question. It's worth getting an early start in setting this up as there are legal aspects that may require approvals within an ISV's organization. For details, please visit [What is Partner Center?](https://learn.microsoft.com/partner-center/overview?WT.mc_id=m365-58890-cxa){target="_blank"}.
 
 5. **Customers will be able to purchase your Teams application in:**
 
     a. App source *
 
-    b. Aure Marketplace
+    b. Aure Marketplace (* sometimes - see below)
 
     c. Microsoft Store
 
     d. Microsoft Teams App Store *
 
-    DISCUSSION: _Monetized Teams apps appear in App Source and the Teams App Store. The Windows store, and Azure Marketplace are all different ways of selling apps through Microsoft._
+    DISCUSSION: _This is a tricky question. Monetized Teams apps appear in App Source and the Teams App Store. If a SaaS offer is running on Azure, then you can purchase it in the Azure Marketplace and Azure Portal as well. The Windows store is for consumers and thus will not show applications for commercial customers._
 
 6. **Microsoft Teams can be coupled with which type of Commercial Marketplace solution?**
 
@@ -240,5 +240,5 @@ These questions have been play tested in live App Camp workshops; they're design
 
     d. 22%
 
-    DISCUSSION: _3% is similar to a credit card transaction fee, and significantly less than other app stores!_
+    DISCUSSION: _3% is similar to a credit card transaction fee, and Microsoft Commercial Marketplace offers more than just a transaction. It provides a channel through 90,000 Microsoft partners, includes go-to-market activities, etc._
 
