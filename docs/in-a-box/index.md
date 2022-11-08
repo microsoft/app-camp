@@ -26,44 +26,89 @@ Teams App Camp is written for professional developers; students and especially i
 
 You may also want to review the article [Understanding ISV's](https://github.com/microsoft/app-camp/wiki/Understanding-ISV's){target=_blank} in the [App Camp wiki](https://github.com/microsoft/app-camp/wiki/App-Camp-Wiki){target=_blank}. It compares the needs of enterprise developers, including systems integrators who build bespoke apps for enterprises, with the needs of ISV's who host Software as a Service applications.
 
-## Introducing Students to Teams Applications
+## Planning your workshop
+
+### Agendas for an Enterprise Audience
+
+#### Envisioning Workshop
+
+<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21564&amp;authkey=APGS--vFoOi0szw&amp;em=2" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> document, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+
+#### App Camp Workshop (hands-on labs)
+
+<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21566&amp;authkey=AP91VCSsvuQGSCg&amp;em=2" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> document, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+
+### Agendas for an ISV Audience
+
+#### Envisioning Workshop
+
+<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21565&amp;authkey=AHWYz8iiV7gBtPs&amp;em=2" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> document, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+
+#### App Camp Workshop (hands-on labs)
+
+<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21567&amp;authkey=AAmzo21iIZ4NNE8&amp;em=2" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> document, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+
+## Delivering your workshop
+
+
+
+### Introducing Students to Teams Applications
 
 It's important to ensure students understand the basics of Teams applications and Azure AD before they begin the labs so they'll really understand what's going on. This material is contained in the ["Technical Briefing" videos on the App Camp main page](http://devpoint19.lab/app-camp/#video-briefings).
 
 One option that can save time is to ask students to watch one or more of these videos as pre-work. We had success with this approach in live workshops, where we opened with a quiz on the Teams material.
 
+### 00 Envisioning
+
+<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21577&amp;authkey=AOBmMVYxFUZvJA8&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+
 ### 01 Introduction
 
-<iframe src="https://onedrive.live.com/embed?resid=D6091E8599A50F25%21550&amp;authkey=%21AKx_0iV3jSJYdW4&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21578&amp;authkey=AArM-gfb59WMlcI&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
 
-### 02 Labs A01-A03
+### 02 Understanding Azure AD
 
-<iframe src="https://onedrive.live.com/embed?resid=D6091E8599A50F25%21548&amp;authkey=%21AAGRqmfhbC6JyGU&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+<iframe src="https://onedrive.live.com/embed?resid=D6091E8599A50F25%21581&amp;authkey=%21AArAEpMJk7Zp3CA&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
 
-### 03 Labs B01-B04
+### 03a Labs A01-A03
 
-<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21549&amp;authkey=ACYd931R9JIaASM&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21579&amp;authkey=AGmwYpU1wrr5gHo&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+
+### 03b Labs B01-B04
+
+<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21580&amp;authkey=AIpRH-9RDo1aqEw&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
 
 ### 04 Configurable Tab lab
 
-<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21544&amp;authkey=AKO8GNCAzgSRUm0&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21569&amp;authkey=AK2RiLXz9SM_12k&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
 
 ### 05 Meeting App with Configurable Tab
 
-<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21543&amp;authkey=AOIQMm5zrkwXvRw&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21572&amp;authkey=AJ260NtxQPDOoCM&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
 
 ### 06 Deep Linking
 
-<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21542&amp;authkey=AGjchBBXU1o0Pvw&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21570&amp;authkey=ACTQot0DQiMNN3w&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
 
 ### 07 Dialogs
 
-<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21545&amp;authkey=AKkH3kADoi6pThA&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21571&amp;authkey=AL5uj2zyc4yfAgQ&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
 
 ### 08 Message Extension
 
-<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21547&amp;authkey=AKb-cSCpZI95cVM&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21573&amp;authkey=ABrIVfJeAZHZQJo&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
 
-### 09 Monetization
+### M1 Opportunity to Build and Grow with Microsoft Teams
 
-<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21546&amp;authkey=AJ_L1TKWfjXDreY&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21574&amp;authkey=AMgX1N0IvGAZrKc&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+
+### M2 Anatomy of a SaaS Application
+
+<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21575&amp;authkey=AGDu4DbYCf5-HHc&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+
+### M3 Monetization Lab
+
+<iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21576&amp;authkey=AMvHLUWbRYf4gY4&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+
+
+
