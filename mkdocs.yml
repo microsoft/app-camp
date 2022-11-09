@@ -24,7 +24,9 @@ nav:
   - Add a Meeting app: 'aad/MeetingConfigurableTab.md'
   - Add a Message Extension: 'aad/MessagingExtension.md'
   - Selling Your SaaS-based Teams Extension: 'aad/Monetization.md'
-- Resources: 'Resources.md'
+- Resources: 
+  - More Information: 'Resources.md'
+  - Lead your own App Camp: 'in-a-box/index.md'
 theme:
   name: 'material'
   palette: 

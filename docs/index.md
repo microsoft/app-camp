@@ -194,7 +194,7 @@ Once you have successfully completed Lab A03, you're invited to choose your own 
 
 ### Path B: Start with a non-Azure AD identity solution
 
-##### Core labs:
+##### Core labs
 
 In this series of labs, you'll begin with a working web application that uses the a simple bespoke authentication scheme to authorize users stored in a database. You'll extend this to also be a Teams application with Azure AD Single Sign-on, where Azure AD users are mapped to the application's users to minimize changes to the application. If you're extending an application into Teams which uses some identity system other than Azure AD yet want to gain the benefits of Azure AD SSO, this pattern may work for you. [These folders](https://github.com/microsoft/app-camp/tree/main/src/create-core-app/bespoke){target="_blank"} hold the completed source codes following each of the labs.
   
