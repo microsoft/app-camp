@@ -469,4 +469,4 @@ Here are the extended labs:
 
 ---8<--- "extended-lab-links.md"
 
-<img src="https://telemetry.sharepointpnp.com/app-camp/labs/b04" />
+<img src="https://pnptelemetry.azurewebsites.net/app-camp/labs/b04" />

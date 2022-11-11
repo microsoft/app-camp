@@ -20,7 +20,7 @@ Following these steps, you'll need to upgrade the app in Teams with the new app 
 | B03 | 1 | 3 | [Application URI contains the ngrok URL](https://microsoft.github.io/app-camp/bespoke/B03-after-teams-sso/#step-3-expose-an-api){target="_blank"} |
 | Message extension | 1 | 2 | [Application URI contains the ngrok URL](https://microsoft.github.io/app-camp/aad/MessagingExtension/#ex1-step3){target="_blank"} |
 
-<img src="https://telemetry.sharepointpnp.com/app-camp/labs/ngrok-reset-instructions" />
+<img src="https://pnptelemetry.azurewebsites.net/app-camp/labs/ngrok-reset-instructions" />
 
 
 

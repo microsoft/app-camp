@@ -502,4 +502,4 @@ While it will work on mobile devices, the application is not responsive and will
 
 After completing this lab, you may continue to the next lab in this learning path, [A03-after-apply-styling: Teams styling and themes](./A03-after-apply-styling.md){target="_blank"}.
 
-<img src="https://telemetry.sharepointpnp.com/app-camp/labs/a02" />
+<img src="https://pnptelemetry.azurewebsites.net/app-camp/labs/a02" />

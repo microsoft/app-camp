@@ -132,7 +132,7 @@ For a complete on-demand workshop focused on Commercial Marketplace, complete wi
 <img src="/app-camp/assets/MasteringTheMarketplaceLogo.png" alt="Mastering the Marketplace logo"></img></a></div>
 
 
-<img src="https://telemetry.sharepointpnp.com/app-camp/resources" />
+<img src="https://pnptelemetry.azurewebsites.net/app-camp/resources" />
 
 
 

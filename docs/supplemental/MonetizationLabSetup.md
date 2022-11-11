@@ -241,4 +241,4 @@ Replace the values &lt;webApiSiteName&gt; and &lt;webApiClientId&gt; with the va
 
 Try visiting the **AppSource** simulator, which is at `https://(webAppSiteName).azurewebsites.net`; you should be able to log in using your tenant administrator account. **Don't** purchase a subscription yet, however!
 
-<img src="https://telemetry.sharepointpnp.com/app-camp/labs/monetization-azure-setup" />
+<img src="https://pnptelemetry.azurewebsites.net/app-camp/labs/monetization-azure-setup" />
