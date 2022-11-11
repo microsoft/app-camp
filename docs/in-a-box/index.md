@@ -20,6 +20,11 @@ This material can be used to lead:
  * Tailored workshops for individual partners or customers
  * Internal training for enterprise development teams
 
+!!! tip
+    <span style="font-size: xx-large";>
+    ➡️ [Download all the materials here](https://github.com/microsoft/app-camp/archive/refs/heads/workshop-materials.zip)! ⬅️
+    </span>
+
 Two types of workshop are offered here, complete with agendas, slides, and other materials.
 The first type is an [Envisioning Workshop](#envisioning-workshop), which is intended to help attendees envision and plan a Teams application. This is appropriate for a mix of business and technical stakeholders. The second is an [App Camp Hands-on workshop](#app-camp-hands-on-workshop), which is technical and aims to teach attendees to migrate apps to Microsoft Teams or build new apps with any tool chain.
 
@@ -203,15 +208,21 @@ The ISV workshop includes additional content introducing the Microsoft Commercia
 
 ### Opportunity to Build and Grow with Microsoft Teams
 
+This presentation discusses the business value of Teams applications, with links to [video case studies](https://cloudpartners.transform.microsoft.com/practices/modernworkisv?tab=success-stories){target="_blank"} that show how apps can work within Teams and Microsoft 365. The deck is based on [this video](https://www.youtube.com/watch?v=iho0LJrFp9s){target="_blank"}.
+
 ### Guide to Teams App Monetization
 
-https://cdn.graph.office.net/prod/app-development-resources/best-practices-guide-app-monetization.pdf?update=8-5-2022
+This presentation explains the steps to monetizing a Teams application, with lots of advice to make the process easier. It's available as a [PDF file here](https://aka.ms/TMTG) and corresponds to [this video](https://www.youtube.com/watch?v=_-gbpXZx1D4){target="_blank"} from the App Camp technical briefing on Monetizing your Teams Application.
 
-### Anatomy of a SaaS Application
+### Anatomy of a SaaS Offer
+
+This presentation explains the idea of a SaaS Offer, and the implementation of a landing page, web hooks, and licensing service to support it. This deck corresponds to [this video](https://www.youtube.com/watch?v=v-Ahdkjs7TY){target="_blank"} from the App Camp technical briefing of the same name.
 
 <iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21575&amp;authkey=AGDu4DbYCf5-HHc&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
 
 ### Monetization Lab
+
+This presentation accompanies the monetization lab, [Selling your SaaS-based Teams Extension](http://devpoint19.lab/app-camp/aad/Monetization/){target="_blank"}
 
 <iframe src="https://onedrive.live.com/embed?cid=D6091E8599A50F25&amp;resid=D6091E8599A50F25%21576&amp;authkey=AMvHLUWbRYf4gY4&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
 
