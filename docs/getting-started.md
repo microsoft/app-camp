@@ -72,4 +72,4 @@ By default, end users can't upload Teams applications directly; instead an admin
 
 Thanks and enjoy the labs!
 
-<img src="https://telemetry.sharepointpnp.com/app-camp/getting-started" />
+<img src="https://pnptelemetry.azurewebsites.net/app-camp/getting-started" />

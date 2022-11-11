@@ -8,5 +8,5 @@ Thanks for participating in App Camp and for allowing us to count your lab compl
 
 <button type="button" onclick="window.close();">Close</button>
 
-<img src="https://telemetry.sharepointpnp.com/app-camp/congrats/configurable-tab" />
+<img src="https://pnptelemetry.azurewebsites.net/app-camp/congrats/configurable-tab" />
 

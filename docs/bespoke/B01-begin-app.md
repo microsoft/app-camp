@@ -190,4 +190,4 @@ While it will work on mobile devices, the application is not responsive and will
 
 [Here is the next lab](./B02-after-teams-login.md), in which you will create a simple Teams application that displays pages from the app you just set up.
 
-<img src="https://telemetry.sharepointpnp.com/app-camp/labs/b01" />
+<img src="https://pnptelemetry.azurewebsites.net/app-camp/labs/b01" />
