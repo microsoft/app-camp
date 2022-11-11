@@ -3,7 +3,7 @@
 <div style="width:300px; float: right; padding: 10px; border-width: 1px; border: 2px solid black;">
 <img src="/app-camp/assets/microsoftteams_appcamp-webheader.png"
      style="" />
-Please join us for a free App Camp webinar on October 20, 2022 from 8-9am PDT! You'll meet the App Camp team and begin your journey to extending your app to Microsoft Teams and monetizing it in the Teams App Store and Microsoft App Source! Registration is open at <a href="https://aka.ms/TeamsAppCamp" target="_blank">https://aka.ms/TeamsAppCamp</a>. See you there!
+Did you miss the App Camp webinar? No problem - there are more on the way, along with a recording of the one you missed. You can find it all at <a href="https://aka.ms/TeamsAppCamp" target="_blank">https://aka.ms/TeamsAppCamp</a>. See you there!
 </div>
 
 # Microsoft Teams App Camp
