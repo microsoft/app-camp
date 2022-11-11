@@ -592,6 +592,6 @@ While it will work on mobile devices, the application is not responsive and will
 
 --8<-- "issuesLink.md"
 
-<img src="https://telemetry.sharepointpnp.com/app-camp/labs/b02" />
+<img src="https://pnptelemetry.azurewebsites.net/app-camp/labs/b02" />
 
 

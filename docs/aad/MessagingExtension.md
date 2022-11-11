@@ -919,4 +919,4 @@ After completing this lab, you may continue with additional extended labs!
 
 ---8<--- "extended-lab-links.md"
 
-<img src="https://telemetry.sharepointpnp.com/app-camp/labs/messaging-extension" />
+<img src="https://pnptelemetry.azurewebsites.net/app-camp/labs/messaging-extension" />

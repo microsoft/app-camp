@@ -463,4 +463,4 @@ Congratulations! You have completed all core application development labs in **p
 
 ---8<--- "extended-lab-links.md"
 
-<img src="https://telemetry.sharepointpnp.com/app-camp/labs/a03" />
+<img src="https://pnptelemetry.azurewebsites.net/app-camp/labs/a03" />

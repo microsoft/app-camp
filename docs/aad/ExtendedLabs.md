@@ -14,4 +14,4 @@ Here are the extended lab adventures we have in store for you. Do one or do 'em 
 
 Don't see the lab you want? Check out our [github issues](https://github.com/microsoft/app-camp/issues?q=is%3Aopen+is%3Aissue+label%3A%22new+lab+request%22){target="_blank"} where we keep our backlog; feel free to comment or add your own request!
 
-<img src="https://telemetry.sharepointpnp.com/app-camp/labs/extended-labs" />
+<img src="https://pnptelemetry.azurewebsites.net/app-camp/labs/extended-labs" />
