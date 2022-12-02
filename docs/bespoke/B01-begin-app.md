@@ -25,15 +25,19 @@ In this lab you will learn to:
 - Run a web application using NodeJS
 - Expose a local web application using ngrok
 
+!!! note
+    This lab uses the account linking strategy explained in [this blog article](https://devblogs.microsoft.com/microsoft365dev/account-linking-with-microsoft-teams-single-sign-on/){target="_blank"}. Please check it out for more details. In addition, the author has created [a .NET sample](https://github.com/OfficeDev/Microsoft-Teams-Samples/tree/main/samples/account-linking/csharp){target="_blank"} showing this principle, so if you're a .NET developer this can give you a head start!
+
+!!! warning
+    The "B Path" labs are overly simplistic and even if the fake "bespoke" IdP was secure, the account linking would not be secure as implemented here. Specifically, instead of linking the Azure AD user to the bespoke app's Employee ID, it should link to a secure token for the original app's identity provider.
+
+    See [this issue](https://github.com/microsoft/app-camp/issues/94){target="_blank"} for details.
+
 ???+ info "Video briefing"
     <div class="video">
       <iframe src="//www.youtube.com/embed/gzzvp9EyQkg" frameborder="0" allowfullscreen></iframe>
       <div>"B Path" Lab Briefing</div>
     </div>
-
-!!! note
-    This lab uses the account linking strategy explained in [this blog article](https://devblogs.microsoft.com/microsoft365dev/account-linking-with-microsoft-teams-single-sign-on/){target="_blank"}. Please check it out for more details. In addition, the author has created [a .NET sample](https://github.com/OfficeDev/Microsoft-Teams-Samples/tree/main/samples/account-linking/csharp){target="_blank"} showing this principle, so if you're a .NET developer this can give you a head start!
-
 
 ### Features
 
