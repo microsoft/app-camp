@@ -95,6 +95,10 @@ For an overview of Teams app development, check out this video by Bob and Rabia!
 * [Microsoft Teams Meeting App – Record and playback attendee names (video)](https://www.youtube.com/watch?v=djmgcGFLnas)
 * [Create interactive meeting apps for Microsoft Teams (video)](https://www.youtube.com/watch?v=jDfGpTSZ9zA)
 
+### Distributing Your Teams Apps
+
+* [Publish Teams apps in Microsoft Teams store](https://learn.microsoft.com/en-us/training/modules/microsoft-teams-publish-app-to-store/)
+
 ### Teams JavaScript API
 
 * [Teams JavaScript SDK](https://docs.microsoft.com/en-us/javascript/api/overview/msteams-client?WT.mc_id=m365-58890-cxa)
