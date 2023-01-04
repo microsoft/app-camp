@@ -33,7 +33,7 @@ In this lab you will learn to:
 
 - Microsoft Teams configurable tab to display a product category in during pre-meeting stage
 - Microsoft Teams configurable tab to display a product category in the Meeting Side Panel during a Teams meeting
-- Microosft Teams configurable tab to display a product category and be shared to the Meeting Content Stage
+- Microsoft Teams configurable tab to display a product category and be shared to the Meeting Content Stage
 
 ### Exercise 1: Update your configurable tab for use with Meetings
 
