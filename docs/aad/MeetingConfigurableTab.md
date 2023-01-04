@@ -57,7 +57,7 @@ Now, immediately under the `scopes` array, in the your configurable tab object, 
       "configurationUrl": "https://<HOST_NAME>/pages/tabConfig.html",
       "canUpdateConfiguration": true,
       "scopes": [
-        "teams",
+        "team",
         "groupchat"
       ],
       "context": [
