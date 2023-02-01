@@ -1,9 +1,25 @@
 ---8<--- "heading.md"
 
-<div style="width:300px; float: right; padding: 10px; border-width: 1px; border: 2px solid black;">
+<div class="sidebar">
 <img src="/app-camp/assets/microsoftteams_appcamp-webheader.png"
      style="" />
-Did you miss the App Camp webinar? No problem - there are more on the way, along with a recording of the one you missed. You can find it all at <a href="https://aka.ms/TeamsAppCamp" target="_blank">https://aka.ms/TeamsAppCamp</a>. See you there!
+
+<h2>Need a hand with your Teams app?</h2>
+<ul>
+<li>
+<b>Are you an ISV building a Teams app for sale in the Teams store? Could you use some support?</b> Please fill out this form to request assistance from Microsoft with the potential to be matched with a dedicated support manager if you choose to build a transactable app within the next few months. <a href="https://aka.ms/TeamsApp/Support" target="_blank">https://aka.ms/TeamsApp/Support</a>
+</li>
+
+<li>
+<b>Are you a start-up</b> looking to change the world with an innovative Teams app in the store? Would you like some <b>Azure credits, and extra guidance</b>? You should sign up for Founders hub! <a href="http://aka.ms/startups" target="_blank">http://aka.ms/startups</a>
+</li>
+
+<li>
+Are you a <b>Solutions Partner in the Microsoft Cloud Partner program? Want some help </b> planning, envisioning, building, and publishing Teams applications? Get started with Technical Presales & Deployment services at <a href="https://aka.ms/tpd" target="_blank">https://aka.ms/tpd</a>
+</li>
+</ul>
+
+If you missed our Reactor livestream events, please check out the recordings at <a href="https://aka.ms/TeamsAppCamp" target="_blank">https://aka.ms/TeamsAppCamp</a>!
 </div>
 
 # Microsoft Teams App Camp

@@ -54,7 +54,22 @@ button {
     font-size: large;
 }
 
+/* Sidebar */
+.sidebar {
+    width: 50%;
+    float: right;
+    padding: 10px;
+    border-width: 1px;
+    border: 2px solid black;
+}
 
+.sidebar b {
+    color: #35258F;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+}
 
 /*
 .md-nav__link--active {
