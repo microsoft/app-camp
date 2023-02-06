@@ -32,6 +32,18 @@
     font-style: italic;
 }
 
+.headingWithSubtitle {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.subtitle {
+    padding: 0 !important;
+    margin: 0 0 40t 0 !important;
+    font-style: italic;
+}
+
+
 button {
     background-color: #795649;
     font-size: xx-large;

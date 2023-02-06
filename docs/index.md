@@ -5,10 +5,10 @@
      style="" />
 
 <h2>Need a hand with your Teams app?</h2>
-<ul>
-<li>
-<b>Are you an ISV building a Teams app for sale in the Teams store? Could you use some support?</b> Please fill out this form to request assistance from Microsoft with the potential to be matched with a dedicated support manager if you choose to build a transactable app within the next few months. <a href="https://aka.ms/TeamsApp/Support" target="_blank">https://aka.ms/TeamsApp/Support</a>
-</li>
+<!-- <ul>
+<li> -->
+<b>Are you an ISV building a Teams app for sale in the Teams store? Could you use some support?</b> Please fill out this form to request assistance from Microsoft with the potential to be matched with a dedicated support manager if you choose to build a transactable app within the next few months. <b><a href="https://aka.ms/TeamsApp/Support" target="_blank">https://aka.ms/TeamsApp/Support</a></b>
+<!-- </li>
 
 <li>
 <b>Are you a start-up</b> looking to change the world with an innovative Teams app in the store? Would you like some <b>Azure credits, and extra guidance</b>? You should sign up for Founders hub! <a href="http://aka.ms/startups" target="_blank">http://aka.ms/startups</a>
@@ -17,20 +17,22 @@
 <li>
 Are you a <b>Solutions Partner in the Microsoft Cloud Partner program? Want some help </b> planning, envisioning, building, and publishing Teams applications? Get started with Technical Presales & Deployment services at <a href="https://aka.ms/tpd" target="_blank">https://aka.ms/tpd</a>
 </li>
-</ul>
+</ul> -->
 
-If you missed our Reactor livestream events, please check out the recordings at <a href="https://aka.ms/TeamsAppCamp" target="_blank">https://aka.ms/TeamsAppCamp</a>!
 </div>
 
-# Microsoft Teams App Camp
+<h1 class="headingWithSubtitle">Microsoft Teams App Camp</h1>
 
-_Migrate applications into Microsoft Teams_
+<div class="subtitle">Migrate applications into Microsoft Teams</div>
+
+!!! tip "Reactor events"
+    If you missed our Reactor livestream events, please check out the recordings at <a href="https://aka.ms/TeamsAppCamp" target="_blank">https://aka.ms/TeamsAppCamp</a>!
 
 Welcome to App Camp! In this on-demand workshop, you'll learn how to build Teams applications without special tools, which is important for developers who already have an application they want to extend into Microsoft Teams, or for developers who have a specific toolchain in mind. If you're starting a new application and you're open to building a React application with NodeJS/Express support, we recommend you use the [Teams Toolkit](https://docs.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-fundamentals?pivots=visual-studio-code?WT.mc_id=m365-58890-cxa){target=_blank}.
 
 This web site will guide you through a set of videos and hands-on lab exercises in which you will port a simple web application to being a full-featured Teams application. The initial core labs will bring the web application into Teams as a personal tab with Azure AD Single Sign-on. Then the "extended" labs are available to teach you how to add features such as message extensions, adaptive cards, deep linking, and more. [One of the extended labs](./aad/Monetization.md) even shows you how to monetize your application in the Teams app store!
 
-!!! warning "App Camp is not a starting application"
+!!! warning "App Camp is for learning concepts you can apply to your application"
     The App Camp solution is designed to be simple and easy to understand; it is NOT production ready and should not be used as the basis for your coding project. App Camp teaches the concepts that allow Teams apps to be built on existing apps or app frameworks. If you want to get started quickly on a new application, please use [Teams Toolkit](https://docs.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-fundamentals?pivots=visual-studio-code?WT.mc_id=m365-58890-cxa){target=_blank}.
 
     If you're starting from scratch, you still can learn a lot about Teams applications and monetization here! Just don't use it as a code base!
