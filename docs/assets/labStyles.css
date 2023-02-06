@@ -32,6 +32,18 @@
     font-style: italic;
 }
 
+.headingWithSubtitle {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.subtitle {
+    padding: 0 !important;
+    margin: 0 0 40t 0 !important;
+    font-style: italic;
+}
+
+
 button {
     background-color: #795649;
     font-size: xx-large;
@@ -54,7 +66,22 @@ button {
     font-size: large;
 }
 
+/* Sidebar */
+.sidebar {
+    width: 50%;
+    float: right;
+    padding: 10px;
+    border-width: 1px;
+    border: 2px solid black;
+}
 
+.sidebar b {
+    color: #35258F;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+}
 
 /*
 .md-nav__link--active {
