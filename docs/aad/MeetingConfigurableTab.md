@@ -204,7 +204,7 @@ Add the following code into the `displayUI` function around line 40.
 ```js
 if (await inSidePanel() && !(await sharedToStage())) {
     const table = document.getElementById('products');
-    table.queryS electorAll('th:nth-child(n+4)').forEach((e) => { e.style.display = 'none'; });
+    table.querySelectorAll('th:nth-child(n+4)').forEach((e) => { e.style.display = 'none'; });
     table.querySelectorAll('td:nth-child(n+4)').forEach((e) => { e.style.display = 'none'; });
 }
 ```
