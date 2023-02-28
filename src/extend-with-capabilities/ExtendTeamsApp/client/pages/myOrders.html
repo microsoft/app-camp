@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Northwind Orders</title>
+    <link rel="stylesheet" href="/northwind.css" />
+    <link rel="icon" href="data:;base64,="> <!-- Suppress favicon error -->
+</head>
+
+<body>
+
+    <script type="module" src="/identity/userPanel.js"></script>
+
+    <top-nav-panel></top-nav-panel>
+
+    <div id="content">
+        <p>Loading...</p>
+    </div>
+    <table id="orders">
+        <tr>
+            <th>Order ID</th>
+            <th>Date</th>
+            <th>Ship to</th>
+            <th>Address</th>
+        </tr>
+    </table>
+    <div id="message" class="errorMessage"></div>
+
+    <script type="module" src="/components/navigation.js"></script>
+    <script type="module" src="myOrders.js"></script>
+
+</body>
+
+</html>

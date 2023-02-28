@@ -1,0 +1,58 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.16",
+  "version": "1.10.0",
+  "id": "<TEAMS_APP_ID>",
+  "packageName": "io.github.officedev.teamsappcamp1.northwind",
+  "developer": {
+    "name": "Northwind Traders",
+    "websiteUrl": "https://<HOST_NAME>/",
+    "privacyUrl": "https://<HOST_NAME>/privacy.html",
+    "termsOfUseUrl": "https://<HOST_NAME>/termsofuse.html"
+  },
+  "icons": {
+      "color": "northwind192.png",
+      "outline": "northwind32.png"
+  },
+  "name": {
+    "short": "Northwind Orders",
+    "full": "Northwind Traders Order System"
+  },
+  "description": {
+    "short": "Sample enterprise app using the Northwind Traders sample database",
+    "full": "Simple app to demonstrate porting a SaaS app to Microsoft Teams"
+  },
+  "accentColor": "#FFFFFF",
+  "staticTabs": [
+    {
+      "entityId": "Orders",
+      "name": "My Orders",
+      "contentUrl": "https://<HOST_NAME>/pages/myOrders.html",
+      "websiteUrl": "https://<HOST_NAME>/pages/myOrders.html",
+      "scopes": [
+        "personal"
+      ]
+    },
+    {
+      "entityId": "Products",
+      "name": "Products",
+      "contentUrl": "https://<HOST_NAME>/pages/categories.html",
+      "websiteUrl": "https://<HOST_NAME>/pages/categories.html",
+      "scopes": [
+        "personal"
+      ]
+    }
+  ],
+  "showLoadingIndicator": false,
+  "permissions": [
+      "identity",
+      "messageTeamMembers"
+  ],
+  "validDomains": [
+      "<HOST_NAME>"
+  ],
+  "webApplicationInfo": {
+      "id": "<CLIENT_ID>",
+      "resource": "api://<HOST_NAME>/<CLIENT_ID>"
+  }
+}
