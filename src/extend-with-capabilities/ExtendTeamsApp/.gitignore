@@ -4,5 +4,4 @@ package-lock.json
 */manifest.json
 manifest/*.zip
 northwindDB/*.json
-
-
+.DS_Store

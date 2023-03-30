@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Northwind Product Category Detail</title>
+    <link rel="stylesheet" href="/northwind.css" />
+    <link rel="icon" href="data:;base64,="> <!-- Suppress favicon error -->
+</head>
+
+<body>
+
+    <script type="module" src="/identity/userPanel.js"></script>
+
+    <top-nav-panel></top-nav-panel>
+
+    <div id="content">
+        <p>Loading...</p>
+    </div>
+    <table id="products">
+        <tr>
+            <th>Product</th>
+            <th>Qty/Unit</th>
+            <th>Unit Price</th>
+            <th>In Stock</th>
+            <th>On Order</th>
+            <th>Supplier</th>
+        </tr>
+    </table>
+    <div id="message" class="errorMessage"></div>
+
+    <script type="module" src="/components/navigation.js"></script>
+    <script type="module" src="categoryDetail.js"></script>
+
+</body>
+
+</html>
