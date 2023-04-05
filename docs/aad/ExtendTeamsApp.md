@@ -5,7 +5,7 @@
 ---8<--- "extended-lab-intro.md"
 
 With the release of the Teams app manifest 1.13 or latest, you can now run your teams apps in other Microsoft 365 products like Outlook and Microsoft 365 app (previously known as Office app).
-In this lab, you'll extend the personal tab app which is the core application, to other surfaces in the Microsoft365 ecosystem. We will also leverage Microsoft Teams JavaScript client library to integrate native capabilities of these products in our application like chat, mail etc.
+In this lab, you'll extend the personal tab app which is the core application, to other products in the Microsoft 365. We will also leverage Microsoft Teams JavaScript client library to integrate native capabilities of these products in our application like chat, mail etc.
 
 
 We will cover the following concepts in this exercise:
@@ -37,7 +37,7 @@ to
 #### Step 2: Update the Teams client library references
 You'll need to update your Teams JS client library package to `@microsoft/teams-js@2.0.0` (or higher).
 
-You can skip this step as we are using version `2.0.0` of the library.
+You can skip this step in this lab,as we are using version `2.0.0` of the library in our existing core applicaton.
 
 > This is already done for you in appcamp, if you check the CDN import statements in appcamp's core project you will see it references version `2.0.0`.
 ```javascript
@@ -53,7 +53,7 @@ You'll need to follow some additonal steps to test the app.
 
 - Go to [Azure AD admin portal](https://aad.portal.azure.com/) and make sure you're logged in as the administrator of your development tenant. Click "Azure Active Directory" 1️⃣ and then "App Registrations" 2️⃣.
 
-- Select the name of your personal tab application which is your core applicaton,  to open its app registration.
+- Select the name of your personal tab application which is your core applicaton, to open its app registration.
 
 - Select "Expose an API" 1️⃣ and then "+ Add a client application" 2️⃣.
 - In the section for Authorized client applications, make sure that you have added Client Id values for all of the following:
@@ -77,7 +77,7 @@ Open a command line tool in your working folder and type
 npm run package
 ```
 
-This will generate a new manifest.json file and a new application package (northwind.zip).
+This will generate a new manifest.json file and a new app package (northwind.zip).
 
 
 
@@ -88,14 +88,29 @@ npm start
 ```
 
 #### Step 4: Upload your app package
-In the Teams web or desktop UI, click "Apps" in the sidebar 1️⃣, then "Manage your apps" 2️⃣. At this point you have three choices:
 
-Upload a custom app (upload the app for yourself or a specific team or group chat) - this only appears if you have enabled "Upload custom apps" in your setup policy; this was a step in the previous lab
-Upload an app to your org's app catalog (upload the app for use within your organization) - this only appears if you are a tenant administrator
-Submit an app to your org (initiate a workflow asking a tenant administrator to install your app) - this appears for everyone
-In this case, choose the first option 3️⃣.
+Here are the steps you can follow to upload your app package to the unified store via the Microsoft 365 admin center:
+
+- Go to the [Microsoft 365 admin center](https://admin.microsoft.com/adminportal/home#/homepage)
+- Expand **Settings** from the left navigation menu.
+- Select **Integrated apps** which will take you to the page where you can manage your application.
+- Select **Upload custom apps** which will then ask you to upload the app package.
+- Choose **App type** *Teams app* and upload the zip file. On proceeding next you will see the host products where your app will be deployed to like Microsoft 365, Outlook and Teams, select **Next**
+- It will then ask for target users to test the app whether it should be avialable to just the user uploading or entire org or specific set of users, Select **Entire organization** for this lab.
+- Accept any permission requests in the next page.
+- Finally review and select **Finish Deployment**. Your app is now ready to be tested in multiple host products in Microsoft 365.
+
+This should ensure that your app is available across multiple products within Microsoft 365.
 
 #### Step 5: Test your app in different areas of Microsoft 365.
+
+#### Teams web
+
+- To see your app in Teams, go to **Apps** in the left menu.
+- Find **Northwind Orders** in the **Built for your org** app catalog since the app is already deployed and installed for the entire organization.
+- **Open** the app.
+
+![test app in teams web](../assets/extended-lab/teams-web.png)
 
 ##### Outlook web
 To see your app in [Outlook on the web](https://outlook.office.com/), follow these instructions:
@@ -105,7 +120,9 @@ To see your app in [Outlook on the web](https://outlook.office.com/), follow the
 2. Look for the More Apps option within the side bar. You should see your **Northwind Order**, including the sideloaded app title.
 
 3. Click on the app icon to preview and launch the app, and see it running in Outlook on the web.
+![test app in outlook web](../assets/extended-lab/outlook-web.png)
 
+![test app in outlook web launched](../assets/extended-lab/outlook-web-2.png)
 ##### Microsoft 365 web
 To see your app running in Microsoft 365 on the web, follow these steps:
 
@@ -114,6 +131,10 @@ To see your app running in Microsoft 365 on the web, follow these steps:
 2. Look for the **Apps** icon on the side bar. Your **Northwind Orders** app should be visible among your installed apps.
 
 3. Click on the app icon to launch your app and run it in Microsoft 365 on the web.
+
+![test app in microsoft 365 web](../assets/extended-lab/Microsoft365app.png)
+
+> Another thing you can do is test the apps on Teams client, Outlook on Windows or any other available platforms, but for the sake of keeping this process simple and easy to understand, we will proceed without these additional tests.
 
 ### Exercise 3: Add addtional capabilities to the app
 
@@ -273,9 +294,13 @@ All code changes are complete now let's go ahead and test this application in Te
 
 Open the app in Teams and go to an order. If chat is a supported capability in Teams, the chat button will be displayed to the user. Choose the button to open a 1:1 chat with the user you configured as the contact in the previous step.
 
+![gif of teams chat working in order details page](../assets/extended-lab/teams-chat.gif)
+
 #### Mail in Outlook
 
 Open the app in Outlook web and go to an order. If Mail is a supported capability in Outlook, the Mail button will be displayed to the user. Choose the button to create a new outlook email with the user you configured as the contact in the previous step.
+
+![gif of outlook compose mail working in order details page](../assets/extended-lab/outlook-mail.gif)
 
 --8<-- "i-finished.md"
 
