@@ -4,4 +4,4 @@
   - [Add a Meeting app](/app-camp/aad/MeetingConfigurableTab)
   - [Add a Message Extension](/app-camp/aad/MessagingExtension)
   - [Selling Your SaaS-based Teams Extension](/app-camp/aad/Monetization)
-  
+  - [Extend your Teams app to Outlook and Microsoft365 app](/app-camp/aad/ExtendTeamsApp)
