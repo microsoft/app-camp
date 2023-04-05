@@ -335,6 +335,8 @@ Open the app in Outlook web and go to an order. If Mail is a supported capabilit
 
 ![gif of outlook compose mail working in order details page](../assets/extended-lab/outlook-mail.gif)
 
+> The button is invisible in Microsoft 365 app since chat or mail is not supported.
+
 --8<-- "i-finished.md"
 
 ### Next steps
