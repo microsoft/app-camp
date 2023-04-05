@@ -175,7 +175,7 @@ The APIs in the SDK are grouped into different capabilities that are supported b
 #### Step 1: Add new theme files
 
 Remove files northwind.css and teamstyle.css from the `client` folder.
-Create a new folder `styles` and copy the css files from [this folder](../../src/extend-with-capabilities/ExtendTeamsApp/client/styles/) into your newly created `styles` folder.
+Create a new folder `styles` and copy the css files from [this folder](https://github.com/microsoft/app-camp/tree/main/src/extend-with-capabilities/ExtendTeamsApp/client/styles) into your newly created `styles` folder.
 
 
 #### Step 2: Add code to load themes based on host app
