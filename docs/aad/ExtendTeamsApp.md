@@ -81,8 +81,22 @@ Outlook desktop|	d3590ed6-52b3-4102-aeff-aad2292ab01c|
 Outlook web|	bc59ab01-8403-45c6-8796-ac3ef710b3e3|
 Outlook mobile|	27922004-5251-4030-b22d-91ecd9a37ea4|
 
+#### Step 2: Modify the source code
 
-#### Step 2: Package your application
+Currently the `inTeams()` function in file `teamsHelpers.js` in `client/modules` folder returns only true if the app is running in Teams so this makes it impossible to get the app running in other products as the value of 
+
+```
+return (context.app.host.name === microsoftTeams.HostName.teams);
+```
+is always false.
+
+Let's replace it with 
+```
+return context.app.host.name; 
+```
+for now, let's just return host name always without worrying too much about this function. In the coming exercises we will update the entire function.
+
+#### Step 3: Package your application
 Open a command line tool in your working folder and type
 
 ```
@@ -161,14 +175,14 @@ The APIs in the SDK are grouped into different capabilities that are supported b
 #### Step 1: Add new theme files
 
 Remove files northwind.css and teamstyle.css from the `client` folder.
-Create a new folder `styles` and copy the files from this folder into your newly created `styles` folder.
+Create a new folder `styles` and copy the css files from [this folder](../../src/extend-with-capabilities/ExtendTeamsApp/client/styles/) into your newly created `styles` folder.
 
 
 #### Step 2: Add code to load themes based on host app
 
 Now lt's use the Teams JS library to better understand the environment in which our app is running.
 
-Go to the file `teamsHelpers.js` under the folder `client/modules` and update the function `inTeams()` replacing it with the below function.
+Go to the file `teamsHelpers.js` under the folder `client/modules` and update the function `inTeams()` replacing it with the below function `inM365()`.
 
 ```javascript
 // async function returns true/false if we're running in M365
@@ -231,7 +245,7 @@ else{
 ```
 #### Step 4: Update references to `inTeams()` function
 
-Find and replace `inTeams()` references to `inM356()`in all files in the `src`folder.
+Find and replace `inTeams` references to `inM365`in all files in the `src`folder including import statements and function calls.
 
 #### Step 3: Add host native capabilities to your app
 
@@ -240,13 +254,16 @@ Now, let's begin by adding some native functionalities of the application in the
 According to the functionality, an assumed contact will be used to initiate chat or mail. The assumed contact will come from an environment variable, which you can pass as an email ID of a user.
 
 Let's first add this new environment variable `CONTACT`.
+
+To add the contact information to the environment file, go to the `.env` file and add the contact information of a user's email id other than yourself in your tenant.
+
 Go to the `server.js` file and udpate `app.get('/modules/env.js',` to add a new variable. Append below code after adding a comma to the last variable.
 
 ```
  CONTACT:  "${process.env.CONTACT}"
 ```
 
-To add the contact information to the environment file, go to the `.env` file and add the contact information of a user's email id other than yourself in your tenant.
+
 
 Now let's add the capabilities.
 Go to the orderdetails.html file under the `client/pages` folder and add below code for a button element just after the `orderDetails` table.
@@ -254,8 +271,10 @@ Go to the orderdetails.html file under the `client/pages` folder and add below c
 ```HTML
  <button id="ShowButton" type="submit">Show</button>
 ```
-Now go to the `orderDetail.js` and import the env files by appending below code snippet with the top import statements.
+Now go to the `orderDetail.js` and import the env, helper module and teams client library by appending below code snippet with the top import statements.
 ```
+import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js'
+import {  inM365 } from '../modules/teamsHelpers.js';
 import { env } from '../modules/env.js';
 
 ```
