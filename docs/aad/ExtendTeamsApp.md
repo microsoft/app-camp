@@ -20,7 +20,7 @@ We will cover the following concepts in this exercise:
 
 ### Exercise 1: Upgrade manifest & Teams JS Client library package version
 
-#### Step 1: Upgrade manifest
+#### Step 1: Upgrade manifest schema
 
 To make your core application work in multiple host apps like Outlook or Microsoft 365 app, you have to upgrade the manifest version of the app package. To do that, go to the root of your core application, and find the file **manifest.template.json** in the folder named `/manifest`. You will need to update `schema` and `manifestVersion` in order to make this work.
 
@@ -34,7 +34,19 @@ to
   "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
   "manifestVersion": "1.16",
 ```
-#### Step 2: Update the Teams client library references
+#### Step 2: Update the app package version
+
+In your code editor, open the manifest/manifest.template.json file.
+
+Update the version number so it's greater than it was; for example if your manifest was version 1.10, make it 1.10.1 or 1.11.0. This is required in order for you to update the app in Teams.
+
+~~~json
+"version": "1.11.0"
+~~~
+
+> NOTE: Make each new version greater than the last so you can update the application in Teams!
+
+#### Step 3: Update the Teams client library references
 You'll need to update your Teams JS client library package to `@microsoft/teams-js@2.0.0` (or higher).
 
 You can skip this step in this lab,as we are using version `2.0.0` of the library in our existing core applicaton.
@@ -133,6 +145,8 @@ To see your app running in Microsoft 365 on the web, follow these steps:
 3. Click on the app icon to launch your app and run it in Microsoft 365 on the web.
 
 ![test app in microsoft 365 web](../assets/extended-lab/Microsoft365app.png)
+
+![app in microsoft 365 web](../assets/extended-lab/office.png)
 
 > Another thing you can do is test the apps on Teams client, Outlook on Windows or any other available platforms, but for the sake of keeping this process simple and easy to understand, we will proceed without these additional tests.
 
