@@ -20,9 +20,6 @@ In this lab you will learn to:
 - Use the Teams JS SDK to understand the current Microsoft Teams Frame Context
 - Use the Teams JS SDK to understand whether the tab is being shared to the Microsoft Teams Meeting Content Stage
 
-!!! warning
-    Currently it is only possible to use tabs in Meetings using the Microsoft Teams Desktop Client.
-
 ???+ info "Video briefing"
     <div class="video">
       <img src="/app-camp/assets/video-coming-soon.png"></img>
@@ -204,7 +201,7 @@ Add the following code into the `displayUI` function around line 40.
 ```js
 if (await inSidePanel() && !(await sharedToStage())) {
     const table = document.getElementById('products');
-    table.queryS electorAll('th:nth-child(n+4)').forEach((e) => { e.style.display = 'none'; });
+    table.querySelectorAll('th:nth-child(n+4)').forEach((e) => { e.style.display = 'none'; });
     table.querySelectorAll('td:nth-child(n+4)').forEach((e) => { e.style.display = 'none'; });
 }
 ```
