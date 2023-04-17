@@ -11,6 +11,7 @@ In this lab, you'll extend the personal tab app which is the core application, t
 We will cover the following concepts in this exercise:
 
 [Extend Teams apps across Microsoft 365](https://learn.microsoft.com/en-us/microsoftteams/platform/m365-apps/overview)
+
 [Teams JavaScript client library](https://learn.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/using-teams-client-library?tabs=javascript%2Cmanifest-teams-toolkit)
 
 ### Features
