@@ -1,8 +1,9 @@
+import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
+import {  inM365 } from '../modules/teamsHelpers.js';
 import {
     getOrder
 } from '../modules/northwindDataService.js';
-import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js'
-import {  inM365 } from '../modules/teamsHelpers.js';
+
 import { env } from '../modules/env.js';
 async function displayUI() {
 
