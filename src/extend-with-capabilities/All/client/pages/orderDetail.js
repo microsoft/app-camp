@@ -1,9 +1,10 @@
 import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
-import { ensureTeamsSdkInitialized, inTeams } from '/modules/teamsHelpers.js';
+import { ensureTeamsSdkInitialized, inM365 } from '/modules/teamsHelpers.js';
 import {
     getOrder
 } from '../modules/northwindDataService.js';
-import { env } from '/modules/env.js';
+
+import { env } from '../modules/env.js';
 
 async function displayUI() {
 
@@ -107,5 +108,40 @@ async function displayUI() {
     }
 }
 
+async function displayCallOrChat() {
+    const searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has('orderId')) {
+        const orderId = searchParams.get('orderId');
+        const buttonElement = document.getElementById("ShowButton");
+        if (await inM365()) {
+            //chat support
+            if (microsoftTeams.chat.isSupported()) {
+                buttonElement.textContent = "Chat";
+                buttonElement.addEventListener('click', async ev => {
+                    await microsoftTeams.chat
+                        .openChat({
+                            user: [env.CONTACT],                           
+                            message: `Hi, to discuss about ${orderId}`
+                        });
+                });
+
+                //mail support
+            } else if (microsoftTeams.mail.isSupported()) {
+                buttonElement.textContent = "Mail";
+                buttonElement.addEventListener('click', async ev => {
+                    microsoftTeams.mail.composeMail({
+                        type: microsoftTeams.mail.ComposeMailType.New,
+                        subject: `Enquire about order ${orderId}`,
+                        toRecipients: [env.CONTACT],
+                        message: "Hello",
+                    });
+                });
+            }else{
+                buttonElement.style.display="none";
+            }
+        }
+    }
+}
 
 displayUI();
+displayCallOrChat();

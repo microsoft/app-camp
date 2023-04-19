@@ -1,0 +1,171 @@
+@import "officeStyle.css";
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+th, td {
+    padding: 2pt;
+    text-align: left;
+}
+
+.userPanel {
+    float: right;
+    padding: 3pt;
+}
+
+.userPanel p {
+    margin: 3pt;
+    font-size: x-small;
+}
+
+.userPanel img {
+    float: left;
+    width: 15%;
+    height: 15%;
+    border-radius: 50%;
+    margin-right: 5pt;
+}
+
+.userPanel hr {
+    margin-top: 6pt;
+    margin-bottom: 3pt;
+}
+
+.productImage {
+    width: 20%;
+    height: 20%;
+    border-radius: 10%;
+}
+
+.categoryImage {
+    margin-right: 8pt;
+    width: 60pt;
+    height: auto;
+    float: left;
+    border-radius: 10%;
+}
+
+td .categoryImage {
+    float: none;
+    margin: 0;
+    width: 40%;
+    height: 40%;
+}
+
+.hint {
+    color: gray;
+}
+
+.errorMessage {
+    color: red;
+}
+
+.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: gray;
+  }
+  
+  .topnav li {
+    float: left;
+  }
+  
+  .topnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 4pt 5pt;
+    text-decoration: none;
+  }
+  
+  .topnav .selected {
+    background-color:#D83B01;
+  }
+
+  .topnav li a:hover {
+    background-color: black;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .content:after{
+    display: inline-block;
+    background: #D83B01;
+    content: " ";
+    height: 0;
+    transition: .35s ease;
+    bottom: 0;
+    width: 100px;
+    height: 3px;
+    margin: 0 auto;
+    left: 0;
+    transform: none;
+  }
+  .element{ 
+    border: none;  
+    border-radius: 6px;
+    margin: 10px;
+    padding: 10px;
+  
+  }
+  div#trackerBox{
+    max-width: 500px;
+  }
+  /*-------categories.html(start)-Added for mobile compatibility---------------*/
+  #categoriesPic {
+    width: 4rem;
+  }   
+
+  #categoriesDescription {
+    width: 8rem;
+  }
+
+  #categories{
+    overflow: auto;
+  }
+
+  table#products{
+    width: 100%;
+    overflow: auto;
+  }
+  table#products th{
+    width: 8rem;          
+  } 
+
+  /*-------categories.html(end)----------------*/
+
+  /*-------myOrders.html(start)-Added for mobile compatibility---------------*/
+  #rOTable{
+    width: 100% !important;
+  }
+
+  .nowrapItem{
+    white-space: nowrap !important;
+  }
+    
+  div#content{
+    padding: 1px 1px 6px 8px !important;
+  }
+
+  @media only screen and (max-width: 785px) {
+    div#rODiv {
+        width:auto !important;
+    }
+  }
+  /*-------myOrders.html(end)----------------*/
+
+  /*-------productDetail.html(start)-Added for mobile compatibility---------------*/
+  #productDetailOrders{
+    width: 100%;
+    overflow: auto;
+  }
+
+  #productDetailsAddress{
+    width: 8rem;
+  }
+  /*-------productDetail.html(end)----------------*/

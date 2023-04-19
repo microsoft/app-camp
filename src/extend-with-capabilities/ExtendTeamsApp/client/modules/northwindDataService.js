@@ -21,9 +21,8 @@ export async function getEmployee(employeeId) {
     }
 }
 
-export async function getOrder(orderId)
-{
-    const response = await fetch (`/api/order?orderId=${orderId}`, {
+export async function getOrder(orderId) {
+    const response = await fetch(`/api/order?orderId=${orderId}`, {
         "method": "get",
         "headers": await getFetchHeadersAuth(),
         "cache": "default"
@@ -38,9 +37,8 @@ export async function getOrder(orderId)
     }    
 }
 
-export async function getCategories()
-{
-    const response = await fetch (`/api/categories`, {
+export async function getCategories() {
+    const response = await fetch(`/api/categories`, {
         "method": "get",
         "headers": await getFetchHeadersAuth(),
         "cache": "default"
@@ -55,9 +53,8 @@ export async function getCategories()
     }    
 }
 
-export async function getCategory(categoryId)
-{
-    const response = await fetch (`/api/category?categoryId=${categoryId}`, {
+export async function getCategory(categoryId) {
+    const response = await fetch(`/api/category?categoryId=${categoryId}`, {
         "method": "get",
         "headers": await getFetchHeadersAuth(),
         "cache": "default"
@@ -72,9 +69,8 @@ export async function getCategory(categoryId)
     }    
 }
 
-export async function getProduct(productId)
-{
-    const response = await fetch (`/api/product?productId=${productId}`, {
+export async function getProduct(productId) {
+    const response = await fetch(`/api/product?productId=${productId}`, {
         "method": "get",
         "headers": await getFetchHeadersAuth(),
         "cache": "default"

@@ -1,7 +1,7 @@
 import { 
     getLoggedInEmployee
 } from '../identity/identityClient.js';
-import { ensureTeamsSdkInitialized, inTeams } from '../modules/teamsHelpers.js';
+import { ensureTeamsSdkInitialized, inM365 } from '../modules/teamsHelpers.js';
 import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
 async function displayUI() {
 
@@ -12,7 +12,7 @@ async function displayUI() {
     try {
 
         // Handle incoming deep links by redirecting to the selected order
-        if (await inTeams()) {
+        if (await inM365()) {
             await ensureTeamsSdkInitialized();
             const context = await microsoftTeams.app.getContext();
             if (context.page.subPageId) {
