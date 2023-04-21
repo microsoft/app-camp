@@ -4,7 +4,9 @@
 
 ## Overview
 
-From the beginning, a core tenet of Teams App Camp has been to help developers _reuse_ and _repurpose_ existing applications as Microsoft Teams apps. However the tooling for building Teams apps has improved since then, and many developers may want to build a new extension to their app using these tools. This led to this new set of labs, __Teams App Camp: Next Adventure__.
+From the beginning, a core tenet of Teams App Camp has been to help developers _reuse_ and _repurpose_ existing applications as Microsoft Teams apps in addition to creating new ones. This led to a decision to make the App Camp labs using general-purpose development tools, so developers can learn how Teams apps work in sufficient detail to implement them with any tool chain.
+
+The tooling for building Teams apps - specifically [Teams Toolkit](https://learn.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-fundamentals?pivots=visual-studio-code){target="_blank"}, has improved since then, and many developers may want to build a new extension to their app using these tools. This led to this new set of labs, __Teams App Camp: Next Adventure__.
 
 In these labs, you'll learn how to leverage existing web services to become Teams apps using the [Teams Toolkit for Visual Studio Code](https://aka.ms/teams-toolkit){target=_blank}. While this doesn't allow you to choose just any tool chain, it makes it much easier to write a new Teams app and to deploy it in Microsoft Azure.
 
