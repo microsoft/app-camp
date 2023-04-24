@@ -81,7 +81,7 @@ Continuing to scroll down, under `composeExtensions:` `commands:`, edit the titl
     ]
 ```
 
-Now start your application again. It should look a lot more "Northwindy", but of course it still just queries the npm data.
+Now start your application again - in fact, if it's running, you should stop and start it so Teams Toolkit builds an updated app manifest. Now it should look a lot more "Northwindy", but of course it still just queries the npm data.
 
 ![Caption](../assets/new-adventure/Lab02-001-Install-Branded-App.png)
 
@@ -455,6 +455,8 @@ Finally, replace the `handleTeamsMessagingExtensionSelectItem()` with this versi
 ```
 
 ## Exercise 3: Run the app
+
+It's time to run the app once again and test your message extension. After the initial run, you can always access the app in 
 
 
 
