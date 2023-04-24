@@ -2,6 +2,24 @@
 
 # Lab 1: Create your first app with Teams Toolkit
 
+???+ info "Lab Outline"
+
+    * __<span style="color: red;">THIS LAB:</span>
+    [Lab 1 - Create your first app with Teams Toolkit](./01-create-app.md)__
+    In this lab, you'll set up Teams Toolkit create a Teams message extension
+    * __[Lab 2 - Integrate business data with your application](./02-integrate-web-service.md)__
+    In this lab, you'll brand your new app as "Northwind Suppliers", and will provide the ability to insert data from the Northwind Traders sample database in a Microsoft Teams conversation. You'll also learn how to create and send adaptive cards with your message extension.
+    * __[Lab 3 - Add link unfurling](./03-add-link-unfurling.md)__
+    In this lab, you'll learn how to use Link Unfurling, which provides a custom summary when a user includes your URL in a conversation
+    * __[Lab 4 - Action message extensions with Open AI](./04-add-ai.md)__
+    In this lab, you'll learn how to build "Action" message extensions which can be launched directly
+    or in the context menu of another Teams message to take action on it. The labs use the Open AI
+    commercial web services (in Azure or using an Open AI account) to generate messages.
+    * __[Lab 5 - Single Sign-on and Microsoft Graph](./05-add-sso.md)__
+    In this lab, you'll learn how to authenticate users with Azure AD Single Sign-On, and to call the
+    Microsoft Graph API. This same process would be used when calling any
+    web service that's secured with Azure AD on behalf of the logged-in user.
+
 ## Overview
 
 From the beginning, a core tenet of Teams App Camp has been to help developers _reuse_ and _repurpose_ existing applications as Microsoft Teams apps in addition to creating new ones. This led to a decision to make the App Camp labs using general-purpose development tools, so developers can learn how Teams apps work in sufficient detail to implement them with any tool chain.
@@ -9,24 +27,6 @@ From the beginning, a core tenet of Teams App Camp has been to help developers _
 The tooling for building Teams apps - specifically [Teams Toolkit](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/teams-toolkit-fundamentals?pivots=visual-studio-code){target="_blank"}, has improved since then, and many developers may want to build a new extension to their app using these tools. This led to this new set of labs, __Teams App Camp: Next Adventure__.
 
 In these labs, you'll learn how to leverage existing web services to become Teams apps using the [Teams Toolkit for Visual Studio Code](https://aka.ms/teams-toolkit){target=_blank}. While this doesn't allow you to choose just any tool chain, it makes it much easier to write a new Teams app and to deploy it in Microsoft Azure.
-
-### App Camp: Next Adventure
-
- * [Lab 1 - Create your first app with Teams Toolkit](./01-create-app.md) (this lab)
-   In this lab, you'll set up Teams Toolkit create a Teams message extension
- * [Lab 2 - Integrate business data with your application](./02-integrate-web-service%20copy.md)
-   In this lab, you'll brand your new app as "Northwind Suppliers", and will provide the ability to insert data from the Northwind Traders sample database in a Microsoft Teams conversation. You'll
-   also learn how to create and send adaptive cards with your message extension.
- * [Lab 3 - Add link unfurling](./03-add-link-unfurling.md)
-   In this lab, you'll learn how to use Link Unfurling, which provides a custom summary when a user includes your URL in a conversation
- * [Lab 4 - Action message extensions with Open AI](./04-add-ai.md)
-   In this lab, you'll learn how to build "Action" message extensions which can be launched directly
-   or in the context menu of another Teams message to take action on it. The labs use the Open AI
-   commercial web services (in Azure or using an Open AI account) to generate messages.
- * [Lab 5 - Single Sign-on and Microsoft Graph](./05-add-sso.md)
-   In this lab, you'll learn how to authenticate users with Azure AD Single Sign-On, and to call the
-   Microsoft Graph API. This same process would be used when calling any
-   web service that's secured with Azure AD on behalf of the logged-in user.
 
 In this lab you will learn to:
 

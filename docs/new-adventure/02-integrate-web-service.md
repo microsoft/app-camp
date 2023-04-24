@@ -2,7 +2,23 @@
 
 # Lab 2: Integrate business data with your app
 
-## Overview
+???+ info "Lab Outline"
+
+    * __[Lab 1 - Create your first app with Teams Toolkit](./01-create-app.md)__
+    In this lab, you'll set up Teams Toolkit create a Teams message extension
+    * __<span style="color: red;">THIS LAB:</span>
+    [Lab 2 - Integrate business data with your application](./02-integrate-web-service.md)__
+    In this lab, you'll brand your new app as "Northwind Suppliers", and will provide the ability to insert data from the Northwind Traders sample database in a Microsoft Teams conversation. You'll also learn how to create and send adaptive cards with your message extension.
+    * __[Lab 3 - Add link unfurling](./03-add-link-unfurling.md)__
+    In this lab, you'll learn how to use Link Unfurling, which provides a custom summary when a user includes your URL in a conversation
+    * __[Lab 4 - Action message extensions with Open AI](./04-add-ai.md)__
+    In this lab, you'll learn how to build "Action" message extensions which can be launched directly
+    or in the context menu of another Teams message to take action on it. The labs use the Open AI
+    commercial web services (in Azure or using an Open AI account) to generate messages.
+    * __[Lab 5 - Single Sign-on and Microsoft Graph](./05-add-sso.md)__
+    In this lab, you'll learn how to authenticate users with Azure AD Single Sign-On, and to call the
+    Microsoft Graph API. This same process would be used when calling any
+    web service that's secured with Azure AD on behalf of the logged-in user.## Overview
 
 In the previous lab, you created and ran a Search Message Extension using Teams Toolkit for Visual Studio Code. This is a fairly generic message extension that searches npm packages. In this lab, you'll learn how to brand your application, use it to call an enterprise web service, and update it to send an adaptive card instead of a simpler Hero card.
 
@@ -456,9 +472,31 @@ Finally, replace the `handleTeamsMessagingExtensionSelectItem()` with this versi
 
 ## Exercise 3: Run the app
 
-It's time to run the app once again and test your message extension. After the initial run, you can always access the app in 
+It's time to run the app once again and test your message extension. After the initial run, you can access you app in whatever conversation it was installed in by clicking the "..." in the compose box 1️⃣  and selecting the application 2️⃣. 
 
+![Caption](../assets/new-adventure/Lab02-005-Run2.png)
 
+Enter a search query 1️⃣ and you'll be presented with a list of Northwind suppliers, complete with their national flags. Select a flag 2️⃣ to insert an adaptive card into the conversation.
+
+![Caption](../assets/new-adventure/Lab02-006-Run3.png)
+
+At this point you can edit the message as you wish to add some more information along with the adaptive card.
+
+![Caption](../assets/new-adventure/Lab02-007-Run4.png)
+
+The card stays in the conversation, providing information and the ability to take action. This card is very simple and only shows the ability to open a web page, but there are better options than that! For example, in [this lab](../aad/MessagingExtension.md){target="_blank"}, you can learn how to send data back to your app from the adaptive card! But it's written for another application (the "Northwind Orders" application), which doesn't use Teams toolkit.
+
+![Caption](../assets/new-adventure/Lab02-008-Run5.png)
+
+!!! check "Challenge"
+    Here's something to try on your own! Examine the [message extension lab](../aad/MessagingExtension.md){target="_blank"} for the other code base, and figure out how to add the ability to send data back to the
+    Northwind Suppliers app. To do that, you'll need to:
+     - Update the adaptive card to include one or more input boxes and a submit button
+     - Add code to **TeamsBot.js** that will run when a card is submitted
+     - If you want to stay with the structure of these labs, add a small function in **TeamsBot.js** that calls a public method in **SupplierME.js**. To do that, you'll have to figure out how to distinguish card submissions
+     from the Northwind Suppliers card vs. other cards you might add in the future.
+    
+    You shouldn't need to change the Teams manifest, but you might have a challenge finding a place to write the data out to since we don't really have a database :). But it's still worth experimenting with!
 
 --8<-- "i-finished.md"
 
