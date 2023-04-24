@@ -428,7 +428,7 @@ Next, replace the `handleTeamsMessagingExtensionQuery()` function with this shor
 
     switch (queryName) {
       case "searchQuery":  // Search for suppliers
-        return await SupplierME.query(context, searchQuery);
+        return await SupplierME.handleTeamsMessagingExtensionQuery(context, searchQuery);
       default:
         return null;
     }
@@ -445,8 +445,8 @@ Finally, replace the `handleTeamsMessagingExtensionSelectItem()` with this versi
   async handleTeamsMessagingExtensionSelectItem(context, item) {
 
     switch (item.queryType) {
-      case "searchQuery":  // Search for suppliers
-        return SupplierME.selectItem(context, item);
+      case "supplierME":  // Search for suppliers
+        return SupplierME.handleTeamsMessagingExtensionSelectItem(context, item);
       default:
         return null;
     }
