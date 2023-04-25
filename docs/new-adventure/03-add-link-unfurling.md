@@ -212,10 +212,37 @@ async handleTeamsAppBasedLinkQuery(context, query) {
 
 ## Exercise 3: Run the app
 
+Now run the app again by pressing F5, using the Run menu, or one of the various run buttons shown in Visual Studio Code. When the query message extension pops up, ignore it and just click in the compose message area to dismiss it. Then paste in the URL 1️⃣:
 
+```text
+https://www.northwindtraders.com/suppliers?supplierID=5
+```
 
+A thumbnail card 2️⃣ should be added beneath the link in your message compose area; click send to send it 3️⃣.
 
---8<-- "i-finished.md"
+![Link has been pasted into the message area and a card is displayed with info about the supplier](../assets/new-adventure/Lab03-001-Run-unfurler-success.png)
+
+Now paste in a link with an invalid supplier ID:
+
+```text
+https://www.northwindtraders.com/suppliers?supplierID=55
+```
+
+Since there is no Supplier 55, the card will display an error.
+
+![Link has been pasted into the message area and a card is displayed with an error that the supplier does not exist](../assets/new-adventure/Lab03-002-Run-unfurler-failure.png)
+
+Delete that, and paste in this link, which does not reference a supplier.
+
+```text
+https://www.northwindtraders.com/
+```
+
+This link won't be unfurled because the code checks to be sure a supplier is specified, and it will return null.
+
+## Next Steps
+
+After completing this lab, you may continue to the next lab in this learning path, [Lab 4 - Action message extensions with Open AI](./04-add-ai.md).
 
 ## Known issues
 

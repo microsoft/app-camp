@@ -498,15 +498,13 @@ The card stays in the conversation, providing information and the ability to tak
     
     You shouldn't need to change the Teams manifest, but you might have a challenge finding a place to write the data out to since we don't really have a database :). But it's still worth experimenting with!
 
---8<-- "i-finished.md"
+## Next steps
+
+After completing this lab, you may continue to the next lab in this learning path, [lab-name](./02-lab-something.md).
 
 ## Known issues
 
 --8<-- "issuesLink.md"
-
-## Next steps
-
-After completing this lab, you may continue to the next lab in this learning path, [lab-name](./02-lab-something.md).
 
 <img src="https://pnptelemetry.azurewebsites.net/app-camp/new-adventure/Lab0x" />
 

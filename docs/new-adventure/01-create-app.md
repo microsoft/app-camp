@@ -211,8 +211,6 @@ You have just integrated a web service with Teams, so end users can search for i
 
 In the [next lab](./02-integrate-web-service%20copy.md), we'll brand the application and update it to retrieve information about Northwind Suppliers. We'll also replace the somewhat boring message card (a [Hero Card](https://learn.microsoft.com/microsoftteams/platform/task-modules-and-cards/cards/cards-reference#hero-card){target="_blank"}) with a much more fun [Adaptive Card](https://adaptivecards.io/){target="_blank"}.
 
---8<-- "i-finished.md"
-
 ## Known issues
 
 --8<-- "issuesLink.md"
