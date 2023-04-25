@@ -24,19 +24,42 @@
 
 In this lab you will learn to:
 
-- Do a thing
-- Do another thing
+- Create an action message extension accessible from the compose box in Microsoft Teams
+- Create an action message extension to take action on a message in Microsoft Teams
+- Interact with users using adaptive cards in a dialog through the FetchTask and SubmitAction activities
+- Call the OpenAI API for an Azure OpenAI resource or the OpenAI public web service
 
 ## Features
 
-- List app features that will be added in this lab
+- An action message extension that uses Open AI to help a user compose a message in Microsoft Teams
+- An action message extension that works in the context menu of an existing message to help a user compose a response to a message in Microsoft Teams
 
-## Exercise 1: Do the first thing
+## Exercise 1: Obtain access to an OpenAI service key
 
-### Step 1: And do it well...
+There are two approaches here:
 
-![Caption](../../assets/new-adventure/Lab01-001-Install TTK Extension.png)
+1. Set up an Azure OpenAI resource with a model such as text-davinci-003 and obtain the following information
+2. Set up an account with OpenAI to access their public API
 
+Please choose one of these approaches and follow the guidance below.
+
+### Option 1: Use an Azure OpenAI resource
+
+This is a good approach if you have access to an Azure subscription, and if you want to keep your data within your own Azure subscription rather than in a shared online service. [Instructions for setting it up are here](){target=_blank}.
+
+You will need the following information about the service to access it in your application:
+
+  * Endpoint 1️⃣ 
+  * Model 2️⃣ 
+  * Version
+  * API Key 3️⃣ 
+
+
+### Option 2: Use the OpenAI public API
+
+This is a great and quick way to get started, especially if you can access a trial API key. You can do a lot with the $5 credit that is currently offered, however you may find that your 90-day time window has expired if you've been using ChatGPT.
+
+  * Open AI key
 
 
 --8<-- "i-finished.md"
