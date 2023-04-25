@@ -146,16 +146,16 @@ class SupplierME {
                         SupplierID: supplier.SupplierID,
                         flagUrl: flagUrl,
                         imageUrl: imageUrl,
-                        Address: supplier.Address,
-                        City: supplier.City,
-                        CompanyName: supplier.CompanyName,
-                        ContactName: supplier.ContactName,
-                        ContactTitle: supplier.ContactTitle,
-                        Country: supplier.Country,
-                        Fax: supplier.Fax,
-                        Phone: supplier.Phone,
-                        PostalCode: supplier.PostalCode,
-                        Region: supplier.Region
+                        Address: supplier.Address || "",
+                        City: supplier.City || "",
+                        CompanyName: supplier.CompanyName || "unknown",
+                        ContactName: supplier.ContactName || "",
+                        ContactTitle: supplier.ContactTitle || "",
+                        Country: supplier.Country || "",
+                        Fax: supplier.Fax || "",
+                        Phone: supplier.Phone || "",
+                        PostalCode: supplier.PostalCode || "",
+                        Region: supplier.Region || ""
                     },
                 };
                 const attachment = { ...itemAttachment, preview: previewAttachment };
