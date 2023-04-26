@@ -23,7 +23,7 @@
     "node-fetch": "^3.1.1",
     "request": "^2.88.0",
     "adaptive-expressions": "^4.15.0",
-    "adaptivecards": "^2.10.0",
+    "adaptivecards": "2.10.0",
     "adaptivecards-templating": "^2.2.0",
     "botbuilder": "^4.15.0"
   },
