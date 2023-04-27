@@ -34,7 +34,7 @@ In this lab you will learn to:
 - An action message extension that uses Open AI to help a user compose a message in Microsoft Teams
 - An action message extension that works in the context menu of an existing message to help a user compose a response to a message in Microsoft Teams
 
-## Exercise 1: Obtain access to an OpenAI service key
+## Exercise 1: Obtain an OpenAI API key and the code to call OpenAI
 
 There are two approaches here:
 
@@ -45,21 +45,190 @@ Please choose one of these approaches and follow the guidance below.
 
 ### Option 1: Use an Azure OpenAI resource
 
-This is a good approach if you have access to an Azure subscription, and if you want to keep your data within your own Azure subscription rather than in a shared online service. [Instructions for setting it up are here](){target=_blank}.
+This is a good approach if you have access to an Azure subscription, and if you want to keep your data within your own Azure subscription rather than in a shared online service. [Instructions for setting it up are here](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service){target=_blank}.
 
-You will need the following information about the service to access it in your application:
+Once your Azure resource is running, you'll need the following information about the service to access it in your application:
 
-  * Endpoint 1️⃣ 
-  * Model 2️⃣ 
-  * Version
-  * API Key 3️⃣ 
+  * Endpoint 1️⃣ - This is assigned when you create the OpenAI resource
+  * Model 2️⃣ - Create an AI model deployment; the model text-davinci-003 works well for this lab. You need the "Model deployment name" from the left column in the list of model deployments.
+  * Version - This is the API version; use "2023-03-15-preview" for now
+  * API Key 3️⃣ - Obtain an API key 
 
+Next, edit your **env/.env.local** file and add the following lines, filling in the information above.
 
-### Option 2: Use the OpenAI public API
+~~~text
+AZURE_OPENAI_BASE_PATH=https://something.openai.azure.com/openai
+AZURE_OPENAI_MODEL=text-davinci-003
+AZURE_OPANAI_API_VERSION=2023-03-15-preview
+AZURE_OPENAI_API_KEY=xxxxxxxxxxxxxxx
+~~~
 
-This is a great and quick way to get started, especially if you can access a trial API key. You can do a lot with the $5 credit that is currently offered, however you may find that your 90-day time window has expired if you've been using ChatGPT.
+Now let's add code to call the Azure OpenAI service. Create a folder **services** within the **bot** folder in your project. In this new folder, create a file **azureOpenAiService.js** and paste in this code:
 
-  * Open AI key
+~~~javascript
+const { Configuration, OpenAIApi } = require("openai");
+
+class AzureOpenAiService {
+    #configuration;
+
+    constructor() {
+
+        this.#configuration = new Configuration({
+            basePath: process.env.AZURE_OPENAI_BASE_PATH +
+                "/deployments/" + process.env.AZURE_OPENAI_MODEL
+        });
+        this.openAiClient = new OpenAIApi(this.#configuration);
+    }
+
+    getPrompt(userMessage, replyType) {
+
+        switch (replyType) {
+            case "agree": {
+                return `Please generate an agreeable response to the following message: "${userMessage}"`;
+            }
+            case "disagree": {
+                return `Please generate a polite response in disagreement to the following message: "${userMessage}"`;
+            }
+            case "poem": {
+                return `Please generate a short poem in response to the following message: "${userMessage}"`;
+            }
+            case "joke": {
+                return `Please generate a dad joke in response to the following message: "${userMessage}"`;
+            }
+            default: {
+                return `Please respond to the following message: "${userMessage}"`;
+            }
+        }
+    }
+
+    async generateMessage(prompt) {
+
+        try {
+
+            const response = await this.openAiClient.createCompletion({
+                prompt: prompt,
+                temperature: 0.0,
+                max_tokens: 400
+            }, {
+                headers: {
+                    'api-key': process.env.AZURE_OPENAI_API_KEY,
+                  },
+                  params: { "api-version": process.env.AZURE_OPANAI_API_VERSION }
+            });
+
+            let result = response.data.choices[0].text;
+
+            return result.trim();
+
+        } catch (e) {
+
+            console.log(`Error ${e.response.sttus} ${e.response.statusText}`);
+            return "Error";
+
+        }
+
+    }
+}
+
+module.exports.OpenAiService = new AzureOpenAiService();
+~~~
+
+### Option 2: Use the OpenAI Platform
+
+This is a good approach if you want to obtain [AI service directly from OpenAI](https://platform.openai.com/){target=_blank}, and is a quick way to get started with an OpenAI trial account. You'll need to [obtain an API key](https://platform.openai.com/account/api-keys){target=_blank} to use the service. Note that if you've been using Chat GPT for a while your trial API access may already have expired; visit the [usage page](https://platform.openai.com/account/usage){target=_blank} to check your status.
+
+All you need for the lab is an OpenAI API key. Edit your **env/.env.local** file and add the following line with your API key:
+
+~~~text
+OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxx
+~~~
+
+Now let's add code to call the OpenAI service. Create a folder **services** within the **bot** folder in your project. In this new folder, create a file **openAiService.js** and paste in this code:
+
+~~~javascript
+const { Configuration, OpenAIApi } = require("openai");
+
+class OpenAiService {
+    #configuration;
+
+    constructor() {
+        this.#configuration = new Configuration({
+            apiKey: process.env.OPENAI_API_KEY
+        });
+        this.openAiClient = new OpenAIApi(this.#configuration);
+    }
+
+    getPrompt(userMessage, replyType) {
+
+        switch (replyType) {
+            case "agree": {
+                return `Please generate an agreeable response to the following message: "${userMessage}"`;
+            }
+            case "disagree": {
+                return `Please generate a polite response in disagreement to the following message: "${userMessage}"`;
+            }
+            case "poem": {
+                return `Please generate a short poem in response to the following message: "${userMessage}"`;
+            }
+            case "joke": {
+                return `Please generate a dad joke in response to the following message: "${userMessage}"`;
+            }
+            default: {
+                return `Please respond to the following message: "${userMessage}"`;
+            }
+        }
+    }
+
+    async generateMessage(prompt) {
+
+        try {
+
+            const response = await this.openAiClient.createCompletion({
+                model: "text-davinci-003",
+                prompt: prompt,
+                temperature: 0.6,
+                max_tokens: 100
+            });
+
+            let result = response.data.choices[0].text;
+
+            return result.trim();
+
+        } catch (e) {
+
+            console.log(`Error ${e.response.sttus} ${e.response.statusText}`);
+            return "Error";
+
+        }
+
+    }
+}
+
+module.exports.OpenAiService = new OpenAiService();
+~~~
+
+???+ note "Code walk-through"
+  You might notice that the Azure OpenAI and OpenAI services are very similar. They both have `generateMessage()` functions that call openAiClient.createCompletion() with a prompt, and receive a response from the AI model. They also both have some super simple prompt generation code to allow the user to generate different kinds of responses to a message in Microsoft Teams.
+
+## Exercise 2: Install the Open AI API package
+
+In the previous exercise, you added code that uses the OpenAI API, but we haven't installed the npm module for it. The same module works for both Azure OpenAI and the OpenAI Platform.
+
+Open a terminal window in Visual Studio Code or in your local operating system, and navigate to the **bot** directory within your project folder. Type this command to install the package:
+
+~~~sh
+npm install openai
+~~~
+
+## Exercise 3: Add Action message extensions to the Teams manifest
+
+## Exercise 4: Add a message extension to generate a message
+
+## Exercise 5: Add a message extension to reply to a message
+
+## Exercise 6: Update the bot code to call the message extensions
+
+## Exercise 7: Run the solution
 
 
 --8<-- "i-finished.md"
