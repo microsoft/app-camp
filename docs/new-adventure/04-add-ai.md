@@ -214,7 +214,7 @@ module.exports.OpenAiService = new OpenAiService();
 
 In the previous exercise, you added code that uses the OpenAI API, but we haven't installed the npm module for it. The same module works for both Azure OpenAI and the OpenAI Platform.
 
-Open a terminal window in Visual Studio Code or in your local operating system, and navigate to the **bot** directory within your project folder. Type this command to install the package:
+Open a terminal window in Visual Studio Code or in your local operating system, and navigate to your **NorthwindSuppliers** project folder. Then type this command:
 
 ~~~sh
 npm install openai
