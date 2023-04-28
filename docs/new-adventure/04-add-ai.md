@@ -222,6 +222,8 @@ npm install openai
 
 ## Exercise 3: Add Action message extensions to the Teams manifest
 
+OK now that we have an AI service to build on, let's create the message extensions. There will be two of them: one that generates a new message and is accessible 
+
 ## Exercise 4: Add a message extension to generate a message
 
 ## Exercise 5: Add a message extension to reply to a message
