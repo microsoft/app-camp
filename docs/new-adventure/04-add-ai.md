@@ -232,16 +232,15 @@ OK now that we have an AI service to build on, let's create the message extensio
 
 ## Exercise 7: Run the solution
 
-
 --8<-- "i-finished.md"
+
+## Next steps
+
+After completing this lab, you may continue to the next lab in this learning path, [Lab 5 - Single Sign-on and Microsoft Graph](./05-add-sso.md).
 
 ## Known issues
 
 --8<-- "issuesLink.md"
-
-## Next steps
-
-After completing this lab, you may continue to the next lab in this learning path, [lab-name](./02-lab-something.md).
 
 <img src="https://pnptelemetry.azurewebsites.net/app-camp/new-adventure/Lab0x" />
 

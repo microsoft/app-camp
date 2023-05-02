@@ -2,7 +2,7 @@
 
 ## Summary
 
-This sample is a Meeting app created from using the core teams application built over the course of labs [A01](../../../lab-instructions/aad/A01-begin-app.md)-[A03](../../../lab-instructions/aad/A03-after-apply-styling.md) to get to the Northwind Orders core application. It provides the meeting creator the ability to add a tab pre-meeting which attendees can use to view products of a given category.
+This sample is a Meeting app created from using the core teams application built over the course of labs [A01](/app-camp/../lab-instructions/aad/A01-begin-app.md)-[A03](/app-camp/../lab-instructions/aad/A03-after-apply-styling.md) to get to the Northwind Orders core application. It provides the meeting creator the ability to add a tab pre-meeting which attendees can use to view products of a given category.
 
 In this sample, the student gets to explore how to surface information in Microsoft Teams Meetings.
 

@@ -3,7 +3,7 @@
 
 ## Summary
 
-This sample is a created  using the core teams application built over the course of labs [A01](../../lab-instructions/aad/A01-begin-app.md)-[A03](../../lab-instructions/aad/A03-after-apply-styling.md) to get to the Northwind Orders core application. The app demonstrates how to use the latest Microsoft Teams JS SDK V2 to extend teams application to other M365 host apps like Outlook/Office.com
+This sample is a created  using the core teams application built over the course of labs [A01](/app-camp/lab-instructions/aad/A01-begin-app.md)-[A03](/app-camp/lab-instructions/aad/A03-after-apply-styling.md) to get to the Northwind Orders core application. The app demonstrates how to use the latest Microsoft Teams JS SDK V2 to extend teams application to other M365 host apps like Outlook/Office.com
 
 
 
@@ -32,7 +32,7 @@ Microsoft Teams provides a Single Sign-On (SSO) capability so users are silently
 
 Go to the [Azure AD admin portal](https://aad.portal.azure.com/) and make sure you're logged in as the administrator of your development tenant. Click "Azure Active Directory" 1️⃣ and then "App Registrations" 2️⃣.
 
-![Return to your app registration](../../docs/assets/screenshots/03-001-AppRegistrationUpdate-1.png)
+![Return to your app registration](/app-camp/docs/assets/screenshots/03-001-AppRegistrationUpdate-1.png)
 
 Select the app you registered earlier to view the application overview.
 
@@ -40,18 +40,18 @@ Select the app you registered earlier to view the application overview.
 
 Click "Expose an API" 1️⃣ and then "+ Add a client application" 2️⃣.
 
-![Open the Expose an API screen](../../docs/assets/screenshots/03-002-AppRegistrationUpdate-2.png)
+![Open the Expose an API screen](/app-camp/docs/assets/screenshots/03-002-AppRegistrationUpdate-2.png)
 
 Paste the ID for the Teams mobile or desktop app, `1fec8e78-bce4-4aaf-ab1b-5451cc387264` into the flyout 1️⃣ and check the scope you created earlier 2️⃣ to allow Teams to issue tokens for that scope. Then click "Add application" 3️⃣ to save your work.
 
 Repeat the process for the Teams web application, `5e3ce6c0-2b1f-4285-8d4b-75ee78787346`.
 
-![Add a client application](../../docs/assets/screenshots/03-003-AppRegistrationUpdate-3.png)
+![Add a client application](/app-camp/docs/assets/screenshots/03-003-AppRegistrationUpdate-3.png)
 
 
 Click "Expose an API" 1️⃣ and then "+ Add a client application" 2️⃣.
 
-![Open the Expose an API screen](../../assets/screenshots/03-002-AppRegistrationUpdate-2.png)
+![Open the Expose an API screen](/app-camp/assets/screenshots/03-002-AppRegistrationUpdate-2.png)
 
 Paste the ID for the Teams mobile or desktop app, `1fec8e78-bce4-4aaf-ab1b-5451cc387264` into the flyout 1️⃣ and check the scope you created earlier 2️⃣ to allow Teams to issue tokens for that scope. Then click "Add application" 3️⃣ to save your work.
 
@@ -146,19 +146,19 @@ Run below script to download local DB files
 
 - Launch application in Teams
 
-![app in teams](../../docs/assets/experimental/working-teams.gif)
+![app in teams](/app-camp/docs/assets/experimental/working-teams.gif)
 
 - Launch application in Office.com
 
-![app in office.com](../../docs/assets/experimental/working-office.gif)
+![app in office.com](/app-camp/docs/assets/experimental/working-office.gif)
 
 - Launch application in Outlook
 
-![app in outlook (windows)](../../docs/assets/experimental/working-outlook.gif)
+![app in outlook (windows)](/app-camp/docs/assets/experimental/working-outlook.gif)
 
 - Search based message extension in both Teams and Outlook
 
-![ME in teams and outlook](../../docs/assets/experimental/ME.gif)
+![ME in teams and outlook](/app-camp/docs/assets/experimental/ME.gif)
 
 ## Features
 - In Teams:

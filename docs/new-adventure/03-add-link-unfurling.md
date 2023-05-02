@@ -248,9 +248,5 @@ After completing this lab, you may continue to the next lab in this learning pat
 
 --8<-- "issuesLink.md"
 
-## Next steps
-
-After completing this lab, you may continue to the next lab in this learning path, [lab-name](./02-lab-something.md).
-
 <img src="https://pnptelemetry.azurewebsites.net/app-camp/new-adventure/Lab0x" />
 

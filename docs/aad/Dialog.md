@@ -274,7 +274,7 @@ This lab assumes you already completed the Core lab and registered an Azure AD a
 - Add comment/note and select **Save**.
 - Notice the dialog closed and the results getting added into the order details page.
 
-![dialog working](../../assets/taskmodule-working.gif)
+![dialog working](/app-camp/assets/taskmodule-working.gif)
 
 !!! note 
     The comments are not saved back into the northwind database at this time, so they'll only persist as long as you stay on the order details page.

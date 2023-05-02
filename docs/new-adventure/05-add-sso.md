@@ -35,9 +35,12 @@ In this lab you will learn to:
 
 ### Step 1: And do it well...
 
-![Caption](../../assets/new-adventure/Lab01-001-Install TTK Extension.png)
+![Caption](/app-camp/assets/new-adventure/Lab01-001-Install TTK Extension.png)
 
+## Next steps
 
+Congratulations, you have completed App Camp New Adventure!
+If you haven't tried the classic App Camp labs yet, click [here](/app-camp/aad/A01-begin-app) to give them a try!
 
 --8<-- "i-finished.md"
 
@@ -45,9 +48,6 @@ In this lab you will learn to:
 
 --8<-- "issuesLink.md"
 
-## Next steps
-
-After completing this lab, you may continue to the next lab in this learning path, [lab-name](./02-lab-something.md).
 
 <img src="https://pnptelemetry.azurewebsites.net/app-camp/new-adventure/Lab0x" />
 

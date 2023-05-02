@@ -133,13 +133,13 @@ Leave the rest of the configuration in file `ARMParameters.json` as is, this wil
     Connect-Graph -Scopes "Application.ReadWrite.All, Directory.AccessAsUser.All DelegatedPermissionGrant.ReadWrite.All Directory.ReadWrite.All"
     ```
 
-![Graph consent](../../assets/screenshots/08-001.png)
+![Graph consent](/app-camp/assets/screenshots/08-001.png)
 
 6. Click **Accept**.
 
 Once accepted, the browser will redirect and show the below message. You can close the browser and continue with the PowerShell command line.
 
- ![Graph consent redirect](../../assets/screenshots/08-001-1.png)
+ ![Graph consent redirect](/app-camp/assets/screenshots/08-001-1.png)
 
 7. In the same PowerShell terminal window run `.\InstallApps.ps1`.
 
@@ -149,7 +149,7 @@ Once accepted, the browser will redirect and show the below message. You can clo
 !!! warning
     You might get an error as shown below. It depends on the execution policy settings in PowerShell. If you do get the error, **move to [Step 2](#step-2-overcoming-install-errors)**. If you do not get the error **keep going**.
 
-    ![execution policy](../../assets/screenshots/08-001-2.png)
+    ![execution policy](/app-camp/assets/screenshots/08-001-2.png)
 
 8. Copy the values from the output and later you will need  these values to update the code and .`env` file for deploying add-ins. These values will also be pre-populated in `ARMParameters.json`. Do not change this file.
 9. Note how the `ARMParameters.json` file is now updated with the values of applications deployed.
@@ -172,7 +172,7 @@ You will set the execution policy to `Bypass` for now. Read more on execution po
 
     The script should now run to create all three applications in Azure AD. At the end of the script, your command line should display below information.:
 
-![app id secret](../../assets/screenshots/08-002.png)
+![app id secret](/app-camp/assets/screenshots/08-002.png)
 
 3. Copy the values from the output and later you will need  these values to update the code and .env file for deploying Add-ins. These values will also be pre-populated in `ARMParameters.json`. Do not change this file.
 
@@ -183,31 +183,31 @@ You will set the execution policy to `Bypass` for now. Read more on execution po
 1. Open PowerShell 7 and run the Powershell command `Connect-AzAccount`. This will redirect you to login page.
 2. Confirm with the Global admin credentials. You will be redirected to a page displaying below.
 
-![Azure CLI consent redirect](../../assets/screenshots/08-001-1.png)
+![Azure CLI consent redirect](/app-camp/assets/screenshots/08-001-1.png)
 
 3. Close the browser and continue with PowerShell. You will see similar output to that shown below in your command line, if everything is okay.
 
-![AZ CLI](../../assets/screenshots/08-003.png)
+![AZ CLI](/app-camp/assets/screenshots/08-003.png)
 
 4. Run the script `.\DeployTemplate.ps1`. 
     When prompted, enter the name of the resource group to create.
 
-![AZ CLI](../../assets/screenshots/08-004-1.png)
+![AZ CLI](/app-camp/assets/screenshots/08-004-1.png)
 
 Your resources will start to get deployed one after the other and you'll see the output as shown below if everything is okay.
 
-![AZ CLI](../../assets/screenshots/08-004.png)
+![AZ CLI](/app-camp/assets/screenshots/08-004.png)
 
 You'll get a message on the command line that the ARM Template deployment was successfully as shown below.
 
-![AZ CLI](../../assets/screenshots/08-005.png)
+![AZ CLI](/app-camp/assets/screenshots/08-005.png)
 
 5. Go to the `App registrations` in Azure AD in Azure portal. Use this [link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to navigate to it.
 
 Under **All applications**,  filter with Display name `Contoso Monetization`.
 You should see three apps as shown in the screen below:
 
-![AZ AD Apps](../../assets/screenshots/08-006.png)
+![AZ AD Apps](/app-camp/assets/screenshots/08-006.png)
 
 ### Step 4: Deploy the applications to Azure
 
@@ -218,14 +218,14 @@ Here you'll deploy the server side code for the three applications.
 3. When prompted, enter the same resource group name you chose earlier.
     You will see the source code in your local machine getting built and packaged.
 
-![Build Apps](../../assets/screenshots/08-007.png)
+![Build Apps](/app-camp/assets/screenshots/08-007.png)
 
 !!! note
     You may see some warnings about file expiration, please ignore.
 
 The final messages may look like the image below.
 
- ![publish Apps](../../assets/screenshots/08-008.png)
+ ![publish Apps](/app-camp/assets/screenshots/08-008.png)
 
 ### Step 5: Complete the monetization lab
 

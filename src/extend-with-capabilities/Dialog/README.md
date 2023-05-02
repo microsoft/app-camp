@@ -2,7 +2,7 @@
 
 ## Summary
 
-This sample is an enhancement of the personal tab created from using the core teams application built over the course of labs [A01](../../../lab-instructions/aad/A01-begin-app.md)-[A03](../../../lab-instructions/aad/A03-after-apply-styling.md).
+This sample is an enhancement of the personal tab created from using the core teams application built over the course of labs [A01](/app-camp/../lab-instructions/aad/A01-begin-app.md)-[A03](/app-camp/../lab-instructions/aad/A03-after-apply-styling.md).
 
 In this sample, the student gets use a web page and a dialog to capture and send information back to a Teams tab.
 
@@ -10,7 +10,7 @@ In this sample, the student gets use a web page and a dialog to capture and send
 - Add information from the form back to tab
 
 
-![dialog working](../../../assets/taskmodule-working.gif)
+![dialog working](/app-camp/../assets/taskmodule-working.gif)
 
 
 

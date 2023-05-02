@@ -2,7 +2,7 @@
 
 # Resources
 
-This page contains resources for the Microsoft [Teams App Camp](../README.md).
+This page contains resources for the Microsoft [Teams App Camp](/).
 
 For an overview of Teams app development, check out this video by Bob and Rabia!
 

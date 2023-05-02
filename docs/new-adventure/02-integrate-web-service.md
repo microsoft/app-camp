@@ -500,7 +500,7 @@ The card stays in the conversation, providing information and the ability to tak
 
 ## Next steps
 
-After completing this lab, you may continue to the next lab in this learning path, [lab-name](./02-lab-something.md).
+After completing this lab, you may continue to the next lab in this learning path, [Lab 3 - Add link unfurling](./03-add-link-unfurling.md).
 
 ## Known issues
 

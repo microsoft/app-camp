@@ -174,23 +174,23 @@ In order for users to log into your application with Azure AD, you need to regis
 
  - In the left navigation, click "Show More" to reveal the full list of admin centers, and then click "Azure Active Directory". This will bring you to the [Azure AD admin center](https://aad.portal.azure.com/){target="_blank"}.
 
-![Navigating to the M365 Admin site](../../assets/screenshots/01-009-RegisterAADApp-1.png)
+![Navigating to the M365 Admin site](/app-camp/assets/screenshots/01-009-RegisterAADApp-1.png)
 
 - Click "Azure Active Directory" again in the left navigation bar.
 
-![Navigating to the M365 Admin site](../../assets/screenshots/01-010-RegisterAADApp-2.png)
+![Navigating to the M365 Admin site](/app-camp/assets/screenshots/01-010-RegisterAADApp-2.png)
 
 - This will bring you to the overview of your Azure AD tenant. Note that a "tenant" is a single instance of Azure Active Directory, with its own users, groups, and app registrations. Verify that you're in the developer tenant you just created, and click "App Registrations" in the navigation bar.
 
-![Opening App Registrations](../../assets/screenshots/01-011-RegisterAADApp-3.png)
+![Opening App Registrations](/app-camp/assets/screenshots/01-011-RegisterAADApp-3.png)
 
 - You will be shown a list of applications (if any) registered in the tenant. Click "+ New Registration" at the top to register a new application.
 
-![Adding a registration](../../assets/screenshots/01-012-RegisterAADApp-4.png)
+![Adding a registration](/app-camp/assets/screenshots/01-012-RegisterAADApp-4.png)
 
 You will be presented with the "Register an application" form.
 
-![Register an application form](../../assets/screenshots/01-013-RegisterAADApp-5.png)
+![Register an application form](/app-camp/assets/screenshots/01-013-RegisterAADApp-5.png)
 
 - Enter a name for your application 1️⃣.
 - Under "Supported account types" select "Accounts in any organizational directory" 2️⃣. This will allow your application to be used in your customer's tenants.
@@ -199,11 +199,11 @@ You will be presented with the "Register an application" form.
 
 You will be presented with the application overview. There are two values on this screen you need to copy for use later on; those are the Application (client) ID 1️⃣ and the Directory (tenant) ID 2️⃣.
 
-![Application overview screen](../../assets/screenshots/01-014-RegisterAADApp-6.png)
+![Application overview screen](/app-camp/assets/screenshots/01-014-RegisterAADApp-6.png)
 
 When you've recorded these values, navigate to "Certificates & secrets" 3️⃣.
 
-![Adding a secret](../../assets/screenshots/01-015-RegisterAADApp-7.png)
+![Adding a secret](/app-camp/assets/screenshots/01-015-RegisterAADApp-7.png)
 
 Now you will create a client secret, which is like a password for your application to use when it needs to authenticate with Azure AD.
 
@@ -213,7 +213,7 @@ Now you will create a client secret, which is like a password for your applicati
 
 The secret will be displayed just this once on the "Certificates and secrets" screen. Copy it now and store it in a safe place.
 
-![Copy the app secret](../../assets/screenshots/01-016-RegisterAADApp-8.png)
+![Copy the app secret](/app-camp/assets/screenshots/01-016-RegisterAADApp-8.png)
 
 !!! warning "Managing app secrets is an ongoing responsibility"
     App secrets have a limited lifetime, and if they expire your application may stop working. You can have multiple secrets, so plan to roll them over as you would with a digital certificate.
@@ -228,12 +228,12 @@ The app registration created an identity for your application; now we need to gi
 
 - While still in the app registration, navigate to "API Permissions" 1️⃣. Notice that User.Read delegated permission for the Microsoft Graph API has automatically been placed on the list 2️⃣; this is exactly the permission we need to read the user's profile.
 
-![Confirm the permission](../../assets/screenshots/01-017-RegisterAADApp-9a.png)
+![Confirm the permission](/app-camp/assets/screenshots/01-017-RegisterAADApp-9a.png)
 
 
 - The permission was added automatically, but nobody has consented to it 1️⃣. To fix this, click the "Grant admin consent for <tenant>" button and then agree to grant the consent 2️⃣. When this is complete, the message "Granted for <tenant>" should be displayed for each permission.
 
-![Grant consent](../../assets/screenshots/01-024-RegisterAADApp-15.png)
+![Grant consent](/app-camp/assets/screenshots/01-024-RegisterAADApp-15.png)
 
 #### Step 3: Expose an API
 
@@ -241,11 +241,11 @@ The Northwind Orders app is a full stack application, with code running in the w
 
 Click "Expose an API" 1️⃣ and then "Add a scope"2️⃣. Scopes expose an application's permissions; what you're doing here is adding a permission that your application's browser code can use it when calling the server. 
 
-![Expose an API](../../assets/screenshots/01-021-RegisterAADApp-12.png)
+![Expose an API](/app-camp/assets/screenshots/01-021-RegisterAADApp-12.png)
 
 On the "Add a scope" flyout, edit the Application ID URI to include your ngrok URL between the "api://" and the client ID. Click the "Save and continue" button to proceed.
 
-![Set the App URI](../../assets/screenshots/01-022-RegisterAADApp-13.png)
+![Set the App URI](/app-camp/assets/screenshots/01-022-RegisterAADApp-13.png)
 
 Now that you've defined the application URI, the "Add a scope" flyout will allow you to set up the new permission scope. Fill in the form as follows:
 - Scope name: access_as_user
@@ -256,7 +256,7 @@ Now that you've defined the application URI, the "Add a scope" flyout will allow
 - Ensure the State is set to "Enabled"
 - Click "Add scope"
 
-![Add the scope](../../assets/screenshots/01-023-RegisterAADApp-14.png)
+![Add the scope](/app-camp/assets/screenshots/01-023-RegisterAADApp-14.png)
 
 
 #### Step 4: Authorize Microsoft Teams to log users into your application
@@ -265,13 +265,13 @@ Microsoft Teams provides a Single Sign-On (SSO) capability so users are silently
 
 Click "Expose an API" 1️⃣ and then "+ Add a client application" 2️⃣.
 
-![Open the Expose an API screen](../../assets/screenshots/03-002-AppRegistrationUpdate-2.png)
+![Open the Expose an API screen](/app-camp/assets/screenshots/03-002-AppRegistrationUpdate-2.png)
 
 Paste the ID for the Teams mobile or desktop app, `1fec8e78-bce4-4aaf-ab1b-5451cc387264` into the flyout 1️⃣ and check the scope you created earlier 2️⃣ to allow Teams to issue tokens for that scope. Then click "Add application" 3️⃣ to save your work.
 
 Repeat the process for the Teams web application, `5e3ce6c0-2b1f-4285-8d4b-75ee78787346`.
 
-![Add a client application](../../assets/screenshots/03-003-AppRegistrationUpdate-3.png)
+![Add a client application](/app-camp/assets/screenshots/03-003-AppRegistrationUpdate-3.png)
 
 ### Exercise 2: Update the Teams application package
 
@@ -660,17 +660,17 @@ In the Teams web or desktop UI, click "Apps" in the sidebar 1️⃣, then "Manag
 
 In this case, choose the first option 3️⃣.
 
-![Upload the app](../../assets/screenshots/03-005-InstallApp-1.png)
+![Upload the app](/app-camp/assets/screenshots/03-005-InstallApp-1.png)
 
 Navigate to the Northwind.zip file in your manifest directory and upload it. Although the application is already installed, you are providing a newer version so it will update the application. Click the "Add" button to install it for your personal use.
 
-![Upload the app](../../assets/screenshots/03-006-InstallApp-2.png)
+![Upload the app](/app-camp/assets/screenshots/03-006-InstallApp-2.png)
 
 #### Step 3: Run the application
 
 The application should appear without any login prompt. The app's navigation should not be displayed; instead users can navigate to "My Orders" or "Products" using the tabs in the Teams app.
 
-![Run the app](../../assets/screenshots/03-007-RunApp-1.png)
+![Run the app](/app-camp/assets/screenshots/03-007-RunApp-1.png)
 
 --8<-- "i-finished.md"
 
