@@ -222,11 +222,279 @@ npm install openai
 
 ## Exercise 3: Add Action message extensions to the Teams manifest
 
-OK now that we have an AI service to build on, let's create the message extensions. There will be two of them: one that generates a new message and is accessible 
+OK now that we have an AI service to build on, let's create the message extensions. There will be two of them: one that generates a new message and is accessible from a button next to the compose box pop-up, and the other replies to a message and is accessible from the context menu of a message.
+
+Open **appPackage/manifest.json** in your code editor and add these two elements to the `commands` array within `composeExtensions`:
+
+~~~json
+    {
+        "id": "generateMessage",
+        "context": [
+            "compose",
+            "commandBox"
+        ],
+        "description": "Generate a message using AI",
+        "title": "Generate message",
+        "type": "action",
+        "fetchTask": true
+    },
+    {
+        "id": "replyToMessage",
+        "context": [
+            "message"
+        ],
+        "description": "Generate an agreeable response",
+        "title": "AI Reply",
+        "type": "action",
+        "fetchTask": true
+    }
+~~~
+
+!!! note
+    If all the indentation is a bit confusing, feel free to copy the entire updated **manifest.json** file [from here](https://github.com/microsoft/app-camp/tree/BG-NewLabs/src/teams-toolkit/Lab04-add-ai/NorthwindSuppliers/appPackage/manifest.json){target=_blank}
+
+Notice that the new commands are both of type `action`, with `fetchTask` set to `true`. This will cause Teams to display a dialog containing a web page or adaptive card when the action is invoked. In this case, we'll use an adaptive card.
+
+Also notice that the `generateMessage` action runs in the context of the `compose` box or `commandBox` at the top of the Teams user interface. `replyToMessage` runs in the context of a `message`.
 
 ## Exercise 4: Add a message extension to generate a message
 
+### Step 1: Add JavaScript code
+
+Now, as before, we'll make a separate JavaScript module for each of our message extensions. Create a new file called **generateMessageME.js** in the **messageExtensions** folder. Paste this code into the file:
+
+~~~javascript
+
+const ACData = require("adaptivecards-templating");
+const { CardFactory } = require("botbuilder");
+const { OpenAiService } = require("../services/azureOpenAiService");
+// const { OpenAiService } = require("../services/openAiService");
+
+class GenerateMessageME {
+
+    // Ref documentation
+    // https://learn.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command
+
+    async fetchTask (context, action) {
+        try {
+            return this.#getMessageFormResponse("Please generate a message for me to send.");
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    async submit (context, action) {
+
+        try {
+
+            switch (action.data?.intent) {
+                case "send": {
+                    return await this.#getSendMessageResponse(action.data?.message);
+                }
+                default: {
+                    return await this.#getMessageFormResponse(action.data?.prompt);
+                }
+            }
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+
+    // Generate a message given a prompt from the user
+    async #getMessageFormResponse (prompt) {
+
+        const text = await OpenAiService.generateMessage(prompt);
+
+        // Read card from JSON file
+        const templateJson = require('./generateMessageCard.json');
+        const template = new ACData.Template(templateJson);
+        const cardContents = template.expand({
+            $root: {
+                prompt: prompt,
+                message: text
+            }
+        });
+
+        const card = CardFactory.adaptiveCard(cardContents);
+        return {
+            task: {
+                type: 'continue',
+                value: {
+                    card: card,
+                    height: 400,
+                    title: `Generate a message`,
+                    width: 300
+                }
+            }
+        };
+    }
+
+    async #getSendMessageResponse (message) {
+
+        const messageHtml = message.replace(/\n/g, "<br />");
+
+        const heroCard = CardFactory.heroCard('', messageHtml);
+        const attachment = {
+            contentType: heroCard.contentType,
+            content: heroCard.content,
+            preview: heroCard
+        };
+
+        return {
+            composeExtension: {
+                type: 'result',
+                attachmentLayout: 'list',
+                attachments: [
+                    attachment
+                ]
+            }
+        };
+    }
+
+}
+
+module.exports.GenerateMessageME = new GenerateMessageME();~~~
+
+!!! warning "Adjust if using the OpenAI platform service"
+    If you're using Azure OpenAI, then this code is ready to go. If you're using the public OpenAI platform, then you need to comment out the `require` statement for `/services/azureOpenAiService` and un-comment the one for `/services/openAiService`.
+
+???+ note "Code walk-through"
+    Take a moment to examine the code you just added.
+
+    The `fetchTask()` function is called when the action message extension is invoked
+    by a user. This function will retrieve the 
+
+
+
+
+    ???? CONTINUE HERE ????
+
 ## Exercise 5: Add a message extension to reply to a message
+
+~~~javascript
+
+const ACData = require("adaptivecards-templating");
+const { CardFactory } = require("botbuilder");
+const { OpenAiService } = require("../services/azureOpenAiService");
+// const { OpenAiService } = require("../services/openAiService");
+
+
+class ReplyME {
+
+    // Ref documentation
+    // https://learn.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command
+
+     async fetchTask (context, action) {
+        try {
+
+            const [message, replyType] = this.#getMessageAndReplyType(action);
+            return this.#getReplyFormResponse(message, replyType);
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    async submit (context, action) {
+
+        try {
+
+            const [message, replyType] = this.#getMessageAndReplyType(action);
+
+            switch (action.data?.intent) {
+                case "send": {
+                    return await this.#getSendMessageResponse(action.data?.replyText);
+                }
+                default: {
+                    return this.#getReplyFormResponse(message, replyType);
+                }
+            }
+
+        }
+
+        catch (e) {
+            console.log(e);
+        }
+    }
+
+    #getMessageAndReplyType (action) {
+        let message = action.messagePayload?.body?.content;
+        const messageType = action.messagePayload?.body?.contentType;
+        if (messageType === "html") {
+            message = message.replace(/<[^>]*>?/gm, '');
+        }
+
+        return [message, action.data?.replyType || "agree"];
+    }
+
+    async #getReplyFormResponse (message, replyType) {
+
+        const prompt = OpenAiService.getPrompt(message, replyType);
+        const replyText = await OpenAiService.generateMessage(prompt);
+
+        // Read card from JSON file
+        const templateJson = require('./replyCard.json');
+        const template = new ACData.Template(templateJson);
+        const cardContents = template.expand({
+            $root: {
+                message: message,
+                replyText: replyText,
+                replyType: replyType
+            }
+        });
+
+        const card = CardFactory.adaptiveCard(cardContents);
+        return {
+            task: {
+                type: 'continue',
+                value: {
+                    card: card,
+                    height: 500,
+                    title: `Reply to message`,
+                    width: 400
+                }
+            }
+        };
+
+    }
+
+    async #getSendMessageResponse (messageText) {
+
+        const messageHtml = messageText.replace(/\n/g, "<br />");
+
+        const heroCard = CardFactory.heroCard('', messageHtml);
+        const attachment = {
+            contentType: heroCard.contentType,
+            content: heroCard.content,
+            preview: heroCard
+        };
+
+        return {
+            composeExtension: {
+                type: 'result',
+                attachmentLayout: 'list',
+                attachments: [
+                    attachment
+                ]
+            }
+        };
+    }
+
+}
+
+module.exports.ReplyME = new ReplyME();
+~~~
+
+!!! warning "Adjust if using the OpenAI platform service"
+    If you're using Azure OpenAI, then this code is ready to go. If you're using the public OpenAI platform, then you need to comment out the `require` statement for `/services/azureOpenAiService` and un-comment the one for `/services/openAiService`.
+
+???+ note "Code walk-through"
+    Take a moment to examine the code you just added.
+
+    The `fetchTask()` function is called when the action message extension is invoked
+    by a user. This function will retrieve the 
+
 
 ## Exercise 6: Update the bot code to call the message extensions
 

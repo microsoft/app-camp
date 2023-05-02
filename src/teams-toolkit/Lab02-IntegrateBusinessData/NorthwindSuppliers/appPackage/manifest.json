@@ -1,0 +1,59 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.14/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.14",
+    "version": "1.0.0",
+    "id": "${{TEAMS_APP_ID}}",
+    "packageName": "com.microsoft.teams.extension",
+    "developer": {
+        "name": "Teams App, Inc.",
+        "websiteUrl": "https://www.example.com",
+        "privacyUrl": "https://www.example.com/termofuse",
+        "termsOfUseUrl": "https://www.example.com/privacy"
+    },
+    "icons": {
+        "color": "northwind-suppliers-192.png",
+        "outline": "northwind-suppliers-32.png"
+    },
+    "name": {
+        "short": "Northwind Suppliers v5 -${{TEAMSFX_ENV}}",
+        "full": "Northwind Suppliers - Teams App Camp New Adventure"
+    },
+    "description": {
+        "short": "Access and share Northwind data in Microsoft Teams",
+        "full": "Sample application from Teams App Camp, New Adventure"
+    },
+    "accentColor": "#9EDBF9",
+    "bots": [],
+    "composeExtensions": [
+        {
+            "botId": "${{BOT_ID}}",
+            "commands": [
+                {
+                    "id": "searchQuery",
+                    "context": [
+                        "compose",
+                        "commandBox"
+                    ],
+                    "description": "Look up a Northwind supplier",
+                    "title": "Supplier search",
+                    "type": "query",
+                    "parameters": [
+                        {
+                            "name": "searchQuery",
+                            "title": "Supplier search",
+                            "description": "Look up a Northwind supplier",
+                            "inputType": "text"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "configurableTabs": [],
+    "staticTabs": [],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": []
+}
