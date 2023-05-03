@@ -374,7 +374,7 @@ module.exports.GenerateMessageME = new GenerateMessageME();
 
 ### Step 2: Add the adaptive card
 
-Add a new file, **generateMessageCard.js** in the **cards** folder you created in Lab 2. Paste this JSON into the file.
+Add a new file, **generateMessageCard.json** in the **cards** folder you created in Lab 2. Paste this JSON into the file.
 
 ~~~json
 {
@@ -430,6 +430,10 @@ Add a new file, **generateMessageCard.js** in the **cards** folder you created i
     The answer is that the actions each submit a bit more data in addition to the input fields on the card. The first `Action.Submit` sends an `intent` property value of `"generate"` and the second one sends an `intent` value of `"send"`; the code in **generateMessageME.js** will use this value to figure out which button was pressed.
 
 ## Exercise 5: Add a message extension to reply to a message
+
+### Step 1: Add JavaScript code
+
+Create a new file called **replyME.js** in the **messageExtensions** folder. Paste this code into the file:
 
 ~~~javascript
 
@@ -548,14 +552,125 @@ module.exports.ReplyME = new ReplyME();
 !!! warning "Adjust if using the OpenAI platform service"
     If you're using Azure OpenAI, then this code is ready to go. If you're using the public OpenAI platform, then you need to comment out the `require` statement for `/services/azureOpenAiService` and un-comment the one for `/services/openAiService`.
 
-???+ note "Code walk-through"
-    Take a moment to examine the code you just added.
+### Step 2: Add the adaptive card
 
-    The `fetchTask()` function is called when the action message extension is invoked
-    by a user. This function will retrieve the 
+Add a new file, **replyCard.json** in the **cards** folder you created in Lab 2. Paste this JSON into the file.
 
+~~~json
+{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.4",
+    "body": [
+        {
+            "type": "Input.Text",
+            "label": "Original message",
+            "isMultiline": true,
+            "value": "${message}",
+            "id": "message"
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "choices": [
+                {
+                    "title": "agree",
+                    "value": "agree"
+                },
+                {
+                    "title": "disagree",
+                    "value": "disagree"
+                },
+                {
+                    "title": "poem",
+                    "value": "poem"
+                },
+                {
+                    "title": "joke",
+                    "value": "joke"
+                }
+            ],
+            "value": "${replyType}",
+            "placeholder": "Select a response type",
+            "id": "replyType"
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Generate",
+                    "data": {
+                        "intent": "generate"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "Input.Text",
+            "label": "Edit your response here",
+            "isMultiline": true,
+            "value": "${replyText}",
+            "id": "replyText"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Send response",
+            "data": {
+                "intent": "send"
+            }
+        }
+    ]
+}
+~~~
 
 ## Exercise 6: Update the bot code to call the message extensions
+
+Now that the message extension code is in place, all that remains is to call it from the Bot. This works the same as the other message extensions except different events will be fired.
+
+Begin by opening **teamsBot.js** and add these lines near the top, below the `require` statement for the `SupplierME`.
+
+~~~javascript
+const { GenerateMessageME } = require("./messageExtensions/generateMessageME");
+const { ReplyME } = require("./messageExtensions/replyME");
+~~~
+
+Now add these event handlers below the `handleTeamsAppBasedLinkQuery` function.
+
+~~~javascript
+  async handleTeamsMessagingExtensionFetchTask(context, action) {
+
+    switch (action.commandId) {
+      case "generateMessage": {
+        return await GenerateMessageME.fetchTask(context, action);
+      }
+      case "replyToMessage": {
+        return await ReplyME.fetchTask(context, action);
+      }
+      default: {
+        return null;
+      }
+    }
+  }
+
+  async handleTeamsMessagingExtensionSubmitAction(context, action) {
+
+    switch (action.commandId) {
+      case "generateMessage": {
+        return await GenerateMessageME.submit(context, action);
+      }
+      case "replyToMessage": {
+        return await ReplyME.submit(context, action);
+      }
+      default: {
+        return null;
+      }
+    }
+  }
+~~~
+
+
 
 ## Exercise 7: Run the solution
 
