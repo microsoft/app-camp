@@ -34,6 +34,10 @@ In this lab you will learn to:
 - An action message extension that uses Open AI to help a user compose a message in Microsoft Teams
 - An action message extension that works in the context menu of an existing message to help a user compose a response to a message in Microsoft Teams
 
+For example, here is the Reply message extension in action. An adaptive card is used to interact with the user and allow a response in agreement, disagreement, poem, or a joke.
+
+![A dialog box showing a form allowing the user to choose how to reply to a message](../assets/new-adventure/Lab04-009-Reply4.png)
+
 ## Exercise 1: Obtain an OpenAI API key and the code to call OpenAI
 
 There are two approaches here:
@@ -208,7 +212,7 @@ module.exports.OpenAiService = new OpenAiService();
 ~~~
 
 ???+ note "Code walk-through"
-  You might notice that the Azure OpenAI and OpenAI services are very similar. They both have `generateMessage()` functions that call openAiClient.createCompletion() with a prompt, and receive a response from the AI model. They also both have some super simple prompt generation code to allow the user to generate different kinds of responses to a message in Microsoft Teams.
+    You might notice that the Azure OpenAI and OpenAI services are very similar. They both have `generateMessage()` functions that call openAiClient.createCompletion() with a prompt, and receive a response from the AI model. They also both have some super simple prompt generation code to allow the user to generate different kinds of responses to a message in Microsoft Teams.
 
 ## Exercise 2: Install the Open AI API package
 
@@ -354,7 +358,8 @@ class GenerateMessageME {
 
 }
 
-module.exports.GenerateMessageME = new GenerateMessageME();~~~
+module.exports.GenerateMessageME = new GenerateMessageME();
+~~~
 
 !!! warning "Adjust if using the OpenAI platform service"
     If you're using Azure OpenAI, then this code is ready to go. If you're using the public OpenAI platform, then you need to comment out the `require` statement for `/services/azureOpenAiService` and un-comment the one for `/services/openAiService`.
@@ -363,12 +368,66 @@ module.exports.GenerateMessageME = new GenerateMessageME();~~~
     Take a moment to examine the code you just added.
 
     The `fetchTask()` function is called when the action message extension is invoked
-    by a user. This function will retrieve the 
+    by a user. This function will return an adaptive card as part of a "continue" task, which tells Teams to display the card and continue to interact with the user. The code to generate the adaptive card is in a function `#getMessageFormResponse()` because it's used repeatedly if the user clicks the "Generate" button on the card.
 
+    When the user clicks a button on the adaptive card, the card data is submitted and the `submit()` function is called. If the `send` button was pressed, the code returns a `result` response with a hero card containing the message to be sent; this inserts the generated message into the compose box for the user to send.
 
+### Step 2: Add the adaptive card
 
+Add a new file, **generateMessageCard.js** in the **cards** folder you created in Lab 2. Paste this JSON into the file.
 
-    ???? CONTINUE HERE ????
+~~~json
+{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.4",
+    "body": [
+        {
+            "type": "Input.Text",
+            "label": "Enter a prompt here",
+            "isMultiline": true,
+            "value": "${prompt}",
+            "id": "prompt"
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Generate",
+                    "data": {
+                        "intent": "generate"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "Input.Text",
+            "label": "Edit your message here",
+            "isMultiline": true,
+            "value": "${message}",
+            "id": "message"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Send response",
+            "data": {
+                "intent": "send"
+            }
+        }
+    ]
+}
+~~~
+
+???+ note "Code walk-through"
+    This is what the card will look like when it's displayed:
+    ![Caption](../assets/new-adventure/Lab04-002-Generate2.png)
+    
+    Notice there are 2 buttons, "Generate" and "Send" on the card. These correspond to the 2 `Action.Submit` actions in the card JSON. These will both cause the `handleTeamsMessagingExtensionSubmitAction()` event to fire in the bot, which will call the corresponding function in **generateMessageME.js**. So how will the message extension determine which button was pressed?
+
+    The answer is that the actions each submit a bit more data in addition to the input fields on the card. The first `Action.Submit` sends an `intent` property value of `"generate"` and the second one sends an `intent` value of `"send"`; the code in **generateMessageME.js** will use this value to figure out which button was pressed.
 
 ## Exercise 5: Add a message extension to reply to a message
 
