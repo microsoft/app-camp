@@ -42,11 +42,11 @@ To install and run your own Teams app, you'll need a Microsoft 365 tenant where 
 If you don't yet have a tenant, please join the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program?WT.mc_id=m365-58890-cxa){target=_blank} to get a free one. Your tenant includes 25 [E5 user licenses](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans?WT.mc_id=m365-58890-cxa){target=_blank} and can be renewed as long as you keep developing!
 
 Select "Join now" to begin.
-![Signup](../../assets/screenshots/01-003-JoinM365DevProgram1.png)
+![Signup](/app-camp/assets/screenshots/01-003-JoinM365DevProgram1.png)
 
 Log in with any Microsoft personal or work and school account, enter your information, and select "Next". You will have an opportunity to choose what kind of "sandbox" you want; the "Instant sandbox" is recommended.
 
-![Signup](../../assets/screenshots/01-004-JoinM365DevProgram2.png)
+![Signup](/app-camp/assets/screenshots/01-004-JoinM365DevProgram2.png)
 
 Follow the wizard and select your administrator username and password, tenant domain name, etc. The domain name you choose is just the left-most portion - for example if you enter "Contoso" your domain will be "Contoso.onmicrosoft.com".
 
@@ -75,23 +75,23 @@ By default, end users can't upload Teams applications directly; instead an admin
 
   b. In the left panel of the admin center, select "Show all" to open up the entire navigation
 
-  ![M365 Admin](../../assets/screenshots/01-005-M365Admin.png)
+  ![M365 Admin](/app-camp/assets/screenshots/01-005-M365Admin.png)
 
   When the panel opens, select Teams to open the Microsoft Teams admin center.
 
-  ![M365 Admin](../../assets/screenshots/01-006-M365Admin2.png)
+  ![M365 Admin](/app-camp/assets/screenshots/01-006-M365Admin2.png)
 
   c. In the left of the Microsoft Teams admin center, open the Teams apps accordion 1️⃣ and select Setup Policies 2️⃣. You will see a list of App setup policies. Select the Global (Org-wide default) policy 3️⃣.
 
-  ![Teams admin](../../assets/screenshots/01-007-TeamsAdmin1.png)
+  ![Teams admin](/app-camp/assets/screenshots/01-007-TeamsAdmin1.png)
 
  d. Ensure the first switch, "Upload custom apps" is turned On.
 
- ![Teams admin](../../assets/screenshots/01-008-TeamsAdmin2.png)
+ ![Teams admin](/app-camp/assets/screenshots/01-008-TeamsAdmin2.png)
 
 Be sure to scroll down and select the "Save" button to persist your change.
 
-![Teams admin](../../assets/screenshots/01-008-TeamsAdmin2b.png)
+![Teams admin](/app-camp/assets/screenshots/01-008-TeamsAdmin2b.png)
  
  We have been working to get this enabled by default on developer tenants, so it may already be set for you. The change can take up to 24 hours to take effect, but usually it's much faster.
 
@@ -113,51 +113,51 @@ Browse to [https://nodejs.org/en/download/](https://nodejs.org/en/download/){tar
 
 Open Visual Studio Code and click on the Extensions toolbar button 1️⃣. Search for "Teams" 2️⃣ and locate Teams Toolkit 3️⃣. Pull down the selection arrow on the right of the "Install" button and select "Install Pre-release Version" 4️⃣.
 
-![Installing Teams Toolkit in Visual Studio code](../../assets/new-adventure/Lab01-001-Install TTK Extension.png)
+![Installing Teams Toolkit in Visual Studio code](/app-camp/assets/new-adventure/Lab01-001-Install TTK Extension.png)
 
 ## Exercise 3: Create a Search Message Exension application
 
 Select Teams Toolkit in the Visual Studio Code sidebar 1️⃣ and click "Create a New App" 2️⃣. The command bar will open; choose "Start with a Teams capability" 3️⃣ to generate an app based on one of the Teams Toolkit app templates.
 
-![Creating a new app in Teams Toolkit](../../assets/new-adventure/Lab01-002-Create a new app 1.png)
+![Creating a new app in Teams Toolkit](/app-camp/assets/new-adventure/Lab01-002-Create a new app 1.png)
 
 You'll be presented with a list of templates for various Teams app capabilities. Scroll all the way down and select "Search-based message extension".
 
-![Caption](../../assets/new-adventure/Lab01-003-Create a new app 2.png)
+![Caption](/app-camp/assets/new-adventure/Lab01-003-Create a new app 2.png)
 
 For this lab, select "JavaScript" as the programming language.
 
-![Caption](../../assets/new-adventure/Lab01-004-Create a new app 3.png)
+![Caption](/app-camp/assets/new-adventure/Lab01-004-Create a new app 3.png)
 
 At this point, you're asked to enter the name of your application. For this lab, enter "NorthwindSuppliers".
 
-![Caption](../../assets/new-adventure/Lab01-005-Create a new app 4.png)
+![Caption](/app-camp/assets/new-adventure/Lab01-005-Create a new app 4.png)
 
 Teams Toolkit will generate a your application and open a new instance of Visual Studio Code in the application folder. You may close the original instance of Visual Studio Code if you wish.
 
-![Caption](../../assets/new-adventure/Lab01-005-Create a new app 4b.png)
+![Caption](/app-camp/assets/new-adventure/Lab01-005-Create a new app 4b.png)
 
 In the new instance of Visual Studio Code, ensure that Teams Toolkit is selected in the Visual Studio Code sidebar 1️⃣ and, under "ACCOUNTS", click "Sign in to Microsoft 365" 2️⃣.
 
-![Caption](../../assets/new-adventure/Lab01-006-Sign into M365 1.png)
+![Caption](/app-camp/assets/new-adventure/Lab01-006-Sign into M365 1.png)
 
 A pop-up dialog box will invite you to sign in. Log in using the administrator account for the Microsoft 365 tenant you created in Exercise 1.
 
-![Caption](../../assets/new-adventure/Lab01-007-Sign into M365 2.png)
+![Caption](/app-camp/assets/new-adventure/Lab01-007-Sign into M365 2.png)
 
 When you've completed the sign-in process, close the pop-up web browser.
 
-![Caption](../../assets/new-adventure/Lab01-007-Sign into M365 3.png)
+![Caption](/app-camp/assets/new-adventure/Lab01-007-Sign into M365 3.png)
 
 Teams Toolkit will check to be sure app sideloading is enabled. You should see a green check mark indicating that it is; if not, ensure that sideloading is enabled as explained in Exercise 1 Step 2.
 
-![Caption](../../assets/new-adventure/Lab01-008-Check sideloading.png)
+![Caption](/app-camp/assets/new-adventure/Lab01-008-Check sideloading.png)
 
 ## Exercise 4: Run the application
 
 At this point, Teams Toolkit has generated the application code, which in this case is a web service running in NodeJS with [Restify](http://restify.com/){target="_blank"} and using the [Azure Bot Framework SDK](https://learn.microsoft.com/javascript/api/?view=botbuilder-ts-latest){target="_blank"}. To run it, press F5 or click the debug button.
 
-![Caption](../../assets/new-adventure/Lab01-009a-Run it.png)
+![Caption](/app-camp/assets/new-adventure/Lab01-009a-Run it.png)
 
 While you're waiting for the app to start, reflect on all the tasks that Teams Toolkit is doing - especially the first time you run it.
 
@@ -185,31 +185,31 @@ While you're waiting for the app to start, reflect on all the tasks that Teams T
 
 And so finally a browser opens up to test the application. You may be asked to log into your Microsoft 365 tenant, and to allow the NodeJS web server through the firewall.
 
-![Caption](../../assets/new-adventure/Lab01-010-Give permission and log in.png)
+![Caption](/app-camp/assets/new-adventure/Lab01-010-Give permission and log in.png)
 
 Eventually the deep link will render the application's installation screen in Microsoft Teams. Click the "Add" button to install the app.
 
-![Caption](../../assets/new-adventure/Lab01-011-Add the app to Teams.png)
+![Caption](/app-camp/assets/new-adventure/Lab01-011-Add the app to Teams.png)
 
 Teams will open a conversation and open your new message extension. It's a pop-up that users would normally access from below the message compose window; here Teams has opened the message extension automatically.
 
-![Caption](../../assets/new-adventure/Lab01-012-Compose box opens.png)
+![Caption](/app-camp/assets/new-adventure/Lab01-012-Compose box opens.png)
 
 Click the text box marked "Your search query" and enter a query such as "teamsfx". This starting message extension actually searches the list of npm packages, so you should see several packages with "teamsfx" in the name.
 
-![Caption](../../assets/new-adventure/Lab01-013-Enter query.png)
+![Caption](/app-camp/assets/new-adventure/Lab01-013-Enter query.png)
 
 Choose one of the package names and Teams will insert a message card in the conversation containing information about that package. You can also type a message of your own to go along with the card 1️⃣ and then click Send 2️⃣ to share the card with whoever you're chatting with.
 
-![Caption](../../assets/new-adventure/Lab01-014-Enter a message and send.png)
+![Caption](/app-camp/assets/new-adventure/Lab01-014-Enter a message and send.png)
 
 You have just integrated a web service with Teams, so end users can search for information and share it with their colleagues.
 
-![Caption](../../assets/new-adventure/Lab01-014-View result.png)
+![Caption](/app-camp/assets/new-adventure/Lab01-014-View result.png)
 
 ## What's next?
 
-In the [next lab](./02-integrate-web-service%20copy.md), we'll brand the application and update it to retrieve information about Northwind Suppliers. We'll also replace the somewhat boring message card (a [Hero Card](https://learn.microsoft.com/microsoftteams/platform/task-modules-and-cards/cards/cards-reference#hero-card){target="_blank"}) with a much more fun [Adaptive Card](https://adaptivecards.io/){target="_blank"}.
+In the [next lab](./02-integrate-web-service.md), we'll brand the application and update it to retrieve information about Northwind Suppliers. We'll also replace the somewhat boring message card (a [Hero Card](https://learn.microsoft.com/microsoftteams/platform/task-modules-and-cards/cards/cards-reference#hero-card){target="_blank"}) with a much more fun [Adaptive Card](https://adaptivecards.io/){target="_blank"}.
 
 ## Known issues
 

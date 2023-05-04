@@ -299,7 +299,7 @@ On selection, the message next to button changes from *Copy to clipboard* to *Li
 
 Now open the link in a new browser tab. It should open Microsoft Teams showing the Northwind Orders application with the order information displayed. This animated picture shows the solution in action.
 
-![order](../../assets/screenshots/deeplink-working.gif)
+![order](/app-camp/assets/screenshots/deeplink-working.gif)
 
 --8<-- "i-finished.md"
 

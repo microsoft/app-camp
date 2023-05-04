@@ -137,7 +137,7 @@ This should ensure that your app is available across multiple products within Mi
 - Find **Northwind Orders** in the **Built for your org** app catalog since the app is already deployed and installed for the entire organization.
 - **Open** the app.
 
-![test app in teams web](../assets/extended-lab/teams-web.png)
+![test app in teams web](/app-camp/assets/extended-lab/teams-web.png)
 
 ##### Outlook web
 To see your app in [Outlook on the web](https://outlook.office.com/), follow these instructions:
@@ -147,21 +147,21 @@ To see your app in [Outlook on the web](https://outlook.office.com/), follow the
 2. Look for the More Apps option within the side bar. You should see your **Northwind Order**, including the sideloaded app title.
 
 3. Click on the app icon to preview and launch the app, and see it running in Outlook on the web.
-![test app in outlook web](../assets/extended-lab/outlook-web.png)
+![test app in outlook web](/app-camp/assets/extended-lab/outlook-web.png)
 
-![test app in outlook web launched](../assets/extended-lab/outlook-web-2.png)
+![test app in outlook web launched](/app-camp/assets/extended-lab/outlook-web-2.png)
 ##### Microsoft 365 web
 To see your app running in Microsoft 365 on the web, follow these steps:
 
-1. Log in to [microsoft365.com](microsoft365.com) with your account.
+1. Log in to [https://office.com](https://office.com) with your account.
 
 2. Look for the **Apps** icon on the side bar. Your **Northwind Orders** app should be visible among your installed apps.
 
 3. Click on the app icon to launch your app and run it in Microsoft 365 on the web.
 
-![test app in microsoft 365 web](../assets/extended-lab/Microsoft365app.png)
+![test app in microsoft 365 web](/app-camp/assets/extended-lab/Microsoft365app.png)
 
-![app in microsoft 365 web](../assets/extended-lab/office.png)
+![app in microsoft 365 web](/app-camp/assets/extended-lab/office.png)
 
 > Another thing you can do is test the apps on Teams client, Outlook on Windows or any other available platforms, but for the sake of keeping this process simple and easy to understand, we will proceed without these additional tests.
 
@@ -218,19 +218,19 @@ const setHostAppTheme=(fileName)=> {
       setTheme(context.theme);     
       switch(context.app.host.name){
         case microsoftTeams.HostName.teams:{
-          setHostAppTheme("../styles/northwind.css");           
+          setHostAppTheme("/app-camp/styles/northwind.css");           
         };        
         break;
         case microsoftTeams.HostName.outlook:{
-          setHostAppTheme("../styles/northwind-outlook.css");
+          setHostAppTheme("/app-camp/styles/northwind-outlook.css");
         };
           break;
         case microsoftTeams.HostName.office:{
-          setHostAppTheme("../styles/northwind-office.css");
+          setHostAppTheme("/app-camp/styles/northwind-office.css");
         }
         break;
         default:{ //any other hub for future
-          setHostAppTheme("../styles/northwind.css");
+          setHostAppTheme("/app-camp/styles/northwind.css");
         }
         // When the theme changes
          microsoftTeams.app.registerOnThemeChangeHandler((theme) => {
@@ -240,7 +240,7 @@ const setHostAppTheme=(fileName)=> {
     }  
 }
 else{
-  setHostAppTheme("../styles/northwind.css"); // browser app
+  setHostAppTheme("/app-camp/styles/northwind.css"); // browser app
 }
 })();
 ```
@@ -279,8 +279,8 @@ Go to the orderdetails.html file under the `client/pages` folder and add below c
 Now go to the `orderDetail.js` and import the env, helper module and teams client library by appending below code snippet with the top import statements.
 ```
 import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js'
-import {  inM365 } from '../modules/teamsHelpers.js';
-import { env } from '../modules/env.js';
+import {  inM365 } from '/app-camp/modules/teamsHelpers.js';
+import { env } from '/app-camp/modules/env.js';
 
 ```
 
@@ -332,13 +332,13 @@ All code changes are complete now let's go ahead and test this application in Te
 
 Open the app in Teams and go to an order. If chat is a supported capability in Teams, the chat button will be displayed to the user. Choose the button to open a 1:1 chat with the user you configured as the contact in the previous step.
 
-![gif of teams chat working in order details page](../assets/extended-lab/teams-chat.gif)
+![gif of teams chat working in order details page](/app-camp/assets/extended-lab/teams-chat.gif)
 
 #### Mail in Outlook
 
 Open the app in Outlook web and go to an order. If Mail is a supported capability in Outlook, the Mail button will be displayed to the user. Choose the button to create a new outlook email with the user you configured as the contact in the previous step.
 
-![gif of outlook compose mail working in order details page](../assets/extended-lab/outlook-mail.gif)
+![gif of outlook compose mail working in order details page](/app-camp/assets/extended-lab/outlook-mail.gif)
 
 > The button is invisible in Microsoft 365 app since chat or mail is not supported.
 

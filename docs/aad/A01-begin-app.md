@@ -109,11 +109,11 @@ The initial Northwind Orders application doesn't require Microsoft 365, but it d
 If you don't yet have a tenant, please join the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program?WT.mc_id=m365-58890-cxa){target=_blank} to get a free one. Your tenant includes 25 [E5 user licenses](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans?WT.mc_id=m365-58890-cxa){target=_blank} and can be renewed as long as you keep developing!
 
 Select "Join now" to begin.
-![Signup](../../assets/screenshots/01-003-JoinM365DevProgram1.png)
+![Signup](/app-camp/assets/screenshots/01-003-JoinM365DevProgram1.png)
 
 Log in with any Microsoft personal or work and school account, enter your information, and select "Next". You will have an opportunity to choose what kind of "sandbox" you want; the "Instant sandbox" is recommended.
 
-![Signup](../../assets/screenshots/01-004-JoinM365DevProgram2.png)
+![Signup](/app-camp/assets/screenshots/01-004-JoinM365DevProgram2.png)
 
 Follow the wizard and select your administrator username and password, tenant domain name, etc. The domain name you choose is just the left-most portion - for example if you enter "Contoso" your domain will be "Contoso.onmicrosoft.com".
 
@@ -142,23 +142,23 @@ By default, end users can't upload Teams applications directly; instead an admin
 
   b. In the left panel of the admin center, select "Show all" to open up the entire navigation
 
-  ![M365 Admin](../../assets/screenshots/01-005-M365Admin.png)
+  ![M365 Admin](/app-camp/assets/screenshots/01-005-M365Admin.png)
 
   When the panel opens, select Teams to open the Microsoft Teams admin center.
 
-  ![M365 Admin](../../assets/screenshots/01-006-M365Admin2.png)
+  ![M365 Admin](/app-camp/assets/screenshots/01-006-M365Admin2.png)
 
   c. In the left of the Microsoft Teams admin center, open the Teams apps accordion 1️⃣ and select Setup Policies 2️⃣. You will see a list of App setup policies. Select the Global (Org-wide default) policy 3️⃣.
 
-  ![Teams admin](../../assets/screenshots/01-007-TeamsAdmin1.png)
+  ![Teams admin](/app-camp/assets/screenshots/01-007-TeamsAdmin1.png)
 
  d. Ensure the first switch, "Upload custom apps" is turned On.
 
- ![Teams admin](../../assets/screenshots/01-008-TeamsAdmin2.png)
+ ![Teams admin](/app-camp/assets/screenshots/01-008-TeamsAdmin2.png)
 
 Be sure to scroll down and select the "Save" button to persist your change.
 
-![Teams admin](../../assets/screenshots/01-008-TeamsAdmin2b.png)
+![Teams admin](/app-camp/assets/screenshots/01-008-TeamsAdmin2b.png)
  
  We have been working to get this enabled by default on developer tenants, so it may already be set for you. The change can take up to 24 hours to take effect, but usually it's much faster.
 
@@ -174,18 +174,18 @@ The Northwind Orders application expects each user's employee ID in Azure Active
 
  - In the left navigation, select "Show All" to reveal the full list of admin centers, and then select "Azure Active Directory". This will bring you to the [Azure AD admin center](https://aad.portal.azure.com/){target=_blank}.
 
-![Navigating to the M365 Admin site](../../assets/screenshots/01-009-RegisterAADApp-1.png)
+![Navigating to the M365 Admin site](/app-camp/assets/screenshots/01-009-RegisterAADApp-1.png)
 
 !!! note
     The Users feature in the Microsoft 365 Admin site is useful for most things, but doesn't allow modifying some user properties such as the Employee ID. For that reason, you'll need to continue to the Users feature in the Azure Active Directory Admin Site.
 
 - Select "Azure Active Directory" again in the left navigation bar.
 
-![Navigating to the M365 Admin site](../../assets/screenshots/01-010-RegisterAADApp-2.png)
+![Navigating to the M365 Admin site](/app-camp/assets/screenshots/01-010-RegisterAADApp-2.png)
 
 - This will bring you to the overview of your Azure AD tenant. Note that a "tenant" is a single instance of Azure Active Directory, with its own users, groups, and app registrations. Verify that you're in the developer tenant you just created, and select "Users" in the navigation bar.
 
-![Edit users](../../assets/screenshots/01-030-EditUsers-1.png)
+![Edit users](/app-camp/assets/screenshots/01-030-EditUsers-1.png)
 
 You can use existing users to run the Northwind Orders application (the names may not match the Northwind database unless you change them, but you'll know what's going on), or create new ones. It's easiest if one of the users is the administrator account you're logged into right now, so you can test the application without logging on and off, but that's up to you. 
 
@@ -194,7 +194,7 @@ You can use existing users to run the Northwind Orders application (the names ma
 
 Select on the user to view their user profile, and then select the "Edit" button.
 
-![Edit user's employee ID](../../assets/screenshots/01-031-EditUser-2.png)
+![Edit user's employee ID](/app-camp/assets/screenshots/01-031-EditUser-2.png)
 
 Change the Employee ID to the ID of one of the users in the Northwind datbase, which are:
 
@@ -214,12 +214,12 @@ You may also choose to rename the users to match the database.
 
 Still on the edit screen, assign a manager for each user by clicking "Edit" again and then click "Change" next to the manager field and select a manager.
 
-![Assign a manager](../../assets/screenshots/01-033-EditUser3.png)
+![Assign a manager](/app-camp/assets/screenshots/01-033-EditUser3.png)
 ### Step 2: Ensure the users are licensed for Microsoft 365
 
 From the same user profile screen, select "Licenses" and ensure the user has an Office 365 license so they can run Microsoft Teams.
 
-![Check license](../../assets/screenshots/01-032-CheckLicense.png)
+![Check license](/app-camp/assets/screenshots/01-032-CheckLicense.png)
 
 !!! note
     When you publish your application in the Microsoft Teams store, you will be responsible for your own license management and licenses for your application will not appear here along with the licenses for Microsoft products. In Lab 08, you will implement this strategy for the Northwind Orders app.
@@ -246,7 +246,7 @@ The terminal will display a screen like this; note the https forwarding URL for 
 
 Save this URL for use throughout the labs.
 
-![ngrok output](../../assets/screenshots/01-002-ngrok.png)
+![ngrok output](/app-camp/assets/screenshots/01-002-ngrok.png)
 
 !!! warning
     Do not stop ngrok for the duration of these labs. If you do stop ngrok and are assigned a new URL, [this page](/app-camp/supplemental/ngrokReferences/){target="_blank"} lists all the exercises which involve the ngrok URL so you can easily update it.
@@ -257,23 +257,23 @@ Save this URL for use throughout the labs.
 
  - In the left navigation, select "Show More" to reveal the full list of admin centers, and then select "Azure Active Directory". This will bring you to the [Azure AD admin center](https://aad.portal.azure.com/){target="_blank"}.
 
-![Navigating to the M365 Admin site](../../assets/screenshots/01-009-RegisterAADApp-1.png)
+![Navigating to the M365 Admin site](/app-camp/assets/screenshots/01-009-RegisterAADApp-1.png)
 
 - Select "Azure Active Directory" again in the left navigation bar.
 
-![Navigating to the M365 Admin site](../../assets/screenshots/01-010-RegisterAADApp-2.png)
+![Navigating to the M365 Admin site](/app-camp/assets/screenshots/01-010-RegisterAADApp-2.png)
 
 - This will bring you to the overview of your Azure AD tenant. Note that a "tenant" is a single instance of Azure Active Directory, with its own users, groups, and app registrations. Verify that you're in the developer tenant you just created, and select "App Registrations" in the navigation bar.
 
-![Opening App Registrations](../../assets/screenshots/01-011-RegisterAADApp-3.png)
+![Opening App Registrations](/app-camp/assets/screenshots/01-011-RegisterAADApp-3.png)
 
 - You will be shown a list of applications (if any) registered in the tenant. Select "+ New Registration" at the top to register a new application.
 
-![Adding a registration](../../assets/screenshots/01-012-RegisterAADApp-4.png)
+![Adding a registration](/app-camp/assets/screenshots/01-012-RegisterAADApp-4.png)
 
 You will be presented with the "Register an application" form.
 
-![Register an application form](../../assets/screenshots/01-013-RegisterAADApp-5.png)
+![Register an application form](/app-camp/assets/screenshots/01-013-RegisterAADApp-5.png)
 
 - Enter a name for your application 1️⃣.
 - Under "Supported account types" select "Accounts in any organizational directory" 2️⃣. This will allow your application to be used in your customer's tenants.
@@ -282,11 +282,11 @@ You will be presented with the "Register an application" form.
 
 You will be presented with the application overview. There are two values on this screen you need to copy for use later on; those are the Application (client) ID 1️⃣ and the Directory (tenant) ID 2️⃣.
 
-![Application overview screen](../../assets/screenshots/01-014-RegisterAADApp-6.png)
+![Application overview screen](/app-camp/assets/screenshots/01-014-RegisterAADApp-6.png)
 
 When you've recorded these values, navigate to "Certificates & secrets" 3️⃣.
 
-![Adding a secret](../../assets/screenshots/01-015-RegisterAADApp-7.png)
+![Adding a secret](/app-camp/assets/screenshots/01-015-RegisterAADApp-7.png)
 
 Now you will create a client secret, which is like a password for your application to use when it needs to authenticate with Azure AD.
 
@@ -296,7 +296,7 @@ Now you will create a client secret, which is like a password for your applicati
 
 The secret will be displayed just this once on the "Certificates and secrets" screen. Copy it now and store it in a safe place.
 
-![Copy the app secret](../../assets/screenshots/01-016-RegisterAADApp-8.png)
+![Copy the app secret](/app-camp/assets/screenshots/01-016-RegisterAADApp-8.png)
 
 !!! warning "Managing app secrets is an ongoing responsibility"
     App secrets have a limited lifetime, and if they expire your application may stop working. You can have multiple secrets, so plan to roll them over as you would with a digital certificate.
@@ -311,7 +311,7 @@ The app registration created an identity for your application; now we need to ad
 
 - While still in the app registration, navigate to "API Permissions" 1️⃣ and notice there is already a permission there, "User.Read" 2️⃣.
 
-![Adding a permission](../../assets/screenshots/01-017-RegisterAADApp-9a.png)
+![Adding a permission](/app-camp/assets/screenshots/01-017-RegisterAADApp-9a.png)
 
 The permission is for calling the Microsoft Graph, and it allows reading the logged-in user's profile, which includes the user's Employee ID. This permission is "delegated" (it acts on behalf of the logged-in user). For an explanation of application vs. delegated permissions, see [this documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#permission-types?WT.mc_id=m365-58890-cxa){target="_blank"}
 or watch [this video](https://www.youtube.com/watch?v=SaBbfVgqZHc).
@@ -334,7 +334,7 @@ The Northwind Orders application uses the Employee ID value in each users's Azur
 
 You have added the permission but nobody has consented to it. If you return to the permission page for your app, you can see that the new permission has not been granted. 1️⃣ To fix this, select the "Grant admin consent for <tenant>" button and then agree to grant the consent 2️⃣. When this is complete, the message "Granted for <tenant>" should be displayed for each permission.
 
-![Grant consent](../../assets/screenshots/01-024-RegisterAADApp-15.png)
+![Grant consent](/app-camp/assets/screenshots/01-024-RegisterAADApp-15.png)
 
 ### Step 5: Expose an API
 
@@ -342,11 +342,11 @@ The Northwind Orders app is a full stack application, with code running in the w
 
 Select "Expose an API" 1️⃣ and then "Add a scope"2️⃣. Scopes expose an application's permissions; what you're doing here is adding a permission that your application's browser code can use it when calling the server. 
 
-![Expose an API](../../assets/screenshots/01-021-RegisterAADApp-12.png)
+![Expose an API](/app-camp/assets/screenshots/01-021-RegisterAADApp-12.png)
 
 On the "Add a scope" flyout, edit the Application ID URI to include your ngrok URL between the "api://" and the client ID. Select the "Save and continue" button to proceed.
 
-![Set the App URI](../../assets/screenshots/01-022-RegisterAADApp-13.png)
+![Set the App URI](/app-camp/assets/screenshots/01-022-RegisterAADApp-13.png)
 
 Now that you've defined the application URI, the "Add a scope" flyout will allow you to set up the new permission scope. Fill in the form as follows:
 - Scope name: access_as_user
@@ -357,7 +357,7 @@ Now that you've defined the application URI, the "Add a scope" flyout will allow
 - Ensure the State is set to "Enabled"
 - Select "Add scope"
 
-![Add the scope](../../assets/screenshots/01-023-RegisterAADApp-14.png)
+![Add the scope](/app-camp/assets/screenshots/01-023-RegisterAADApp-14.png)
 
 
 ## Exercise 5: Configure and run the application
@@ -366,7 +366,7 @@ Now that you've defined the application URI, the "Add a scope" flyout will allow
 
 Begin by downloading the app-camp repository at [https://github.com/microsoft/app-camp](https://github.com/microsoft/app-camp/){target="_blank"}. Select the "Code" button and clone or download the content to your computer.
 
-![Download the lab source code](../../assets/screenshots/01-001-CloneRepo.png)
+![Download the lab source code](/app-camp/assets/screenshots/01-001-CloneRepo.png)
 
 The starting code is in the `src/create-core-app/aad/A01-begin-app/` folder. Copy this folder to another location on your computer; this will be your working copy to keep the original source separate. Folders are also provided with the final code for the other labs.
 
@@ -429,21 +429,21 @@ You will quickly be directed to the Microsoft login page.
 
 Log in using one of the accounts you set up with an employee ID in Exercise 3, and you should be presented with the app's home page. The home page shows the employee name and picture from the Northwind database.
 
-![Home page](../../assets/screenshots/01-040-Run-1.png)
+![Home page](/app-camp/assets/screenshots/01-040-Run-1.png)
 
 Select "My Orders" in the top navigation bar to view the employee's orders.
 
-![My Orders page](../../assets/screenshots/01-041-Run-2.png)
+![My Orders page](/app-camp/assets/screenshots/01-041-Run-2.png)
 
 You can click on any order to view the details.
 
-![Viewing an order](../../assets/screenshots/01-042-Run-3.png)
+![Viewing an order](/app-camp/assets/screenshots/01-042-Run-3.png)
 
 From here you can select on any product to view its details. Much of the data is hyperlinked in this fashion.
 
 You can also select on "Products" in the top navigation to view a list of product categories.
 
-![View product categories](../../assets/screenshots/01-043-Run-4.png)
+![View product categories](/app-camp/assets/screenshots/01-043-Run-4.png)
 
 From there you can select into a product category to view a list of products, and then you can select into a product to see its details. The product detail page shows all the orders for the product, which leads to a list of orders, and so you can select your way around the sample data.
 

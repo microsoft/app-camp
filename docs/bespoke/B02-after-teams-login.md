@@ -148,11 +148,11 @@ To run your application in Microsoft Teams, you'll need a Microsoft 365 subscrip
 If you don't yet have a tenant, please join the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program?WT.mc_id=m365-58890-cxa){target="_blank"} to get a free one. Your tenant includes 25 [E5 user licenses](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans){target="_blank"} and can be renewed as long as you keep developing!
 
 Click "Join now" to begin.
-![Signup](../../assets/screenshots/01-003-JoinM365DevProgram1.png)
+![Signup](/app-camp/assets/screenshots/01-003-JoinM365DevProgram1.png)
 
 Log in with any Microsoft personal or work and school account, enter your information, and click "Next". You will have an opportunity to choose what kind of "sandbox" you want; the "Instant sandbox" is recommended.
 
-![Signup](../../assets/screenshots/01-004-JoinM365DevProgram2.png)
+![Signup](/app-camp/assets/screenshots/01-004-JoinM365DevProgram2.png)
 
 Follow the wizard and select your administrator username and password, tenant domain name, etc. The domain name you choose is just the left-most portion - for example if you enter "Contoso" your domain will be "Contoso.onmicrosoft.com".
 
@@ -183,23 +183,23 @@ By default, end users can't upload Teams applications directly; instead an admin
 
   a. In the left panel of the admin center, click "Show all" to open up the entire navigation
 
-  ![M365 Admin](../../assets/screenshots/01-005-M365Admin.png)
+  ![M365 Admin](/app-camp/assets/screenshots/01-005-M365Admin.png)
 
   When the panel opens, click Teams to open the Microsoft Teams admin center.
 
-  ![M365 Admin](../../assets/screenshots/01-006-M365Admin2.png)
+  ![M365 Admin](/app-camp/assets/screenshots/01-006-M365Admin2.png)
 
   b. In the left of the Microsoft Teams admin center, open the Teams apps accordion 1️⃣ and select Setup Policies 2️⃣. You will see a list of App setup policies. Click the Global (Org-wide default) policy 3️⃣.
 
-  ![Teams admin](../../assets/screenshots/01-007-TeamsAdmin1.png)
+  ![Teams admin](/app-camp/assets/screenshots/01-007-TeamsAdmin1.png)
 
  c. Ensure the first switch, "Upload custom apps" is turned On.
 
- ![Teams admin](../../assets/screenshots/01-008-TeamsAdmin2.png)
+ ![Teams admin](/app-camp/assets/screenshots/01-008-TeamsAdmin2.png)
 
  Be sure to scroll down and click the "Save" button to persist your change.
 
-![Teams admin](../../assets/screenshots/01-008-TeamsAdmin2b.png)
+![Teams admin](/app-camp/assets/screenshots/01-008-TeamsAdmin2b.png)
 
  We have been working to get this enabled by default on developer tenants, so it may already be set for you. The change can take up to 24 hours to take effect, but usually it's much faster.
 
@@ -215,7 +215,7 @@ ngrok http 3978 -host-header=localhost
 
 The terminal will display a screen like this; note the https forwarding URL for use in this lab. Save this URL for use throughout the labs.
 
-![ngrok output](../../assets/screenshots/01-002-ngrok.png)
+![ngrok output](/app-camp/assets/screenshots/01-002-ngrok.png)
 
 !!! warning
     Do not stop ngrok for the duration of these labs. If you do stop ngrok and are assigned a new URL, [this page](/app-camp/ngrokReferences/){target="_blank"} lists all the exercises which involve the ngrok URL so you can easily update it.
@@ -319,7 +319,7 @@ Go ahead and run it, and two new files, manifest.json and northwind.zip (the app
 
 If you were to run the application as-is in Microsoft Teams, you'd see this error message:
 
-![Error: you cannot run this app in an IFrame](../../assets/screenshots/02-001-IFrame-error.png)
+![Error: you cannot run this app in an IFrame](/app-camp/assets/screenshots/02-001-IFrame-error.png)
 
 The reason for this is that most login pages, including this one, contain code to detect if they're running in an IFrame and refuse to work. This is due to security concerns; for example a parent page could overlay content on top of the IFrame to capture the user's password. While the Northwind authentication scheme is for demonstration only and isn't really secure, it does (realistically) refuse to run in IFrame that hosts your Teams tab.
 
@@ -572,17 +572,17 @@ In the Teams web or desktop UI, click "Apps" in the sidebar 1️⃣, then "Manag
 
 In this case, choose the first option 3️⃣.
 
-![Upload the app](../../assets/screenshots/03-005-InstallApp-1.png)
+![Upload the app](/app-camp/assets/screenshots/03-005-InstallApp-1.png)
 
 Navigate to the Northwind.zip file in your manifest directory and upload it. Teams will display the application information; click the "Add" button to install it for your personal use.
 
-![Upload the app](../../assets/screenshots/03-006-InstallApp-2.png)
+![Upload the app](/app-camp/assets/screenshots/03-006-InstallApp-2.png)
 
 #### Step 3: Run the application
 
 The application should appear without any login prompt. The app's navigation should not be displayed; instead users can navigate to "My Orders" or "Products" using the tabs in the Teams app.
 
-![Run the app](../../assets/screenshots/03-007-RunApp-1.png)
+![Run the app](/app-camp/assets/screenshots/03-007-RunApp-1.png)
 
 --8<-- "i-finished.md"
 

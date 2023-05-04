@@ -1,0 +1,42 @@
+{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.4",
+    "body": [
+        {
+            "type": "Input.Text",
+            "label": "Enter a prompt here",
+            "isMultiline": true,
+            "value": "${prompt}",
+            "id": "prompt"
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Generate",
+                    "data": {
+                        "intent": "generate"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "Input.Text",
+            "label": "Edit your message here",
+            "isMultiline": true,
+            "value": "${message}",
+            "id": "message"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Send response",
+            "data": {
+                "intent": "send"
+            }
+        }
+    ]
+}

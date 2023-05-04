@@ -45,7 +45,7 @@ ngrok http 3978 -host-header=localhost
 ```
 The terminal will display a screen like below; Save the URL for [Step 2](#ex1-step3).
 
-<img src="../../assets/screenshots/01-002-ngrok.png" alt="ngrok output"/>
+<img src="/app-camp/assets/screenshots/01-002-ngrok.png" alt="ngrok output"/>
 
 
 #### Step 2: Register your web service as an bot using Teams Developer Portal
@@ -872,12 +872,12 @@ In the Teams web or desktop UI, click "Apps" in the sidebar 1️⃣, then "Manag
 
 In this case, choose the first option.
 
-<img src="../../assets/screenshots/03-005-InstallApp-1.png" alt="Upload the app"/>
+<img src="/app-camp/assets/screenshots/03-005-InstallApp-1.png" alt="Upload the app"/>
 
 Navigate to the Northwind.zip file in your manifest directory and upload it. 
 The Teams client will display the application information, add the application to a team or a group chat.
 
-<img src="../../assets/screenshots/06-002-addapp.png" alt="Add the app"/>
+<img src="/app-camp/assets/screenshots/06-002-addapp.png" alt="Add the app"/>
 
 
 #### Step 4 : Run the application in Teams client
@@ -886,28 +886,28 @@ We have added the app into a Group chat for demonstration. Go to the chat where 
 
 Open the message extension app from the compose area.
 
-<img src="../../assets/screenshots/06-003-openme.png" alt="Open the app"/>
+<img src="/app-camp/assets/screenshots/06-003-openme.png" alt="Open the app"/>
 
 Search for the product from the message extension (This should be easy if you have used [GIPHY](https://giphy.com/) before 😉)
 
-<img src="../../assets/screenshots/06-004-searchproduct.png" alt="Search product"/>
+<img src="/app-camp/assets/screenshots/06-004-searchproduct.png" alt="Search product"/>
 
 Select the product you want to add in the conversation.
-<img src="../../assets/screenshots/06-005-previewproduct.png" alt="Select product"/>
+<img src="/app-camp/assets/screenshots/06-005-previewproduct.png" alt="Select product"/>
 
 !!! note
     A little preview will be shown in the message compose area. Note at the time this lab was created, there is an outstanding platform issue related to the preview. If you are in a Teams team, this will be blank. Hence showing this capability in a group chat.
 
 This is the product card, with a form to fill in and submit, incase the unit stock value has to be changed.
 
-<img src="../../assets/screenshots/06-006-productcard.png?raw=true" alt="Product card"/>
+<img src="/app-camp/assets/screenshots/06-006-productcard.png?raw=true" alt="Product card"/>
 
 Fill in a new value in the form, and select **Update stock**.
 
-<img src="../../assets/screenshots/06-007-updatepdt.png?raw=true" alt="Product update form"/>
+<img src="/app-camp/assets/screenshots/06-007-updatepdt.png?raw=true" alt="Product update form"/>
 
 Once it's success fully updated, the card refreshes to show the new stock value.
-<img src="../../assets/screenshots/06-008-updated.png?raw=true" alt="Product updated"/>
+<img src="/app-camp/assets/screenshots/06-008-updated.png?raw=true" alt="Product updated"/>
 
 The stock values are saved into the JSON version of the Northwind database; if you find the product in the Products tab, you'll see the new value.
 

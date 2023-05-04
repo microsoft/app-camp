@@ -447,11 +447,11 @@ npm start
 
 Once the teams tab app is added, the personal tab will open `My Orders` tab. The application will now have the team's native look and feel.
 
-<img src="../../assets/screenshots/04-002-tabstyle.png" alt="Teams tab style">
+<img src="/app-camp/assets/screenshots/04-002-tabstyle.png" alt="Teams tab style">
 
 Here's how to [change themes in teams client.](https://support.microsoft.com/office/customize-your-teams-theme-51f24f07-1209-4f9d-8788-c0da4d98aede?WT.mc_id=m365-58890-cxa){target="_blank"} Notice how the teams tab app also detects and changes its theme.
 
-<img src="../../assets/screenshots/04-003-changetheme.gif" alt="Change theme">
+<img src="/app-camp/assets/screenshots/04-003-changetheme.gif" alt="Change theme">
 
 --8<-- "i-finished.md"
 

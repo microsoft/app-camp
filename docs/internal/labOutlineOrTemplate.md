@@ -6,7 +6,7 @@
 
 Describe the lab here
 
-The completed solution can be found in the [A02-after-teams-sso](../../src/create-core-app/aad/A02-after-teams-sso/){target="_blank"} folder, but the instructions will guide you through modifying the app running in your working folder. 
+The completed solution can be found in the [A02-after-teams-sso](/app-camp/src/create-core-app/aad/A02-after-teams-sso/){target="_blank"} folder, but the instructions will guide you through modifying the app running in your working folder. 
 
 In this lab you will learn to:
 
@@ -164,4 +164,4 @@ In this lab you will learn to:
 
 ## Next Steps
 
-After completing this lab, you may continue to the next lab in this learning path, [A03-after-apply-styling: Teams styling and themes](./A03-after-apply-styling.md){target="_blank"}.
+After completing this lab, you may continue to the next lab in this learning path, [A03-after-apply-styling: Teams styling and themes](/app-camp/aad/A03-after-apply-styling.md){target="_blank"}.
