@@ -753,5 +753,5 @@ After completing this lab, you may continue to the next lab in this learning pat
 
 --8<-- "issuesLink.md"
 
-<img src="https://pnptelemetry.azurewebsites.net/app-camp/new-adventure/Lab0x" />
+<img src="https://pnptelemetry.azurewebsites.net/app-camp/new-adventure/Lab04" />
 

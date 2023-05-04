@@ -49,5 +49,5 @@ If you haven't tried the classic App Camp labs yet, click [here](/app-camp/aad/A
 --8<-- "issuesLink.md"
 
 
-<img src="https://pnptelemetry.azurewebsites.net/app-camp/new-adventure/Lab0x" />
+<img src="https://pnptelemetry.azurewebsites.net/app-camp/new-adventure/Lab05" />
 

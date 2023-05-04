@@ -7,12 +7,6 @@ extra_css:
     - assets/labStyles.css
 nav: 
 - Home: 'index.md'
-- New Adventure:
-  - 1 - Create a new app with Teams Toolkit: 'new-adventure/01-create-app.md'
-  - 2 - Integrate business data with your app: 'new-adventure/02-integrate-web-service.md'
-  - 3 - Link Unfurling: 'new-adventure/03-add-link-unfurling.md'
-  - 4 - Action message extensions with Open AI: 'new-adventure/04-add-ai.md'
-  - 5 - Single Sign-on and Microsoft Graph: 'new-adventure/05-add-sso.md'
 - A Path: 
   - A01 - Start with Azure Active Directory: 'aad/A01-begin-app.md'
   - A02 - Create a Teams app with Azure AD Teams SSO: 'aad/A02-after-teams-sso.md'
@@ -37,8 +31,8 @@ nav:
 theme:
   name: 'material'
   palette: 
-    primary: '#35258F'
-    accent: '#091F2C'
+    primary: 'brown'
+    accent: 'deep orange'
   logo: 'assets/microsoftteams_appcamp-webheader3.png'
   icon:
     repo: fontawesome/brands/github
