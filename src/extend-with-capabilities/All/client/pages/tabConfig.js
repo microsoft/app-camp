@@ -30,7 +30,7 @@ async function displayUI() {
 
                 const url = `${window.location.origin}/pages/categoryDetail.html?categoryId=${selectedCategoryId}`;
                 const entityId = `ProductCategory ${selectedCategoryId}`;
-                microsoftTeams.settings.setSettings({
+                microsoftTeams.pages.config.setConfig({
                     "suggestedDisplayName": selectedCategoryName,
                     "entityId": entityId,
                     "contentUrl": url,
