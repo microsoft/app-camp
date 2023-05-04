@@ -1,0 +1,66 @@
+{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.4",
+    "body": [
+        {
+            "type": "Input.Text",
+            "label": "Original message",
+            "isMultiline": true,
+            "value": "${message}",
+            "id": "message"
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "choices": [
+                {
+                    "title": "agree",
+                    "value": "agree"
+                },
+                {
+                    "title": "disagree",
+                    "value": "disagree"
+                },
+                {
+                    "title": "poem",
+                    "value": "poem"
+                },
+                {
+                    "title": "joke",
+                    "value": "joke"
+                }
+            ],
+            "value": "${replyType}",
+            "placeholder": "Select a response type",
+            "id": "replyType"
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Generate",
+                    "data": {
+                        "intent": "generate"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "Input.Text",
+            "label": "Edit your response here",
+            "isMultiline": true,
+            "value": "${replyText}",
+            "id": "replyText"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Send response",
+            "data": {
+                "intent": "send"
+            }
+        }
+    ]
+}
