@@ -63,9 +63,32 @@ Next, edit your **env/.env.local** file and add the following lines, filling in 
 ~~~text
 AZURE_OPENAI_BASE_PATH=https://something.openai.azure.com/openai
 AZURE_OPENAI_MODEL=text-davinci-003
-AZURE_OPANAI_API_VERSION=2023-03-15-preview
-AZURE_OPENAI_API_KEY=xxxxxxxxxxxxxxx
+AZURE_OPENAI_API_VERSION=2023-03-15-preview
 ~~~
+
+Since the API key is secret, add it to the **env/.env.local.user** file as follows:
+
+~~~text
+SECRET_AZURE_OPENAI_API_KEY=xxxxxxxxxxxxxxx
+~~~
+
+These aren't the actual .env files however - in order for your code to read the values, we need to instruct Teams Toolkit to add them to the .env file at runtime. To do this, edit the **teamsapp.local.yml** file. Add lines below the existing configuration for `envs` as follows:
+
+~~~yaml
+  - uses: file/createOrUpdateEnvironmentFile # Generate runtime environment variables
+    with:
+      target: ./.localConfigs
+      envs:
+        BOT_ID: ${{BOT_ID}}
+        BOT_PASSWORD: ${{SECRET_BOT_PASSWORD}}
+        AZURE_OPENAI_BASE_PATH: ${{AZURE_OPENAI_BASE_PATH}}
+        AZURE_OPENAI_MODEL: ${{AZURE_OPENAI_MODEL}}
+        AZURE_OPENAI_API_VERSION: ${{AZURE_OPENAI_API_VERSION}}
+        AZURE_OPENAI_API_KEY: ${{SECRET_AZURE_OPENAI_API_KEY}}
+~~~
+
+!!! warning "Indentation matters in .yml files"
+    This is a "yaml" file, which is sensitive to indentation. Make sure the lines you add are indented the same as the `BOT_ID` and `BOT_PASSWORD` entries or it won't work.
 
 Now let's add code to call the Azure OpenAI service. Create a folder **services** within the **bot** folder in your project. In this new folder, create a file **azureOpenAiService.js** and paste in this code:
 
@@ -84,27 +107,6 @@ class AzureOpenAiService {
         this.openAiClient = new OpenAIApi(this.#configuration);
     }
 
-    getPrompt(userMessage, replyType) {
-
-        switch (replyType) {
-            case "agree": {
-                return `Please generate an agreeable response to the following message: "${userMessage}"`;
-            }
-            case "disagree": {
-                return `Please generate a polite response in disagreement to the following message: "${userMessage}"`;
-            }
-            case "poem": {
-                return `Please generate a short poem in response to the following message: "${userMessage}"`;
-            }
-            case "joke": {
-                return `Please generate a dad joke in response to the following message: "${userMessage}"`;
-            }
-            default: {
-                return `Please respond to the following message: "${userMessage}"`;
-            }
-        }
-    }
-
     async generateMessage(prompt) {
 
         try {
@@ -117,7 +119,7 @@ class AzureOpenAiService {
                 headers: {
                     'api-key': process.env.AZURE_OPENAI_API_KEY,
                   },
-                  params: { "api-version": process.env.AZURE_OPANAI_API_VERSION }
+                  params: { "api-version": process.env.AZURE_OPENAI_API_VERSION }
             });
 
             let result = response.data.choices[0].text;
@@ -126,7 +128,7 @@ class AzureOpenAiService {
 
         } catch (e) {
 
-            console.log(`Error ${e.response.sttus} ${e.response.statusText}`);
+            console.log(`Error ${e.response.status} ${e.response.statusText}`);
             return "Error";
 
         }
@@ -141,11 +143,26 @@ module.exports.OpenAiService = new AzureOpenAiService();
 
 This is a good approach if you want to obtain [AI service directly from OpenAI](https://platform.openai.com/){target=_blank}, and is a quick way to get started with an OpenAI trial account. You'll need to [obtain an API key](https://platform.openai.com/account/api-keys){target=_blank} to use the service. Note that if you've been using Chat GPT for a while your trial API access may already have expired; visit the [usage page](https://platform.openai.com/account/usage){target=_blank} to check your status.
 
-All you need for the lab is an OpenAI API key. Edit your **env/.env.local** file and add the following line with your API key:
+All you need for the lab is an OpenAI API key. Since it's a secret and shouldn't be displayed in the Teams Toolkit logs, it belongs in the **env/.env.local.user** file with a name that begins with `SECRET`:
 
 ~~~text
-OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxx
+SECRET_AZURE_OPENAI_API_KEY=xxxxxxxxxxxxxxx
 ~~~
+
+This isn't the actual .env file however - nor is *.env.local*. In order for your code to read the value, we need to instruct Teams Toolkit to add it to the .env file at runtime. To do this, edit the **teamsapp.local.yml** file. Add a line below the existing configuration for `envs` as follows:
+
+~~~yaml
+  - uses: file/createOrUpdateEnvironmentFile # Generate runtime environment variables
+    with:
+      target: ./.localConfigs
+      envs:
+        BOT_ID: ${{BOT_ID}}
+        BOT_PASSWORD: ${{SECRET_BOT_PASSWORD}}
+        OPENAI_API_KEY: ${{SECRET_OPENAI_API_KEY}}
+~~~
+
+!!! warning "Indentation matters in .yml files"
+    This is a "yaml" file, which is sensitive to indentation. Make sure the line you add is indented the same as the `BOT_ID` and `BOT_PASSWORD` entries or it won't work.
 
 Now let's add code to call the OpenAI service. Create a folder **services** within the **bot** folder in your project. In this new folder, create a file **openAiService.js** and paste in this code:
 
@@ -160,27 +177,6 @@ class OpenAiService {
             apiKey: process.env.OPENAI_API_KEY
         });
         this.openAiClient = new OpenAIApi(this.#configuration);
-    }
-
-    getPrompt(userMessage, replyType) {
-
-        switch (replyType) {
-            case "agree": {
-                return `Please generate an agreeable response to the following message: "${userMessage}"`;
-            }
-            case "disagree": {
-                return `Please generate a polite response in disagreement to the following message: "${userMessage}"`;
-            }
-            case "poem": {
-                return `Please generate a short poem in response to the following message: "${userMessage}"`;
-            }
-            case "joke": {
-                return `Please generate a dad joke in response to the following message: "${userMessage}"`;
-            }
-            default: {
-                return `Please respond to the following message: "${userMessage}"`;
-            }
-        }
     }
 
     async generateMessage(prompt) {
@@ -200,7 +196,7 @@ class OpenAiService {
 
         } catch (e) {
 
-            console.log(`Error ${e.response.sttus} ${e.response.statusText}`);
+            console.log(`Error ${e.response.status} ${e.response.statusText}`);
             return "Error";
 
         }
@@ -212,7 +208,9 @@ module.exports.OpenAiService = new OpenAiService();
 ~~~
 
 ???+ note "Code walk-through"
-    You might notice that the Azure OpenAI and OpenAI services are very similar. They both have `generateMessage()` functions that call openAiClient.createCompletion() with a prompt, and receive a response from the AI model. They also both have some super simple prompt generation code to allow the user to generate different kinds of responses to a message in Microsoft Teams.
+    You might notice that the Azure OpenAI and OpenAI services are very similar. They both have `generateMessage()` functions that call openAiClient.createCompletion() with a prompt, and receive a response from the AI model. 
+    
+    They also both use the [OpenAI API](https://github.com/openai/openai-node){target=_blank}. This is a client-side library for calling OpenAI services, from NodeJS in this case.
 
 ## Exercise 2: Install the Open AI API package
 
@@ -255,11 +253,11 @@ Open **appPackage/manifest.json** in your code editor and add these two elements
 ~~~
 
 !!! note
-    If all the indentation is a bit confusing, feel free to copy the entire updated **manifest.json** file [from here](https://github.com/microsoft/app-camp/tree/BG-NewLabs/src/teams-toolkit/Lab04-add-ai/NorthwindSuppliers/appPackage/manifest.json){target=_blank}
+    If all the nested brackets are a bit confusing, feel free to copy the entire updated **manifest.json** file [from here](https://github.com/microsoft/app-camp/tree/BG-NewLabs/src/teams-toolkit/Lab04-add-ai/NorthwindSuppliers/appPackage/manifest.json){target=_blank}
 
-Notice that the new commands are both of type `action`, with `fetchTask` set to `true`. This will cause Teams to display a dialog containing a web page or adaptive card when the action is invoked. In this case, we'll use an adaptive card.
+Notice that the new commands are both of type `action`, with `fetchTask` set to `true`. This will cause Teams to fetch an adaptive card from your service and display a dialog containing the card so the user can interact with your application. You could also present a web page in this fashion, but in this lab we'll just use an adaptive card.
 
-Also notice that the `generateMessage` action runs in the context of the `compose` box or `commandBox` at the top of the Teams user interface. `replyToMessage` runs in the context of a `message`.
+Also notice that the `generateMessage` action runs in the context of the `compose` box or `commandBox` at the top of the Teams user interface. `replyToMessage` runs in the context of a `message`. These settings control the location where Teams displays your action message extension.
 
 ## Exercise 4: Add a message extension to generate a message
 
@@ -268,7 +266,6 @@ Also notice that the `generateMessage` action runs in the context of the `compos
 Now, as before, we'll make a separate JavaScript module for each of our message extensions. Create a new file called **generateMessageME.js** in the **messageExtensions** folder. Paste this code into the file:
 
 ~~~javascript
-
 const ACData = require("adaptivecards-templating");
 const { CardFactory } = require("botbuilder");
 const { OpenAiService } = require("../services/azureOpenAiService");
@@ -279,24 +276,24 @@ class GenerateMessageME {
     // Ref documentation
     // https://learn.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command
 
-    async fetchTask (context, action) {
+    async handleTeamsMessagingExtensionFetchTask (context, action) {
         try {
-            return this.#getMessageFormResponse("Please generate a message for me to send.");
+            return this.#displayAdaptiveCardResponse("Please generate a message for me to send.");
         } catch (e) {
             console.log(e);
         }
     }
 
-    async submit (context, action) {
+    async handleTeamsMessagingExtensionSubmitAction (context, action) {
 
         try {
 
             switch (action.data?.intent) {
                 case "send": {
-                    return await this.#getSendMessageResponse(action.data?.message);
+                    return await this.#sendMessageResponse(action.data?.message);
                 }
                 default: {
-                    return await this.#getMessageFormResponse(action.data?.prompt);
+                    return await this.#displayAdaptiveCardResponse(action.data?.prompt);
                 }
             }
         }
@@ -305,13 +302,13 @@ class GenerateMessageME {
         }
     }
 
-    // Generate a message given a prompt from the user
-    async #getMessageFormResponse (prompt) {
+    // Generate a response that will display the adaptive card form in Teams
+    async #displayAdaptiveCardResponse (prompt) {
 
         const text = await OpenAiService.generateMessage(prompt);
 
         // Read card from JSON file
-        const templateJson = require('./generateMessageCard.json');
+        const templateJson = require('../cards/generateMessageCard.json');
         const template = new ACData.Template(templateJson);
         const cardContents = template.expand({
             $root: {
@@ -334,7 +331,8 @@ class GenerateMessageME {
         };
     }
 
-    async #getSendMessageResponse (message) {
+    // Generate a response that will add a message to the Teams compose box
+    async #sendMessageResponse (message) {
 
         const messageHtml = message.replace(/\n/g, "<br />");
 
@@ -367,10 +365,9 @@ module.exports.GenerateMessageME = new GenerateMessageME();
 ???+ note "Code walk-through"
     Take a moment to examine the code you just added.
 
-    The `fetchTask()` function is called when the action message extension is invoked
-    by a user. This function will return an adaptive card as part of a "continue" task, which tells Teams to display the card and continue to interact with the user. The code to generate the adaptive card is in a function `#getMessageFormResponse()` because it's used repeatedly if the user clicks the "Generate" button on the card.
+    The `handleTeamsMessagingExtensionFetchTask()` function is called when the action message extension is invoked by a user. This function will return an adaptive card as part of a "continue" task, which tells Teams to display the card and interact with the user. The function `#displayAdaptiveCardResponse()` generates a response to Teams that includes the adaptive card to be displayed.
 
-    When the user clicks a button on the adaptive card, the card data is submitted and the `submit()` function is called. If the `send` button was pressed, the code returns a `result` response with a hero card containing the message to be sent; this inserts the generated message into the compose box for the user to send.
+    When the user clicks a button on the adaptive card, the card data is submitted and the `handleTeamsMessagingExtensionSubmitAction()` function is called. If the `send` button was pressed, the `#sendMessageResponse` function returns a response with a hero card containing the message to be sent; this inserts the generated message into the compose box for the user to send.
 
 ### Step 2: Add the adaptive card
 
@@ -436,7 +433,6 @@ Add a new file, **generateMessageCard.json** in the **cards** folder you created
 Create a new file called **replyME.js** in the **messageExtensions** folder. Paste this code into the file:
 
 ~~~javascript
-
 const ACData = require("adaptivecards-templating");
 const { CardFactory } = require("botbuilder");
 const { OpenAiService } = require("../services/azureOpenAiService");
@@ -448,29 +444,30 @@ class ReplyME {
     // Ref documentation
     // https://learn.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command
 
-     async fetchTask (context, action) {
+    async handleTeamsMessagingExtensionFetchTask(context, action) {
         try {
 
-            const [message, replyType] = this.#getMessageAndReplyType(action);
-            return this.#getReplyFormResponse(message, replyType);
+            const userMessage = this.#getUserMessage(action);
+            return this.#displayAdaptiveCardResponse(userMessage, "agree");
 
         } catch (e) {
             console.log(e);
         }
     }
 
-    async submit (context, action) {
+    async handleTeamsMessagingExtensionSubmitAction(context, action) {
 
         try {
 
-            const [message, replyType] = this.#getMessageAndReplyType(action);
+            const userMessage = this.#getUserMessage(action);
+            const replyType = action.data?.replyType;
 
             switch (action.data?.intent) {
                 case "send": {
-                    return await this.#getSendMessageResponse(action.data?.replyText);
+                    return await this.#sendMessageResponse(action.data?.replyText);
                 }
                 default: {
-                    return this.#getReplyFormResponse(message, replyType);
+                    return this.#displayAdaptiveCardResponse(userMessage, replyType);
                 }
             }
 
@@ -481,23 +478,27 @@ class ReplyME {
         }
     }
 
-    #getMessageAndReplyType (action) {
-        let message = action.messagePayload?.body?.content;
+    // Get the original message the user invoked the ME on and also the type
+    // of response indicated in the adaptive card (agree, disagree, poem, or joke).
+    // Default to "agree" if we're displaying the 1st adaptive card
+    #getUserMessage(action) {
+        let userMessage = action.messagePayload?.body?.content;
         const messageType = action.messagePayload?.body?.contentType;
         if (messageType === "html") {
-            message = message.replace(/<[^>]*>?/gm, '');
+            userMessage = userMessage.replace(/<[^>]*>?/gm, '');
         }
 
-        return [message, action.data?.replyType || "agree"];
+        return userMessage;
     }
 
-    async #getReplyFormResponse (message, replyType) {
+    // Generate a response that will display the adaptive card form in Teams
+    async #displayAdaptiveCardResponse(message, replyType) {
 
-        const prompt = OpenAiService.getPrompt(message, replyType);
+        const prompt = this.#getPrompt(message, replyType);
         const replyText = await OpenAiService.generateMessage(prompt);
 
         // Read card from JSON file
-        const templateJson = require('./replyCard.json');
+        const templateJson = require('../cards/replyCard.json');
         const template = new ACData.Template(templateJson);
         const cardContents = template.expand({
             $root: {
@@ -522,7 +523,8 @@ class ReplyME {
 
     }
 
-    async #getSendMessageResponse (messageText) {
+    // Generate a response that will add a message to the Teams compose box
+    async #sendMessageResponse(messageText) {
 
         const messageHtml = messageText.replace(/\n/g, "<br />");
 
@@ -544,6 +546,27 @@ class ReplyME {
         };
     }
 
+    // Get the OpenAI prompt based on the user message and reply type
+    #getPrompt(userMessage, replyType) {
+
+        switch (replyType) {
+            case "agree": {
+                return `Please generate an agreeable response to the following message: "${userMessage}"`;
+            }
+            case "disagree": {
+                return `Please generate a polite response in disagreement to the following message: "${userMessage}"`;
+            }
+            case "poem": {
+                return `Please generate a short poem in response to the following message: "${userMessage}"`;
+            }
+            case "joke": {
+                return `Please generate a dad joke in response to the following message: "${userMessage}"`;
+            }
+            default: {
+                return `Please respond to the following message: "${userMessage}"`;
+            }
+        }
+    }
 }
 
 module.exports.ReplyME = new ReplyME();
@@ -643,10 +666,10 @@ Now add these event handlers below the `handleTeamsAppBasedLinkQuery` function.
 
     switch (action.commandId) {
       case "generateMessage": {
-        return await GenerateMessageME.fetchTask(context, action);
+        return await GenerateMessageME.handleTeamsMessagingExtensionFetchTask(context, action);
       }
       case "replyToMessage": {
-        return await ReplyME.fetchTask(context, action);
+        return await ReplyME.handleTeamsMessagingExtensionFetchTask(context, action);
       }
       default: {
         return null;
@@ -658,10 +681,10 @@ Now add these event handlers below the `handleTeamsAppBasedLinkQuery` function.
 
     switch (action.commandId) {
       case "generateMessage": {
-        return await GenerateMessageME.submit(context, action);
+        return await GenerateMessageME.handleTeamsMessagingExtensionSubmitAction(context, action);
       }
       case "replyToMessage": {
-        return await ReplyME.submit(context, action);
+        return await ReplyME.handleTeamsMessagingExtensionSubmitAction(context, action);
       }
       default: {
         return null;
@@ -670,9 +693,55 @@ Now add these event handlers below the `handleTeamsAppBasedLinkQuery` function.
   }
 ~~~
 
-
-
 ## Exercise 7: Run the solution
+
+Finally the moment has arrived - it's time to hit F5 or click the Run button in Teams Toolkit. As before, it will run for a while and then open a browser containing a Teams application installation screen. Install the app and you should land in a chat with the message extension open. This time, however, it will include a "Generate Message" button.
+
+### Step 1: Test the Generate Message button
+
+![Caption](../assets/new-adventure/Lab04-001-Generate1.png)
+
+Go ahead and click the "Generate Message" button; a dialog should appear displaying an adaptive card based on the template in **cards/generateMessageCard.json**. The initial prompt is displayed, along with an AI generated message that can be sent to the Teams chat.
+
+![Caption](../assets/new-adventure/Lab04-002-Generate2.png)
+
+Users can send the message immediately by clicking "Send response", or they can edit the prompt and click "Generate". This allows the user to iterate and find the best prompt to generate the message they'd like to send.
+
+![Caption](../assets/new-adventure/Lab04-003-Generate3.png)
+
+When the user clicked the "Generate" button, the code in **messageExtensions/generateMessageME.js** responded with a `continue` response containing the updated adaptive card. When the user clicks the "Send" button, the code will respond with a `result` response containing a hero card to that is inserted into the conversation. 
+
+![Caption](../assets/new-adventure/Lab04-004-Generate4.png)
+
+Using this technique, it's possible to lead users through a sequence of screens with various adaptive cards and web pages, and then to insert a card into the conversation that other users can act on.
+
+Note that, like the Search message extension, this action message extension inserts content into the compose box. The user can edit their own message including the card, and then click send to share it in the conversation.
+
+![Caption](../assets/new-adventure/Lab04-005-Generate5.png)
+
+### Step 2: Test the message reply feature
+
+To begin, send a message into the Teams chat where your application is running. It needs to be a simple text message.
+
+Hover over or tap the message to reveal its contet menu. Click the "..." 1️⃣, and then "More Actions" 2️⃣. This will open a context menu for taking action on the message, and your app should be on that menu with the name "AI Reply" 3️⃣.
+
+![Caption](../assets/new-adventure/Lab04-006-Reply1.png)
+
+Click the "AI Reply" button to open a dialog showing an adaptive card based on the **cards/replyCard.json** template.
+
+![Caption](../assets/new-adventure/Lab04-007-Reply2.png)
+
+You should see the original message and a drop-down where you can select the type of response you'd like. The default is "agree" but there are some other options as well.
+
+![Caption](../assets/new-adventure/Lab04-008-Reply3.png)
+
+Select one of the other options and click "Generate". As before, the message extension will respond to Teams with a `continue` response containing an updated adaptive card.
+
+![Caption](../assets/new-adventure/Lab04-009-Reply4.png)
+
+To complete the lab, click "Send" and send the message.
+
+![Caption](../assets/new-adventure/Lab04-010-Reply5.png)
 
 --8<-- "i-finished.md"
 
