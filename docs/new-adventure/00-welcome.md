@@ -9,8 +9,7 @@ These labs are being developed "in the open" - right here in github, and I'd gre
 
 <hr />
 
-**Labs 1-4 are ready for testing!** Please try them out!
-The Lab 5 solution is working and instructions are still being written.
+**All labs are ready for testing!** Please try them out!
 
 ???+ info "Labs"
 

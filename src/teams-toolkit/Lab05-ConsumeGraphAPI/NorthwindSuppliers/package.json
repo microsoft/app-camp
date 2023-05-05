@@ -1,0 +1,32 @@
+{
+  "name": "NorthwindSuppliers",
+  "version": "1.0.0",
+  "msteams": {
+    "teamsAppId": null
+  },
+  "description": "Microsoft Teams Toolkit m365 message extension sample",
+  "engines": {
+    "node": "14 || 16 || 18"
+  },
+  "author": "Microsoft",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "dev:teamsfx": "env-cmd --silent -f .localConfigs npm run dev",
+    "dev": "nodemon --inspect=9239 --signal SIGINT ./index.js",
+    "start": "node ./index.js",
+    "watch": "nodemon ./index.js"
+  },
+  "dependencies": {
+    "@microsoft/teamsfx": "^2.2.0",
+    "adaptivecards-templating": "^2.3.1",
+    "botbuilder": "^4.18.0",
+    "isomorphic-fetch": "^3.0.0",
+    "openai": "^3.2.1",
+    "restify": "^10.0.0"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "nodemon": "^2.0.7"
+  }
+}
