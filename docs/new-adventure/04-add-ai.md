@@ -90,7 +90,7 @@ These aren't the actual .env files however - in order for your code to read the 
 !!! warning "Indentation matters in .yml files"
     This is a "yaml" file, which is sensitive to indentation. Make sure the lines you add are indented the same as the `BOT_ID` and `BOT_PASSWORD` entries or it won't work.
 
-Now let's add code to call the Azure OpenAI service. Create a folder **services** within the **bot** folder in your project. In this new folder, create a file **azureOpenAiService.js** and paste in this code:
+Now let's add code to call the Azure OpenAI service. Create a folder **services** within your project. In this new folder, create a file **azureOpenAiService.js** and paste in this code:
 
 ~~~javascript
 const { Configuration, OpenAIApi } = require("openai");
@@ -164,7 +164,7 @@ This isn't the actual .env file however - nor is *.env.local*. In order for your
 !!! warning "Indentation matters in .yml files"
     This is a "yaml" file, which is sensitive to indentation. Make sure the line you add is indented the same as the `BOT_ID` and `BOT_PASSWORD` entries or it won't work.
 
-Now let's add code to call the OpenAI service. Create a folder **services** within the **bot** folder in your project. In this new folder, create a file **openAiService.js** and paste in this code:
+Now let's add code to call the OpenAI service. Create a folder **services** in your project. In this new folder, create a file **openAiService.js** and paste in this code:
 
 ~~~javascript
 const { Configuration, OpenAIApi } = require("openai");
