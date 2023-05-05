@@ -505,6 +505,15 @@ class ContactME {
 module.exports.ContactME = new ContactME();
 ~~~
 
+???+ note "Code walk-through"
+    Take a moment to examine the code you just added.
+
+    The `handleTeamsMessagingExtensionQuery()` function is called when a user enters a query into the message extension. To satisfy this request, we need an access token, so we return a call to the TeamsFx function `handleTeamsMessagingExtensionQueryWithSSO()`. This function takes care of the displaying a consent dialog if the user hasn't consented to the permissions. 
+    
+    It includes an argument, `oboAuthConfig`, which contains the information needed to exchange the access token provided by Teams with an access token for a web service owned by some other application (such as the Microsoft Graph). This is used by `handleTeamsMessagingExtensionQueryWithSSO() and by the call to `OnBehalfOfUserCredential()`, which we call to get a Graph client to call the Microsoft Graph.
+
+    Once you have the Graph client, it's simple to call the Graph API and get the list of clients. To try this and other Graph API calls interactively, try the [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer){target="_blank"}. This is a great place to start when writing code to call the Microsoft Graph.
+
 ### Step 2: Modify the bot to displatch messages to the Contacts message extension
 
 Open **teamsBot.js** and add calls to the contact message extension to the `switch` statements for query message extensions.
