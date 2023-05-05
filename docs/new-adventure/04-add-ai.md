@@ -253,7 +253,7 @@ Open **appPackage/manifest.json** in your code editor and add these two elements
 ~~~
 
 !!! note
-    If all the nested brackets are a bit confusing, feel free to copy the entire updated **manifest.json** file [from here](https://github.com/microsoft/app-camp/tree/BG-NewLabs/src/teams-toolkit/Lab04-add-ai/NorthwindSuppliers/appPackage/manifest.json){target=_blank}
+    If all the nested brackets are a bit confusing, feel free to copy the entire updated **manifest.json** file [from here](https://github.com/microsoft/app-camp/blob/main/src/teams-toolkit/Lab04-AIExtension/NorthwindSuppliers/appPackage/manifest.json){target=_blank}
 
 Notice that the new commands are both of type `action`, with `fetchTask` set to `true`. This will cause Teams to fetch an adaptive card from your service and display a dialog containing the card so the user can interact with your application. You could also present a web page in this fashion, but in this lab we'll just use an adaptive card.
 
