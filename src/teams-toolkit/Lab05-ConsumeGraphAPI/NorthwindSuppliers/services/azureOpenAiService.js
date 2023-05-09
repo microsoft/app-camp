@@ -18,8 +18,8 @@ class AzureOpenAiService {
 
             const response = await this.openAiClient.createCompletion({
                 prompt: prompt,
-                temperature: 0.0,
-                max_tokens: 400
+                temperature: 0.6,
+                max_tokens: 100
             }, {
                 headers: {
                     'api-key': process.env.AZURE_OPENAI_API_KEY,
