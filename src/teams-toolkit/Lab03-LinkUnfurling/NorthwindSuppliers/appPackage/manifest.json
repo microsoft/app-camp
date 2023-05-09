@@ -65,5 +65,7 @@
         "identity",
         "messageTeamMembers"
     ],
-    "validDomains": []
+    "validDomains": [
+    	"adaptivecards.io"
+    ]
 }
