@@ -165,7 +165,7 @@ Open the **teamsapp.local.yml** file. This is a YAML file that defines the steps
 
   * Deploy - In this phase, the code is built and run locally, or uploaded to Azure for environments other than "local"
 
-  * Publish - In this hase, the app package is published to Microsoft Teams
+  * Publish - In this phase, the app package is published to Microsoft Teams
 
   To provision your Azure AD app, add these lines to **teamsapp.local.yml**. You can put them directly below the `provision:` line; if you know YAML you can put them anywhere before the [teamsApp/validateManifest] directive, since the Azure AD application information is needed in validating the manifest.
 

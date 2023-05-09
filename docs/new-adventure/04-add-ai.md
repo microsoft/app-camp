@@ -113,8 +113,8 @@ class AzureOpenAiService {
 
             const response = await this.openAiClient.createCompletion({
                 prompt: prompt,
-                temperature: 0.0,
-                max_tokens: 400
+                temperature: 0.6,
+                max_tokens: 100
             }, {
                 headers: {
                     'api-key': process.env.AZURE_OPENAI_API_KEY,
@@ -146,7 +146,7 @@ This is a good approach if you want to obtain [AI service directly from OpenAI](
 All you need for the lab is an OpenAI API key. Since it's a secret and shouldn't be displayed in the Teams Toolkit logs, it belongs in the **env/.env.local.user** file with a name that begins with `SECRET`:
 
 ~~~text
-SECRET_AZURE_OPENAI_API_KEY=xxxxxxxxxxxxxxx
+SECRET_OPENAI_API_KEY=your-key-here-xxxxxx
 ~~~
 
 This isn't the actual .env file however - nor is *.env.local*. In order for your code to read the value, we need to instruct Teams Toolkit to add it to the .env file at runtime. To do this, edit the **teamsapp.local.yml** file. Add a line below the existing configuration for `envs` as follows:
@@ -253,7 +253,7 @@ Open **appPackage/manifest.json** in your code editor and add these two elements
 ~~~
 
 !!! note
-    If all the nested brackets are a bit confusing, feel free to copy the entire updated **manifest.json** file [from here](https://github.com/microsoft/app-camp/blob/main/src/teams-toolkit/Lab04-AIExtension/NorthwindSuppliers/appPackage/manifest.json){target=_blank}
+    Be sure to separate these new commands from the previous "searchQuery" command with a comma. If you're new to JSON, and all the nested brackets are a bit confusing, feel free to copy the entire updated **manifest.json** file [from here](https://github.com/microsoft/app-camp/blob/main/src/teams-toolkit/Lab04-AIExtension/NorthwindSuppliers/appPackage/manifest.json){target=_blank}
 
 Notice that the new commands are both of type `action`, with `fetchTask` set to `true`. This will cause Teams to fetch an adaptive card from your service and display a dialog containing the card so the user can interact with your application. You could also present a web page in this fashion, but in this lab we'll just use an adaptive card.
 

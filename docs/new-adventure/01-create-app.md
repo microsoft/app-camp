@@ -207,9 +207,12 @@ You have just integrated a web service with Teams, so end users can search for i
 
 ![Caption](/app-camp/assets/new-adventure/Lab01-014-View result.png)
 
+
 ## What's next?
 
-In the [next lab](./02-integrate-web-service.md), we'll brand the application and update it to retrieve information about Northwind Suppliers. We'll also replace the somewhat boring message card (a [Hero Card](https://learn.microsoft.com/microsoftteams/platform/task-modules-and-cards/cards/cards-reference#hero-card){target="_blank"}) with a much more fun [Adaptive Card](https://adaptivecards.io/){target="_blank"}.
+Before you continue to the next lab, please stop the debugger by shutting the debug browser window or pressing the disconnect button in the Visual Studio Code toolbar. The next lab requires a complete, cold restart of your application.
+
+In the [next lab](./02-integrate-web-service.md), you'll brand the application and update it to retrieve information about Northwind Suppliers. You'll also replace the somewhat boring message card (a [Hero Card](https://learn.microsoft.com/microsoftteams/platform/task-modules-and-cards/cards/cards-reference#hero-card){target="_blank"}) with a much more fun [Adaptive Card](https://adaptivecards.io/){target="_blank"}.
 
 ## Known issues
 
