@@ -1,11 +1,10 @@
-# 04 - Configurable Tabs
+# "ALL" Extended Lab Solution
 
-Changes:
+This is an unofficial solution folder showing the result of doing ALL the App Camp labs. Well - almost all - A01-A03 and all the extended labs have been completed here.
 
-1. Add Tab configuration page tabConfig.html, tabConfig.js
+There are a couple reasons for this:
 
-2. Update manifest
-  - Update manifest.template.json to include configurable tab and bump version #
-  - Rebuild the app package (npm run package)
+ * It's great for demos
+ * It shows that all the labs can work together. Making the "All" solution work after adding each new lab is a way to ensure the labs don't break or contradict one another.
 
-3. Upload to a Team or Group Conversation, choose a category
+Thanks!
