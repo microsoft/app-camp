@@ -501,6 +501,64 @@ The card stays in the conversation, providing information and the ability to tak
     
     You shouldn't need to change the Teams manifest, but you might have a challenge finding a place to write the data out to since we don't really have a database :). But it's still worth experimenting with!
 
+## Exercise 5 (Optional): Add Stage View
+
+You may notice that the adaptive card you added has a "View" button which launches a web browser view of the [Adaptive Cards web site](https://adaptivecards.io){target=_blank}. This uses the "OpenUrl" action, which opens a web page.
+
+While this is reasonable, it leads users away from Microsoft Teams and your application running there! An easy solution is to display the web site in [stage view](https://learn.microsoft.com/microsoftteams/platform/tabs/tabs-link-unfurling#invoke-stage-view-from-adaptive-card).
+
+In this optional exercise you'll add another vbutton to the card which displays the same web site in Stage View.
+
+### Step 1: Update the adaptive card
+
+Open the **cards/supplierCard.json** file you added earlier in this lab. Scroll down to the `"type": "ActionSet"` element and add another action to the `"actions"` array before the `"type": "Action.OpenUrl"` action.
+
+~~~json
+    {
+    	"type": "Action.Submit",
+    	"title": "Stage view",
+    	"data": {
+    		"msteams": {
+    			"type": "invoke",
+    			"value": {
+    				"type": "tab/tabInfoAction",
+    				"tabInfo": {
+    					"contentUrl": "https://adaptivecards.io",
+    					"websiteUrl": "https://adaptivecards.io",
+    					"name": "WebView",
+    					"entityId": "entityId"
+    				}
+    			}
+    		}
+    	}
+    },
+
+~~~
+
+### Step 2: Add to the valid domains in the app manifest
+
+The action you just added doesn't require any supporting code, but it will fail if the `"contentUrl"` is not included in the Teams app manifest. This is a security feature - as an app developer, you decide what web servers are valid for your app, and Teams blocks any others.
+
+To add this, open the **appPackage/manifest.json** file. Scroll down to find the `"validDomains"` object and add `"adaptivecards.io"` so the web page can be displayed in Teams.
+
+~~~json
+"validDomains": [
+    "adaptivecards.io"
+],
+~~~
+
+### Step 3: Run the app
+
+Stop and restart your application in Teams Toolkit to force the app manifest to be updated. When you run the app, you will see a second button on each adaptive card, "Stage View".
+
+![Caption](../assets/new-adventure/Lab01-015-StageView1.png)
+
+When you click the button, the Adaptive Cards web site will appear in a pop-up window in Teams.
+
+![Caption](../assets/new-adventure/Lab01-016-StageView2.png)
+
+Note that this won't work if the target web site includes code that prohibits running in an IFrame. Since Teams renders these pages in an IFrame, this requires changes to the target web site. Such a web site could check the `window.ref
+
 ## Next steps
 
 After completing this lab, you may continue to the next lab in this learning path, [Lab 3 - Add link unfurling](./03-add-link-unfurling.md).

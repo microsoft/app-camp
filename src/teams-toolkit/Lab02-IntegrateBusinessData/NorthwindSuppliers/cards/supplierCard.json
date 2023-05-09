@@ -126,6 +126,24 @@
                                     "separator": true,
                                     "actions": [
                                         {
+                                            "type": "Action.Submit",
+                                            "title": "Stage view",
+                                            "data": {
+                                                "msteams": {
+                                                    "type": "invoke",
+                                                    "value": {
+                                                        "type": "tab/tabInfoAction",
+                                                        "tabInfo": {
+                                                            "contentUrl": "https://adaptivecards.io",
+                                                            "websiteUrl": "https://adaptivecards.io",
+                                                            "name": "WebView",
+                                                            "entityId": "entityId"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
                                             "type": "Action.OpenUrl",
                                             "title": "Web site",
                                             "url": "https://adaptivecards.io"

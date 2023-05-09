@@ -105,6 +105,7 @@
         "messageTeamMembers"
     ],
     "validDomains": [
+        "adaptivecards.io",
         "${{BOT_DOMAIN}}"
     ],
     "webApplicationInfo": {
