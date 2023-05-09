@@ -501,7 +501,7 @@ The card stays in the conversation, providing information and the ability to tak
     
     You shouldn't need to change the Teams manifest, but you might have a challenge finding a place to write the data out to since we don't really have a database :). But it's still worth experimenting with!
 
-## Exercise 5 (Optional): Add Stage View
+## Exercise 4 (Optional): Add Stage View
 
 You may notice that the adaptive card you added has a "View" button which launches a web browser view of the [Adaptive Cards web site](https://adaptivecards.io){target=_blank}. This uses the "OpenUrl" action, which opens a web page.
 
