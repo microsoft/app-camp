@@ -3,9 +3,9 @@
 
 # Welcome to App Camp: New Adventure!
 
-App Camp: New Adventure is a set of new labs for Teams App Camp that will be used at Build 2023. They will be part of a pre-day workshop, **Build Microsoft Teams apps leveraging existing software investments** and a hands-on lab, **From Web Services to Teams Apps using Teams Toolkit v5.0**.
+App Camp: New Adventure is a set of new labs for Teams App Camp that will be used at Build 2023. They're part of a pre-day workshop, **Build Microsoft Teams apps leveraging existing software investments** and a hands-on lab, **From Web Services to Teams Apps using Teams Toolkit v5.0**.
 
-These labs are being developed "in the open" - right here in github, and I'd greatly appreciate your help in testing and reviewing them! Please [add issues in github](https://github.com/microsoft/app-camp/issues/new?labels=new%20labs){target=_blank} with your feedback, or reach out to me directly.  -- Bob German
+These labs are being developed "in the open" - right here in github, and I'd greatly appreciate your help in testing and reviewing them! Please [add issues in github](https://github.com/microsoft/app-camp/issues/new?labels=new%20labs){target=_blank} with your feedback, or reach out to me directly. Thank you! -- Bob German
 
 <hr />
 

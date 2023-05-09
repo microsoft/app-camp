@@ -109,7 +109,7 @@ In this and the labs that follow, we'll be adding multiple different message ext
 
 ### Step 1: Add Message Extension logic
 
-To begin, creae a folder in the **NorthwindSuppliers** directory called **messageExtensions**. Then create a new file in the **messageExtensions** folder called **supplierME.js** and copy in the following code:
+To begin, create a folder in the **NorthwindSuppliers** directory called **messageExtensions**. Then create a new file in the **messageExtensions** folder called **supplierME.js** and copy in the following code:
 
 ```javascript
 const axios = require("axios");
@@ -418,6 +418,9 @@ The templating won't work without the adaptive card templates library, so go to 
 ```shell
 npm install adaptivecards-templating
 ```
+
+!!! tip "Easy way to open a command line in Visual Studio Code"
+    You can open a command line right in Visual Studio code, even if Teams Toolkit is alredy using the terminal window. Just go to the Terminal menu and select "New Terminal" or, on Windows, type "ctrl+shift+back tick". Notice that there are tiny tabs to the right of the terminal window that allow you to select which one you're looking at - and Teams Toolkit sometimes has a few of them running!
 
 ## Step 4: Update the Teams Bot
 
