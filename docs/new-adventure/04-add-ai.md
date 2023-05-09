@@ -459,7 +459,7 @@ class ReplyME {
 
         try {
 
-            const userMessage = this.#getUserMessage(action);
+            const userMessage = action.data?.message;
             const replyType = action.data?.replyType;
 
             switch (action.data?.intent) {
