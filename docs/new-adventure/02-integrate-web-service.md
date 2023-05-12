@@ -5,7 +5,7 @@
 ???+ info "Lab Outline"
 
     * __[Lab 1 - Create your first app with Teams Toolkit](./01-create-app.md)__
-    In this lab, you'll set up Teams Toolkit create a Teams message extension
+    In this lab, you'll set up Teams Toolkit and create a Teams message extension.
     * __<span style="color: red;">THIS LAB:</span>
     [Lab 2 - Integrate business data with your application](./02-integrate-web-service.md)__
     In this lab, you'll brand your new app as "Northwind Suppliers", and will provide the ability to insert data from the Northwind Traders sample database in a Microsoft Teams conversation. You'll also learn how to create and send adaptive cards with your message extension.
@@ -35,12 +35,12 @@ In the previous lab, you created and ran a Search Message Extension using Teams 
 ### Step 1: Download new app icons and place them in the **appPackage** folder.
 
  * The large icon should be in color and 192x192 pixels:
-   [northwind-suppliers-192.png](){target="_blank"} 
+   [northwind-suppliers-192.png](/app-camp/assets/new-adventure/northwind-suppliers-192.png){target="_blank"} 
 
     <img src="/app-camp/assets/new-adventure/northwind-suppliers-192.png" alt="Large icon" width="192" height="192" />
 
  * The small icon should be monochrome and 32x32 pixels:
-   [northwind-suppliers-32.png](){target="_blank"} 
+   [northwind-suppliers-32.png](/app-camp/assets/new-adventure/northwind-suppliers-32.png){target="_blank"} 
 
     <img src="/app-camp/assets/new-adventure/northwind-suppliers-32.png" alt="Large icon" width="32" height="32" />
 
@@ -235,7 +235,7 @@ module.exports.SupplierME = new SupplierME();
 
     - <u>`handleTeamsMessagingExtensionQuery (context, query)`</u> - This function will be called when someone types something into the search box in your message extension. That means you might get partial queries. You can also tell Teams to call your message extension as soon as the user opens it up - with an empty query - using the [`initialRun` parameter](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema#composeextensionscommands){target="_blank"} in the manifest.
 
-        Notice that this function is calling a public web service, which is a sample [OData database](https://www.odata.org/odata-services/#3){target="_blank"} hosted by the [OData team](https://www.odata.org/){target="_blank"}]  and including an [OData filter](https://www.odata.org/getting-started/basic-tutorial/#queryData){target="_blank"} to select suppliers containing the user's query. It's worth learning OData because it's used on the [Microsoft Graph](https://developer.microsoft.com/graph){target="_blank"}, which is the server-side API for Microsoft 365 and Microsoft Teams.
+        Notice that this function is calling a public web service, which is a sample [OData database](https://www.odata.org/odata-services/#3){target="_blank"} hosted by the [OData team](https://www.odata.org/){target="_blank"}  and including an [OData filter](https://www.odata.org/getting-started/basic-tutorial/#queryData){target="_blank"} to select suppliers containing the user's query. It's worth learning OData because it's used on the [Microsoft Graph](https://developer.microsoft.com/graph){target="_blank"}, which is the server-side API for Microsoft 365 and Microsoft Teams.
     
         The function returns an array of [attachments](https://learn.microsoft.com/azure/bot-service/bot-builder-howto-add-media-attachments?view=azure-bot-service-4.0&tabs=javascript){target="_blank"}. Each of these attachments includes an `itemAttachment` (which will be shown by default if the user selects an item), a `previewAttachment`, which is shown in the search results list, and a `value` which is passed to the `handleTeamsMessagingExtensionSelectItem` when someone selects an item in the search results
 
@@ -456,7 +456,7 @@ Next, replace the `handleTeamsMessagingExtensionQuery()` function with this shor
   }
 ```
 
-Notice that the switch statement uses the `queryNamee` "searchQuery" to determine that the request is for our new SupplierME message extension. This is because the parameter `searchQuery` was specified in this message extension command back in Exercise 1 Step 2.
+Notice that the switch statement uses the `queryName` "searchQuery" to determine that the request is for our new SupplierME message extension. This is because the parameter `searchQuery` was specified in this message extension command back in Exercise 1 Step 2.
 
 ![Caption](../assets/new-adventure/Lab02-003-Message-extenion-parameter-name.png)
 
@@ -489,7 +489,7 @@ At this point you can edit the message as you wish to add some more information 
 
 ![Caption](../assets/new-adventure/Lab02-007-Run4.png)
 
-The card stays in the conversation, providing information and the ability to take action. This card is very simple and only shows the ability to open a web page, but there are better options than that! For example, in [this lab](../aad/MessagingExtension.md){target="_blank"}, you can learn how to send data back to your app from the adaptive card! But it's written for another application (the "Northwind Orders" application), which doesn't use Teams toolkit.
+The card stays in the conversation, providing information and the ability to take action. This card is very simple and only shows the ability to open a web page, but there are better options than that! For example, in [this lab](../aad/MessagingExtension.md){target="_blank"}, you can learn how to send data back to your app from the adaptive card! But it's written for another application (the "Northwind Orders" application), which doesn't use Teams Toolkit.
 
 ![Caption](../assets/new-adventure/Lab02-008-Run5.png)
 

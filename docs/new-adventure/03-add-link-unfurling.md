@@ -5,7 +5,7 @@
 ???+ info "Lab Outline"
 
     * __[Lab 1 - Create your first app with Teams Toolkit](./01-create-app.md)__
-    In this lab, you'll set up Teams Toolkit create a Teams message extension
+    In this lab, you'll set up Teams Toolkit and create a Teams message extension.
     * __[Lab 2 - Integrate business data with your application](./02-integrate-web-service.md)__
     In this lab, you'll brand your new app as "Northwind Suppliers", and will provide the ability to insert data from the Northwind Traders sample database in a Microsoft Teams conversation. You'll also learn how to create and send adaptive cards with your message extension.
     * __<span style="color: red;">THIS LAB:</span>
@@ -30,6 +30,9 @@ In this lab you'll implement basic Link Unfurling, which is a feature that bring
 We've all seen link unfurling yet may not have called it by name. It's the little summary that appears when you share a link on social media; think of it like unfurling a flag, only it's a hyperlink. Teams apps can register to unfurl links from specific domain names; when a link for that domain is used in a Teams conversation, your app gets to display an adaptive card. 
 
 While this lab will simply display some details about a Northwind supplier, your application could include any feature of an adaptive card such as input fields, action buttons, or even just a modified link that deep links users into your app within Microsoft Teams. For example, a user who has never used your app in Teams might paste a link from your web-based app into a chat thread. The link unfurler could then display a button that deep links them into the app within Teams; this is a great way to drive user discovery of your app.
+
+![Caption](../assets/new-adventure/Lab03-001a-Run-unfurler.png)
+
 
 ## Features
 

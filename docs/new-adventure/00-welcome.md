@@ -5,7 +5,7 @@
 
 App Camp: New Adventure is a set of new labs for Teams App Camp that will be used at Build 2023. They're part of a pre-day workshop, **Build Microsoft Teams apps leveraging existing software investments** and a hands-on lab, **From Web Services to Teams Apps using Teams Toolkit v5.0**.
 
-These labs are being developed "in the open" - right here in github, and I'd greatly appreciate your help in testing and reviewing them! Please [add issues in github](https://github.com/microsoft/app-camp/issues/new?labels=new%20labs){target=_blank} with your feedback, or reach out to me directly. Thank you! -- Bob German
+These labs are being developed "in the open" - right here in Github, and I'd greatly appreciate your help in testing and reviewing them! Please [add issues in github](https://github.com/microsoft/app-camp/issues/new?labels=new%20labs){target=_blank} with your feedback, or reach out to me directly. Thank you! -- Bob German
 
 <hr />
 
@@ -14,7 +14,7 @@ These labs are being developed "in the open" - right here in github, and I'd gre
 ???+ info "Labs"
 
     * __[Lab 1 - Create your first app with Teams Toolkit](./01-create-app.md)__
-    In this lab, you'll set up Teams Toolkit create a Teams message extension
+    In this lab, you'll set up Teams Toolkit and create a Teams message extension.
     * __[Lab 2 - Integrate business data with your application](./02-integrate-web-service.md)__
     In this lab, you'll brand your new app as "Northwind Suppliers", and will provide the ability to insert data from the Northwind Traders sample database in a Microsoft Teams conversation. You'll also learn how to create and send adaptive cards with your message extension.
     * __[Lab 3 - Add link unfurling](./03-add-link-unfurling.md)__
