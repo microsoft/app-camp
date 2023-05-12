@@ -27,6 +27,8 @@ These labs are being developed "in the open" - right here in github, and I'd gre
     In this lab, you'll learn how to authenticate users with Azure AD Single Sign-On, and to call the
     Microsoft Graph API. This same process would be used when calling any
     web service that's secured with Azure AD on behalf of the logged-in user.
+    * __[Lab 6 - Run the app in Outlook](./06-run-in-outlook.md)__
+    In this lab, you'll run the Northwind Suppliers application in Microsoft Outlook.
 
 ## Session Details
 
