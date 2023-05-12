@@ -6,7 +6,7 @@
 
     * __<span style="color: red;">THIS LAB:</span>
     [Lab 1 - Create your first app with Teams Toolkit](./01-create-app.md)__
-    In this lab, you'll set up Teams Toolkit create a Teams message extension
+    In this lab, you'll set up Teams Toolkit and create a Teams message extension.
     * __[Lab 2 - Integrate business data with your application](./02-integrate-web-service.md)__
     In this lab, you'll brand your new app as "Northwind Suppliers", and will provide the ability to insert data from the Northwind Traders sample database in a Microsoft Teams conversation. You'll also learn how to create and send adaptive cards with your message extension.
     * __[Lab 3 - Add link unfurling](./03-add-link-unfurling.md)__
@@ -169,21 +169,23 @@ While you're waiting for the app to start, reflect on all the tasks that Teams T
 
     - To use the Bot Framework, the app needs a Bot registration. Teams Toolkit registers bots in the [Bot Developer Portal](https://dev.botframework.com/bots){target="_blank"}. Bots can also be registered as resources in Microsoft Azure.
 
-    - Each bot has an Azure AD identity, and Teams toolkit registers that as well. You can view the registration in the [Azure AD admin center](https://aad.portal.azure.com/){target="_blank"}. What are often referred to as the Bot ID and secret are actually the application ID and secret of this app registration. Your bot code will validate incoming requests using this information to ensure they're coming from the Azure Bot Channel Service.
+    - Each bot has an Azure AD identity, and Teams Toolkit registers that as well. You can view the registration in the [Azure AD admin center](https://aad.portal.azure.com/){target="_blank"}. What are often referred to as the Bot ID and secret are actually the application ID and secret of this app registration. Your bot code will validate incoming requests using this information to ensure they're coming from the Azure Bot Channel Service.
 
     - HTTP requests from the Azure Bot Channel Service need to reach your web service somehow; normally this kind of incoming request will be blocked by the user's firewall. To allow for local debugging, Teams Toolkit will set up a tunnel using the new Visual Studio Code [dev tunnels](https://devblogs.microsoft.com/microsoft365dev/teams-toolkit-for-visual-studio-code-update-april-2023/){target="_blank"}. Teams Toolkit will update the bot registration with the URL of this tunnel so Teams can communicate with your app.
 
 2. Deploy
 
-    - Teams toolkit will install all the npm packages used by your application; this can take a while the first time.
+    - Teams Toolkit will perform local validation on your application package before uploading it to Teams t ensure it conforms to the manifest schema.
 
-    - Teams toolkit will run your application and connect the debugger to Visual Studio Code
+    - Teams Toolkit will install all the npm packages used by your application; this can take a while the first time.
+
+    - Teams Toolkit will run your application and connect the debugger to Visual Studio Code.
 
 3. Publish
 
-    - Teams toolkit will create a [Teams App Manifest](https://learn.microsoft.com/microsoftteams/platform/resources/schema/manifest-schema){target="_blank"}, which is a JSON file that includes all the information Teams needs to display and interact with your app. Then it will create a Teams app package, which is just a .zip archive containing the manifest and two application icons.
+    - Teams Toolkit will create a [Teams App Manifest](https://learn.microsoft.com/microsoftteams/platform/resources/schema/manifest-schema){target="_blank"}, which is a JSON file that includes all the information Teams needs to display and interact with your app. Then it will create a Teams app package, which is just a .zip archive containing the manifest and two application icons.
 
-    - Teams toolkit will then upload the package into Microsoft Teams and open a web browser that's deep linked to install the app in Teams.
+    - Teams Toolkit will then upload the package into Microsoft Teams and open a web browser that's deep linked to install the app in Teams.
 
 And so finally a browser opens up to test the application. You may be asked to log into your Microsoft 365 tenant, and to allow the NodeJS web server through the firewall.
 
