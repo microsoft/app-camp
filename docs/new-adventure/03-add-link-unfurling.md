@@ -31,7 +31,7 @@ We've all seen link unfurling yet may not have called it by name. It's the littl
 
 While this lab will simply display some details about a Northwind supplier, your application could include any feature of an adaptive card such as input fields, action buttons, or even just a modified link that deep links users into your app within Microsoft Teams. For example, a user who has never used your app in Teams might paste a link from your web-based app into a chat thread. The link unfurler could then display a button that deep links them into the app within Teams; this is a great way to drive user discovery of your app.
 
-![Caption](../assets/new-adventure/Lab03-001a-Run-unfurler.png)
+![Related information is displayed below the link](../assets/new-adventure/Lab03-001a-Run-unfurler.png)
 
 
 ## Features

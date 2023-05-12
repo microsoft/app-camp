@@ -338,7 +338,7 @@ Create a file **auth-end.html** and paste in the contents [from Teams Toolkit](h
 
 ???+ note "Quick way to copy from Github"
     There is a "Copy raw contents" button in the upper left corner that will copy the file contents with one click.
-    ![Caption](../assets/new-adventure/Lab05-001-DownloadAADAppManifestTemplate.png)
+    ![Copy raw contents button in GitHub](../assets/new-adventure/Lab05-001-DownloadAADAppManifestTemplate.png)
 
 ### Step 2: Install packages
 

@@ -125,41 +125,41 @@ Select Teams Toolkit in the Visual Studio Code sidebar 1️⃣ and click "Create
 
 You'll be presented with a list of templates for various Teams app capabilities. Scroll all the way down and select "Search-based message extension".
 
-![Caption](/app-camp/assets/new-adventure/Lab01-003-Create a new app 2.png)
+![Select app template](/app-camp/assets/new-adventure/Lab01-003-Create a new app 2.png)
 
 For this lab, select "JavaScript" as the programming language.
 
-![Caption](/app-camp/assets/new-adventure/Lab01-004-Create a new app 3.png)
+![Select Javascript](/app-camp/assets/new-adventure/Lab01-004-Create a new app 3.png)
 
 At this point, you're asked to enter the name of your application. For this lab, enter "NorthwindSuppliers".
 
-![Caption](/app-camp/assets/new-adventure/Lab01-005-Create a new app 4.png)
+![Enter NorthwindSuppliers](/app-camp/assets/new-adventure/Lab01-005-Create a new app 4.png)
 
 Teams Toolkit will generate a your application and open a new instance of Visual Studio Code in the application folder. You may close the original instance of Visual Studio Code if you wish.
 
-![Caption](/app-camp/assets/new-adventure/Lab01-005-Create a new app 4b.png)
+![Close original VS Code window](/app-camp/assets/new-adventure/Lab01-005-Create a new app 4b.png)
 
 In the new instance of Visual Studio Code, ensure that Teams Toolkit is selected in the Visual Studio Code sidebar 1️⃣ and, under "ACCOUNTS", click "Sign in to Microsoft 365" 2️⃣.
 
-![Caption](/app-camp/assets/new-adventure/Lab01-006-Sign into M365 1.png)
+![Sign into Microsoft 365](/app-camp/assets/new-adventure/Lab01-006-Sign into M365 1.png)
 
 A pop-up dialog box will invite you to sign in. Log in using the administrator account for the Microsoft 365 tenant you created in Exercise 1.
 
-![Caption](/app-camp/assets/new-adventure/Lab01-007-Sign into M365 2.png)
+![Log in as Microsoft 365 admin](/app-camp/assets/new-adventure/Lab01-007-Sign into M365 2.png)
 
 When you've completed the sign-in process, close the pop-up web browser.
 
-![Caption](/app-camp/assets/new-adventure/Lab01-007-Sign into M365 3.png)
+![Complete sign-in process](/app-camp/assets/new-adventure/Lab01-007-Sign into M365 3.png)
 
 Teams Toolkit will check to be sure app sideloading is enabled. You should see a green check mark indicating that it is; if not, ensure that sideloading is enabled as explained in Exercise 1 Step 2.
 
-![Caption](/app-camp/assets/new-adventure/Lab01-008-Check sideloading.png)
+![Check sideloading](/app-camp/assets/new-adventure/Lab01-008-Check sideloading.png)
 
 ## Exercise 4: Run the application
 
 At this point, Teams Toolkit has generated the application code, which in this case is a web service running in NodeJS with [Restify](http://restify.com/){target="_blank"} and using the [Azure Bot Framework SDK](https://learn.microsoft.com/javascript/api/?view=botbuilder-ts-latest){target="_blank"}. To run it, press F5 or click the debug button.
 
-![Caption](/app-camp/assets/new-adventure/Lab01-009a-Run it.png)
+![Click debug button](/app-camp/assets/new-adventure/Lab01-009a-Run it.png)
 
 While you're waiting for the app to start, reflect on all the tasks that Teams Toolkit is doing - especially the first time you run it.
 
@@ -189,27 +189,43 @@ While you're waiting for the app to start, reflect on all the tasks that Teams T
 
 And so finally a browser opens up to test the application. You may be asked to log into your Microsoft 365 tenant, and to allow the NodeJS web server through the firewall.
 
-![Caption](/app-camp/assets/new-adventure/Lab01-010-Give permission and log in.png)
+![Give permission](/app-camp/assets/new-adventure/Lab01-010-Give permission and log in.png)
 
 Eventually the deep link will render the application's installation screen in Microsoft Teams. Click the "Add" button to install the app.
 
-![Caption](/app-camp/assets/new-adventure/Lab01-011-Add the app to Teams.png)
+![Click "Add"](/app-camp/assets/new-adventure/Lab01-011-Add the app to Teams.png)
 
 Teams will open a conversation and open your new message extension. It's a pop-up that users would normally access from below the message compose window; here Teams has opened the message extension automatically.
 
-![Caption](/app-camp/assets/new-adventure/Lab01-012-Compose box opens.png)
+![View of message extension](/app-camp/assets/new-adventure/Lab01-012-Compose box opens.png)
 
 Click the text box marked "Your search query" and enter a query such as "teamsfx". This starting message extension actually searches the list of npm packages, so you should see several packages with "teamsfx" in the name.
 
-![Caption](/app-camp/assets/new-adventure/Lab01-013-Enter query.png)
+![Enter a query](/app-camp/assets/new-adventure/Lab01-013-Enter query.png)
 
 Choose one of the package names and Teams will insert a message card in the conversation containing information about that package. You can also type a message of your own to go along with the card 1️⃣ and then click Send 2️⃣ to share the card with whoever you're chatting with.
 
-![Caption](/app-camp/assets/new-adventure/Lab01-014-Enter a message and send.png)
+![Send card](/app-camp/assets/new-adventure/Lab01-014-Enter a message and send.png)
 
 You have just integrated a web service with Teams, so end users can search for information and share it with their colleagues.
 
-![Caption](/app-camp/assets/new-adventure/Lab01-014-View result.png)
+![Card in conversation](/app-camp/assets/new-adventure/Lab01-014-View result.png)
+
+??? tip "There are at least 5 ways to start your app with Teams Toolkit - can you find them all?"
+
+    There are so many ways to start your application - pick the one that you find easiest!
+
+    - On any tab in VS Code, you can use the Run menu 1️⃣, click the toolbar button 2️⃣, or mash F5 on your keyboard.
+
+    ![Click run menu or toolbar button](../assets/new-adventure/start-debugging-1.png)
+
+    - On the "Debug" tab, you can start your app with the debug tool, which lets you pre-select a debugger configuration in the dropdown to the right of the button.
+
+    ![Click debug button](../assets/new-adventure/start-debugging-2.png)
+
+    - On the Teams Toolkit tab, you can start the app with a button that appears to the right of the environment, which will be "local" for local debugging.
+
+    ![Click debug button](../assets/new-adventure/start-debugging-3.png)
 
 
 ## What's next?

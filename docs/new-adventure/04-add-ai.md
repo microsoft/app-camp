@@ -422,7 +422,7 @@ Add a new file, **generateMessageCard.json** in the **cards** folder you created
 
 ???+ note "Code walk-through"
     This is what the card will look like when it's displayed:
-    ![Caption](../assets/new-adventure/Lab04-002-Generate2.png)
+    ![Card with an AI generated message](../assets/new-adventure/Lab04-002-Generate2.png)
     
     Notice there are 2 buttons, "Generate" and "Send" on the card. These correspond to the 2 `Action.Submit` actions in the card JSON. These will both cause the `handleTeamsMessagingExtensionSubmitAction()` event to fire in the bot, which will call the corresponding function in **generateMessageME.js**. So how will the message extension determine which button was pressed?
 
@@ -701,25 +701,25 @@ Finally the moment has arrived - it's time to hit F5 or click the Run button in 
 
 ### Step 1: Test the Generate Message button
 
-![Caption](../assets/new-adventure/Lab04-001-Generate1.png)
+![Card with an AI generated message](../assets/new-adventure/Lab04-001-Generate1.png)
 
 Go ahead and click the "Generate Message" button; a dialog should appear displaying an adaptive card based on the template in **cards/generateMessageCard.json**. The initial prompt is displayed, along with an AI generated message that can be sent to the Teams chat.
 
-![Caption](../assets/new-adventure/Lab04-002-Generate2.png)
+![New AI message is shown](../assets/new-adventure/Lab04-002-Generate2.png)
 
 Users can send the message immediately by clicking "Send response", or they can edit the prompt and click "Generate". This allows the user to iterate and find the best prompt to generate the message they'd like to send.
 
-![Caption](../assets/new-adventure/Lab04-003-Generate3.png)
+![New AI message is shown](../assets/new-adventure/Lab04-003-Generate3.png)
 
 When the user clicked the "Generate" button, the code in **messageExtensions/generateMessageME.js** responded with a `continue` response containing the updated adaptive card. When the user clicks the "Send" button, the code will respond with a `result` response containing a hero card to that is inserted into the conversation. 
 
-![Caption](../assets/new-adventure/Lab04-004-Generate4.png)
+![AI message is inserted in compose box](../assets/new-adventure/Lab04-004-Generate4.png)
 
 Using this technique, it's possible to lead users through a sequence of screens with various adaptive cards and web pages, and then to insert a card into the conversation that other users can act on.
 
 Note that, like the Search message extension, this action message extension inserts content into the compose box. The user can edit their own message including the card, and then click send to share it in the conversation.
 
-![Caption](../assets/new-adventure/Lab04-005-Generate5.png)
+![AI message is sent](../assets/new-adventure/Lab04-005-Generate5.png)
 
 ### Step 2: Test the message reply feature
 
@@ -727,23 +727,23 @@ To begin, send a message into the Teams chat where your application is running. 
 
 Hover over or tap the message to reveal its contet menu. Click the "..." 1️⃣, and then "More Actions" 2️⃣. This will open a context menu for taking action on the message, and your app should be on that menu with the name "AI Reply" 3️⃣.
 
-![Caption](../assets/new-adventure/Lab04-006-Reply1.png)
+![User highlights a message to reply to](../assets/new-adventure/Lab04-006-Reply1.png)
 
 Click the "AI Reply" button to open a dialog showing an adaptive card based on the **cards/replyCard.json** template.
 
-![Caption](../assets/new-adventure/Lab04-007-Reply2.png)
+![Card with user message and AI generated response](../assets/new-adventure/Lab04-007-Reply2.png)
 
 You should see the original message and a drop-down where you can select the type of response you'd like. The default is "agree" but there are some other options as well.
 
-![Caption](../assets/new-adventure/Lab04-008-Reply3.png)
+![Card shows options agree, disagree, poem, joke](../assets/new-adventure/Lab04-008-Reply3.png)
 
 Select one of the other options and click "Generate". As before, the message extension will respond to Teams with a `continue` response containing an updated adaptive card.
 
-![Caption](../assets/new-adventure/Lab04-009-Reply4.png)
+![Card shows new AI message](../assets/new-adventure/Lab04-009-Reply4.png)
 
 To complete the lab, click "Send" and send the message.
 
-![Caption](../assets/new-adventure/Lab04-010-Reply5.png)
+![AI message is sent in Teams](../assets/new-adventure/Lab04-010-Reply5.png)
 
 --8<-- "i-finished.md"
 
