@@ -19,6 +19,8 @@
     In this lab, you'll learn how to authenticate users with Azure AD Single Sign-On, and to call the
     Microsoft Graph API. This same process would be used when calling any
     web service that's secured with Azure AD on behalf of the logged-in user.## Overview
+    * __[Lab 6 - Run the app in Outlook](./06-run-in-outlook.md)__
+    In this lab, you'll run the Northwind Suppliers application in Microsoft Outlook.
 
 In the previous lab, you created and ran a Search Message Extension using Teams Toolkit for Visual Studio Code. This is a fairly generic message extension that searches npm packages. In this lab, you'll learn how to brand your application, use it to call an enterprise web service, and update it to send an adaptive card instead of a simpler Hero card.
 
