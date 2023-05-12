@@ -1,5 +1,6 @@
 const { TeamsActivityHandler } = require("botbuilder");
 const { SupplierME } = require("./messageExtensions/supplierME");
+const { NorthwindLinkME } = require("./messageExtensions/northwindLinkME");
 const { GenerateMessageME } = require("./messageExtensions/generateMessageME");
 const { ReplyME } = require("./messageExtensions/replyME");
 const { ContactME } = require("./messageExtensions/contactME");

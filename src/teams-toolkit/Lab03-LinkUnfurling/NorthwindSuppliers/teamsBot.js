@@ -1,5 +1,6 @@
 const { TeamsActivityHandler } = require("botbuilder");
 const { SupplierME } = require("./messageExtensions/supplierME");
+const { NorthwindLinkME } = require("./messageExtensions/northwindLinkME");
 
 class TeamsBot extends TeamsActivityHandler {
   constructor() {
