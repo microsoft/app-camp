@@ -101,9 +101,9 @@ Continuing to scroll down, under `composeExtensions:` `commands:`, edit the titl
 
 Now start your application again - in fact, if it's running, you should stop and start it so Teams Toolkit builds an updated app manifest. Now it should look a lot more "Northwindy", but of course it still just queries the npm data.
 
-![Caption](../assets/new-adventure/Lab02-001-Install-Branded-App.png)
+![App is now branded](../assets/new-adventure/Lab02-001-Install-Branded-App.png)
 
-![Caption](../assets/new-adventure/Lab02-002-Run%20Branded%20App.png)
+![Enter a search query](../assets/new-adventure/Lab02-002-Run%20Branded%20App.png)
 
 ## Exercise 2: Add new Message Extension code
 
@@ -458,7 +458,7 @@ Next, replace the `handleTeamsMessagingExtensionQuery()` function with this shor
 
 Notice that the switch statement uses the `queryName` "searchQuery" to determine that the request is for our new SupplierME message extension. This is because the parameter `searchQuery` was specified in this message extension command back in Exercise 1 Step 2.
 
-![Caption](../assets/new-adventure/Lab02-003-Message-extenion-parameter-name.png)
+![Screen shot of code](../assets/new-adventure/Lab02-003-Message-extenion-parameter-name.png)
 
 Finally, replace the `handleTeamsMessagingExtensionSelectItem()` with this version, which will dispatch SelectItem events to our message extension.
 
@@ -479,29 +479,32 @@ Finally, replace the `handleTeamsMessagingExtensionSelectItem()` with this versi
 
 It's time to run the app once again and test your message extension. After the initial run, you can access you app in whatever conversation it was installed in by clicking the "..." in the compose box 1️⃣  and selecting the application 2️⃣. 
 
-![Caption](../assets/new-adventure/Lab02-005-Run2.png)
+![Open search message extension](../assets/new-adventure/Lab02-005-Run2.png)
 
 Enter a search query 1️⃣ and you'll be presented with a list of Northwind suppliers, complete with their national flags. Select a flag 2️⃣ to insert an adaptive card into the conversation.
 
-![Caption](../assets/new-adventure/Lab02-006-Run3.png)
+![Enter a query, select a result](../assets/new-adventure/Lab02-006-Run3.png)
 
 At this point you can edit the message as you wish to add some more information along with the adaptive card.
 
-![Caption](../assets/new-adventure/Lab02-007-Run4.png)
+![Adaptive card appears in message](../assets/new-adventure/Lab02-007-Run4.png)
 
-The card stays in the conversation, providing information and the ability to take action. This card is very simple and only shows the ability to open a web page, but there are better options than that! For example, in [this lab](../aad/MessagingExtension.md){target="_blank"}, you can learn how to send data back to your app from the adaptive card! But it's written for another application (the "Northwind Orders" application), which doesn't use Teams Toolkit.
+The card stays in the conversation, providing information and the ability to take action.
 
-![Caption](../assets/new-adventure/Lab02-008-Run5.png)
+![Adaptive card is in the conversation](../assets/new-adventure/Lab02-008-Run5.png)
 
 !!! check "Challenge"
-    Here's something to try on your own! Examine the [message extension lab](../aad/MessagingExtension.md){target="_blank"} for the other code base, and figure out how to add the ability to send data back to the
-    Northwind Suppliers app. To do that, you'll need to:
-     - Update the adaptive card to include one or more input boxes and a submit button
-     - Add code to **TeamsBot.js** that will run when a card is submitted
-     - If you want to stay with the structure of these labs, add a small function in **TeamsBot.js** that calls a public method in **SupplierME.js**. To do that, you'll have to figure out how to distinguish card submissions
-     from the Northwind Suppliers card vs. other cards you might add in the future.
+
+    Here's something to try on your own! Here is a [message extension lab](../aad/MessagingExtension.md){target="_blank"} that generates a card that can update the back-end data, so users can take action directly from the adaptive card. It was written without Teams Toolkit, but the code will be about the same.
     
-    You shouldn't need to change the Teams manifest, but you might have a challenge finding a place to write the data out to since we don't really have a database :). But it's still worth experimenting with!
+    See if you can figure out how to add a feature that sends data back to the
+    Northwind Suppliers app. To do that, you'll need to:
+
+     - Update the adaptive card to include one or more input controls and a submit button
+
+     - Add code to **TeamsBot.js** that will run when a card is submitted (hint: it's another override of an ActivityHandler method)
+    
+    You shouldn't need to change the Teams manifest, but you might have a challenge finding a place to write the data out to since we don't really have a database. But it's still worth experimenting with!
 
 ## Exercise 4 (Optional): Add Stage View
 
@@ -553,11 +556,11 @@ To add this, open the **appPackage/manifest.json** file. Scroll down to find the
 
 Stop and restart your application in Teams Toolkit to force the app manifest to be updated. When you run the app, you will see a second button on each adaptive card, "Stage View".
 
-![Caption](../assets/new-adventure/Lab01-015-StageView1.png)
+![Stageview button](../assets/new-adventure/Lab01-015-StageView1.png)
 
 When you click the button, the Adaptive Cards web site will appear in a pop-up window in Teams.
 
-![Caption](../assets/new-adventure/Lab01-016-StageView2.png)
+![Adaptive card web site appears in stage view](../assets/new-adventure/Lab01-016-StageView2.png)
 
 Note that this won't work if the target web site includes code that prohibits running in an IFrame. Since Teams renders these pages in an IFrame, this requires changes to the target web site. Such a web site could check the `window.ref
 
