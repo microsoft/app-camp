@@ -217,13 +217,17 @@ async handleTeamsAppBasedLinkQuery(context, query) {
 
 ## Exercise 3: Run the app
 
-Now run the app again by pressing F5, using the Run menu, or one of the various run buttons shown in Visual Studio Code. When the query message extension pops up, ignore it and just click in the compose message area to dismiss it. Then paste in the URL 1️⃣:
+Now run the app again by pressing F5, using the Run menu, or one of the various run buttons shown in Visual Studio Code. When the query message extension pops up, ignore it and just click in the compose message area to dismiss it.
+
+1️⃣ Paste this URL into the compose box (where you type a message)
 
 ```text
 https://www.northwindtraders.com/suppliers?supplierID=5
 ```
 
-A thumbnail card 2️⃣ should be added beneath the link in your message compose area; click send to send it 3️⃣.
+2️⃣ A thumbnail card should be added beneath the link in your message compose area
+
+3️⃣ Click send to send it
 
 ![Link has been pasted into the message area and a card is displayed with info about the supplier](../assets/new-adventure/Lab03-001-Run-unfurler-success.png)
 

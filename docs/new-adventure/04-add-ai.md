@@ -725,7 +725,11 @@ Note that, like the Search message extension, this action message extension inse
 
 To begin, send a message into the Teams chat where your application is running. It needs to be a simple text message.
 
-Hover over or tap the message to reveal its contet menu. Click the "..." 1️⃣, and then "More Actions" 2️⃣. This will open a context menu for taking action on the message, and your app should be on that menu with the name "AI Reply" 3️⃣.
+1️⃣ Hover over or tap the message to reveal its contet menu. Click the "..."
+
+2️⃣ Click "More Actions"; this will open a context menu for taking action on the message, and your app should be on that menu with the name "AI Reply"
+
+3️⃣ Click "AI Reply"
 
 ![User highlights a message to reply to](../assets/new-adventure/Lab04-006-Reply1.png)
 

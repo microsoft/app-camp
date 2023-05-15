@@ -575,11 +575,17 @@ Edit **appPackage/manifest.json** and add a new entry to the `commands` array af
 
 Your message extension won't be able to display contacts if you don't have any! So take a moment to ensure you've got a few contacts in Microsoft 365.
 
-From Microsoft Teams, click the "waffle" menu 1️⃣ and select Microsoft Outlook 2️⃣.
+1️⃣ From Microsoft Teams, click the "waffle" menu
+
+2️⃣ Select Microsoft Outlook
 
 ![User opens Microsoft Outlook](../assets/new-adventure/Lab05-002-EnterTestData1.png)
 
-Within Outlook, click the "Contacts" button 1️⃣ and then enter some new contacts 2️⃣. The app is simple, and will only display the person or company name and email address. 
+1️⃣ Within Outlook, click the "Contacts" button
+
+2️⃣ Enter some new contacts
+
+The app is simple, and will only display the person or company name and email address. 
 If you want to play along with the business scenario, make them sound like suppliers. 
 
 ![User creates contacts](../assets/new-adventure/Lab05-003-EnterTestData2.png)
@@ -590,7 +596,15 @@ Click F5, use the "Run" menu, or click the Run arrow in Teams Toolkit. When the 
 
 ![Running the application](../assets/new-adventure/Lab05-004-Run1.png)
 
-Now the message extension will have two tabs for searching. Click the "Contact search" tab 1️⃣ and enter one or more letters contained in the contact names you entered in Step 12️⃣ . The first time you do this, TeamsFx will realize that nobody has consented to the app permissions, and will display a message inviting you to sign in. Click the sign-in link 3️⃣ to proceed.
+Now the message extension will have two tabs for searching.
+
+1️⃣ Click the "Contact search" tab
+
+2️⃣ Enter one or more letters contained in the contact names you entered in Step 1
+
+The first time you do this, TeamsFx will realize that nobody has consented to the app permissions, and will display a message inviting you to sign in. 
+
+3️⃣ Click the sign-in link to proceed
 
 ![Running the application](../assets/new-adventure/Lab05-005-Run2.png)
 
