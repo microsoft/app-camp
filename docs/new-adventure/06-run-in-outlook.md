@@ -35,7 +35,9 @@ There are no new features - but the features you already built will also work in
 
 ### Step 1: Ensure your app is running and navigate to Microsoft Outlook
 
-While your app is running, click the "waffle" menu in Teams 1️⃣ and select "Outlook" 2️⃣.
+1️⃣ While your app is running, click the "waffle" menu in Teams
+
+2️⃣ Select "Outlook" 
 
 ![Caption](../assets/new-adventure/Lab06-001-Outlook1.png)
 
@@ -45,7 +47,9 @@ Within Outlook, create a new email.
 
 ### Step 2: Use the Search message extensions in Outlook
 
-Position your cursor on the body of the email 1️⃣ and click the apps button 2️⃣ to view the message extensions.
+1️⃣ Position your cursor on the body of the email
+
+2️⃣ Click the apps button to view the message extensions
 
 ![Caption](../assets/new-adventure/Lab06-003-Outlook3.png)
 

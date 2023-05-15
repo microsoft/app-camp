@@ -113,13 +113,30 @@ Browse to [https://nodejs.org/en/download/](https://nodejs.org/en/download/){tar
 
 ### Step 3: Install Teams Toolkit
 
-Open Visual Studio Code and click on the Extensions toolbar button 1️⃣. Search for "Teams" 2️⃣ and locate Teams Toolkit 3️⃣. Pull down the selection arrow on the right of the "Install" button and select "Install Pre-release Version" 4️⃣.
+Follow the steps as shown in the screen shot below.
+
+1️⃣ Open Visual Studio Code and click on the Extensions toolbar button
+
+2️⃣ Search for "Teams" and locate Teams Toolkit
+
+3️⃣ Pull down the selection arrow on the right of the "Install" button
+
+4️⃣ Select "Install Pre-release Version"
 
 ![Installing Teams Toolkit in Visual Studio code](/app-camp/assets/new-adventure/Lab01-001-Install TTK Extension.png)
 
-## Exercise 3: Create a Search Message Exension application
+!!! note "If you have Teams Toolkit installed but hidden"
+    If you previously installed Teams Toolkit, and then hid it on the Visual Studio sidebar, you can just right-click on the left sidebar and check off Teams Toolkit to bring it back into view
 
-Select Teams Toolkit in the Visual Studio Code sidebar 1️⃣ and click "Create a New App" 2️⃣. The command bar will open; choose "Start with a Teams capability" 3️⃣ to generate an app based on one of the Teams Toolkit app templates.
+## Exercise 3: Create a Search Message Extension application
+
+Follow the steps as shown in the screen shot below.
+
+1️⃣ Select Teams Toolkit in the Visual Studio Code sidebar
+
+2️⃣ Click "Create a New App"; the command bar will open
+
+3️⃣ Choose "Start with a Teams capability" to generate an app based on one of the Teams Toolkit app templates
 
 ![Creating a new app in Teams Toolkit](/app-camp/assets/new-adventure/Lab01-002-Create a new app 1.png)
 
@@ -131,7 +148,9 @@ For this lab, select "JavaScript" as the programming language.
 
 ![Select Javascript](/app-camp/assets/new-adventure/Lab01-004-Create a new app 3.png)
 
-At this point, you're asked to enter the name of your application. For this lab, enter "NorthwindSuppliers".
+At this point, you're asked to select a folder where your application will be created; you can select the default or your favorite source location on your machine. 
+
+Then you'll be asked to enter the name of your application. For this lab, enter "NorthwindSuppliers".
 
 ![Enter NorthwindSuppliers](/app-camp/assets/new-adventure/Lab01-005-Create a new app 4.png)
 
@@ -139,7 +158,9 @@ Teams Toolkit will generate a your application and open a new instance of Visual
 
 ![Close original VS Code window](/app-camp/assets/new-adventure/Lab01-005-Create a new app 4b.png)
 
-In the new instance of Visual Studio Code, ensure that Teams Toolkit is selected in the Visual Studio Code sidebar 1️⃣ and, under "ACCOUNTS", click "Sign in to Microsoft 365" 2️⃣.
+1️⃣ In the new instance of Visual Studio Code, ensure that Teams Toolkit is selected in the Visual Studio Code sidebar
+
+2️⃣ Under "ACCOUNTS", click "Sign in to Microsoft 365"
 
 ![Sign into Microsoft 365](/app-camp/assets/new-adventure/Lab01-006-Sign into M365 1.png)
 
@@ -160,6 +181,8 @@ Teams Toolkit will check to be sure app sideloading is enabled. You should see a
 At this point, Teams Toolkit has generated the application code, which in this case is a web service running in NodeJS with [Restify](http://restify.com/){target="_blank"} and using the [Azure Bot Framework SDK](https://learn.microsoft.com/javascript/api/?view=botbuilder-ts-latest){target="_blank"}. To run it, press F5 or click the debug button.
 
 ![Click debug button](/app-camp/assets/new-adventure/Lab01-009a-Run it.png)
+
+You will be prompted to select your debug configuration; select "Debug in Teams (Edge)" or "Debug in Teams (Chrome)" (or another browser choice if it's offered).
 
 While you're waiting for the app to start, reflect on all the tasks that Teams Toolkit is doing - especially the first time you run it.
 
@@ -199,11 +222,17 @@ Teams will open a conversation and open your new message extension. It's a pop-u
 
 ![View of message extension](/app-camp/assets/new-adventure/Lab01-012-Compose box opens.png)
 
+You may be asked to log in again as your app opens for the first time.
+
 Click the text box marked "Your search query" and enter a query such as "teamsfx". This starting message extension actually searches the list of npm packages, so you should see several packages with "teamsfx" in the name.
 
 ![Enter a query](/app-camp/assets/new-adventure/Lab01-013-Enter query.png)
 
-Choose one of the package names and Teams will insert a message card in the conversation containing information about that package. You can also type a message of your own to go along with the card 1️⃣ and then click Send 2️⃣ to share the card with whoever you're chatting with.
+Choose one of the package names and Teams will insert a message card in the conversation containing information about that package. 
+
+1️⃣ You can also type a message of your own to go along with the card
+  
+2️⃣ Click Send  to share the card with whoever you're chatting with
 
 ![Send card](/app-camp/assets/new-adventure/Lab01-014-Enter a message and send.png)
 

@@ -477,11 +477,17 @@ Finally, replace the `handleTeamsMessagingExtensionSelectItem()` with this versi
 
 ## Exercise 3: Run the app
 
-It's time to run the app once again and test your message extension. After the initial run, you can access you app in whatever conversation it was installed in by clicking the "..." in the compose box 1️⃣  and selecting the application 2️⃣. 
+It's time to run the app once again and test your message extension. 
+
+1️⃣ After the initial run, you can access you app in whatever conversation it was installed in by clicking the "..." in the compose box 
+
+2️⃣ Select the application to open the search box
 
 ![Open search message extension](../assets/new-adventure/Lab02-005-Run2.png)
 
-Enter a search query 1️⃣ and you'll be presented with a list of Northwind suppliers, complete with their national flags. Select a flag 2️⃣ to insert an adaptive card into the conversation.
+1️⃣ Enter a search query and you'll be presented with a list of Northwind suppliers, complete with their national flags
+
+2️⃣ Select a flag to insert an adaptive card into the conversation
 
 ![Enter a query, select a result](../assets/new-adventure/Lab02-006-Run3.png)
 
