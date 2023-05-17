@@ -10,7 +10,8 @@
     In this lab, you'll brand your new app as "Northwind Suppliers", and will provide the ability to insert data from the Northwind Traders sample database in a Microsoft Teams conversation. You'll also learn how to create and send adaptive cards with your message extension.
     * __[Lab 3 - Add link unfurling](./03-add-link-unfurling.md)__
     In this lab, you'll learn how to use Link Unfurling, which provides a custom summary when a user includes your URL in a conversation
-    * __<span style="color: red;">THIS LAB:</span>
+    * __<img src="/app-camp/assets/new-adventure/arrow-this-lab.png"
+             style="height: 36pt; margin-bottom: -14pt;">
     [Lab 4 - Action message extensions with Open AI](./04-add-ai.md)__
     In this lab, you'll learn how to build "Action" message extensions which can be launched directly
     or in the context menu of another Teams message to take action on it. The labs use the Open AI
@@ -753,6 +754,10 @@ To complete the lab, click "Send" and send the message.
 
 ## Next steps
 
+<a href="/app-camp/new-adventure/05-add-sso/">
+<img src="/app-camp/assets/new-adventure/arrow-next-step.png"
+             style="height: 36pt; margin-bottom: -14pt;">
+</a>
 After completing this lab, you may continue to the next lab in this learning path, [Lab 5 - Single Sign-on and Microsoft Graph](./05-add-sso.md).
 
 ## Known issues

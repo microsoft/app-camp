@@ -3,15 +3,16 @@
 
 # Welcome to App Camp: New Adventure!
 
-App Camp: New Adventure is a set of new labs for Teams App Camp that will be used at Build 2023. They're part of a pre-day workshop, **Build Microsoft Teams apps leveraging existing software investments** and a hands-on lab, **From Web Services to Teams Apps using Teams Toolkit v5.0**.
+App Camp: New Adventure is a set of new labs for Teams App Camp built especially for these sessions at Build 2023:
 
-These labs are being developed "in the open" - right here in Github, and I'd greatly appreciate your help in testing and reviewing them! Please [add issues in github](https://github.com/microsoft/app-camp/issues/new?labels=new%20labs){target=_blank} with your feedback, or reach out to me directly. Thank you! -- Bob German
+ * [**Build Microsoft Teams apps leveraging existing software investments**](https://build.microsoft.com/en-US/sessions/358b48ba-2608-41a5-a204-53f6f974f30f?source=/schedule){target="_blank"} (pre-day workshop)
+ * [**From Web Services to Teams Apps using Teams Toolkit v5.0**](https://build.microsoft.com/en-US/sessions/e5152be8-46ae-4b51-8c18-6b01416cb261?source=/schedule){target="_blank"} (hands-on lab)
+
+In true App Camp spirit, of course the labs are open source, so anyone can enjoy them long after the conference is over. Feedback and contributions are welcome! Please [add issues in github](https://github.com/microsoft/app-camp/issues/new?labels=new%20labs){target=_blank} with your feedback, or reach out to me directly. Thank you!
 
 <hr />
 
-**All labs are ready for testing!** Please try them out!
-
-???+ info "Labs"
+???+ info "Here are the labs"
 
     * __[Lab 1 - Create your first app with Teams Toolkit](./01-create-app.md)__
     In this lab, you'll set up Teams Toolkit and create a Teams message extension.
@@ -30,7 +31,14 @@ These labs are being developed "in the open" - right here in Github, and I'd gre
     * __[Lab 6 - Run the app in Outlook](./06-run-in-outlook.md)__
     In this lab, you'll run the Northwind Suppliers application in Microsoft Outlook.
 
-## Session Details
+<a href="/app-camp/new-adventure/01-create-app/">
+  <img src="/app-camp/assets/new-adventure/arrow-start-here.png"
+       style="width: 20%">
+</a>
+
+Start here with Lab 1, where you'll set up Teams Toolkit and set up your first Teams message extension.
+
+## App Camp at Build 2023
 
 Here are the titles and abstracts of the Build sessions:
 
