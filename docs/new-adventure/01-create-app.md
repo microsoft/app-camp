@@ -41,6 +41,9 @@ To install and run your own Teams app, you'll need a Microsoft 365 tenant where 
 
 ### Step 1: Get a tenant
 
+!!! warning "Attention Build 2023 workshop and lab attendees"
+    Your instructor will provide a tenant that's ready to go, so you can skip to [Exercise 2](/app-camp/new-adventure/01-create-app/#exercise-2-install-teams-toolkit-and-prerequisites). If you already have your own Microsoft 365 developer subscription, feel free to use that instead.
+
 If you don't yet have a tenant, please join the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program?WT.mc_id=m365-58890-cxa){target=_blank} to get a free one. Your tenant includes 25 [E5 user licenses](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans?WT.mc_id=m365-58890-cxa){target=_blank} and can be renewed as long as you keep developing!
 
 Select "Join now" to begin.
@@ -56,18 +59,17 @@ Remember this information as you'll need it throughout the labs! You will log in
 
 Eventually you'll be prompted to log into your new tenant. Be sure to use the new administrator credentials you just created, not the ones you used when you signed up for the developer program.
 
-???+ info "More information"
-    <div class="tinyVideo">
-      <iframe src="//www.youtube.com/embed/DhhpJ1UjbJ0" frameborder="0" allowfullscreen></iframe>
-      <div>Setting up your Microsoft 365 Development tenant</div>
-    </div>
-
 !!! tip "Tip: Navigating many tenants"
     Consider creating a browser profile for each tenant that will have its own favorites, stored credentials, and cookies so you can easily swtch between tenants as you work.
 
 !!! note "You may be asked to enable multi-factor authentication (MFA)"
     [This is certainly a good idea!](https://www.microsoft.com/security/blog/2019/08/20/one-simple-action-you-can-take-to-prevent-99-9-percent-of-account-attacks/){target=_blank} Just follow the instructions. If you really must turn off MFA, [here are instructions](https://docs.microsoft.com/en-us/answers/questions/101179/how-to-disable-the-two-factor-authentication-from.html){target=_blank}. 
 
+??? info "More tips on setting up your Microsoft 365 Development Tenant!"
+    <div class="tinyVideo">
+      <iframe src="//www.youtube.com/embed/DhhpJ1UjbJ0" frameborder="0" allowfullscreen></iframe>
+      <div>Setting up your Microsoft 365 Development tenant</div>
+    </div>
 
 ### Step 2: Enable Teams application uploads
 
@@ -99,6 +101,11 @@ Be sure to scroll down and select the "Save" button to persist your change.
 
 ## Exercise 2: Install Teams Toolkit and prerequisites
 
+!!! warning "Attention Build 2023 workshop and lab attendees"
+    Start here once you have a Microsoft 365 developer subscription login.
+    
+    Visual Studio Code and NodeJS 18.x have already been installed on your computer, so you can skip to [Step 3](/app-camp/new-adventure/01-create-app/#step-3-install-teams-toolkit).
+
 You can complete these labs on a Windows, Mac, or Linux machine, but you do need the ability to install the prerequisites. If you are not permitted to install applications on your computer, you'll need to find another machine (or virtual machine) to use throughout the workshop.
 
 ### Step 1: Install Visual Studio Code
@@ -113,20 +120,19 @@ Browse to [https://nodejs.org/en/download/](https://nodejs.org/en/download/){tar
 
 ### Step 3: Install Teams Toolkit
 
+These labs are based on [Teams Toolkit version 5.0](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension){target=_blank}.
 Follow the steps as shown in the screen shot below.
 
 1️⃣ Open Visual Studio Code and click on the Extensions toolbar button
 
 2️⃣ Search for "Teams" and locate Teams Toolkit
 
-3️⃣ Pull down the selection arrow on the right of the "Install" button
-
-4️⃣ Select "Install Pre-release Version"
+3️⃣ Click "Install"
 
 ![Installing Teams Toolkit in Visual Studio code](/app-camp/assets/new-adventure/Lab01-001-Install TTK Extension.png)
 
 !!! note "If you have Teams Toolkit installed but hidden"
-    If you previously installed Teams Toolkit, and then hid it on the Visual Studio sidebar, you can just right-click on the left sidebar and check off Teams Toolkit to bring it back into view
+    If you previously installed Teams Toolkit, and then hid it on the Visual Studio sidebar, you might wonder why you can't see it. Right-click on the left sidebar and check off Teams Toolkit to bring it back into view.
 
 ## Exercise 3: Create a Search Message Extension application
 
@@ -136,11 +142,12 @@ Follow the steps as shown in the screen shot below.
 
 2️⃣ Click "Create a New App"; the command bar will open
 
-3️⃣ Choose "Start with a Teams capability" to generate an app based on one of the Teams Toolkit app templates
+3️⃣ Choose "Message Extension"
 
 ![Creating a new app in Teams Toolkit](/app-camp/assets/new-adventure/Lab01-002-Create a new app 1.png)
 
-You'll be presented with a list of templates for various Teams app capabilities. Scroll all the way down and select "Search-based message extension".
+You'll be presented with a list of templates for Teams message extensions.
+Select "Custom Search Results".
 
 ![Select app template](/app-camp/assets/new-adventure/Lab01-003-Create a new app 2.png)
 
@@ -154,7 +161,11 @@ Then you'll be asked to enter the name of your application. For this lab, enter 
 
 ![Enter NorthwindSuppliers](/app-camp/assets/new-adventure/Lab01-005-Create a new app 4.png)
 
-Teams Toolkit will generate a your application and open a new instance of Visual Studio Code in the application folder. You may close the original instance of Visual Studio Code if you wish.
+Teams Toolkit will generate a your application and open a new instance of Visual Studio Code in the application folder. 
+
+1️⃣  Close the original instance of Visual Studio Code
+
+2️⃣  Continue working in the new instance of Visual Studio code
 
 ![Close original VS Code window](/app-camp/assets/new-adventure/Lab01-005-Create a new app 4b.png)
 
@@ -172,7 +183,7 @@ When you've completed the sign-in process, close the pop-up web browser.
 
 ![Complete sign-in process](/app-camp/assets/new-adventure/Lab01-007-Sign into M365 3.png)
 
-Teams Toolkit will check to be sure app sideloading is enabled. You should see a green check mark indicating that it is; if not, ensure that sideloading is enabled as explained in Exercise 1 Step 2.
+Teams Toolkit will check to be sure app sideloading is enabled. You should see a green check mark indicating that it is; if not, ensure that application uploads are enabled as explained in [Exercise 1 Step 2](/app-camp/new-adventure/01-create-app/#step-2-enable-teams-application-uploads).
 
 ![Check sideloading](/app-camp/assets/new-adventure/Lab01-008-Check sideloading.png)
 
@@ -198,7 +209,7 @@ While you're waiting for the app to start, reflect on all the tasks that Teams T
 
 2. Deploy
 
-    - Teams Toolkit will perform local validation on your application package before uploading it to Teams t ensure it conforms to the manifest schema.
+    - Teams Toolkit will perform local validation on your application package before uploading it to Teams to ensure it conforms to the manifest schema and that the icon files conform to guidelines.
 
     - Teams Toolkit will install all the npm packages used by your application; this can take a while the first time.
 
