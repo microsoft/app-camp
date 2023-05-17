@@ -4,8 +4,8 @@
 
 ???+ info "Lab Outline"
 
-    * __<span style="color: red;">THIS LAB:</span>
-    [Lab 1 - Create your first app with Teams Toolkit](./01-create-app.md)__
+    * __<img src="/app-camp/assets/new-adventure/arrow-this-lab.png"
+             style="height: 36pt; margin-bottom: -14pt;">[Lab 1 - Create your first app with Teams Toolkit](./01-create-app.md)__
     In this lab, you'll set up Teams Toolkit and create a Teams message extension.
     * __[Lab 2 - Integrate business data with your application](./02-integrate-web-service.md)__
     In this lab, you'll brand your new app as "Northwind Suppliers", and will provide the ability to insert data from the Northwind Traders sample database in a Microsoft Teams conversation. You'll also learn how to create and send adaptive cards with your message extension.
@@ -272,7 +272,13 @@ You have just integrated a web service with Teams, so end users can search for i
 
 Before you continue to the next lab, please stop the debugger by shutting the debug browser window or pressing the disconnect button in the Visual Studio Code toolbar. The next lab requires a complete, cold restart of your application.
 
+<a href="/app-camp/new-adventure/02-integrate-web-service/">
+<img src="/app-camp/assets/new-adventure/arrow-next-step.png"
+             style="height: 36pt; margin-bottom: -14pt;">
+</a>
 In the [next lab](./02-integrate-web-service.md), you'll brand the application and update it to retrieve information about Northwind Suppliers. You'll also replace the somewhat boring message card (a [Hero Card](https://learn.microsoft.com/microsoftteams/platform/task-modules-and-cards/cards/cards-reference#hero-card){target="_blank"}) with a much more fun [Adaptive Card](https://adaptivecards.io/){target="_blank"}.
+
+
 
 ## Known issues
 

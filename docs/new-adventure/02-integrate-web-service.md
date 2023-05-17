@@ -6,8 +6,8 @@
 
     * __[Lab 1 - Create your first app with Teams Toolkit](./01-create-app.md)__
     In this lab, you'll set up Teams Toolkit and create a Teams message extension.
-    * __<span style="color: red;">THIS LAB:</span>
-    [Lab 2 - Integrate business data with your application](./02-integrate-web-service.md)__
+    * __<img src="/app-camp/assets/new-adventure/arrow-this-lab.png"
+             style="height: 36pt; margin-bottom: -14pt;">[Lab 2 - Integrate business data with your application](./02-integrate-web-service.md)__
     In this lab, you'll brand your new app as "Northwind Suppliers", and will provide the ability to insert data from the Northwind Traders sample database in a Microsoft Teams conversation. You'll also learn how to create and send adaptive cards with your message extension.
     * __[Lab 3 - Add link unfurling](./03-add-link-unfurling.md)__
     In this lab, you'll learn how to use Link Unfurling, which provides a custom summary when a user includes your URL in a conversation
@@ -572,6 +572,10 @@ Note that this won't work if the target web site includes code that prohibits ru
 
 ## Next steps
 
+<a href="/app-camp/new-adventure/03-add-link-unfurling/">
+<img src="/app-camp/assets/new-adventure/arrow-next-step.png"
+             style="height: 36pt; margin-bottom: -14pt;">
+</a>
 After completing this lab, you may continue to the next lab in this learning path, [Lab 3 - Add link unfurling](./03-add-link-unfurling.md).
 
 ## Known issues

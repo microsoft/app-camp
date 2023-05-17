@@ -1,6 +1,6 @@
 ---8<--- "heading2.md"
 
-# Lab 5: Single Sign-on and Microsoft Graph
+# Lab 6: Run your app in Microsoft Outlook
 
 ???+ info "Lab Outline"
 
@@ -18,10 +18,10 @@
     In this lab, you'll learn how to authenticate users with Azure AD Single Sign-On, and to call the
     Microsoft Graph API. This same process would be used when calling any
     web service that's secured with Azure AD on behalf of the logged-in user.
-    * __<span style="color: red;">THIS LAB:</span>
+    * __<img src="/app-camp/assets/new-adventure/arrow-this-lab.png"
+             style="height: 36pt; margin-bottom: -14pt;">
     [Lab 6 - Run the app in Outlook](./06-run-in-outlook.md)__
     In this lab, you'll run the Northwind Suppliers application in Microsoft Outlook.
-
 
 ## Overview
 
@@ -70,6 +70,11 @@ Now try it again using the "Contacts" message extension.
 ## Next steps
 
 Congratulations, you have completed App Camp New Adventure!
+
+<a href="/app-camp/aad/A01-begin-app/">
+<img src="/app-camp/assets/new-adventure/arrow-next-step.png"
+             style="height: 36pt; margin-bottom: -14pt;">
+</a>
 If you haven't tried the classic App Camp labs yet, click [here](/app-camp/aad/A01-begin-app) to give them a try!
 
 --8<-- "i-finished.md"

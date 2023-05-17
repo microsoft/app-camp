@@ -14,8 +14,8 @@
     In this lab, you'll learn how to build "Action" message extensions which can be launched directly
     or in the context menu of another Teams message to take action on it. The labs use the Open AI
     commercial web services (in Azure or using an Open AI account) to generate messages.
-    * __<span style="color: red;">THIS LAB:</span>
-    [Lab 5 - Single Sign-on and Microsoft Graph](./05-add-sso.md)__
+    * <img src="/app-camp/assets/new-adventure/arrow-this-lab.png"
+             style="height: 36pt; margin-bottom: -14pt;">[Lab 5 - Single Sign-on and Microsoft Graph](./05-add-sso.md)__
     In this lab, you'll learn how to authenticate users with Azure AD Single Sign-On, and to call the
     Microsoft Graph API. This same process would be used when calling any
     web service that's secured with Azure AD on behalf of the logged-in user.
@@ -628,7 +628,11 @@ Click on one of the contacts to insert a Hero card with the contact information 
 
 ## Next steps
 
-At this point, you've mostly completed the labs. In [the next lab](./06-run-in-outlook.md), you will run the Northwind Suppliers app in Microsoft Outlook.
+<a href="/app-camp/new-adventure/06-run-in-outlook/">
+<img src="/app-camp/assets/new-adventure/arrow-next-step.png"
+             style="height: 36pt; margin-bottom: -14pt;">
+</a>
+At this point, you've mostly completed the labs. In [the next lab](./06-run-in-outlook.md), you will run the Northwind Suppliers app in Microsoft Outlook. No code changes are required.
 
 --8<-- "i-finished.md"
 
