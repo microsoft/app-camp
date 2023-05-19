@@ -15,7 +15,7 @@
         "outline": "northwind-suppliers-32.png"
     },
     "name": {
-        "short": "Northwind Suppliers v5 -${{TEAMSFX_ENV}}",
+        "short": "Northwind Suppliers-Lab2-${{TEAMSFX_ENV}}",
         "full": "Northwind Suppliers - Teams App Camp New Adventure"
     },
     "description": {
