@@ -19,11 +19,11 @@ param serverfarmsName string = resourceBaseName
 param webAppName string = resourceBaseName
 param location string = resourceGroup().location
 
-	param m365ClientId string
-	param m365TenantId string
-	param m365OauthAuthorityHost string
-	param m365ApplicationIdUri string = 'api://botid-${botAadAppClientId}'
-	@secure() param m365ClientSecret string
+param m365ClientId string
+param m365TenantId string
+param m365OauthAuthorityHost string
+param m365ApplicationIdUri string = 'api://botid-${botAadAppClientId}'
+param m365ClientSecret string
 
 // Compute resources for your Web App
 resource serverfarm 'Microsoft.Web/serverfarms@2021-02-01' = {
