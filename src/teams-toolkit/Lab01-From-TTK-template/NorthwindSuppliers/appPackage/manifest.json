@@ -15,7 +15,7 @@
         "outline": "outline.png"
     },
     "name": {
-        "short": "NorthwindSuppliers-${{TEAMSFX_ENV}}",
+        "short": "NorthwindSuppliers-Lab1-${{TEAMSFX_ENV}}",
         "full": "full name for NorthwindSuppliers"
     },
     "description": {
