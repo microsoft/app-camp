@@ -407,7 +407,7 @@ In a code editor, open the working folder you created in Step 2. Copy the *.env_
 COMPANY_NAME=Northwind Traders
 PORT=3978
 
-HOSTNAME=something.ngrok.io
+HOST_NAME=something.ngrok.io
 TENANT_ID=00000000-0000-0000-0000-000000000000
 CLIENT_ID=00000000-0000-0000-0000-000000000000
 CLIENT_SECRET=xxxxx

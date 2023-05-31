@@ -11,6 +11,7 @@ In this lab, you'll extend the personal tab app which is the core application, t
 We will cover the following concepts in this exercise:
 
 [Extend Teams apps across Microsoft 365](https://learn.microsoft.com/en-us/microsoftteams/platform/m365-apps/overview)
+
 [Teams JavaScript client library](https://learn.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/using-teams-client-library?tabs=javascript%2Cmanifest-teams-toolkit)
 
 ### Features
@@ -246,6 +247,10 @@ else{
 #### Step 4: Update references to `inTeams()` function
 
 Find and replace `inTeams` references to `inM365`in all files in the `src`folder including import statements and function calls.
+
+!!! warning
+    If you go on to do other App Camp labs in this same `src` folder, remember to change `inTeams`
+    to `inM365` as you go or the app will fail trying to find the old name.
 
 #### Step 3: Add host native capabilities to your app
 
