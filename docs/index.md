@@ -1,23 +1,34 @@
 ---8<--- "heading.md"
 
 <div class="sidebar">
-<img src="/app-camp/assets/microsoftteams_appcamp-webheader.png"
-     style="" />
 
-<h2>Need a hand with your Teams app?</h2>
-<!-- <ul>
-<li> -->
-<b>Are you an ISV building a Teams app for sale in the Teams store? Could you use some support?</b> Please fill out this form to request assistance from Microsoft with the potential to be matched with a dedicated support manager if you choose to build a transactable app within the next few months. <b><a href="https://aka.ms/TeamsApp/Support" target="_blank">https://aka.ms/TeamsApp/Support</a></b>
-<!-- </li>
+<h2>App Camp Bulletin Board</h2>
+<ul>
+<li>
+<h3>Hack Together: The Microsoft Teams Global Hack</h3>
+Please join our virtual hackathon from <b>June 1-15</b>; you can join live events, connect with Microsoft experts and win awesome prizes! <b><a href="https://aka.ms/hack-together-teams" target="_blank">Register here!</a></b>
+</li>
 
 <li>
+<h3>New labs!</h3>
+As featured at Microsoft Build 2023, App Camp now includes 6 new labs to show you how to build Teams apps that extend on existing web services. <b><a href="/app-camp/new-adventure/00-welcome/">Check it out here!</a></b>
+</li>
+
+<li>
+<h3>Help for ISVs</h3>
+<b>Are you an ISV building a Teams app for sale in the Teams store? Could you use some support?</b> Please fill out this form to request assistance from Microsoft with the potential to be matched with a dedicated support manager if you choose to build a transactable app within the next few months. <b><a href="https://aka.ms/TeamsApp/Support" target="_blank">https://aka.ms/TeamsApp/Support</a></b>
+</li>
+
+<li>
+<h3>Help for start-ups</h3>
 <b>Are you a start-up</b> looking to change the world with an innovative Teams app in the store? Would you like some <b>Azure credits, and extra guidance</b>? You should sign up for Founders hub! <a href="http://aka.ms/startups" target="_blank">http://aka.ms/startups</a>
 </li>
 
 <li>
+<h3>Help for Solutions Partners</h3>
 Are you a <b>Solutions Partner in the Microsoft Cloud Partner program? Want some help </b> planning, envisioning, building, and publishing Teams applications? Get started with Technical Presales & Deployment services at <a href="https://aka.ms/tpd" target="_blank">https://aka.ms/tpd</a>
 </li>
-</ul> -->
+</ul>
 
 </div>
 
@@ -25,12 +36,17 @@ Are you a <b>Solutions Partner in the Microsoft Cloud Partner program? Want some
 
 <div class="subtitle">Migrate applications into Microsoft Teams</div>
 
-!!! tip "Reactor events"
-    If you missed our Reactor livestream events, please check out the recordings at <a href="https://aka.ms/TeamsAppCamp" target="_blank">https://aka.ms/TeamsAppCamp</a>!
+Welcome to App Camp! In this on-demand workshop, you'll learn how to reuse your existing applications as Teams applications.
 
-Welcome to App Camp! In this on-demand workshop, you'll learn how to build Teams applications without special tools, which is important for developers who already have an application they want to extend into Microsoft Teams, or for developers who have a specific toolchain in mind. If you're starting a new application and you're open to building a React application with NodeJS/Express support, we recommend you use the [Teams Toolkit](https://docs.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-fundamentals?pivots=visual-studio-code?WT.mc_id=m365-58890-cxa){target=_blank}; [hands-on labs for Teams Toolkit are here](https://learn.microsoft.com/en-us/training/paths/m365-teams-toolkit-vsc/){target=_blank}.
+If you're starting a new application and you're open to building a React application with NodeJS/Express support, we recommend you use the [Teams Toolkit](https://docs.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-fundamentals?pivots=visual-studio-code?WT.mc_id=m365-58890-cxa){target=_blank}; [hands-on labs for Teams Toolkit are here](https://learn.microsoft.com/en-us/training/paths/m365-teams-toolkit-vsc/){target=_blank}.
 
-This web site will guide you through a set of videos and hands-on lab exercises in which you will port a simple web application to being a full-featured Teams application. The initial core labs will bring the web application into Teams as a personal tab with Azure AD Single Sign-on. Then the "extended" labs are available to teach you how to add features such as message extensions, adaptive cards, deep linking, and more. [One of the extended labs](./aad/Monetization.md) even shows you how to monetize your application in the Teams app store!
+This web site will guide you through a set of videos and hands-on lab exercises in which you will port a simple web application to being a full-featured Teams application. 
+
+ * [The initial core labs](#labs) will bring an existing web application into Teams as a personal tab with Azure AD Single Sign-on. Recognizing that existing web applications may be built using any of a dozens of tools and frameworks, these labs refrain from using any tools other than NodeJS and a text editor. This is a great way to fully understand what's going on, and to allow developers to choose any toolchain they want to.
+
+     After setting up the web site in a simple "personal" tab, you can pursue "extended" labs and learn how to add features such as message extensions, adaptive cards, deep linking, and more. [One of the extended labs](./aad/Monetization.md) even shows you how to monetize your application in the Teams app store!
+
+ * [A new set of labs](/app-camp/new-adventure/00-welcome/), developed for Microsoft Build 2023, will show you how to build apps with [Teams Toolkit](https://aka.ms/teams-toolkit){target="_blank"} to leverage enterprise and public web services. Teams Toolkit makes Teams development much easier! These labs are focused on Teams [Message Extensions](https://aka.ms/message-extensions){target="_blank"}, which have been shown to drive end user engagement.
 
 !!! warning "App Camp is for learning concepts you can apply to your application"
     The App Camp solution is designed to be simple and easy to understand; it is NOT production ready and should not be used as the basis for your coding project. App Camp teaches the concepts that allow Teams apps to be built on existing apps or app frameworks. If you want to get started quickly on a new application, please use [Teams Toolkit](https://docs.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-fundamentals?pivots=visual-studio-code?WT.mc_id=m365-58890-cxa){target=_blank}.
@@ -102,6 +118,9 @@ These videos will help you understand the business of Teams applications, and wi
       <div>Publish your app in the Microsoft Teams app store</div>
     </div>
 
+!!! tip "Reactor events"
+    If you missed our Reactor livestream events, please check out the recordings at <a href="https://aka.ms/TeamsAppCamp" target="_blank">https://aka.ms/TeamsAppCamp</a>!
+
 ??? info "Lab videos"
     <p class=videoDescription>If you'd like to watch the labs before doing them, they are here. They're also posted at the beginning of each lab. The instructions should stand on their own - you don't need to watch in order to complete the labs - but they can help if you get stuck or want to understand the labs more deeply.</p>
     <p class="videoHeading">Start with the "core application"</p>
@@ -150,7 +169,10 @@ These videos will help you understand the business of Teams applications, and wi
     <a href="http://aka.ms/mastering-the-marketplace/saas" target="_blank">
     <img src="assets/MasteringTheMarketplaceLogo.png" alt="Mastering the Marketplace logo"></img></a></div>
 
-## It's lab time!
+## App Camp "Classic" Labs!
+
+!!! attention "Looking for the new labs?"
+    If you want to try the new labs, which use Teams Toolkit and expose web services as Teams app features, then **[please start here](/app-camp/new-adventure/00-welcome/)**
 
 In this series of labs, you will port a simple "Northwind Orders" web application to become a full-fledged Microsoft Teams application. The core labs will show you how to make the web application into a Teams application with a personal tab and Azure AD Single Sign-on. From there, you can choose extended labs depending on the features you need in your application. After completing each lab, the solution will still work as the original stand-alone web application as well as in Microsoft Teams. This is intended to show how to extend an existing SaaS application into Microsoft Teams without disrupting non-Teams other users.
 

@@ -43,7 +43,6 @@
     font-style: italic;
 }
 
-
 button {
     background-color: #795649;
     font-size: xx-large;
@@ -71,7 +70,7 @@ button {
     width: 50%;
     float: right;
     padding: 10px;
-    border-width: 1px;
+    margin-left: 10px;
     border: 2px solid black;
 }
 
@@ -80,7 +79,32 @@ button {
 }
 
 .sidebar h2 {
-    margin-top: 0;
+    margin: 0;
+    background-color: #35258F;
+    color: white;
+    text-align: center;
+    padding: 6pt;
+}
+
+.sidebar h3 {
+    color: #35258F;
+    font-size: x-large;
+    margin: 0;
+    padding-bottom: 6pt;
+    line-height: 0.9;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin: 4pt;
+    padding-left: 0;
+}
+
+.sidebar li {
+    border: 2px solid black;
+    margin-left: -7pt !important;
+    padding: 10pt;
 }
 
 /*

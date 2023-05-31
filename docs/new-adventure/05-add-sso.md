@@ -221,12 +221,15 @@ Find the Teams app manifest template in **./appPackage/manifest.json** and add t
 ~~~
 
 Add it below the `"validDomains"` object, with a comma in between.
-While we're here, we need to tell Teams to accept calls from your bot's domain, so add `${{BOT_DOMAIN}}` to the `validDomains` array.
 
+While we're here, we need to tell Teams to display web pages from your bot's domain, which allows access to the **auth-start.html** and **auth-end.html** pages used for user consent to call the Microsoft Graph. This only happens the first time a user accesses the message extension.
+
+So you need to add your bot's domain, `${{BOT_DOMAIN}}` to the `validDomains` array. 
 After making these changes, the end of your **manifest.json** file should look like this:
 
 ~~~json
-    "validDomains": ["${{BOT_DOMAIN}}"],
+    "validDomains": [ "adaptivecards.io", "${{BOT_DOMAIN}}"
+    ],
     "webApplicationInfo": {
         "id": "${{AAD_APP_CLIENT_ID}}",
         "resource": "api://botid-${{BOT_ID}}"

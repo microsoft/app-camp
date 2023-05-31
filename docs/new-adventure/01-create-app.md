@@ -41,9 +41,6 @@ To install and run your own Teams app, you'll need a Microsoft 365 tenant where 
 
 ### Step 1: Get a tenant
 
-!!! warning "Attention Build 2023 workshop and lab attendees"
-    Your instructor will provide a tenant that's ready to go, so you can skip to [Exercise 2](/app-camp/new-adventure/01-create-app/#exercise-2-install-teams-toolkit-and-prerequisites). If you already have your own Microsoft 365 developer subscription, feel free to use that instead.
-
 If you don't yet have a tenant, please join the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program?WT.mc_id=m365-58890-cxa){target=_blank} to get a free one. Your tenant includes 25 [E5 user licenses](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans?WT.mc_id=m365-58890-cxa){target=_blank} and can be renewed as long as you keep developing!
 
 Select "Join now" to begin.
@@ -100,11 +97,6 @@ Be sure to scroll down and select the "Save" button to persist your change.
  We have been working to get this enabled by default on developer tenants, so it may already be set for you. The change can take up to 24 hours to take effect, but usually it's much faster.
 
 ## Exercise 2: Install Teams Toolkit and prerequisites
-
-!!! warning "Attention Build 2023 workshop and lab attendees"
-    Start here once you have a Microsoft 365 developer subscription login.
-    
-    Visual Studio Code and NodeJS 18.x have already been installed on your computer, so you can skip to [Step 3](/app-camp/new-adventure/01-create-app/#step-3-install-teams-toolkit).
 
 You can complete these labs on a Windows, Mac, or Linux machine, but you do need the ability to install the prerequisites. If you are not permitted to install applications on your computer, you'll need to find another machine (or virtual machine) to use throughout the workshop.
 
@@ -188,6 +180,13 @@ Teams Toolkit will check to be sure app sideloading is enabled. You should see a
 ![Check sideloading](/app-camp/assets/new-adventure/Lab01-008-Check sideloading.png)
 
 ## Exercise 4: Run the application
+
+!!! warning "Ensure you have a Teams chat in progress with an internal or guest user"
+    If you are beginning with a brand new tenant, and have never had a Teams chat, the application won't
+    start up correctly as it troies to install your app in the most recent chat. To address this, open [Microsoft Teams](https://teams.microsoft.com){target="_blank"} and log into your new tenant. Click the chat bubble in the left sidebar and start a chat with someone - anyone!
+    If you set up test users along with your tenant, you should be able to chat with "Megan Bowen" or "Adele Vance".
+
+    Also note that ["external"](https://aka.ms/external-vs-guest-users){target="_blank"} users can't use Teams apps, so if your chat is based only on Skype for Business federation, it won't work. Use an invited "guest" user or a user within your developer tenant.
 
 At this point, Teams Toolkit has generated the application code, which in this case is a web service running in NodeJS with [Restify](http://restify.com/){target="_blank"} and using the [Azure Bot Framework SDK](https://learn.microsoft.com/javascript/api/?view=botbuilder-ts-latest){target="_blank"}. To run it, press F5 or click the debug button.
 
