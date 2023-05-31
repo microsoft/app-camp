@@ -189,6 +189,13 @@ Teams Toolkit will check to be sure app sideloading is enabled. You should see a
 
 ## Exercise 4: Run the application
 
+!!! warning "Ensure you have a Teams chat in progress with an internal or guest user"
+    If you are beginning with a brand new tenant, and have never had a Teams chat, the application won't
+    start up correctly as it troies to install your app in the most recent chat. To address this, open [Microsoft Teams](https://teams.microsoft.com){target="_blank"} and log into your new tenant. Click the chat bubble in the left sidebar and start a chat with someone - anyone!
+    If you set up test users along with your tenant, you should be able to chat with "Megan Bowen" or "Adele Vance".
+
+    Also note that ["external"](https://aka.ms/external-vs-guest-users){target="_blank"} users can't use Teams apps, so if your chat is based only on Skype for Business federation, it won't work. Use an invited "guest" user or a user within your developer tenant.
+
 At this point, Teams Toolkit has generated the application code, which in this case is a web service running in NodeJS with [Restify](http://restify.com/){target="_blank"} and using the [Azure Bot Framework SDK](https://learn.microsoft.com/javascript/api/?view=botbuilder-ts-latest){target="_blank"}. To run it, press F5 or click the debug button.
 
 ![Click debug button](/app-camp/assets/new-adventure/Lab01-009a-Run it.png)
