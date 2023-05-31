@@ -1,23 +1,34 @@
 ---8<--- "heading.md"
 
 <div class="sidebar">
-<img src="/app-camp/assets/microsoftteams_appcamp-webheader.png"
-     style="" />
 
-<h2>Need a hand with your Teams app?</h2>
-<!-- <ul>
-<li> -->
-<b>Are you an ISV building a Teams app for sale in the Teams store? Could you use some support?</b> Please fill out this form to request assistance from Microsoft with the potential to be matched with a dedicated support manager if you choose to build a transactable app within the next few months. <b><a href="https://aka.ms/TeamsApp/Support" target="_blank">https://aka.ms/TeamsApp/Support</a></b>
-<!-- </li>
+<h2>App Camp Bulletin Board</h2>
+<ul>
+<li>
+<h3>Hack Together: The Microsoft Teams Global Hack</h3>
+Please join our virtual hackathon from <b>June 1-15</b>; you can join live events, connect with Microsoft experts and win awesome prizes! <b><a href="https://aka.ms/hack-together-teams" target="_blank">Register here!</a></b>
+</li>
 
 <li>
+<h3>New labs!</h3>
+As featured at Microsoft Build 2023, App Camp now includes 6 new labs to show you how to build Teams apps that extend on existing web services. <b><a href="/app-camp/new-adventure/00-welcome/">Check it out here!</a></b>
+</li>
+
+<li>
+<h3>Help for ISVs</h3>
+<b>Are you an ISV building a Teams app for sale in the Teams store? Could you use some support?</b> Please fill out this form to request assistance from Microsoft with the potential to be matched with a dedicated support manager if you choose to build a transactable app within the next few months. <b><a href="https://aka.ms/TeamsApp/Support" target="_blank">https://aka.ms/TeamsApp/Support</a></b>
+</li>
+
+<li>
+<h3>Help for start-ups</h3>
 <b>Are you a start-up</b> looking to change the world with an innovative Teams app in the store? Would you like some <b>Azure credits, and extra guidance</b>? You should sign up for Founders hub! <a href="http://aka.ms/startups" target="_blank">http://aka.ms/startups</a>
 </li>
 
 <li>
+<span>Help for Solutions Partners</span>
 Are you a <b>Solutions Partner in the Microsoft Cloud Partner program? Want some help </b> planning, envisioning, building, and publishing Teams applications? Get started with Technical Presales & Deployment services at <a href="https://aka.ms/tpd" target="_blank">https://aka.ms/tpd</a>
 </li>
-</ul> -->
+</ul>
 
 </div>
 
