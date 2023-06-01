@@ -38,9 +38,12 @@ Are you a <b>Solutions Partner in the Microsoft Cloud Partner program? Want some
 
 Welcome to App Camp! In this on-demand workshop, you'll learn how to reuse your existing applications as Teams applications.
 
-If you're starting a new application and you're open to building a React application with NodeJS/Express support, we recommend you use the [Teams Toolkit](https://docs.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-fundamentals?pivots=visual-studio-code?WT.mc_id=m365-58890-cxa){target=_blank}; [hands-on labs for Teams Toolkit are here](https://learn.microsoft.com/en-us/training/paths/m365-teams-toolkit-vsc/){target=_blank}.
+If you're starting a new application and you're open to building a React application with NodeJS/Express support, we recommend you use the [Teams Toolkit](https://docs.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-fundamentals?pivots=visual-studio-code?WT.mc_id=m365-58890-cxa){target=_blank}. You can find hands-on labs specifically for Teams Toolkit:
 
-This web site will guide you through a set of videos and hands-on lab exercises in which you will port a simple web application to being a full-featured Teams application. 
+ * [Microsoft Learn - Teams Toolkit](https://learn.microsoft.com/en-us/training/paths/m365-teams-toolkit-vsc/){target=_blank}
+ * [App Camp: New Adventure](/app-camp/new-adventure/00-welcome/){target="_blank"}
+
+This web site will guide you through a set of videos and hands-on lab exercises in which you will port a simple web application to being a full-featured Teams application.
 
  * [The initial core labs](#labs) will bring an existing web application into Teams as a personal tab with Azure AD Single Sign-on. Recognizing that existing web applications may be built using any of a dozens of tools and frameworks, these labs refrain from using any tools other than NodeJS and a text editor. This is a great way to fully understand what's going on, and to allow developers to choose any toolchain they want to.
 
