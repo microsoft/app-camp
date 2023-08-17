@@ -6,6 +6,11 @@
 <ul>
 
 <li>
+<h3>Samples Samples Samples!</h3>
+Please check out the <a href="https://adoption.microsoft.com/en-us/sample-solution-gallery/?product=Teams&sortby=creationDateTime-true&page=1" target="_blank">Microsoft 365 Sample Solution Gallery</a> to find Teams samples from Microsoft and the community! Also you can select <a href="https://adoption.microsoft.com/en-us/sample-solution-gallery/?product=Teams+Global+Hack&sortby=creationDateTime-true&page=1" target="_blank">Teams Global Hack</a>
+</li>
+
+<li>
 <h3>Help for ISVs</h3>
 <b>Are you an ISV building a Teams app for sale in the Teams store? Could you use some support?</b> Please fill out this form to request assistance from Microsoft with the potential to be matched with a dedicated support manager if you choose to build a transactable app within the next few months. <b><a href="https://aka.ms/TeamsApp/Support" target="_blank">https://aka.ms/TeamsApp/Support</a></b>
 </li>
@@ -19,6 +24,7 @@
 <h3>Help for Solutions Partners</h3>
 Are you a <b>Solutions Partner in the Microsoft Cloud Partner program? Want some help </b> planning, envisioning, building, and publishing Teams applications? Get started with Technical Presales & Deployment services at <a href="https://aka.ms/tpd" target="_blank">https://aka.ms/tpd</a>
 </li>
+
 </ul>
 
 </div>
