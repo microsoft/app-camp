@@ -4,15 +4,6 @@
 
 <h2>App Camp Bulletin Board</h2>
 <ul>
-<li>
-<h3>Hack Together: The Microsoft Teams Global Hack</h3>
-Please join our virtual hackathon from <b>June 1-15</b>; you can join live events, connect with Microsoft experts and win awesome prizes! <b><a href="https://aka.ms/hack-together-teams" target="_blank">Register here!</a></b>
-</li>
-
-<li>
-<h3>New labs!</h3>
-As featured at Microsoft Build 2023, App Camp now includes 6 new labs to show you how to build Teams apps that extend on existing web services. <b><a href="/app-camp/new-adventure/00-welcome/">Check it out here!</a></b>
-</li>
 
 <li>
 <h3>Help for ISVs</h3>
@@ -37,19 +28,13 @@ Are you a <b>Solutions Partner in the Microsoft Cloud Partner program? Want some
 <div class="subtitle">Migrate applications into Microsoft Teams</div>
 
 Welcome to App Camp! In this on-demand workshop, you'll learn how to reuse your existing applications as Teams applications.
+In addition to a number of instructional videos (below), we offer two sets of hands-on labs:
 
-If you're starting a new application and you're open to building a React application with NodeJS/Express support, we recommend you use the [Teams Toolkit](https://docs.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-fundamentals?pivots=visual-studio-code?WT.mc_id=m365-58890-cxa){target=_blank}. You can find hands-on labs specifically for Teams Toolkit:
+ * If you have an existing web based application and are using tools that you like, check out the [App Camp Classic Labs](#labs). Starting with a simple
+   web application, you'll learn to build a complete Teams application using no special tooling at all. The principles you learn can be applied to
+   any modern development approach.
 
- * [Microsoft Learn - Teams Toolkit](https://learn.microsoft.com/en-us/training/paths/m365-teams-toolkit-vsc/){target=_blank}
- * [App Camp: New Adventure](/app-camp/new-adventure/00-welcome/){target="_blank"}
-
-This web site will guide you through a set of videos and hands-on lab exercises in which you will port a simple web application to being a full-featured Teams application.
-
- * [The initial core labs](#labs) will bring an existing web application into Teams as a personal tab with Azure AD Single Sign-on. Recognizing that existing web applications may be built using any of a dozens of tools and frameworks, these labs refrain from using any tools other than NodeJS and a text editor. This is a great way to fully understand what's going on, and to allow developers to choose any toolchain they want to.
-
-     After setting up the web site in a simple "personal" tab, you can pursue "extended" labs and learn how to add features such as message extensions, adaptive cards, deep linking, and more. [One of the extended labs](./aad/Monetization.md) even shows you how to monetize your application in the Teams app store!
-
- * [A new set of labs](/app-camp/new-adventure/00-welcome/), developed for Microsoft Build 2023, will show you how to build apps with [Teams Toolkit](https://aka.ms/teams-toolkit){target="_blank"} to leverage enterprise and public web services. Teams Toolkit makes Teams development much easier! These labs are focused on Teams [Message Extensions](https://aka.ms/message-extensions){target="_blank"}, which have been shown to drive end user engagement.
+  * If you have web services you can consume, and would like to use the latest Teams development tool ([Teams Toolkit](https://docs.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-fundamentals?pivots=visual-studio-code?WT.mc_id=m365-58890-cxa){target=_blank}), you'll want to try the [App Camp: New Adventure](/app-camp/new-adventure/00-welcome/), where you'll build a new app with Teams Toolkit that consumes your web services and exposes them as Teams message extensions.
 
 !!! warning "App Camp is for learning concepts you can apply to your application"
     The App Camp solution is designed to be simple and easy to understand; it is NOT production ready and should not be used as the basis for your coding project. App Camp teaches the concepts that allow Teams apps to be built on existing apps or app frameworks. If you want to get started quickly on a new application, please use [Teams Toolkit](https://docs.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-fundamentals?pivots=visual-studio-code?WT.mc_id=m365-58890-cxa){target=_blank}.
