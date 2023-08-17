@@ -7,7 +7,7 @@
 
 <li>
 <h3>Samples Samples Samples!</h3>
-Please check out the <a href="https://adoption.microsoft.com/en-us/sample-solution-gallery/?product=Teams&sortby=creationDateTime-true&page=1" target="_blank">Microsoft 365 Sample Solution Gallery</a> to find Teams samples from Microsoft and the community! Also you can select <a href="https://adoption.microsoft.com/en-us/sample-solution-gallery/?product=Teams+Global+Hack&sortby=creationDateTime-true&page=1" target="_blank">Teams Global Hack</a>
+Please check out the <a href="https://adoption.microsoft.com/en-us/sample-solution-gallery/?product=Teams&sortby=creationDateTime-true&page=1" target="_blank">Microsoft 365 Sample Solution Gallery</a> to find Teams samples from Microsoft and the community! Also you can select <a href="https://adoption.microsoft.com/en-us/sample-solution-gallery/?product=Teams+Global+Hack&sortby=creationDateTime-true&page=1" target="_blank">Teams Global Hack</a> to view Teams apps that came out of the Teams Global Hack contest in June 2023.
 </li>
 
 <li>
