@@ -96,26 +96,22 @@ These aren't the actual .env files however - in order for your code to read the 
 Now let's add code to call the Azure OpenAI service. Create a folder **services** within your project. In this new folder, create a file **azureOpenAiService.js** and paste in this code:
 
 ~~~javascript
-const { Configuration, OpenAIApi } = require("openai");
+const {  OpenAI } = require("openai");
 
 class AzureOpenAiService {
-    #configuration;
-
     constructor() {
-
-        this.#configuration = new Configuration({
-            basePath: process.env.AZURE_OPENAI_BASE_PATH +
-                "/deployments/" + process.env.AZURE_OPENAI_MODEL
+        this.openai = new OpenAI({            
+            basePath:process.env.AZURE_OPENAI_BASE_PATH +
+                       "/deployments/" + process.env.AZURE_OPENAI_MODEL
         });
-        this.openAiClient = new OpenAIApi(this.#configuration);
     }
-
     async generateMessage(prompt) {
 
         try {
 
-            const response = await this.openAiClient.createCompletion({
+            const response = await this.openai.completions.create({
                 prompt: prompt,
+                model:"text-davinci-003",
                 temperature: 0.6,
                 max_tokens: 100
             }, {
@@ -125,7 +121,7 @@ class AzureOpenAiService {
                   params: { "api-version": process.env.AZURE_OPENAI_API_VERSION }
             });
 
-            let result = response.data.choices[0].text;
+            let result = response.choices[0].text;
 
             return result.trim();
 
@@ -170,31 +166,26 @@ This isn't the actual .env file however - nor is *.env.local*. In order for your
 Now let's add code to call the OpenAI service. Create a folder **services** in your project. In this new folder, create a file **openAiService.js** and paste in this code:
 
 ~~~javascript
-const { Configuration, OpenAIApi } = require("openai");
+const { OpenAI } = require("openai");
 
 class OpenAiService {
-    #configuration;
-
     constructor() {
-        this.#configuration = new Configuration({
-            apiKey: process.env.OPENAI_API_KEY
+        this.openai = new OpenAI({
+            apiKey: process.env.OPENAI_API_KEY 
         });
-        this.openAiClient = new OpenAIApi(this.#configuration);
     }
 
     async generateMessage(prompt) {
 
         try {
 
-            const response = await this.openAiClient.createCompletion({
+            const response = await this.openai.completions.create({
                 model: "text-davinci-003",
                 prompt: prompt,
                 temperature: 0.6,
                 max_tokens: 100
-            });
-
-            let result = response.data.choices[0].text;
-
+            });        
+            let result = response.choices[0].text;
             return result.trim();
 
         } catch (e) {

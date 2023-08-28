@@ -1,23 +1,19 @@
-const { Configuration, OpenAIApi } = require("openai");
+const {  OpenAI } = require("openai");
 
 class AzureOpenAiService {
-    #configuration;
-
     constructor() {
-
-        this.#configuration = new Configuration({
-            basePath: process.env.AZURE_OPENAI_BASE_PATH +
-                "/deployments/" + process.env.AZURE_OPENAI_MODEL
+        this.openai = new OpenAI({            
+            basePath:process.env.AZURE_OPENAI_BASE_PATH +
+                       "/deployments/" + process.env.AZURE_OPENAI_MODEL
         });
-        this.openAiClient = new OpenAIApi(this.#configuration);
     }
-
     async generateMessage(prompt) {
 
         try {
 
-            const response = await this.openAiClient.createCompletion({
+            const response = await this.openai.completions.create({
                 prompt: prompt,
+                model:"text-davinci-003",
                 temperature: 0.6,
                 max_tokens: 100
             }, {
@@ -27,7 +23,7 @@ class AzureOpenAiService {
                   params: { "api-version": process.env.AZURE_OPENAI_API_VERSION }
             });
 
-            let result = response.data.choices[0].text;
+            let result = response.choices[0].text;
 
             return result.trim();
 
