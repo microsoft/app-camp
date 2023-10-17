@@ -25,3 +25,6 @@ To set up the Azurite database:
 3. check in Storage Explorer to be sure data is there
 4. Shut consoles
 
+## TODO For Lab 2
+
+1. Add provisioning of table storage in Azure - works only locally now
