@@ -19,7 +19,7 @@ export class SearchApp extends TeamsActivityHandler {
 
     const meName = query.parameters[0].name;
     switch (meName) {
-      case "searchQuery": {
+      case "productName": {
         return productSearchME.handleTeamsMessagingExtensionQuery(context, query);
       }
     }
