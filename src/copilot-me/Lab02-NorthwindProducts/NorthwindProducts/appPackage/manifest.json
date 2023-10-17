@@ -1,0 +1,59 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.16",
+    "version": "1.0.0",
+    "id": "${{TEAMS_APP_ID}}",
+    "packageName": "com.microsoft.teams.extension",
+    "developer": {
+        "name": "App Camp",
+        "websiteUrl": "https://www.example.com",
+        "privacyUrl": "https://www.example.com/termofuse",
+        "termsOfUseUrl": "https://www.example.com/privacy"
+    },
+    "icons": {
+        "color": "Northwind-Logo3-192.png",
+        "outline": "Northwind-Logo3-32.png"
+    },
+    "name": {
+        "short": "Northwind Products-${{TEAMSFX_ENV}}",
+        "full": "Northwind Product information"
+    },
+    "description": {
+        "short": "Access product information from the Northwind database",
+        "full": "Access catalog and product information from the Northwind database"
+    },
+    "accentColor": "#3690E9",
+    "bots": [],
+    "composeExtensions": [
+        {
+            "botId": "${{BOT_ID}}",
+            "commands": [
+                {
+                    "id": "productName",
+                    "context": [
+                        "compose",
+                        "commandBox"
+                    ],
+                    "description": "Search Northwind products by name",
+                    "title": "Search",
+                    "type": "query",
+                    "parameters": [
+                        {
+                            "name": "productName",
+                            "title": "Product name",
+                            "description": "Enter a product name here",
+                            "inputType": "text"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "configurableTabs": [],
+    "staticTabs": [],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": []
+}
