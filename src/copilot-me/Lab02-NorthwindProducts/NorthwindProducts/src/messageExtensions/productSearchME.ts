@@ -1,11 +1,11 @@
-import { default as axios } from "axios";
-import * as querystring from "querystring";
 import {
     CardFactory,
     TurnContext,
     MessagingExtensionQuery,
     MessagingExtensionResponse,
 } from "botbuilder";
+import { Product } from "../northwindDB/model";
+import { getProducts } from "../northwindDB/products";
 
 
 async function handleTeamsMessagingExtensionQuery(
@@ -13,15 +13,11 @@ async function handleTeamsMessagingExtensionQuery(
     query: MessagingExtensionQuery
 ): Promise<MessagingExtensionResponse> {
     const searchQuery = query.parameters[0].value;
-    const response = await axios.get(
-        `http://registry.npmjs.com/-/v1/search?${querystring.stringify({
-            text: searchQuery,
-            size: 8,
-        })}`
-    );
+
+    const products = await getProducts(searchQuery);
 
     const attachments = [];
-    response.data.objects.forEach((obj) => {
+    products.forEach((product) => {
         const adaptiveCard = CardFactory.adaptiveCard({
             $schema: "http://adaptivecards.io/schemas/adaptive-card.json",
             type: "AdaptiveCard",
@@ -29,19 +25,19 @@ async function handleTeamsMessagingExtensionQuery(
             body: [
                 {
                     type: "TextBlock",
-                    text: `${obj.package.name}`,
+                    text: `${product.ProductName}`,
                     wrap: true,
                     size: "Large",
                 },
                 {
                     type: "TextBlock",
-                    text: `${obj.package.description}`,
+                    text: `${product.ProductID}`,
                     wrap: true,
                     size: "medium",
                 },
             ],
         });
-        const preview = CardFactory.heroCard(obj.package.name);
+        const preview = CardFactory.heroCard(product.ProductName);
         const attachment = { ...adaptiveCard, preview };
         attachments.push(attachment);
     });
