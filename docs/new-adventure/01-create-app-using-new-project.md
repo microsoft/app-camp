@@ -126,20 +126,55 @@ Follow the steps as shown in the screen shot below.
 !!! note "If you have Teams Toolkit installed but hidden"
     If you previously installed Teams Toolkit, and then hid it on the Visual Studio sidebar, you might wonder why you can't see it. Right-click on the left sidebar and check off Teams Toolkit to bring it back into view.
 
-## Exercise 3: Download the starting application
+## Exercise 3: Create a Search Message Extension application
 
-!!! note "Normally you might do this differently"
-    If you're creating a new application you would probably want to use the
-    "Create a New App" feature in Teams Toolkit, however the new app code
-    has changed since this lab was written. To ensure the lab works
-    correctly, these instructions now direct you to download the
-    starting code instead of creating a new app in Teams Toolkit.
+Follow the steps as shown in the screen shot below.
 
-First, clone or download this repository.
+1️⃣ Select Teams Toolkit in the Visual Studio Code sidebar
 
-Then find the folder within in at [/src/teams-toolkit/Lab01-From-TTK-template](https://github.com/microsoft/app-camp/tree/main/src/teams-toolkit/Lab01-From-TTK-template/NorthwindSuppliers) and copy it to a working location on your computer. Open this folder in Visual Studio Code to begin.
+2️⃣ Click "Create a New App"; the command bar will open
 
-Now open the Teams Toolkit tab and ensure you are logged into Microsoft 365. 
+3️⃣ Choose "Message Extension"
+
+![Creating a new app in Teams Toolkit](/app-camp/assets/new-adventure/Lab01-002-Create a new app 1.png)
+
+You'll be presented with a list of templates for Teams message extensions.
+Select "Custom Search Results".
+
+![Select app template](/app-camp/assets/new-adventure/Lab01-003-Create a new app 2.png)
+
+For this lab, select "JavaScript" as the programming language.
+
+![Select Javascript](/app-camp/assets/new-adventure/Lab01-004-Create a new app 3.png)
+
+At this point, you're asked to select a folder where your application will be created; you can select the default or your favorite source location on your machine. 
+
+Then you'll be asked to enter the name of your application. For this lab, enter "NorthwindSuppliers".
+
+![Enter NorthwindSuppliers](/app-camp/assets/new-adventure/Lab01-005-Create a new app 4.png)
+
+Teams Toolkit will generate a your application and open a new instance of Visual Studio Code in the application folder. 
+
+1️⃣  Close the original instance of Visual Studio Code
+
+2️⃣  Continue working in the new instance of Visual Studio code
+
+![Close original VS Code window](/app-camp/assets/new-adventure/Lab01-005-Create a new app 4b.png)
+
+1️⃣ In the new instance of Visual Studio Code, ensure that Teams Toolkit is selected in the Visual Studio Code sidebar
+
+2️⃣ Under "ACCOUNTS", click "Sign in to Microsoft 365"
+
+![Sign into Microsoft 365](/app-camp/assets/new-adventure/Lab01-006-Sign into M365 1.png)
+
+A pop-up dialog box will invite you to sign in. Log in using the administrator account for the Microsoft 365 tenant you created in Exercise 1.
+
+![Log in as Microsoft 365 admin](/app-camp/assets/new-adventure/Lab01-007-Sign into M365 2.png)
+
+When you've completed the sign-in process, close the pop-up web browser.
+
+![Complete sign-in process](/app-camp/assets/new-adventure/Lab01-007-Sign into M365 3.png)
+
 Teams Toolkit will check to be sure app sideloading is enabled. You should see a green check mark indicating that it is; if not, ensure that application uploads are enabled as explained in [Exercise 1 Step 2](/app-camp/new-adventure/01-create-app/#step-2-enable-teams-application-uploads).
 
 ![Check sideloading](/app-camp/assets/new-adventure/Lab01-008-Check sideloading.png)
