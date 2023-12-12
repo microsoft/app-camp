@@ -16,30 +16,8 @@ import { StockManagerBot } from './bot.js';
 import { BotFrameworkAdapter } from 'botbuilder';
 
 import aad from 'azure-ad-jwt';
-import { validateLicense } from './validateLicenseService.js';
 dotenv.config();
 const app = express();
-// Web service validates a user's license
-app.post('/api/validateLicense', async (req, res) => {
-
-  try {
-    const token = req.headers['authorization'].split(' ')[1];
-
-    try {
-      let hasLicense = await validateLicense(token);
-      res.send(JSON.stringify({ "validLicense": hasLicense }));
-    }
-    catch (error) {
-      console.log(`Error ${error.status} in validateLicense(): ${error.message}`);
-      res.status(error.status).send(error.message);
-    }
-  }
-  catch (error) {
-    console.log(`Error in /api/validateAadLogin handling: ${error}`);
-    res.status(500).json({ status: 500, statusText: error });
-  }
-
-});
 
 // JSON middleware is needed if you want to parse request bodies
 app.use(express.json());
