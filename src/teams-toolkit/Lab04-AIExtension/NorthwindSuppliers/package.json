@@ -18,9 +18,9 @@
     "watch": "nodemon ./index.js"
   },
   "dependencies": {
+    "@azure/openai": "^1.0.0-beta.8",
     "adaptivecards-templating": "^2.3.1",
     "botbuilder": "^4.18.0",
-    "openai": "^3.2.1",
     "restify": "^10.0.0"
   },
   "devDependencies": {
