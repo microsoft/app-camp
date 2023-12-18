@@ -1,39 +1,30 @@
-const { Configuration, OpenAIApi } = require("openai");
+const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
 
 class AzureOpenAiService {
-    #configuration;
-
     constructor() {
-
-        this.#configuration = new Configuration({
-            basePath: process.env.AZURE_OPENAI_BASE_PATH +
-                "/deployments/" + process.env.AZURE_OPENAI_MODEL
-        });
-        this.openAiClient = new OpenAIApi(this.#configuration);
+        this.openai = new OpenAIClient(process.env.AZURE_OPENAI_BASE_PATH,
+             new AzureKeyCredential(process.env.AZURE_OPENAI_API_KEY));
     }
-
     async generateMessage(prompt) {
 
         try {
-
-            const response = await this.openAiClient.createCompletion({
-                prompt: prompt,
-                temperature: 0.6,
-                max_tokens: 100
-            }, {
-                headers: {
-                    'api-key': process.env.AZURE_OPENAI_API_KEY,
-                  },
-                  params: { "api-version": process.env.AZURE_OPENAI_API_VERSION }
-            });
-
-            let result = response.data.choices[0].text;
+            const response = await this.openai.getCompletions(
+                "text-davinci-003",
+                [ prompt ],
+                {
+                    temperature: 0.6,
+                    maxTokens: 200
+                }
+                
+            );
+            
+            let result = response.choices[0].text;
 
             return result.trim();
 
         } catch (e) {
 
-            console.log(`Error ${e.response.status} ${e.response.statusText}`);
+            console.log(`Error ${e}`);
             return "Error";
 
         }

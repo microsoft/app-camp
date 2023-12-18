@@ -64,7 +64,7 @@ Once your Azure resource is running, you'll need the following information about
 Next, edit your **env/.env.local** file and add the following lines, filling in the information above.
 
 ~~~text
-AZURE_OPENAI_BASE_PATH=https://something.openai.azure.com/openai
+AZURE_OPENAI_BASE_PATH=https://something.openai.azure.com/
 AZURE_OPENAI_MODEL=text-davinci-003
 AZURE_OPENAI_API_VERSION=2023-03-15-preview
 ~~~
@@ -96,38 +96,33 @@ These aren't the actual .env files however - in order for your code to read the 
 Now let's add code to call the Azure OpenAI service. Create a folder **services** within your project. In this new folder, create a file **azureOpenAiService.js** and paste in this code:
 
 ~~~javascript
-const {  OpenAI } = require("openai");
+const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
 
 class AzureOpenAiService {
     constructor() {
-        this.openai = new OpenAI({            
-            basePath:process.env.AZURE_OPENAI_BASE_PATH +
-                       "/deployments/" + process.env.AZURE_OPENAI_MODEL
-        });
+        this.openai = new OpenAIClient(process.env.AZURE_OPENAI_BASE_PATH,
+             new AzureKeyCredential(process.env.AZURE_OPENAI_API_KEY));
     }
     async generateMessage(prompt) {
 
         try {
-
-            const response = await this.openai.completions.create({
-                prompt: prompt,
-                model:"text-davinci-003",
-                temperature: 0.6,
-                max_tokens: 100
-            }, {
-                headers: {
-                    'api-key': process.env.AZURE_OPENAI_API_KEY,
-                  },
-                  params: { "api-version": process.env.AZURE_OPENAI_API_VERSION }
-            });
-
+            const response = await this.openai.getCompletions(
+                "text-davinci-003",
+                [ prompt ],
+                {
+                    temperature: 0.6,
+                    maxTokens: 200
+                }
+                
+            );
+            
             let result = response.choices[0].text;
 
             return result.trim();
 
         } catch (e) {
 
-            console.log(`Error ${e.response.status} ${e.response.statusText}`);
+            console.log(`Error ${e}`);
             return "Error";
 
         }
@@ -166,31 +161,35 @@ This isn't the actual .env file however - nor is *.env.local*. In order for your
 Now let's add code to call the OpenAI service. Create a folder **services** in your project. In this new folder, create a file **openAiService.js** and paste in this code:
 
 ~~~javascript
-const { OpenAI } = require("openai");
+const { OpenAIClient, OpenAIKeyCredential  } = require("@azure/openai");
 
 class OpenAiService {
     constructor() {
-        this.openai = new OpenAI({
-            apiKey: process.env.OPENAI_API_KEY 
-        });
+        this.openai = new OpenAIClient(process.env.AZURE_OPENAI_BASE_PATH,
+             new OpenAIKeyCredential(process.env.OPENAI_API_KEY));
     }
-
+    
     async generateMessage(prompt) {
 
         try {
 
-            const response = await this.openai.completions.create({
-                model: "text-davinci-003",
-                prompt: prompt,
-                temperature: 0.6,
-                max_tokens: 100
-            });        
+            const response = await this.openai.getCompletions(
+                "text-davinci-003",
+                [ prompt ],
+                {
+                    temperature: 0.6,
+                    maxTokens: 200
+                }
+                
+            );
+            
             let result = response.choices[0].text;
+
             return result.trim();
 
         } catch (e) {
 
-            console.log(`Error ${e.response.status} ${e.response.statusText}`);
+            console.log(`Error ${e}`);
             return "Error";
 
         }
@@ -213,7 +212,7 @@ In the previous exercise, you added code that uses the OpenAI API, but we haven'
 Open a terminal window in Visual Studio Code or in your local operating system, and navigate to your **NorthwindSuppliers** project folder. Then type this command:
 
 ~~~sh
-npm install openai
+npm install @azure/openai
 ~~~
 
 ## Exercise 3: Add Action message extensions to the Teams manifest
