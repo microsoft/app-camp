@@ -1,0 +1,2105 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://microsoft.github.io/app-camp/new-adventure/04-add-ai/">
+      
+      
+        <link rel="prev" href="../03-add-link-unfurling/">
+      
+      
+        <link rel="next" href="../05-add-sso/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+    
+    
+      
+        <title>4 - Action message extensions with Open AI - Teams App Camp</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/labStyles.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#35258F" data-md-color-accent="#091F2C">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-4-action-message-extensions-with-open-ai" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Teams App Camp" class="md-header__button md-logo" aria-label="Teams App Camp" data-md-component="logo">
+      
+  <img src="../../assets/microsoftteams_appcamp-webheader3.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Teams App Camp
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4 - Action message extensions with Open AI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/microsoft/app-camp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/app-camp
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00-welcome/" class="md-tabs__link">
+          
+  
+  New Adventure
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../aad/A01-begin-app/" class="md-tabs__link">
+          
+  
+  A Path
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../bespoke/B01-begin-app/" class="md-tabs__link">
+          
+  
+  B Path
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../aad/ExtendedLabs/" class="md-tabs__link">
+          
+  
+  Extended labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Resources/" class="md-tabs__link">
+          
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Teams App Camp" class="md-nav__button md-logo" aria-label="Teams App Camp" data-md-component="logo">
+      
+  <img src="../../assets/microsoftteams_appcamp-webheader3.png" alt="logo">
+
+    </a>
+    Teams App Camp
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/microsoft/app-camp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/app-camp
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    New Adventure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            New Adventure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-welcome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to another App Camp adventure!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-create-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 - Create a new app with Teams Toolkit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-integrate-web-service/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 - Integrate business data with your app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-add-link-unfurling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 - Link Unfurling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    4 - Action message extensions with Open AI
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    4 - Action message extensions with Open AI
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-1-obtain-an-openai-api-key-and-the-code-to-call-openai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 1: Obtain an OpenAI API key and the code to call OpenAI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 1: Obtain an OpenAI API key and the code to call OpenAI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-use-an-azure-openai-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 1: Use an Azure OpenAI resource
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-use-the-openai-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 2: Use the OpenAI Platform
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-2-install-the-open-ai-api-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 2: Install the Open AI API package
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-3-add-action-message-extensions-to-the-teams-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 3: Add Action message extensions to the Teams manifest
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-4-add-a-message-extension-to-generate-a-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 4: Add a message extension to generate a message
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 4: Add a message extension to generate a message">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-add-javascript-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Add JavaScript code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-add-the-adaptive-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Add the adaptive card
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-5-add-a-message-extension-to-reply-to-a-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 5: Add a message extension to reply to a message
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 5: Add a message extension to reply to a message">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-add-javascript-code_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Add JavaScript code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-add-the-adaptive-card_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Add the adaptive card
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-6-update-the-bot-code-to-call-the-message-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 6: Update the bot code to call the message extensions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-7-run-the-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 7: Run the solution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 7: Run the solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-test-the-generate-message-button" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Test the Generate Message button
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-test-the-message-reply-feature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Test the message reply feature
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congratulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Congratulations!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known issues
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-add-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5 - Single Sign-on and Microsoft Graph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-run-in-outlook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6 - Run your app in Microsoft Outlook
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    A Path
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            A Path
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/A01-begin-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A01 - Start with Azure Active Directory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/A02-after-teams-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A02 - Create a Teams app with Azure AD Teams SSO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/A03-after-apply-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A03 - Teams styling and themes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    B Path
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            B Path
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B01-begin-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B01 - Start with a non-Azure Active Directory Identity System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B02-after-teams-login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B02 - Teams App with Bespoke Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B03-after-teams-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B03 - Enable Azure AD Single Sign-On
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B04-after-apply-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B04 - Teams styling and themes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Extended labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Extended labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/ExtendedLabs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Choose your own adventure!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/ConfigurableTab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a configurable tab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/Deeplink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Deep link to a personal Tab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/Dialog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Dialog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/MeetingConfigurableTab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Meeting app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/MessagingExtension/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Message Extension
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/Monetization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selling Your SaaS-based Teams Extension
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/ExtendTeamsApp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extend teams app to Outlook and Microsoft365 app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    More Information
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-a-box/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lead your own App Camp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<!--
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "dfh6fjbr5x");
+</script>
+-->
+
+<p><img alt="Teams App Camp" src="/app-camp/assets/new-adventure/app-camp-new-adventure-sm.png" /></p>
+<h1 id="lab-4-action-message-extensions-with-open-ai">Lab 4: Action message extensions with Open AI</h1>
+<details class="info" open="open">
+<summary>Lab Outline</summary>
+<ul>
+<li><strong><a href="../01-create-app/">Lab 1 - Create your first app with Teams Toolkit</a></strong>
+In this lab, you'll set up Teams Toolkit and create a Teams message extension.</li>
+<li><strong><a href="../02-integrate-web-service/">Lab 2 - Integrate business data with your application</a></strong>
+In this lab, you'll brand your new app as "Northwind Suppliers", and will provide the ability to insert data from the Northwind Traders sample database in a Microsoft Teams conversation. You'll also learn how to create and send adaptive cards with your message extension.</li>
+<li><strong><a href="../03-add-link-unfurling/">Lab 3 - Add link unfurling</a></strong>
+In this lab, you'll learn how to use Link Unfurling, which provides a custom summary when a user includes your URL in a conversation</li>
+<li><strong><img src="/app-camp/assets/new-adventure/arrow-this-lab.png"
+         style="height: 36pt; margin-bottom: -14pt;">
+<a href="./">Lab 4 - Action message extensions with Open AI</a></strong>
+In this lab, you'll learn how to build "Action" message extensions which can be launched directly
+or in the context menu of another Teams message to take action on it. The labs use the Open AI
+commercial web services (in Azure or using an Open AI account) to generate messages.</li>
+<li><strong><a href="../05-add-sso/">Lab 5 - Single Sign-on and Microsoft Graph</a></strong>
+In this lab, you'll learn how to authenticate users with Azure AD Single Sign-On, and to call the
+Microsoft Graph API. This same process would be used when calling any
+web service that's secured with Azure AD on behalf of the logged-in user.</li>
+<li><strong><a href="../06-run-in-outlook/">Lab 6 - Run the app in Outlook</a></strong>
+In this lab, you'll run the Northwind Suppliers application in Microsoft Outlook.</li>
+</ul>
+</details>
+<h2 id="overview">Overview</h2>
+<p>In this lab you will learn to:</p>
+<ul>
+<li>Create an action message extension accessible from the compose box in Microsoft Teams</li>
+<li>Create an action message extension to take action on a message in Microsoft Teams</li>
+<li>Interact with users using adaptive cards in a dialog through the FetchTask and SubmitAction activities</li>
+<li>Call the OpenAI API for an Azure OpenAI resource or the OpenAI public web service</li>
+</ul>
+<h2 id="features">Features</h2>
+<ul>
+<li>An action message extension that uses Open AI to help a user compose a message in Microsoft Teams</li>
+<li>An action message extension that works in the context menu of an existing message to help a user compose a response to a message in Microsoft Teams</li>
+</ul>
+<p>For example, here is the Reply message extension in action. An adaptive card is used to interact with the user and allow a response in agreement, disagreement, poem, or a joke.</p>
+<p><img alt="A dialog box showing a form allowing the user to choose how to reply to a message" src="../../assets/new-adventure/Lab04-009-Reply4.png" /></p>
+<h2 id="exercise-1-obtain-an-openai-api-key-and-the-code-to-call-openai">Exercise 1: Obtain an OpenAI API key and the code to call OpenAI</h2>
+<p>There are two approaches here:</p>
+<ol>
+<li>Set up an Azure OpenAI resource with a model such as text-davinci-003 and obtain the following information</li>
+<li>Set up an account with OpenAI to access their public API</li>
+</ol>
+<p>Please choose one of these approaches and follow the guidance below.</p>
+<h3 id="option-1-use-an-azure-openai-resource">Option 1: Use an Azure OpenAI resource</h3>
+<p>This is a good approach if you have access to an Azure subscription, and if you want to keep your data within your own Azure subscription rather than in a shared online service. <a href="https://azure.microsoft.com/en-us/products/cognitive-services/openai-service" target="_blank">Instructions for setting it up are here</a>.</p>
+<p>Once your Azure resource is running, you'll need the following information about the service to access it in your application:</p>
+<ul>
+<li>Endpoint 1️⃣ - This is assigned when you create the OpenAI resource</li>
+<li>Model 2️⃣ - Create an AI model deployment; the model text-davinci-003 works well for this lab. You need the "Model deployment name" from the left column in the list of model deployments.</li>
+<li>Version - This is the API version; use "2023-03-15-preview" for now</li>
+<li>API Key 3️⃣ - Obtain an API key </li>
+</ul>
+<p>Next, edit your <strong>env/.env.local</strong> file and add the following lines, filling in the information above.</p>
+<pre><code class="language-text">AZURE_OPENAI_BASE_PATH=https://something.openai.azure.com/
+AZURE_OPENAI_MODEL=text-davinci-003
+AZURE_OPENAI_API_VERSION=2023-03-15-preview
+</code></pre>
+<p>Since the API key is secret, add it to the <strong>env/.env.local.user</strong> file as follows:</p>
+<pre><code class="language-text">SECRET_AZURE_OPENAI_API_KEY=xxxxxxxxxxxxxxx
+</code></pre>
+<p>These aren't the actual .env files however - in order for your code to read the values, we need to instruct Teams Toolkit to add them to the .env file at runtime. To do this, edit the <strong>teamsapp.local.yml</strong> file. Add lines below the existing configuration for <code>envs</code> as follows:</p>
+<pre><code class="language-yaml">  - uses: file/createOrUpdateEnvironmentFile # Generate runtime environment variables
+    with:
+      target: ./.localConfigs
+      envs:
+        BOT_ID: ${{BOT_ID}}
+        BOT_PASSWORD: ${{SECRET_BOT_PASSWORD}}
+        AZURE_OPENAI_BASE_PATH: ${{AZURE_OPENAI_BASE_PATH}}
+        AZURE_OPENAI_MODEL: ${{AZURE_OPENAI_MODEL}}
+        AZURE_OPENAI_API_VERSION: ${{AZURE_OPENAI_API_VERSION}}
+        AZURE_OPENAI_API_KEY: ${{SECRET_AZURE_OPENAI_API_KEY}}
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Indentation matters in .yml files</p>
+<p>This is a "yaml" file, which is sensitive to indentation. Make sure the lines you add are indented the same as the <code>BOT_ID</code> and <code>BOT_PASSWORD</code> entries or it won't work.</p>
+</div>
+<p>Now let's add code to call the Azure OpenAI service. Create a folder <strong>services</strong> within your project. In this new folder, create a file <strong>azureOpenAiService.js</strong> and paste in this code:</p>
+<pre><code class="language-javascript">const { OpenAIClient, AzureKeyCredential } = require(&quot;@azure/openai&quot;);
+
+class AzureOpenAiService {
+    constructor() {
+        this.openai = new OpenAIClient(process.env.AZURE_OPENAI_BASE_PATH,
+             new AzureKeyCredential(process.env.AZURE_OPENAI_API_KEY));
+    }
+    async generateMessage(prompt) {
+
+        try {
+            const response = await this.openai.getCompletions(
+                &quot;text-davinci-003&quot;,
+                [ prompt ],
+                {
+                    temperature: 0.6,
+                    maxTokens: 200
+                }
+
+            );
+
+            let result = response.choices[0].text;
+
+            return result.trim();
+
+        } catch (e) {
+
+            console.log(`Error ${e}`);
+            return &quot;Error&quot;;
+
+        }
+
+    }
+}
+
+module.exports.OpenAiService = new AzureOpenAiService();
+</code></pre>
+<h3 id="option-2-use-the-openai-platform">Option 2: Use the OpenAI Platform</h3>
+<p>This is a good approach if you want to obtain <a href="https://platform.openai.com/" target="_blank">AI service directly from OpenAI</a>, and is a quick way to get started with an OpenAI trial account. You'll need to <a href="https://platform.openai.com/account/api-keys" target="_blank">obtain an API key</a> to use the service. Note that if you've been using Chat GPT for a while your trial API access may already have expired; visit the <a href="https://platform.openai.com/account/usage" target="_blank">usage page</a> to check your status.</p>
+<p>All you need for the lab is an OpenAI API key. Since it's a secret and shouldn't be displayed in the Teams Toolkit logs, it belongs in the <strong>env/.env.local.user</strong> file with a name that begins with <code>SECRET</code>:</p>
+<pre><code class="language-text">SECRET_OPENAI_API_KEY=your-key-here-xxxxxx
+</code></pre>
+<p>This isn't the actual .env file however - nor is <em>.env.local</em>. In order for your code to read the value, we need to instruct Teams Toolkit to add it to the .env file at runtime. To do this, edit the <strong>teamsapp.local.yml</strong> file. Add a line below the existing configuration for <code>envs</code> as follows:</p>
+<pre><code class="language-yaml">  - uses: file/createOrUpdateEnvironmentFile # Generate runtime environment variables
+    with:
+      target: ./.localConfigs
+      envs:
+        BOT_ID: ${{BOT_ID}}
+        BOT_PASSWORD: ${{SECRET_BOT_PASSWORD}}
+        OPENAI_API_KEY: ${{SECRET_OPENAI_API_KEY}}
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Indentation matters in .yml files</p>
+<p>This is a "yaml" file, which is sensitive to indentation. Make sure the line you add is indented the same as the <code>BOT_ID</code> and <code>BOT_PASSWORD</code> entries or it won't work.</p>
+</div>
+<p>Now let's add code to call the OpenAI service. Create a folder <strong>services</strong> in your project. In this new folder, create a file <strong>openAiService.js</strong> and paste in this code:</p>
+<pre><code class="language-javascript">const { OpenAIClient, OpenAIKeyCredential  } = require(&quot;@azure/openai&quot;);
+
+class OpenAiService {
+    constructor() {
+        this.openai = new OpenAIClient(process.env.AZURE_OPENAI_BASE_PATH,
+             new OpenAIKeyCredential(process.env.OPENAI_API_KEY));
+    }
+
+    async generateMessage(prompt) {
+
+        try {
+
+            const response = await this.openai.getCompletions(
+                &quot;text-davinci-003&quot;,
+                [ prompt ],
+                {
+                    temperature: 0.6,
+                    maxTokens: 200
+                }
+
+            );
+
+            let result = response.choices[0].text;
+
+            return result.trim();
+
+        } catch (e) {
+
+            console.log(`Error ${e}`);
+            return &quot;Error&quot;;
+
+        }
+
+    }
+}
+
+module.exports.OpenAiService = new OpenAiService();
+</code></pre>
+<details class="note" open="open">
+<summary>Code walk-through</summary>
+<p>You might notice that the Azure OpenAI and OpenAI services are very similar. They both have <code>generateMessage()</code> functions that call openAiClient.createCompletion() with a prompt, and receive a response from the AI model. </p>
+<p>They also both use the <a href="https://github.com/openai/openai-node" target="_blank">OpenAI API</a>. This is a client-side library for calling OpenAI services, from NodeJS in this case.</p>
+</details>
+<h2 id="exercise-2-install-the-open-ai-api-package">Exercise 2: Install the Open AI API package</h2>
+<p>In the previous exercise, you added code that uses the OpenAI API, but we haven't installed the npm module for it. The same module works for both Azure OpenAI and the OpenAI Platform.</p>
+<p>Open a terminal window in Visual Studio Code or in your local operating system, and navigate to your <strong>NorthwindSuppliers</strong> project folder. Then type this command:</p>
+<pre><code class="language-sh">npm install @azure/openai
+</code></pre>
+<h2 id="exercise-3-add-action-message-extensions-to-the-teams-manifest">Exercise 3: Add Action message extensions to the Teams manifest</h2>
+<p>OK now that we have an AI service to build on, let's create the message extensions. There will be two of them: one that generates a new message and is accessible from a button next to the compose box pop-up, and the other replies to a message and is accessible from the context menu of a message.</p>
+<p>Open <strong>appPackage/manifest.json</strong> in your code editor and add these two elements to the <code>commands</code> array within <code>composeExtensions</code>:</p>
+<pre><code class="language-json">    {
+        &quot;id&quot;: &quot;generateMessage&quot;,
+        &quot;context&quot;: [
+            &quot;compose&quot;,
+            &quot;commandBox&quot;
+        ],
+        &quot;description&quot;: &quot;Generate a message using AI&quot;,
+        &quot;title&quot;: &quot;Generate message&quot;,
+        &quot;type&quot;: &quot;action&quot;,
+        &quot;fetchTask&quot;: true
+    },
+    {
+        &quot;id&quot;: &quot;replyToMessage&quot;,
+        &quot;context&quot;: [
+            &quot;message&quot;
+        ],
+        &quot;description&quot;: &quot;Generate an agreeable response&quot;,
+        &quot;title&quot;: &quot;AI Reply&quot;,
+        &quot;type&quot;: &quot;action&quot;,
+        &quot;fetchTask&quot;: true
+    }
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Be sure to separate these new commands from the previous "searchQuery" command with a comma. If you're new to JSON, and all the nested brackets are a bit confusing, feel free to copy the entire updated <strong>manifest.json</strong> file <a href="https://github.com/microsoft/app-camp/blob/main/src/teams-toolkit/Lab04-AIExtension/NorthwindSuppliers/appPackage/manifest.json" target="_blank">from here</a></p>
+</div>
+<p>Notice that the new commands are both of type <code>action</code>, with <code>fetchTask</code> set to <code>true</code>. This will cause Teams to fetch an adaptive card from your service and display a dialog containing the card so the user can interact with your application. You could also present a web page in this fashion, but in this lab we'll just use an adaptive card.</p>
+<p>Also notice that the <code>generateMessage</code> action runs in the context of the <code>compose</code> box or <code>commandBox</code> at the top of the Teams user interface. <code>replyToMessage</code> runs in the context of a <code>message</code>. These settings control the location where Teams displays your action message extension.</p>
+<h2 id="exercise-4-add-a-message-extension-to-generate-a-message">Exercise 4: Add a message extension to generate a message</h2>
+<h3 id="step-1-add-javascript-code">Step 1: Add JavaScript code</h3>
+<p>Now, as before, we'll make a separate JavaScript module for each of our message extensions. Create a new file called <strong>generateMessageME.js</strong> in the <strong>messageExtensions</strong> folder. Paste this code into the file:</p>
+<pre><code class="language-javascript">const ACData = require(&quot;adaptivecards-templating&quot;);
+const { CardFactory } = require(&quot;botbuilder&quot;);
+const { OpenAiService } = require(&quot;../services/azureOpenAiService&quot;);
+// const { OpenAiService } = require(&quot;../services/openAiService&quot;);
+
+class GenerateMessageME {
+
+    // Ref documentation
+    // https://learn.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command
+
+    async handleTeamsMessagingExtensionFetchTask (context, action) {
+        try {
+            return this.#displayAdaptiveCardResponse(&quot;Please generate a message for me to send.&quot;);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    async handleTeamsMessagingExtensionSubmitAction (context, action) {
+
+        try {
+
+            switch (action.data?.intent) {
+                case &quot;send&quot;: {
+                    return await this.#sendMessageResponse(action.data?.message);
+                }
+                default: {
+                    return await this.#displayAdaptiveCardResponse(action.data?.prompt);
+                }
+            }
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+
+    // Generate a response that will display the adaptive card form in Teams
+    async #displayAdaptiveCardResponse (prompt) {
+
+        const text = await OpenAiService.generateMessage(prompt);
+
+        // Read card from JSON file
+        const templateJson = require('../cards/generateMessageCard.json');
+        const template = new ACData.Template(templateJson);
+        const cardContents = template.expand({
+            $root: {
+                prompt: prompt,
+                message: text
+            }
+        });
+
+        const card = CardFactory.adaptiveCard(cardContents);
+        return {
+            task: {
+                type: 'continue',
+                value: {
+                    card: card,
+                    height: 400,
+                    title: `Generate a message`,
+                    width: 300
+                }
+            }
+        };
+    }
+
+    // Generate a response that will add a message to the Teams compose box
+    async #sendMessageResponse (message) {
+
+        const messageHtml = message.replace(/\n/g, &quot;&lt;br /&gt;&quot;);
+
+        const heroCard = CardFactory.heroCard('', messageHtml);
+        const attachment = {
+            contentType: heroCard.contentType,
+            content: heroCard.content,
+            preview: heroCard
+        };
+
+        return {
+            composeExtension: {
+                type: 'result',
+                attachmentLayout: 'list',
+                attachments: [
+                    attachment
+                ]
+            }
+        };
+    }
+
+}
+
+module.exports.GenerateMessageME = new GenerateMessageME();
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Adjust if using the OpenAI platform service</p>
+<p>If you're using Azure OpenAI, then this code is ready to go. If you're using the public OpenAI platform, then you need to comment out the <code>require</code> statement for <code>/services/azureOpenAiService</code> and un-comment the one for <code>/services/openAiService</code>.</p>
+</div>
+<details class="note" open="open">
+<summary>Code walk-through</summary>
+<p>Take a moment to examine the code you just added.</p>
+<p>The <code>handleTeamsMessagingExtensionFetchTask()</code> function is called when the action message extension is invoked by a user. This function will return an adaptive card as part of a "continue" task, which tells Teams to display the card and interact with the user. The function <code>#displayAdaptiveCardResponse()</code> generates a response to Teams that includes the adaptive card to be displayed.</p>
+<p>When the user clicks a button on the adaptive card, the card data is submitted and the <code>handleTeamsMessagingExtensionSubmitAction()</code> function is called. If the <code>send</code> button was pressed, the <code>#sendMessageResponse</code> function returns a response with a hero card containing the message to be sent; this inserts the generated message into the compose box for the user to send.</p>
+</details>
+<h3 id="step-2-add-the-adaptive-card">Step 2: Add the adaptive card</h3>
+<p>Add a new file, <strong>generateMessageCard.json</strong> in the <strong>cards</strong> folder you created in Lab 2. Paste this JSON into the file.</p>
+<pre><code class="language-json">{
+    &quot;type&quot;: &quot;AdaptiveCard&quot;,
+    &quot;$schema&quot;: &quot;http://adaptivecards.io/schemas/adaptive-card.json&quot;,
+    &quot;version&quot;: &quot;1.4&quot;,
+    &quot;body&quot;: [
+        {
+            &quot;type&quot;: &quot;Input.Text&quot;,
+            &quot;label&quot;: &quot;Enter a prompt here&quot;,
+            &quot;isMultiline&quot;: true,
+            &quot;value&quot;: &quot;${prompt}&quot;,
+            &quot;id&quot;: &quot;prompt&quot;
+        },
+        {
+            &quot;type&quot;: &quot;ActionSet&quot;,
+            &quot;actions&quot;: [
+                {
+                    &quot;type&quot;: &quot;Action.Submit&quot;,
+                    &quot;title&quot;: &quot;Generate&quot;,
+                    &quot;data&quot;: {
+                        &quot;intent&quot;: &quot;generate&quot;
+                    }
+                }
+            ]
+        },
+        {
+            &quot;type&quot;: &quot;Input.Text&quot;,
+            &quot;label&quot;: &quot;Edit your message here&quot;,
+            &quot;isMultiline&quot;: true,
+            &quot;value&quot;: &quot;${message}&quot;,
+            &quot;id&quot;: &quot;message&quot;
+        }
+    ],
+    &quot;actions&quot;: [
+        {
+            &quot;type&quot;: &quot;Action.Submit&quot;,
+            &quot;title&quot;: &quot;Send response&quot;,
+            &quot;data&quot;: {
+                &quot;intent&quot;: &quot;send&quot;
+            }
+        }
+    ]
+}
+</code></pre>
+<details class="note" open="open">
+<summary>Code walk-through</summary>
+<p>This is what the card will look like when it's displayed:
+<img alt="Card with an AI generated message" src="../../assets/new-adventure/Lab04-002-Generate2.png" /></p>
+<p>Notice there are 2 buttons, "Generate" and "Send" on the card. These correspond to the 2 <code>Action.Submit</code> actions in the card JSON. These will both cause the <code>handleTeamsMessagingExtensionSubmitAction()</code> event to fire in the bot, which will call the corresponding function in <strong>generateMessageME.js</strong>. So how will the message extension determine which button was pressed?</p>
+<p>The answer is that the actions each submit a bit more data in addition to the input fields on the card. The first <code>Action.Submit</code> sends an <code>intent</code> property value of <code>"generate"</code> and the second one sends an <code>intent</code> value of <code>"send"</code>; the code in <strong>generateMessageME.js</strong> will use this value to figure out which button was pressed.</p>
+</details>
+<h2 id="exercise-5-add-a-message-extension-to-reply-to-a-message">Exercise 5: Add a message extension to reply to a message</h2>
+<h3 id="step-1-add-javascript-code_1">Step 1: Add JavaScript code</h3>
+<p>Create a new file called <strong>replyME.js</strong> in the <strong>messageExtensions</strong> folder. Paste this code into the file:</p>
+<pre><code class="language-javascript">const ACData = require(&quot;adaptivecards-templating&quot;);
+const { CardFactory } = require(&quot;botbuilder&quot;);
+const { OpenAiService } = require(&quot;../services/azureOpenAiService&quot;);
+// const { OpenAiService } = require(&quot;../services/openAiService&quot;);
+
+
+class ReplyME {
+
+    // Ref documentation
+    // https://learn.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command
+
+    async handleTeamsMessagingExtensionFetchTask(context, action) {
+        try {
+
+            const userMessage = this.#getUserMessage(action);
+            return this.#displayAdaptiveCardResponse(userMessage, &quot;agree&quot;);
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    async handleTeamsMessagingExtensionSubmitAction(context, action) {
+
+        try {
+
+            const userMessage = action.data?.message;
+            const replyType = action.data?.replyType;
+
+            switch (action.data?.intent) {
+                case &quot;send&quot;: {
+                    return await this.#sendMessageResponse(action.data?.replyText);
+                }
+                default: {
+                    return this.#displayAdaptiveCardResponse(userMessage, replyType);
+                }
+            }
+
+        }
+
+        catch (e) {
+            console.log(e);
+        }
+    }
+
+    // Get the original message the user invoked the ME on and also the type
+    // of response indicated in the adaptive card (agree, disagree, poem, or joke).
+    // Default to &quot;agree&quot; if we're displaying the 1st adaptive card
+    #getUserMessage(action) {
+        let userMessage = action.messagePayload?.body?.content;
+        const messageType = action.messagePayload?.body?.contentType;
+        if (messageType === &quot;html&quot;) {
+            userMessage = userMessage.replace(/&lt;[^&gt;]*&gt;?/gm, '');
+        }
+
+        return userMessage;
+    }
+
+    // Generate a response that will display the adaptive card form in Teams
+    async #displayAdaptiveCardResponse(message, replyType) {
+
+        const prompt = this.#getPrompt(message, replyType);
+        const replyText = await OpenAiService.generateMessage(prompt);
+
+        // Read card from JSON file
+        const templateJson = require('../cards/replyCard.json');
+        const template = new ACData.Template(templateJson);
+        const cardContents = template.expand({
+            $root: {
+                message: message,
+                replyText: replyText,
+                replyType: replyType
+            }
+        });
+
+        const card = CardFactory.adaptiveCard(cardContents);
+        return {
+            task: {
+                type: 'continue',
+                value: {
+                    card: card,
+                    height: 500,
+                    title: `Reply to message`,
+                    width: 400
+                }
+            }
+        };
+
+    }
+
+    // Generate a response that will add a message to the Teams compose box
+    async #sendMessageResponse(messageText) {
+
+        const messageHtml = messageText.replace(/\n/g, &quot;&lt;br /&gt;&quot;);
+
+        const heroCard = CardFactory.heroCard('', messageHtml);
+        const attachment = {
+            contentType: heroCard.contentType,
+            content: heroCard.content,
+            preview: heroCard
+        };
+
+        return {
+            composeExtension: {
+                type: 'result',
+                attachmentLayout: 'list',
+                attachments: [
+                    attachment
+                ]
+            }
+        };
+    }
+
+    // Get the OpenAI prompt based on the user message and reply type
+    #getPrompt(userMessage, replyType) {
+
+        switch (replyType) {
+            case &quot;agree&quot;: {
+                return `Please generate an agreeable response to the following message: &quot;${userMessage}&quot;`;
+            }
+            case &quot;disagree&quot;: {
+                return `Please generate a polite response in disagreement to the following message: &quot;${userMessage}&quot;`;
+            }
+            case &quot;poem&quot;: {
+                return `Please generate a short poem in response to the following message: &quot;${userMessage}&quot;`;
+            }
+            case &quot;joke&quot;: {
+                return `Please generate a dad joke in response to the following message: &quot;${userMessage}&quot;`;
+            }
+            default: {
+                return `Please respond to the following message: &quot;${userMessage}&quot;`;
+            }
+        }
+    }
+}
+
+module.exports.ReplyME = new ReplyME();
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Adjust if using the OpenAI platform service</p>
+<p>If you're using Azure OpenAI, then this code is ready to go. If you're using the public OpenAI platform, then you need to comment out the <code>require</code> statement for <code>/services/azureOpenAiService</code> and un-comment the one for <code>/services/openAiService</code>.</p>
+</div>
+<h3 id="step-2-add-the-adaptive-card_1">Step 2: Add the adaptive card</h3>
+<p>Add a new file, <strong>replyCard.json</strong> in the <strong>cards</strong> folder you created in Lab 2. Paste this JSON into the file.</p>
+<pre><code class="language-json">{
+    &quot;type&quot;: &quot;AdaptiveCard&quot;,
+    &quot;$schema&quot;: &quot;http://adaptivecards.io/schemas/adaptive-card.json&quot;,
+    &quot;version&quot;: &quot;1.4&quot;,
+    &quot;body&quot;: [
+        {
+            &quot;type&quot;: &quot;Input.Text&quot;,
+            &quot;label&quot;: &quot;Original message&quot;,
+            &quot;isMultiline&quot;: true,
+            &quot;value&quot;: &quot;${message}&quot;,
+            &quot;id&quot;: &quot;message&quot;
+        },
+        {
+            &quot;type&quot;: &quot;Input.ChoiceSet&quot;,
+            &quot;choices&quot;: [
+                {
+                    &quot;title&quot;: &quot;agree&quot;,
+                    &quot;value&quot;: &quot;agree&quot;
+                },
+                {
+                    &quot;title&quot;: &quot;disagree&quot;,
+                    &quot;value&quot;: &quot;disagree&quot;
+                },
+                {
+                    &quot;title&quot;: &quot;poem&quot;,
+                    &quot;value&quot;: &quot;poem&quot;
+                },
+                {
+                    &quot;title&quot;: &quot;joke&quot;,
+                    &quot;value&quot;: &quot;joke&quot;
+                }
+            ],
+            &quot;value&quot;: &quot;${replyType}&quot;,
+            &quot;placeholder&quot;: &quot;Select a response type&quot;,
+            &quot;id&quot;: &quot;replyType&quot;
+        },
+        {
+            &quot;type&quot;: &quot;ActionSet&quot;,
+            &quot;actions&quot;: [
+                {
+                    &quot;type&quot;: &quot;Action.Submit&quot;,
+                    &quot;title&quot;: &quot;Generate&quot;,
+                    &quot;data&quot;: {
+                        &quot;intent&quot;: &quot;generate&quot;
+                    }
+                }
+            ]
+        },
+        {
+            &quot;type&quot;: &quot;Input.Text&quot;,
+            &quot;label&quot;: &quot;Edit your response here&quot;,
+            &quot;isMultiline&quot;: true,
+            &quot;value&quot;: &quot;${replyText}&quot;,
+            &quot;id&quot;: &quot;replyText&quot;
+        }
+    ],
+    &quot;actions&quot;: [
+        {
+            &quot;type&quot;: &quot;Action.Submit&quot;,
+            &quot;title&quot;: &quot;Send response&quot;,
+            &quot;data&quot;: {
+                &quot;intent&quot;: &quot;send&quot;
+            }
+        }
+    ]
+}
+</code></pre>
+<h2 id="exercise-6-update-the-bot-code-to-call-the-message-extensions">Exercise 6: Update the bot code to call the message extensions</h2>
+<p>Now that the message extension code is in place, all that remains is to call it from the Bot. This works the same as the other message extensions except different events will be fired.</p>
+<p>Begin by opening <strong>teamsBot.js</strong> and add these lines near the top, below the <code>require</code> statement for the <code>SupplierME</code>.</p>
+<pre><code class="language-javascript">const { GenerateMessageME } = require(&quot;./messageExtensions/generateMessageME&quot;);
+const { ReplyME } = require(&quot;./messageExtensions/replyME&quot;);
+</code></pre>
+<p>Now add these event handlers below the <code>handleTeamsAppBasedLinkQuery</code> function.</p>
+<pre><code class="language-javascript">  async handleTeamsMessagingExtensionFetchTask(context, action) {
+
+    switch (action.commandId) {
+      case &quot;generateMessage&quot;: {
+        return await GenerateMessageME.handleTeamsMessagingExtensionFetchTask(context, action);
+      }
+      case &quot;replyToMessage&quot;: {
+        return await ReplyME.handleTeamsMessagingExtensionFetchTask(context, action);
+      }
+      default: {
+        return null;
+      }
+    }
+  }
+
+  async handleTeamsMessagingExtensionSubmitAction(context, action) {
+
+    switch (action.commandId) {
+      case &quot;generateMessage&quot;: {
+        return await GenerateMessageME.handleTeamsMessagingExtensionSubmitAction(context, action);
+      }
+      case &quot;replyToMessage&quot;: {
+        return await ReplyME.handleTeamsMessagingExtensionSubmitAction(context, action);
+      }
+      default: {
+        return null;
+      }
+    }
+  }
+</code></pre>
+<h2 id="exercise-7-run-the-solution">Exercise 7: Run the solution</h2>
+<p>Finally the moment has arrived - it's time to hit F5 or click the Run button in Teams Toolkit. As before, it will run for a while and then open a browser containing a Teams application installation screen. Install the app and you should land in a chat with the message extension open. This time, however, it will include a "Generate Message" button.</p>
+<h3 id="step-1-test-the-generate-message-button">Step 1: Test the Generate Message button</h3>
+<p><img alt="Card with an AI generated message" src="../../assets/new-adventure/Lab04-001-Generate1.png" /></p>
+<p>Go ahead and click the "Generate Message" button; a dialog should appear displaying an adaptive card based on the template in <strong>cards/generateMessageCard.json</strong>. The initial prompt is displayed, along with an AI generated message that can be sent to the Teams chat.</p>
+<p><img alt="New AI message is shown" src="../../assets/new-adventure/Lab04-002-Generate2.png" /></p>
+<p>Users can send the message immediately by clicking "Send response", or they can edit the prompt and click "Generate". This allows the user to iterate and find the best prompt to generate the message they'd like to send.</p>
+<p><img alt="New AI message is shown" src="../../assets/new-adventure/Lab04-003-Generate3.png" /></p>
+<p>When the user clicked the "Generate" button, the code in <strong>messageExtensions/generateMessageME.js</strong> responded with a <code>continue</code> response containing the updated adaptive card. When the user clicks the "Send" button, the code will respond with a <code>result</code> response containing a hero card to that is inserted into the conversation. </p>
+<p><img alt="AI message is inserted in compose box" src="../../assets/new-adventure/Lab04-004-Generate4.png" /></p>
+<p>Using this technique, it's possible to lead users through a sequence of screens with various adaptive cards and web pages, and then to insert a card into the conversation that other users can act on.</p>
+<p>Note that, like the Search message extension, this action message extension inserts content into the compose box. The user can edit their own message including the card, and then click send to share it in the conversation.</p>
+<p><img alt="AI message is sent" src="../../assets/new-adventure/Lab04-005-Generate5.png" /></p>
+<h3 id="step-2-test-the-message-reply-feature">Step 2: Test the message reply feature</h3>
+<p>To begin, send a message into the Teams chat where your application is running. It needs to be a simple text message.</p>
+<p>1️⃣ Hover over or tap the message to reveal its contet menu. Click the "..."</p>
+<p>2️⃣ Click "More Actions"; this will open a context menu for taking action on the message, and your app should be on that menu with the name "AI Reply"</p>
+<p>3️⃣ Click "AI Reply"</p>
+<p><img alt="User highlights a message to reply to" src="../../assets/new-adventure/Lab04-006-Reply1.png" /></p>
+<p>Click the "AI Reply" button to open a dialog showing an adaptive card based on the <strong>cards/replyCard.json</strong> template.</p>
+<p><img alt="Card with user message and AI generated response" src="../../assets/new-adventure/Lab04-007-Reply2.png" /></p>
+<p>You should see the original message and a drop-down where you can select the type of response you'd like. The default is "agree" but there are some other options as well.</p>
+<p><img alt="Card shows options agree, disagree, poem, joke" src="../../assets/new-adventure/Lab04-008-Reply3.png" /></p>
+<p>Select one of the other options and click "Generate". As before, the message extension will respond to Teams with a <code>continue</code> response containing an updated adaptive card.</p>
+<p><img alt="Card shows new AI message" src="../../assets/new-adventure/Lab04-009-Reply4.png" /></p>
+<p>To complete the lab, click "Send" and send the message.</p>
+<p><img alt="AI message is sent in Teams" src="../../assets/new-adventure/Lab04-010-Reply5.png" /></p>
+<script language="javascript">
+    function showCompletionPopup() {
+        let path = window.location.pathname;
+        path = path.endsWith('/') ? path.slice(0, -1) : path;
+        let pathArray = path.split('/');
+        let leafFolder = pathArray[pathArray.length-1];
+
+        let height = window.outerHeight / 1.5;
+        let width = window.outerWidth / 2;
+
+        window.open(`${window.origin}/app-camp/congrats/${leafFolder}`,
+                    'Congratulations!',
+                    `width=${width}, height=${height}, left=100, top=100,`);
+    }
+</script>
+
+<h2 id="congratulations">Congratulations!</h2>
+<p><button type="button" onclick="showCompletionPopup();" class="largeButton">When you have finished this lab,<br />please click this button to let us know!</button></p>
+<p>No personal information is collected; we only want to count how many people have completed the labs so we can continue to fund this work!</p>
+
+<h2 id="next-steps">Next steps</h2>
+<p><a href="/app-camp/new-adventure/05-add-sso/">
+<img src="/app-camp/assets/new-adventure/arrow-next-step.png"
+             style="height: 36pt; margin-bottom: -14pt;">
+</a>
+After completing this lab, you may continue to the next lab in this learning path, <a href="../05-add-sso/">Lab 5 - Single Sign-on and Microsoft Graph</a>.</p>
+<h2 id="known-issues">Known issues</h2>
+<p>For the latest issues, or to file a bug report, see the <a href="https://github.com/microsoft/app-camp/issues" target="_blank">GitHub issues list</a> for this repository.</p>
+<p><img src="https://pnptelemetry.azurewebsites.net/app-camp/new-adventure/Lab04" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

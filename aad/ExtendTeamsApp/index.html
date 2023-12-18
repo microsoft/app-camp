@@ -1,0 +1,1819 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://microsoft.github.io/app-camp/aad/ExtendTeamsApp/">
+      
+      
+        <link rel="prev" href="../Monetization/">
+      
+      
+        <link rel="next" href="../../Resources/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+    
+    
+      
+        <title>Extend teams app to Outlook and Microsoft365 app - Teams App Camp</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/labStyles.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#35258F" data-md-color-accent="#091F2C">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#extend-your-teams-app-to-outlook-and-microsoft365-app" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Teams App Camp" class="md-header__button md-logo" aria-label="Teams App Camp" data-md-component="logo">
+      
+  <img src="../../assets/microsoftteams_appcamp-webheader3.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Teams App Camp
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Extend teams app to Outlook and Microsoft365 app
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/microsoft/app-camp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/app-camp
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../new-adventure/00-welcome/" class="md-tabs__link">
+          
+  
+  New Adventure
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../A01-begin-app/" class="md-tabs__link">
+          
+  
+  A Path
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../bespoke/B01-begin-app/" class="md-tabs__link">
+          
+  
+  B Path
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../ExtendedLabs/" class="md-tabs__link">
+          
+  
+  Extended labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Resources/" class="md-tabs__link">
+          
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Teams App Camp" class="md-nav__button md-logo" aria-label="Teams App Camp" data-md-component="logo">
+      
+  <img src="../../assets/microsoftteams_appcamp-webheader3.png" alt="logo">
+
+    </a>
+    Teams App Camp
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/microsoft/app-camp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/app-camp
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    New Adventure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            New Adventure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/00-welcome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to another App Camp adventure!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/01-create-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 - Create a new app with Teams Toolkit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/02-integrate-web-service/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 - Integrate business data with your app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/03-add-link-unfurling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 - Link Unfurling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/04-add-ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4 - Action message extensions with Open AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/05-add-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5 - Single Sign-on and Microsoft Graph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/06-run-in-outlook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6 - Run your app in Microsoft Outlook
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    A Path
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            A Path
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A01-begin-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A01 - Start with Azure Active Directory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A02-after-teams-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A02 - Create a Teams app with Azure AD Teams SSO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A03-after-apply-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A03 - Teams styling and themes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    B Path
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            B Path
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B01-begin-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B01 - Start with a non-Azure Active Directory Identity System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B02-after-teams-login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B02 - Teams App with Bespoke Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B03-after-teams-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B03 - Enable Azure AD Single Sign-On
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B04-after-apply-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B04 - Teams styling and themes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Extended labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Extended labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ExtendedLabs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Choose your own adventure!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConfigurableTab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a configurable tab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deeplink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Deep link to a personal Tab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dialog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Dialog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MeetingConfigurableTab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Meeting app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MessagingExtension/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Message Extension
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Monetization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selling Your SaaS-based Teams Extension
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Extend teams app to Outlook and Microsoft365 app
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Extend teams app to Outlook and Microsoft365 app
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-1-upgrade-manifest-teams-js-client-library-package-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 1: Upgrade manifest &amp; Teams JS Client library package version
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 1: Upgrade manifest & Teams JS Client library package version">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-upgrade-manifest-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Upgrade manifest schema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-update-the-app-package-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Update the app package version
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-update-the-teams-client-library-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Update the Teams client library references
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-2-run-the-application-in-outlook-and-microsoft-365-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 2: Run the application in Outlook and Microsoft 365 app.
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 2: Run the application in Outlook and Microsoft 365 app.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-update-the-azure-ad-app-registration-for-sso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Update the Azure AD app registration for SSO
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-modify-the-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Modify the source code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-package-your-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Package your application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-run-your-app-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Run your app locally
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-upload-your-app-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Upload your app package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-test-your-app-in-different-areas-of-microsoft-365" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Test your app in different areas of Microsoft 365.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teams-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      Teams web
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Teams web">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#outlook-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outlook web
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsoft-365-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microsoft 365 web
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-3-add-addtional-capabilities-to-the-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 3: Add addtional capabilities to the app
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 3: Add addtional capabilities to the app">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-add-new-theme-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Add new theme files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-add-code-to-load-themes-based-on-host-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Add code to load themes based on host app
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-update-references-to-inteams-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Update references to inTeams() function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-add-host-native-capabilities-to-your-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Add host native capabilities to your app
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-test-app-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Test app capabilities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chat-in-teams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chat in Teams
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mail-in-outlook" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mail in Outlook
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congratulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Congratulations!
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Congratulations!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    More Information
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-a-box/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lead your own App Camp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "dfh6fjbr5x");
+</script>
+
+<p><img alt="Teams App Camp" src="/app-camp/assets/code-lab-banner.png" /></p>
+<h1 id="extend-your-teams-app-to-outlook-and-microsoft365-app">Extend your Teams app to Outlook and Microsoft365 app</h1>
+<div class="admonition important">
+<p class="admonition-title">Important!</p>
+<p>This lab builds on the completed solution to lab <a href="/app-camp/aad/A03-after-apply-styling">A03-after-apply-styling.md</a>, which is the last of the "core" labs. If you haven't done them, you can <a href="/app-camp/aad/A01-begin-app">start here</a>.</p>
+</div>
+<p>With the release of the Teams app manifest 1.13 or latest, you can now run your teams apps in other Microsoft 365 products like Outlook and Microsoft 365 app (previously known as Office app).
+In this lab, you'll extend the personal tab app which is the core application, to other products in the Microsoft 365. We will also leverage Microsoft Teams JavaScript client library to integrate native capabilities of these products in our application like chat, mail etc.</p>
+<p>We will cover the following concepts in this exercise:</p>
+<p><a href="https://learn.microsoft.com/en-us/microsoftteams/platform/m365-apps/overview">Extend Teams apps across Microsoft 365</a></p>
+<p><a href="https://learn.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/using-teams-client-library?tabs=javascript%2Cmanifest-teams-toolkit">Teams JavaScript client library</a></p>
+<h3 id="features">Features</h3>
+<ul>
+<li>Extend Teams app to Outlook and Microsoft 365 app</li>
+<li>Add Chat capability in order details when the app is running in Teams</li>
+<li>Add Mail capability in order details when the app is running in Outlook.</li>
+</ul>
+<h3 id="exercise-1-upgrade-manifest-teams-js-client-library-package-version">Exercise 1: Upgrade manifest &amp; Teams JS Client library package version</h3>
+<h4 id="step-1-upgrade-manifest-schema">Step 1: Upgrade manifest schema</h4>
+<p>To make your core application work in multiple host apps like Outlook or Microsoft 365 app, you have to upgrade the manifest version of the app package. To do that, go to the root of your core application, and find the file <strong>manifest.template.json</strong> in the folder named <code>/manifest</code>. You will need to update <code>schema</code> and <code>manifestVersion</code> in order to make this work.</p>
+<p>Change from</p>
+<pre><code class="language-json">  &quot;$schema&quot;: &quot;https://developer.microsoft.com/en-us/json-schemas/teams/v1.12/MicrosoftTeams.schema.json&quot;,
+  &quot;manifestVersion&quot;: &quot;1.12&quot;,
+</code></pre>
+<p>to </p>
+<pre><code class="language-json">  &quot;$schema&quot;: &quot;https://developer.microsoft.com/json-schemas/teams/v1.16/MicrosoftTeams.schema.json&quot;,
+  &quot;manifestVersion&quot;: &quot;1.16&quot;,
+</code></pre>
+<h4 id="step-2-update-the-app-package-version">Step 2: Update the app package version</h4>
+<p>In your code editor, open the manifest/manifest.template.json file.</p>
+<p>Update the version number so it's greater than it was; for example if your manifest was version 1.10, make it 1.10.1 or 1.11.0. This is required in order for you to update the app in Teams.</p>
+<pre><code class="language-json">&quot;version&quot;: &quot;1.11.0&quot;
+</code></pre>
+<blockquote>
+<p>NOTE: Make each new version greater than the last so you can update the application in Teams!</p>
+</blockquote>
+<h4 id="step-3-update-the-teams-client-library-references">Step 3: Update the Teams client library references</h4>
+<p>You'll need to update your Teams JS client library package to <code>@microsoft/teams-js@2.0.0</code> (or higher).</p>
+<p>You can skip this step in this lab,as we are using version <code>2.0.0</code> of the library in our existing core applicaton.</p>
+<blockquote>
+<p>This is already done for you in appcamp, if you check the CDN import statements in appcamp's core project you will see it references version <code>2.0.0</code>.</p>
+</blockquote>
+<pre><code class="language-javascript">import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
+</code></pre>
+<h3 id="exercise-2-run-the-application-in-outlook-and-microsoft-365-app">Exercise 2: Run the application in Outlook and Microsoft 365 app.</h3>
+<p>Your Teams app is now compatible with Outlook and Microsoft 365 app. Package the app and start the application locally to test.
+You'll need to follow some additonal steps to test the app.</p>
+<h4 id="step-1-update-the-azure-ad-app-registration-for-sso">Step 1: Update the Azure AD app registration for SSO</h4>
+<ul>
+<li>
+<p>Go to <a href="https://aad.portal.azure.com/">Azure AD admin portal</a> and make sure you're logged in as the administrator of your development tenant. Click "Azure Active Directory" 1️⃣ and then "App Registrations" 2️⃣.</p>
+</li>
+<li>
+<p>Select the name of your personal tab application which is your core applicaton, to open its app registration.</p>
+</li>
+<li>
+<p>Select "Expose an API" 1️⃣ and then "+ Add a client application" 2️⃣.</p>
+</li>
+<li>In the section for Authorized client applications, make sure that you have added Client Id values for all of the following:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Microsoft 365client application</th>
+<th>Client ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Teams desktop, mobile</td>
+<td>1fec8e78-bce4-4aaf-ab1b-5451cc387264</td>
+</tr>
+<tr>
+<td>Teams web</td>
+<td>5e3ce6c0-2b1f-4285-8d4b-75ee78787346</td>
+</tr>
+<tr>
+<td>Microsoft 365 web</td>
+<td>4765445b-32c6-49b0-83e6-1d93765276ca</td>
+</tr>
+<tr>
+<td>Microsoft 365 desktop</td>
+<td>0ec893e0-5785-4de6-99da-4ed124e5296c</td>
+</tr>
+<tr>
+<td>Microsoft 365 mobile</td>
+<td>d3590ed6-52b3-4102-aeff-aad2292ab01c</td>
+</tr>
+<tr>
+<td>Outlook desktop</td>
+<td>d3590ed6-52b3-4102-aeff-aad2292ab01c</td>
+</tr>
+<tr>
+<td>Outlook web</td>
+<td>bc59ab01-8403-45c6-8796-ac3ef710b3e3</td>
+</tr>
+<tr>
+<td>Outlook mobile</td>
+<td>27922004-5251-4030-b22d-91ecd9a37ea4</td>
+</tr>
+</tbody>
+</table>
+<h4 id="step-2-modify-the-source-code">Step 2: Modify the source code</h4>
+<p>Currently the <code>inTeams()</code> function in file <code>teamsHelpers.js</code> in <code>client/modules</code> folder returns only true if the app is running in Teams so this makes it impossible to get the app running in other products as the value of </p>
+<pre><code>return (context.app.host.name === microsoftTeams.HostName.teams);
+</code></pre>
+<p>is always false.</p>
+<p>Let's replace it with </p>
+<pre><code>return context.app.host.name; 
+</code></pre>
+<p>for now, let's just return host name always without worrying too much about this function. In the coming exercises we will update the entire function.</p>
+<h4 id="step-3-package-your-application">Step 3: Package your application</h4>
+<p>Open a command line tool in your working folder and type</p>
+<pre><code>npm run package
+</code></pre>
+<p>This will generate a new manifest.json file and a new app package (northwind.zip).</p>
+<h4 id="step-3-run-your-app-locally">Step 3: Run your app locally</h4>
+<p>In your working directory run this command to start the application</p>
+<pre><code>npm start
+</code></pre>
+<h4 id="step-4-upload-your-app-package">Step 4: Upload your app package</h4>
+<p>Here are the steps you can follow to upload your app package to the unified store via the Microsoft 365 admin center:</p>
+<ul>
+<li>Go to the <a href="https://admin.microsoft.com/adminportal/home#/homepage">Microsoft 365 admin center</a></li>
+<li>Expand <strong>Settings</strong> from the left navigation menu.</li>
+<li>Select <strong>Integrated apps</strong> which will take you to the page where you can manage your application.</li>
+<li>Select <strong>Upload custom apps</strong> which will then ask you to upload the app package.</li>
+<li>Choose <strong>App type</strong> <em>Teams app</em> and upload the zip file. On proceeding next you will see the host products where your app will be deployed to like Microsoft 365, Outlook and Teams, select <strong>Next</strong></li>
+<li>It will then ask for target users to test the app whether it should be avialable to just the user uploading or entire org or specific set of users, Select <strong>Entire organization</strong> for this lab.</li>
+<li>Accept any permission requests in the next page.</li>
+<li>Finally review and select <strong>Finish Deployment</strong>. Your app is now ready to be tested in multiple host products in Microsoft 365.</li>
+</ul>
+<p>This should ensure that your app is available across multiple products within Microsoft 365.</p>
+<h4 id="step-5-test-your-app-in-different-areas-of-microsoft-365">Step 5: Test your app in different areas of Microsoft 365.</h4>
+<h4 id="teams-web">Teams web</h4>
+<ul>
+<li>To see your app in Teams, go to <strong>Apps</strong> in the left menu.</li>
+<li>Find <strong>Northwind Orders</strong> in the <strong>Built for your org</strong> app catalog since the app is already deployed and installed for the entire organization.</li>
+<li><strong>Open</strong> the app.</li>
+</ul>
+<p><img alt="test app in teams web" src="/app-camp/assets/extended-lab/teams-web.png" /></p>
+<h5 id="outlook-web">Outlook web</h5>
+<p>To see your app in <a href="https://outlook.office.com/">Outlook on the web</a>, follow these instructions:</p>
+<ol>
+<li>
+<p>Sign in using your dev tenant account on Outlook.</p>
+</li>
+<li>
+<p>Look for the More Apps option within the side bar. You should see your <strong>Northwind Order</strong>, including the sideloaded app title.</p>
+</li>
+<li>
+<p>Click on the app icon to preview and launch the app, and see it running in Outlook on the web.
+<img alt="test app in outlook web" src="/app-camp/assets/extended-lab/outlook-web.png" /></p>
+</li>
+</ol>
+<p><img alt="test app in outlook web launched" src="/app-camp/assets/extended-lab/outlook-web-2.png" /></p>
+<h5 id="microsoft-365-web">Microsoft 365 web</h5>
+<p>To see your app running in Microsoft 365 on the web, follow these steps:</p>
+<ol>
+<li>
+<p>Log in to <a href="https://office.com">https://office.com</a> with your account.</p>
+</li>
+<li>
+<p>Look for the <strong>Apps</strong> icon on the side bar. Your <strong>Northwind Orders</strong> app should be visible among your installed apps.</p>
+</li>
+<li>
+<p>Click on the app icon to launch your app and run it in Microsoft 365 on the web.</p>
+</li>
+</ol>
+<p><img alt="test app in microsoft 365 web" src="/app-camp/assets/extended-lab/Microsoft365app.png" /></p>
+<p><img alt="app in microsoft 365 web" src="/app-camp/assets/extended-lab/office.png" /></p>
+<blockquote>
+<p>Another thing you can do is test the apps on Teams client, Outlook on Windows or any other available platforms, but for the sake of keeping this process simple and easy to understand, we will proceed without these additional tests.</p>
+</blockquote>
+<h3 id="exercise-3-add-addtional-capabilities-to-the-app">Exercise 3: Add addtional capabilities to the app</h3>
+<p>Having your app appear in multiple areas of Microsoft 365 is not just to broaden the reach of your app, but also to allow it to run more relevant and contextual functionalities in each of its host apps.</p>
+<p>The library provides context information like host name in which it is running like Teams or Outlook so you can theme your app better.</p>
+<p>The APIs in the SDK are grouped into different capabilities that are supported by the host apps. For example, chat, dialog, and page are different capabilities. Each capability has its own namespaces that can be used to invoke them. The capabilities of the host apps can be integrated into the app through their associated APIs. You can use the <code>&lt;the-capability&gt;.isSupported()</code> function for each capability to determine if it is supported by the host app where the app is running before invoking it. Checking whether the capabilities are supported by the host apps helps ensure that only the supported capabilities are used by the app, providing a more relevant app experience for users.</p>
+<h4 id="step-1-add-new-theme-files">Step 1: Add new theme files</h4>
+<p>Remove files northwind.css and teamstyle.css from the <code>client</code> folder.
+Create a new folder <code>styles</code> and copy the css files from <a href="https://github.com/microsoft/app-camp/tree/main/src/extend-with-capabilities/ExtendTeamsApp/client/styles">this folder</a> into your newly created <code>styles</code> folder.</p>
+<h4 id="step-2-add-code-to-load-themes-based-on-host-app">Step 2: Add code to load themes based on host app</h4>
+<p>Now lt's use the Teams JS library to better understand the environment in which our app is running.</p>
+<p>Go to the file <code>teamsHelpers.js</code> under the folder <code>client/modules</code> and update the function <code>inTeams()</code> replacing it with the below function <code>inM365()</code>.</p>
+<pre><code class="language-javascript">// async function returns true/false if we're running in M365
+export async function inM365() {
+  try {
+      await ensureTeamsSdkInitialized();
+      return true;     
+  }
+  catch (e) {
+      console.log(`${e} from Teams SDK, may be running outside of M365`);
+      return false; 
+  }
+}
+</code></pre>
+<p>After the function <code>setTheme()</code>, replace every code with below code snippet.</p>
+<pre><code class="language-javascript">const setHostAppTheme=(fileName)=&gt; {
+  let element = document.createElement(&quot;link&quot;);
+  element.setAttribute(&quot;rel&quot;, &quot;stylesheet&quot;);
+  element.setAttribute(&quot;type&quot;, &quot;text/css&quot;);
+  element.setAttribute(&quot;href&quot;, fileName);
+  document.getElementsByTagName(&quot;head&quot;)[0].appendChild(element);
+}  
+// Inline code to set theme on any page using teamsHelpers
+(async () =&gt; {
+  await ensureTeamsSdkInitialized();
+  if(await inM365()) {
+    const context= await microsoftTeams.app.getContext();  
+    if(context) {
+      setTheme(context.theme);     
+      switch(context.app.host.name){
+        case microsoftTeams.HostName.teams:{
+          setHostAppTheme(&quot;/app-camp/styles/northwind.css&quot;);           
+        };        
+        break;
+        case microsoftTeams.HostName.outlook:{
+          setHostAppTheme(&quot;/app-camp/styles/northwind-outlook.css&quot;);
+        };
+          break;
+        case microsoftTeams.HostName.office:{
+          setHostAppTheme(&quot;/app-camp/styles/northwind-office.css&quot;);
+        }
+        break;
+        default:{ //any other hub for future
+          setHostAppTheme(&quot;/app-camp/styles/northwind.css&quot;);
+        }
+        // When the theme changes
+         microsoftTeams.app.registerOnThemeChangeHandler((theme) =&gt; {
+          setTheme(theme);
+        });
+      }    
+    }  
+}
+else{
+  setHostAppTheme(&quot;/app-camp/styles/northwind.css&quot;); // browser app
+}
+})();
+</code></pre>
+<h4 id="step-4-update-references-to-inteams-function">Step 4: Update references to <code>inTeams()</code> function</h4>
+<p>Find and replace <code>inTeams</code> references to <code>inM365</code>in all files in the <code>src</code>folder including import statements and function calls.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you go on to do other App Camp labs in this same <code>src</code> folder, remember to change <code>inTeams</code>
+to <code>inM365</code> as you go or the app will fail trying to find the old name.</p>
+</div>
+<h4 id="step-3-add-host-native-capabilities-to-your-app">Step 3: Add host native capabilities to your app</h4>
+<p>Now, let's begin by adding some native functionalities of the application in the host apps, starting with Teams chat and Outlook mail.</p>
+<p>According to the functionality, an assumed contact will be used to initiate chat or mail. The assumed contact will come from an environment variable, which you can pass as an email ID of a user.</p>
+<p>Let's first add this new environment variable <code>CONTACT</code>.</p>
+<p>To add the contact information to the environment file, go to the <code>.env</code> file and add the contact information of a user's email id other than yourself in your tenant.</p>
+<p>Go to the <code>server.js</code> file and udpate <code>app.get('/modules/env.js',</code> to add a new variable. Append below code after adding a comma to the last variable.</p>
+<pre><code> CONTACT:  &quot;${process.env.CONTACT}&quot;
+</code></pre>
+<p>Now let's add the capabilities.
+Go to the orderdetails.html file under the <code>client/pages</code> folder and add below code for a button element just after the <code>orderDetails</code> table.</p>
+<pre><code class="language-HTML"> &lt;button id=&quot;ShowButton&quot; type=&quot;submit&quot;&gt;Show&lt;/button&gt;
+</code></pre>
+<p>Now go to the <code>orderDetail.js</code> and import the env, helper module and teams client library by appending below code snippet with the top import statements.</p>
+<pre><code>import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js'
+import {  inM365 } from '/app-camp/modules/teamsHelpers.js';
+import { env } from '/app-camp/modules/env.js';
+
+</code></pre>
+<p>Now let's paste below code snippet for a new function <code>displayCallOrChat</code> just after the <code>displayUI</code> function.</p>
+<pre><code>async function displayCallOrChat() {
+    const searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has('orderId')) {
+        const orderId = searchParams.get('orderId');
+        const buttonElement = document.getElementById(&quot;ShowButton&quot;);
+        if (await inM365()) {
+            //chat support
+            if (microsoftTeams.chat.isSupported()) {
+                buttonElement.textContent = &quot;Chat&quot;;
+                buttonElement.addEventListener('click', async ev =&gt; {
+                    await microsoftTeams.chat
+                        .openChat({
+                            user: [env.CONTACT],                           
+                            message: `Hi, to discuss about ${orderId}`
+                        });
+                });
+
+                //mail support
+            } else if (microsoftTeams.mail.isSupported()) {
+                buttonElement.textContent = &quot;Mail&quot;;
+                buttonElement.addEventListener('click', async ev =&gt; {
+                    microsoftTeams.mail.composeMail({
+                        type: microsoftTeams.mail.ComposeMailType.New,
+                        subject: `Enquire about order ${orderId}`,
+                        toRecipients: [env.CONTACT],
+                        message: &quot;Hello&quot;,
+                    });
+                });
+            }else{
+                buttonElement.style.display=&quot;none&quot;;
+            }
+        }
+    }
+}
+</code></pre>
+<p>Now go ahead and call this function ,place the function call <code>displayCallOrChat();</code> right after calling the <code>displayUI();</code> function call.</p>
+<p>All code changes are complete now let's go ahead and test this application in Teams and Outlook.</p>
+<h4 id="step-4-test-app-capabilities">Step 4: Test app capabilities</h4>
+<h4 id="chat-in-teams">Chat in Teams</h4>
+<p>Open the app in Teams and go to an order. If chat is a supported capability in Teams, the chat button will be displayed to the user. Choose the button to open a 1:1 chat with the user you configured as the contact in the previous step.</p>
+<p><img alt="gif of teams chat working in order details page" src="/app-camp/assets/extended-lab/teams-chat.gif" /></p>
+<h4 id="mail-in-outlook">Mail in Outlook</h4>
+<p>Open the app in Outlook web and go to an order. If Mail is a supported capability in Outlook, the Mail button will be displayed to the user. Choose the button to create a new outlook email with the user you configured as the contact in the previous step.</p>
+<p><img alt="gif of outlook compose mail working in order details page" src="/app-camp/assets/extended-lab/outlook-mail.gif" /></p>
+<blockquote>
+<p>The button is invisible in Microsoft 365 app since chat or mail is not supported.</p>
+</blockquote>
+<script language="javascript">
+    function showCompletionPopup() {
+        let path = window.location.pathname;
+        path = path.endsWith('/') ? path.slice(0, -1) : path;
+        let pathArray = path.split('/');
+        let leafFolder = pathArray[pathArray.length-1];
+
+        let height = window.outerHeight / 1.5;
+        let width = window.outerWidth / 2;
+
+        window.open(`${window.origin}/app-camp/congrats/${leafFolder}`,
+                    'Congratulations!',
+                    `width=${width}, height=${height}, left=100, top=100,`);
+    }
+</script>
+
+<h2 id="congratulations">Congratulations!</h2>
+<p><button type="button" onclick="showCompletionPopup();" class="largeButton">When you have finished this lab,<br />please click this button to let us know!</button></p>
+<p>No personal information is collected; we only want to count how many people have completed the labs so we can continue to fund this work!</p>
+
+<h3 id="next-steps">Next steps</h3>
+<p>After completing this lab, you may continue with additional extended labs!</p>
+<ul>
+<li><a href="/app-camp/aad/ConfigurableTab">Add a Configurable Tab</a></li>
+<li><a href="/app-camp/aad/Deeplink">Add a Deep link to a personal Tab</a></li>
+<li><a href="/app-camp/aad/Dialog">Add a Dialog </a></li>
+<li><a href="/app-camp/aad/MeetingConfigurableTab">Add a Meeting app</a></li>
+<li><a href="/app-camp/aad/MessagingExtension">Add a Message Extension</a></li>
+<li><a href="/app-camp/aad/Monetization">Selling Your SaaS-based Teams Extension</a></li>
+<li><a href="/app-camp/aad/ExtendTeamsApp">Extend your Teams app to Outlook and Microsoft365 app</a></li>
+</ul>
+<p><img src="https://pnptelemetry.azurewebsites.net/app-camp/labs/extend-teams-app" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

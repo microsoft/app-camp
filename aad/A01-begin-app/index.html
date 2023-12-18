@@ -1,0 +1,1921 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://microsoft.github.io/app-camp/aad/A01-begin-app/">
+      
+      
+        <link rel="prev" href="../../new-adventure/06-run-in-outlook/">
+      
+      
+        <link rel="next" href="../A02-after-teams-sso/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+    
+    
+      
+        <title>A01 - Start with Azure Active Directory - Teams App Camp</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/labStyles.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#35258F" data-md-color-accent="#091F2C">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-a01-start-with-azure-active-directory" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Teams App Camp" class="md-header__button md-logo" aria-label="Teams App Camp" data-md-component="logo">
+      
+  <img src="../../assets/microsoftteams_appcamp-webheader3.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Teams App Camp
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              A01 - Start with Azure Active Directory
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/microsoft/app-camp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/app-camp
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../new-adventure/00-welcome/" class="md-tabs__link">
+          
+  
+  New Adventure
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  A Path
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../bespoke/B01-begin-app/" class="md-tabs__link">
+          
+  
+  B Path
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ExtendedLabs/" class="md-tabs__link">
+          
+  
+  Extended labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Resources/" class="md-tabs__link">
+          
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Teams App Camp" class="md-nav__button md-logo" aria-label="Teams App Camp" data-md-component="logo">
+      
+  <img src="../../assets/microsoftteams_appcamp-webheader3.png" alt="logo">
+
+    </a>
+    Teams App Camp
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/microsoft/app-camp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/app-camp
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    New Adventure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            New Adventure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/00-welcome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to another App Camp adventure!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/01-create-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 - Create a new app with Teams Toolkit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/02-integrate-web-service/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 - Integrate business data with your app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/03-add-link-unfurling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 - Link Unfurling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/04-add-ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4 - Action message extensions with Open AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/05-add-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5 - Single Sign-on and Microsoft Graph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/06-run-in-outlook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6 - Run your app in Microsoft Outlook
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    A Path
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            A Path
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    A01 - Start with Azure Active Directory
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    A01 - Start with Azure Active Directory
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-1-install-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 1: Install prerequisites
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 1: Install prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Install NodeJS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-install-a-code-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Install a Code Editor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-install-ngrok" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Install ngrok
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-2-set-up-your-microsoft-365-subscription" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 2: Set up your Microsoft 365 Subscription
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 2: Set up your Microsoft 365 Subscription">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-get-a-tenant" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Get a tenant
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-enable-teams-application-uploads" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Enable Teams application uploads
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-3-assign-users-as-northwind-employees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 3: Assign users as Northwind "Employees"
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 3: Assign users as Northwind "Employees"">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-edit-azure-ad-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Edit Azure AD users
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-ensure-the-users-are-licensed-for-microsoft-365" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Ensure the users are licensed for Microsoft 365
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-4-register-your-application-with-azure-ad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 4: Register your application with Azure AD
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 4: Register your application with Azure AD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-start-ngrok" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Start ngrok
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-register-your-application-in-azure-active-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Register your application in Azure Active Directory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-verify-permission-to-call-the-microsoft-graph-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Verify permission to call the Microsoft Graph API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-consent-to-the-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Consent to the permission
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-expose-an-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Expose an API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-5-configure-and-run-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 5: Configure and run the application
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 5: Configure and run the application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-download-the-starting-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Download the starting application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-install-the-apps-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Install the app's dependencies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2: Install the app's dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-3-download-the-sample-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Download the sample data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-configure-the-app-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Configure the app settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-run-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Run the application
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congratulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Congratulations!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known issues
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A02-after-teams-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A02 - Create a Teams app with Azure AD Teams SSO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A03-after-apply-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A03 - Teams styling and themes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    B Path
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            B Path
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B01-begin-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B01 - Start with a non-Azure Active Directory Identity System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B02-after-teams-login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B02 - Teams App with Bespoke Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B03-after-teams-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B03 - Enable Azure AD Single Sign-On
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B04-after-apply-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B04 - Teams styling and themes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Extended labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Extended labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ExtendedLabs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Choose your own adventure!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConfigurableTab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a configurable tab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deeplink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Deep link to a personal Tab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dialog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Dialog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MeetingConfigurableTab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Meeting app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MessagingExtension/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Message Extension
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Monetization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selling Your SaaS-based Teams Extension
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ExtendTeamsApp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extend teams app to Outlook and Microsoft365 app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    More Information
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-a-box/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lead your own App Camp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "dfh6fjbr5x");
+</script>
+
+<p><img alt="Teams App Camp" src="/app-camp/assets/code-lab-banner.png" /></p>
+<h1 id="lab-a01-start-with-azure-active-directory">Lab A01: Start with Azure Active Directory</h1>
+<h2 id="overview">Overview</h2>
+<p>This is the very first lab in Path A, which begins with an application that already uses Azure AD.</p>
+<details class="note">
+<summary>Are you on the right path? Expand these notes to find out!</summary>
+<p>There are two options for doing the labs:</p>
+<ul>
+<li>
+<p>The "A" path is for developers with apps that are already based on Azure Active Directory. The starting app uses Azure Active Directory and the Microsoft Authentication Library (MSAL).</p>
+</li>
+<li>
+<p>the "B" path is for developers with apps that use some other identity system. It includes a simple (and not secure!) cookie-based auth system based on the Employees table in the Northwind database. You will use an identity mapping scheme to allow your existing users to log in directly or via Azure AD Single Sign-On.</p>
+</li>
+</ul>
+</details>
+<p>In this lab you will set up the Northwind Orders application, which can be found in the <a href="https://github.com/microsoft/app-camp/blob/main/src/create-core-app/aad/A01-begin-app">A01-begin-app</a> folder. The labs that follow will lead you step by step into extending the web application to be a Microsoft Teams application as well. </p>
+<ul>
+<li>A01-begin-app: Setting up the application with Azure AD (📍You are here)</li>
+<li><a href="../A02-after-teams-sso/">A02-after-teams-sso: Creating a Teams app with Azure ADO SSO</a></li>
+<li><a href="../A03-after-apply-styling/">A03-after-apply-styling: Teams styling and themes</a></li>
+</ul>
+<p>In this lab you will learn to:</p>
+<ul>
+<li>Run a web application using NodeJS</li>
+<li>Expose a local web application using ngrok</li>
+<li><a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app?WT.mc_id=m365-58890-cxa" target="_blank">Register an application with the Microsoft identity platform</a></li>
+<li>How to use the <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview?WT.mc_id=m365-58890-cxa" target="_blank">Microsoft Authentication Library (MSAL)</a></li>
+<li>How to validate an <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens?WT.mc_id=m365-58890-cxa" target="_blank">Azure AD access token</a> in a NodeJS application</li>
+</ul>
+<details class="info" open="open">
+<summary>Video briefing</summary>
+<p><div class="video">
+  <iframe src="//www.youtube.com/embed/AiEDH6N1-ps" frameborder="0" allowfullscreen></iframe>
+  <div>Lab A01 Briefing</div>
+</div></p>
+</details>
+<details class="note">
+<summary>Table of Contents (open to display ►)</summary>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#exercise-1-install-prerequisites">Exercise 1: Install prerequisites</a></li>
+<li><a href="#step-1-install-nodejs">Step 1: Install NodeJS</a></li>
+<li><a href="#step-2-install-a-code-editor">Step 2: Install a Code Editor</a></li>
+<li><a href="#step-3-install-ngrok">Step 3: Install ngrok</a></li>
+<li><a href="#exercise-2-set-up-your-microsoft-365-subscription">Exercise 2: Set up your Microsoft 365 Subscription</a></li>
+<li><a href="#step-1-get-a-tenant">Step 1: Get a tenant</a></li>
+<li><a href="#step-2-enable-teams-application-uploads">Step 2: Enable Teams application uploads</a></li>
+<li><a href="#exercise-3-assign-users-as-northwind-employees">Exercise 3: Assign users as Northwind "Employees"</a></li>
+<li><a href="#step-1-edit-azure-ad-users">Step 1: Edit Azure AD users</a></li>
+<li><a href="#step-2-ensure-the-users-have-managers">Step 2: Ensure the users have managers</a></li>
+<li><a href="#step-3-ensure-the-users-are-licensed-for-microsoft-365">Step 3: Ensure the users are licensed for Microsoft 365</a></li>
+<li><a href="#exercise-4-register-your-application-with-azure-ad">Exercise 4: Register your application with Azure AD</a></li>
+<li><a href="#step-1-start-ngrok">Step 1: Start ngrok</a></li>
+<li><a href="#step-2-register-your-application-in-azure-active-directory">Step 2: Register your application in Azure Active Directory</a></li>
+<li><a href="#step-3-grant-your-application-permission-to-call-the-microsoft-graph-api">Step 3: Grant your application permission to call the Microsoft Graph API</a></li>
+<li><a href="#step-4-consent-to-the-permission">Step 4: Consent to the permission</a></li>
+<li><a href="#step-5-expose-an-api">Step 5: Expose an API</a></li>
+<li><a href="#exercise-5-configure-and-run-the-application">Exercise 5: Configure and run the application</a></li>
+<li><a href="#step-1-download-the-starting-application">Step 1: Download the starting application</a></li>
+<li><a href="#step-2-install-the-apps-dependencies">Step 2: Install the app's dependencies</a></li>
+<li><a href="#step-3-configure-the-app-settings">Step 3: Download the sample data</a></li>
+<li><a href="#step-4-configure-the-app-settings">Step 4: Configure the app settings</a></li>
+<li><a href="#step-5-run-the-application">Step 5: Run the application</a></li>
+<li><a href="#known-issues">Known issues</a></li>
+<li><a href="#next-steps">Next steps</a></li>
+</ul>
+</details>
+<h2 id="features">Features</h2>
+<ul>
+<li>View orders associated with the logged-in user (sales representative)</li>
+<li>View products by category</li>
+<li>View product details and orders for a product</li>
+<li>View order details</li>
+</ul>
+<p>The application is based on the Northwind Traders Database, which is a sample relational database that originally shipped with Microsoft Access. The Northwind Traders Database is now available as a <a href="https://services.odata.org/" target="_blank">demonstration OData service</a>, which is queried in this lab. This is a read-only data source; some of the later exercises appear to update the data but the changes are only stored in the server memory and will only persist until the server is restarted.</p>
+<h2 id="exercise-1-install-prerequisites">Exercise 1: Install prerequisites</h2>
+<p>You can complete these labs on a Windows, Mac, or Linux machine, but you do need the ability to install the prerequisites. If you are not permitted to install applications on your computer, you'll need to find another machine (or virtual machine) to use throughout the workshop.</p>
+<h3 id="step-1-install-nodejs">Step 1: Install NodeJS</h3>
+<p>NodeJS is a program that allows you to run JavaScript on your computer; it uses the open source "V8" engine, which is used in popular web browsers such as Microsoft Edge and Google Chrome. You will need NodeJS to run the web server code used throughout this workshop.</p>
+<p>Browse to <a href="https://nodejs.org/en/download/" target="_blank">https://nodejs.org/en/download/</a> and install the "LTS" (Long Term Support) version for your operating system. This lab has been tested using NodeJS version 14.17.4 and 16.14.0. If you already have another version of NodeJS installed, you may want to set up the <a href="https://github.com/nvm-sh/nvm" target="_blank">Node Version Manager</a> (or <a href="https://github.com/coreybutler/nvm-windows" target="_blank">this variation</a> for Microsoft Windows), which allows you to easily switch Node versions on the same computer.</p>
+<h3 id="step-2-install-a-code-editor">Step 2: Install a Code Editor</h3>
+<p>You can really use any code editor you wish, but we recommend <a href="https://code.visualstudio.com/download" target="_blank">Visual Studio Code</a>.</p>
+<h3 id="step-3-install-ngrok">Step 3: Install ngrok</h3>
+<p>ngrok is a tunneling program that allows you to access your local web server (running in NodeJS in this case) from the Internet. To complete this exercise, <a href="https://ngrok.com/" target="_blank">sign up for a free ngrok account</a> and install ngrok on your computer.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Whether you choose a free or paid ngrok account plan, you be given an auth token that you'll need to install on your computer. Simply follow the instructions on the ngrok web site for details.</p>
+</div>
+<p>The free version of ngrok will assign a URL similar to https://something.ngrok.io, where "something" is a random identifier. As long as ngrok is running (leave it going in a command or terminal window), you can browse your web site at that URL. If you start and stop ngrok, or try to keep it running for more than 8 hours, you'll get a new identifier and you'll need to update your app registration, environment variables, etc. The paid version of ngrok allows you to reserve the same URL for use over time, removing the need to update it when you return to the lab.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you restart ngrok and get a new URL under the free plan, you can refer to <a href="/app-camp/supplemental/ngrokReferences/" target="_blank">this page</a> for details on all the places in the labs where you need to update the URL.</p>
+</div>
+<p>While ngrok isn't strictly required for developing Microsoft Teams applications, it makes things much easier, especially if Bots are involved. An example of this is the Message Extension lab since Message Extensions use a Bot to communicate with Microsoft Teams.</p>
+<details class="info" open="open">
+<summary>More information</summary>
+<p><div class="tinyVideo">
+  <iframe src="//www.youtube.com/embed/A5U-3o-mHD0" frameborder="0" allowfullscreen></iframe>
+  <div>What is ngrok and do you really need it?</div>
+</div></p>
+</details>
+<h2 id="exercise-2-set-up-your-microsoft-365-subscription">Exercise 2: Set up your Microsoft 365 Subscription</h2>
+<p>The initial Northwind Orders application doesn't require Microsoft 365, but it does use Azure AD. So let's set up a Microsoft 365 tenant now, which will give you an Azure AD instance where you're a full administrator so you can register the Northwind Orders application. In the labs which follow, you'll also use this tenant to run Microsoft Teams.</p>
+<h3 id="step-1-get-a-tenant">Step 1: Get a tenant</h3>
+<p>If you don't yet have a tenant, please join the <a href="https://developer.microsoft.com/microsoft-365/dev-program?WT.mc_id=m365-58890-cxa" target="_blank">Microsoft 365 Developer Program</a> to get a free one. Your tenant includes 25 <a href="https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans?WT.mc_id=m365-58890-cxa" target="_blank">E5 user licenses</a> and can be renewed as long as you keep developing!</p>
+<p>Select "Join now" to begin.
+<img alt="Signup" src="/app-camp/assets/screenshots/01-003-JoinM365DevProgram1.png" /></p>
+<p>Log in with any Microsoft personal or work and school account, enter your information, and select "Next". You will have an opportunity to choose what kind of "sandbox" you want; the "Instant sandbox" is recommended.</p>
+<p><img alt="Signup" src="/app-camp/assets/screenshots/01-004-JoinM365DevProgram2.png" /></p>
+<p>Follow the wizard and select your administrator username and password, tenant domain name, etc. The domain name you choose is just the left-most portion - for example if you enter "Contoso" your domain will be "Contoso.onmicrosoft.com".</p>
+<p>Remember this information as you'll need it throughout the labs! You will log in as &gt;username&lt;@&gt;domain&lt;.onmicrosoft.com with the password you chose. You'll be prompted for your phone number and then the system will set up your subscription.</p>
+<p>Eventually you'll be prompted to log into your new tenant. Be sure to use the new administrator credentials you just created, not the ones you used when you signed up for the developer program.</p>
+<details class="info" open="open">
+<summary>More information</summary>
+<p><div class="tinyVideo">
+  <iframe src="//www.youtube.com/embed/DhhpJ1UjbJ0" frameborder="0" allowfullscreen></iframe>
+  <div>Setting up your Microsoft 365 Development tenant</div>
+</div></p>
+</details>
+<div class="admonition tip">
+<p class="admonition-title">Tip: Navigating many tenants</p>
+<p>Consider creating a browser profile for each tenant that will have its own favorites, stored credentials, and cookies so you can easily swtch between tenants as you work.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">You may be asked to enable multi-factor authentication (MFA)</p>
+<p><a href="https://www.microsoft.com/security/blog/2019/08/20/one-simple-action-you-can-take-to-prevent-99-9-percent-of-account-attacks/" target="_blank">This is certainly a good idea!</a> Just follow the instructions. If you really must turn off MFA, <a href="https://docs.microsoft.com/en-us/answers/questions/101179/how-to-disable-the-two-factor-authentication-from.html" target="_blank">here are instructions</a>. </p>
+</div>
+<h3 id="step-2-enable-teams-application-uploads">Step 2: Enable Teams application uploads</h3>
+<p>By default, end users can't upload Teams applications directly; instead an administrator needs to upload them into the enterprise app catalog. In this step you will enable direct uploads to make developement easier and allow installation directly from the Teams user interface.</p>
+<p>a. Navigate to <a href="https://admin.microsoft.com/" target="_blank">https://admin.microsoft.com/</a>, which is the Microsoft 365 Admin Center.</p>
+<p>b. In the left panel of the admin center, select "Show all" to open up the entire navigation</p>
+<p><img alt="M365 Admin" src="/app-camp/assets/screenshots/01-005-M365Admin.png" /></p>
+<p>When the panel opens, select Teams to open the Microsoft Teams admin center.</p>
+<p><img alt="M365 Admin" src="/app-camp/assets/screenshots/01-006-M365Admin2.png" /></p>
+<p>c. In the left of the Microsoft Teams admin center, open the Teams apps accordion 1️⃣ and select Setup Policies 2️⃣. You will see a list of App setup policies. Select the Global (Org-wide default) policy 3️⃣.</p>
+<p><img alt="Teams admin" src="/app-camp/assets/screenshots/01-007-TeamsAdmin1.png" /></p>
+<p>d. Ensure the first switch, "Upload custom apps" is turned On.</p>
+<p><img alt="Teams admin" src="/app-camp/assets/screenshots/01-008-TeamsAdmin2.png" /></p>
+<p>Be sure to scroll down and select the "Save" button to persist your change.</p>
+<p><img alt="Teams admin" src="/app-camp/assets/screenshots/01-008-TeamsAdmin2b.png" /></p>
+<p>We have been working to get this enabled by default on developer tenants, so it may already be set for you. The change can take up to 24 hours to take effect, but usually it's much faster.</p>
+<h2 id="exercise-3-assign-users-as-northwind-employees">Exercise 3: Assign users as Northwind "Employees"</h2>
+<p>The Northwind database contains 9 employees, so up to 9 users in your tenant will be able to use the application. (You'll only need two to complete the labs.)</p>
+<p>The Northwind Orders application expects each user's employee ID in Azure Active Directory to match their employee ID in the Northwind database. In this exercise you'll set up some test users accordingly.</p>
+<h3 id="step-1-edit-azure-ad-users">Step 1: Edit Azure AD users</h3>
+<ul>
+<li>
+<p>Navigate to the Microsoft 365 admin center at <a href="https://admin.microsoft.com" target="_blank">https://admin.microsoft.com/</a> and log in as the administrator of your new dev tenant.</p>
+</li>
+<li>
+<p>In the left navigation, select "Show All" to reveal the full list of admin centers, and then select "Azure Active Directory". This will bring you to the <a href="https://aad.portal.azure.com/" target="_blank">Azure AD admin center</a>.</p>
+</li>
+</ul>
+<p><img alt="Navigating to the M365 Admin site" src="/app-camp/assets/screenshots/01-009-RegisterAADApp-1.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Users feature in the Microsoft 365 Admin site is useful for most things, but doesn't allow modifying some user properties such as the Employee ID. For that reason, you'll need to continue to the Users feature in the Azure Active Directory Admin Site.</p>
+</div>
+<ul>
+<li>Select "Azure Active Directory" again in the left navigation bar.</li>
+</ul>
+<p><img alt="Navigating to the M365 Admin site" src="/app-camp/assets/screenshots/01-010-RegisterAADApp-2.png" /></p>
+<ul>
+<li>This will bring you to the overview of your Azure AD tenant. Note that a "tenant" is a single instance of Azure Active Directory, with its own users, groups, and app registrations. Verify that you're in the developer tenant you just created, and select "Users" in the navigation bar.</li>
+</ul>
+<p><img alt="Edit users" src="/app-camp/assets/screenshots/01-030-EditUsers-1.png" /></p>
+<p>You can use existing users to run the Northwind Orders application (the names may not match the Northwind database unless you change them, but you'll know what's going on), or create new ones. It's easiest if one of the users is the administrator account you're logged into right now, so you can test the application without logging on and off, but that's up to you. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you didn't select the "Instant Sandbox" option when you set up your Microsoft 365 developer subscription, you will be the only user on the list. That's OK; just add more users as needed.</p>
+</div>
+<p>Select on the user to view their user profile, and then select the "Edit" button.</p>
+<p><img alt="Edit user's employee ID" src="/app-camp/assets/screenshots/01-031-EditUser-2.png" /></p>
+<p>Change the Employee ID to the ID of one of the users in the Northwind datbase, which are:</p>
+<table>
+<thead>
+<tr>
+<th>Employee ID</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Nancy Davolio</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Andrew Fuller</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Janet Leverling</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Margaret Peacock</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Steven Buchanan</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Michael Suyama</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Robert King</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Laura Callahan</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Anne Dodsworth</td>
+</tr>
+</tbody>
+</table>
+<p>You may also choose to rename the users to match the database.</p>
+<p>Still on the edit screen, assign a manager for each user by clicking "Edit" again and then click "Change" next to the manager field and select a manager.</p>
+<p><img alt="Assign a manager" src="/app-camp/assets/screenshots/01-033-EditUser3.png" /></p>
+<h3 id="step-2-ensure-the-users-are-licensed-for-microsoft-365">Step 2: Ensure the users are licensed for Microsoft 365</h3>
+<p>From the same user profile screen, select "Licenses" and ensure the user has an Office 365 license so they can run Microsoft Teams.</p>
+<p><img alt="Check license" src="/app-camp/assets/screenshots/01-032-CheckLicense.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you publish your application in the Microsoft Teams store, you will be responsible for your own license management and licenses for your application will not appear here along with the licenses for Microsoft products. In Lab 08, you will implement this strategy for the Northwind Orders app.</p>
+</div>
+<h2 id="exercise-4-register-your-application-with-azure-ad">Exercise 4: Register your application with Azure AD</h2>
+<p>In order for users to log into your application with Azure AD, you need to register it. In this exercise you will register your application directly in the tenant you created in Exercise 2, however we'll set it up so it can be used from other tenants, such as those of customers who purchase your application in the Microsoft Teams store.</p>
+<details class="info" open="open">
+<summary>More information</summary>
+<p><div class="tinyVideo">
+  <iframe src="//www.youtube.com/embed/RjGVOFm39j0" frameborder="0" allowfullscreen></iframe>
+  <div>Learn about multi-tenant applications</div>
+</div></p>
+</details>
+<h3 id="step-1-start-ngrok">Step 1: Start ngrok</h3>
+<p>Before you can register your application, you will need to start ngrok to obtain the URL for your application. In the command line tool of your choice, navigate to the folder where you've saved <strong>ngrok.exe</strong> and run this command:</p>
+<pre><code class="language-shell">ngrok http 3978
+</code></pre>
+<p>The terminal will display a screen like this; note the https forwarding URL for use in this lab. ngrok will tunnel requests on this URL to your local host on port 3978 for easy debugging.</p>
+<p>Save this URL for use throughout the labs.</p>
+<p><img alt="ngrok output" src="/app-camp/assets/screenshots/01-002-ngrok.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not stop ngrok for the duration of these labs. If you do stop ngrok and are assigned a new URL, <a href="/app-camp/supplemental/ngrokReferences/" target="_blank">this page</a> lists all the exercises which involve the ngrok URL so you can easily update it.</p>
+</div>
+<h3 id="step-2-register-your-application-in-azure-active-directory">Step 2: Register your application in Azure Active Directory</h3>
+<ul>
+<li>
+<p>Navigate to the Microsoft 365 admin center at https://admin.microsoft.com/ and log in as the administrator of your new dev tenant.</p>
+</li>
+<li>
+<p>In the left navigation, select "Show More" to reveal the full list of admin centers, and then select "Azure Active Directory". This will bring you to the <a href="https://aad.portal.azure.com/" target="_blank">Azure AD admin center</a>.</p>
+</li>
+</ul>
+<p><img alt="Navigating to the M365 Admin site" src="/app-camp/assets/screenshots/01-009-RegisterAADApp-1.png" /></p>
+<ul>
+<li>Select "Azure Active Directory" again in the left navigation bar.</li>
+</ul>
+<p><img alt="Navigating to the M365 Admin site" src="/app-camp/assets/screenshots/01-010-RegisterAADApp-2.png" /></p>
+<ul>
+<li>This will bring you to the overview of your Azure AD tenant. Note that a "tenant" is a single instance of Azure Active Directory, with its own users, groups, and app registrations. Verify that you're in the developer tenant you just created, and select "App Registrations" in the navigation bar.</li>
+</ul>
+<p><img alt="Opening App Registrations" src="/app-camp/assets/screenshots/01-011-RegisterAADApp-3.png" /></p>
+<ul>
+<li>You will be shown a list of applications (if any) registered in the tenant. Select "+ New Registration" at the top to register a new application.</li>
+</ul>
+<p><img alt="Adding a registration" src="/app-camp/assets/screenshots/01-012-RegisterAADApp-4.png" /></p>
+<p>You will be presented with the "Register an application" form.</p>
+<p><img alt="Register an application form" src="/app-camp/assets/screenshots/01-013-RegisterAADApp-5.png" /></p>
+<ul>
+<li>Enter a name for your application 1️⃣.</li>
+<li>Under "Supported account types" select "Accounts in any organizational directory" 2️⃣. This will allow your application to be used in your customer's tenants.</li>
+<li>Under "Redirect URI", select "Single-page application (SPA)" 3️⃣ and enter the ngrok URL you saved earlier 4️⃣.</li>
+<li>Select the "Register" button 5️⃣</li>
+</ul>
+<p>You will be presented with the application overview. There are two values on this screen you need to copy for use later on; those are the Application (client) ID 1️⃣ and the Directory (tenant) ID 2️⃣.</p>
+<p><img alt="Application overview screen" src="/app-camp/assets/screenshots/01-014-RegisterAADApp-6.png" /></p>
+<p>When you've recorded these values, navigate to "Certificates &amp; secrets" 3️⃣.</p>
+<p><img alt="Adding a secret" src="/app-camp/assets/screenshots/01-015-RegisterAADApp-7.png" /></p>
+<p>Now you will create a client secret, which is like a password for your application to use when it needs to authenticate with Azure AD.</p>
+<ul>
+<li>Select "+ New client secret" 1️⃣</li>
+<li>Enter a description 2️⃣ and select an expiration date 3️⃣ for your secret </li>
+<li>Select "Add" to add your secret. 4️⃣</li>
+</ul>
+<p>The secret will be displayed just this once on the "Certificates and secrets" screen. Copy it now and store it in a safe place.</p>
+<p><img alt="Copy the app secret" src="/app-camp/assets/screenshots/01-016-RegisterAADApp-8.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Managing app secrets is an ongoing responsibility</p>
+<p>App secrets have a limited lifetime, and if they expire your application may stop working. You can have multiple secrets, so plan to roll them over as you would with a digital certificate.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Keep your secrets secret!</p>
+<p>Give each developer a free developer tenant and register their apps in their tenants so each developer has his or her own app secrets. Limit who has access to app secrets for production. If you're running in Microsoft Azure, a great place to store your secrets is <a href="https://azure.microsoft.com/en-us/services/key-vault/" target="_blank">Azure KeyVault</a>. You could deploy an app just like this one and store sensitive application settings in Keyvault. See <a href="https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references?WT.mc_id=m365-58890-cxa" target="_blank">this article</a> for more information.</p>
+</div>
+<h3 id="step-3-verify-permission-to-call-the-microsoft-graph-api">Step 3: Verify permission to call the Microsoft Graph API</h3>
+<p>The app registration created an identity for your application; now we need to add  permission to call the Microsoft Graph API. The Microsoft Graph is a RESTful API that allows you to access data in Azure AD and Microsoft 365, including Microsoft Teams.</p>
+<ul>
+<li>While still in the app registration, navigate to "API Permissions" 1️⃣ and notice there is already a permission there, "User.Read" 2️⃣.</li>
+</ul>
+<p><img alt="Adding a permission" src="/app-camp/assets/screenshots/01-017-RegisterAADApp-9a.png" /></p>
+<p>The permission is for calling the Microsoft Graph, and it allows reading the logged-in user's profile, which includes the user's Employee ID. This permission is "delegated" (it acts on behalf of the logged-in user). For an explanation of application vs. delegated permissions, see <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#permission-types?WT.mc_id=m365-58890-cxa" target="_blank">this documentation</a>
+or watch <a href="https://www.youtube.com/watch?v=SaBbfVgqZHc">this video</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If "User.Read" permission isn't already configured as in the screen shot above (it's included by default in newly registered applications), you need to click "Add a permission", then "Microsoft Graph", then "Delegated permissions", and then find and select the "User.Read" permission.</p>
+</div>
+<details class="info" open="open">
+<summary>More information</summary>
+<p><div class="tinyVideo">
+  <iframe src="//www.youtube.com/embed/SaBbfVgqZHc" frameborder="0" allowfullscreen></iframe>
+  <div>Understanding Single Sign-On (SSO) with Azure AD</div>
+</div>
+<div class="tinyVideo">
+  <iframe src="//www.youtube.com/embed/RjGVOFm39j0" frameborder="0" allowfullscreen></iframe>
+  <div>Learn about multi-tenant applications</div>
+</div></p>
+</details>
+<p>The Northwind Orders application uses the Employee ID value in each users's Azure AD profile to locate the user in the Employees table in the Northwind database. The names probably won't match unless you rename them but in a real application the employees and Microsoft 365 users would be the same people.</p>
+<h3 id="step-4-consent-to-the-permission">Step 4: Consent to the permission</h3>
+<p>You have added the permission but nobody has consented to it. If you return to the permission page for your app, you can see that the new permission has not been granted. 1️⃣ To fix this, select the "Grant admin consent for <tenant>" button and then agree to grant the consent 2️⃣. When this is complete, the message "Granted for <tenant>" should be displayed for each permission.</p>
+<p><img alt="Grant consent" src="/app-camp/assets/screenshots/01-024-RegisterAADApp-15.png" /></p>
+<h3 id="step-5-expose-an-api">Step 5: Expose an API</h3>
+<p>The Northwind Orders app is a full stack application, with code running in the web browser and web server. The server code will validate each call from the browser using Azure Active Directory. To allow this, we need to expose an API in our Azure AD application. This will allow the server to validate Azure AD access tokens from the web browser.</p>
+<p>Select "Expose an API" 1️⃣ and then "Add a scope"2️⃣. Scopes expose an application's permissions; what you're doing here is adding a permission that your application's browser code can use it when calling the server. </p>
+<p><img alt="Expose an API" src="/app-camp/assets/screenshots/01-021-RegisterAADApp-12.png" /></p>
+<p>On the "Add a scope" flyout, edit the Application ID URI to include your ngrok URL between the "api://" and the client ID. Select the "Save and continue" button to proceed.</p>
+<p><img alt="Set the App URI" src="/app-camp/assets/screenshots/01-022-RegisterAADApp-13.png" /></p>
+<p>Now that you've defined the application URI, the "Add a scope" flyout will allow you to set up the new permission scope. Fill in the form as follows:
+- Scope name: access_as_user
+- Who can consent: Admins only
+- Admin consent display name: Access as the logged in user
+- Admin consent description: Access Northwind services as the logged in user
+- (skip User consent fields)
+- Ensure the State is set to "Enabled"
+- Select "Add scope"</p>
+<p><img alt="Add the scope" src="/app-camp/assets/screenshots/01-023-RegisterAADApp-14.png" /></p>
+<h2 id="exercise-5-configure-and-run-the-application">Exercise 5: Configure and run the application</h2>
+<h3 id="step-1-download-the-starting-application">Step 1: Download the starting application</h3>
+<p>Begin by downloading the app-camp repository at <a href="https://github.com/microsoft/app-camp/" target="_blank">https://github.com/microsoft/app-camp</a>. Select the "Code" button and clone or download the content to your computer.</p>
+<p><img alt="Download the lab source code" src="/app-camp/assets/screenshots/01-001-CloneRepo.png" /></p>
+<p>The starting code is in the <code>src/create-core-app/aad/A01-begin-app/</code> folder. Copy this folder to another location on your computer; this will be your working copy to keep the original source separate. Folders are also provided with the final code for the other labs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Be sure to copy the A01-begin-app folder to a working location where you can modify the contents as you complete the labs. That way you'll still have a clean copy to start from or to compare with your work.</p>
+</div>
+<h3 id="step-2-install-the-apps-dependencies">Step 2: Install the app's dependencies</h3>
+<p>Using a command line tool of your choice, navigate to your working copy of the <strong>A01-begin-app</strong> directory and type the command:</p>
+<pre><code class="language-shell">npm install
+</code></pre>
+<p>This will install the libraries required to run the server side of your solution.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The client-side code is not bundled as it uses <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules" target="_blank">JavaScript Modules</a> (sometimes called ES Modules or ECMAScript Modules). The npm packages are used on the server side.</p>
+</div>
+<h4 id="step-3-download-the-sample-data">Step 3: Download the sample data</h4>
+<p>The Northwind Orders application uses the venerable Northwind database for sample data. The Northwind Database originally shipped with Microsoft Access, then SQL Server, and now is <a href="https://services.odata.org/V4/Northwind/" target="_blank">available as a test OData service</a> from the <a href="https://www.odata.org/" target="_blank">OData organization</a>. In this step, you'll download the entire Northwind database from this test service to local JSON files, which are used by the Northwind Orders application.</p>
+<p>Using a command line tool in your working directory, type:</p>
+<pre><code class="language-shell">npm run db-download
+</code></pre>
+<p>This will create a JSON file in the <strong>northwindDB</strong> folder for each table in the Northwind database. The appliction reads and writes these JSON files. It's generous to call these files a "database", but it works well for a single-user lab environment.</p>
+<h4 id="step-4-configure-the-app-settings">Step 4: Configure the app settings</h4>
+<p>In a code editor, open the working folder you created in Step 2. Copy the <em>.env_sample</em> file to a new file called <em>.env</em> and open the new file. It will look like this:</p>
+<pre><code class="language-text">COMPANY_NAME=Northwind Traders
+PORT=3978
+
+HOST_NAME=something.ngrok.io
+TENANT_ID=00000000-0000-0000-0000-000000000000
+CLIENT_ID=00000000-0000-0000-0000-000000000000
+CLIENT_SECRET=xxxxx
+</code></pre>
+<p>Fill in the information you've gathered so far, including your ngrok hostname and the information from the app registration.</p>
+<h4 id="step-5-run-the-application">Step 5: Run the application</h4>
+<p>To run the application, open a command line in your working folder and type:</p>
+<pre><code class="language-shell">npm start
+</code></pre>
+<p>At this point you should be able to browse to your ngrok URL and use the application. Note that due to the ngrok tunnel, you can try your app from anywhere on the Internet.</p>
+<p>You will quickly be directed to the Microsoft login page. </p>
+<p>Log in using one of the accounts you set up with an employee ID in Exercise 3, and you should be presented with the app's home page. The home page shows the employee name and picture from the Northwind database.</p>
+<p><img alt="Home page" src="/app-camp/assets/screenshots/01-040-Run-1.png" /></p>
+<p>Select "My Orders" in the top navigation bar to view the employee's orders.</p>
+<p><img alt="My Orders page" src="/app-camp/assets/screenshots/01-041-Run-2.png" /></p>
+<p>You can click on any order to view the details.</p>
+<p><img alt="Viewing an order" src="/app-camp/assets/screenshots/01-042-Run-3.png" /></p>
+<p>From here you can select on any product to view its details. Much of the data is hyperlinked in this fashion.</p>
+<p>You can also select on "Products" in the top navigation to view a list of product categories.</p>
+<p><img alt="View product categories" src="/app-camp/assets/screenshots/01-043-Run-4.png" /></p>
+<p>From there you can select into a product category to view a list of products, and then you can select into a product to see its details. The product detail page shows all the orders for the product, which leads to a list of orders, and so you can select your way around the sample data.</p>
+<p>Try logging out and logging in; you should be able to view the orders for another user in your developer tenant who has an employee ID set to a Northwind employee ID.</p>
+<script language="javascript">
+    function showCompletionPopup() {
+        let path = window.location.pathname;
+        path = path.endsWith('/') ? path.slice(0, -1) : path;
+        let pathArray = path.split('/');
+        let leafFolder = pathArray[pathArray.length-1];
+
+        let height = window.outerHeight / 1.5;
+        let width = window.outerWidth / 2;
+
+        window.open(`${window.origin}/app-camp/congrats/${leafFolder}`,
+                    'Congratulations!',
+                    `width=${width}, height=${height}, left=100, top=100,`);
+    }
+</script>
+
+<h2 id="congratulations">Congratulations!</h2>
+<p><button type="button" onclick="showCompletionPopup();" class="largeButton">When you have finished this lab,<br />please click this button to let us know!</button></p>
+<p>No personal information is collected; we only want to count how many people have completed the labs so we can continue to fund this work!</p>
+
+<h2 id="known-issues">Known issues</h2>
+<p>While it will work on mobile devices, the application is not responsive and will not look good on these devices. This may be addressed in a future version of the lab.</p>
+<p>For the latest issues, or to file a bug report, see the <a href="https://github.com/microsoft/app-camp/issues" target="_blank">GitHub issues list</a> for this repository.</p>
+<h2 id="next-steps">Next steps</h2>
+<p>After completing this lab, you may continue to the next lab in this learning path, <a href="../A02-after-teams-sso/">A02-after-teams-sso: Creating a Teams app with Azure ADO SSO</a>.</p>
+<p><img src="https://pnptelemetry.azurewebsites.net/app-camp/labs/a01" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

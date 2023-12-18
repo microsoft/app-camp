@@ -1,0 +1,1816 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://microsoft.github.io/app-camp/aad/A03-after-apply-styling/">
+      
+      
+        <link rel="prev" href="../A02-after-teams-sso/">
+      
+      
+        <link rel="next" href="../../bespoke/B01-begin-app/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+    
+    
+      
+        <title>A03 - Teams styling and themes - Teams App Camp</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/labStyles.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#35258F" data-md-color-accent="#091F2C">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-a03-teams-styling-and-themes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Teams App Camp" class="md-header__button md-logo" aria-label="Teams App Camp" data-md-component="logo">
+      
+  <img src="../../assets/microsoftteams_appcamp-webheader3.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Teams App Camp
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              A03 - Teams styling and themes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/microsoft/app-camp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/app-camp
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../new-adventure/00-welcome/" class="md-tabs__link">
+          
+  
+  New Adventure
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../A01-begin-app/" class="md-tabs__link">
+          
+  
+  A Path
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../bespoke/B01-begin-app/" class="md-tabs__link">
+          
+  
+  B Path
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ExtendedLabs/" class="md-tabs__link">
+          
+  
+  Extended labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Resources/" class="md-tabs__link">
+          
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Teams App Camp" class="md-nav__button md-logo" aria-label="Teams App Camp" data-md-component="logo">
+      
+  <img src="../../assets/microsoftteams_appcamp-webheader3.png" alt="logo">
+
+    </a>
+    Teams App Camp
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/microsoft/app-camp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/app-camp
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    New Adventure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            New Adventure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/00-welcome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to another App Camp adventure!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/01-create-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 - Create a new app with Teams Toolkit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/02-integrate-web-service/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 - Integrate business data with your app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/03-add-link-unfurling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 - Link Unfurling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/04-add-ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4 - Action message extensions with Open AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/05-add-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5 - Single Sign-on and Microsoft Graph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/06-run-in-outlook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6 - Run your app in Microsoft Outlook
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    A Path
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            A Path
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A01-begin-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A01 - Start with Azure Active Directory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A02-after-teams-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A02 - Create a Teams app with Azure AD Teams SSO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    A03 - Teams styling and themes
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    A03 - Teams styling and themes
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-1-add-css" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 1: Add CSS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 1: Add CSS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-a-css-file-for-teams-theme-styles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Create a CSS file for Teams theme styles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-import-the-new-css" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Import the new CSS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-2-update-and-run-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 2: Update and run the project
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 2: Update and run the project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-modify-modulesteamshelpersjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Modify modules\teamsHelpers.js
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-start-your-local-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Start your local project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-run-the-application-in-teams-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Run the application in Teams client
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congratulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Congratulations!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    B Path
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            B Path
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B01-begin-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B01 - Start with a non-Azure Active Directory Identity System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B02-after-teams-login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B02 - Teams App with Bespoke Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B03-after-teams-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B03 - Enable Azure AD Single Sign-On
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B04-after-apply-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B04 - Teams styling and themes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Extended labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Extended labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ExtendedLabs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Choose your own adventure!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConfigurableTab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a configurable tab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deeplink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Deep link to a personal Tab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dialog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Dialog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MeetingConfigurableTab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Meeting app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MessagingExtension/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Message Extension
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Monetization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selling Your SaaS-based Teams Extension
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ExtendTeamsApp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extend teams app to Outlook and Microsoft365 app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    More Information
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-a-box/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lead your own App Camp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "dfh6fjbr5x");
+</script>
+
+<p><img alt="Teams App Camp" src="/app-camp/assets/code-lab-banner.png" /></p>
+<h1 id="lab-a03-teams-styling-and-themes">Lab A03: Teams styling and themes</h1>
+<h2 id="overview">Overview</h2>
+<p>This lab is part of Path A, which begins with a Northwind Orders application that already uses Azure AD.</p>
+<details class="note">
+<summary>Are you on the right path? Expand these notes to find out!</summary>
+<p>There are two options for doing the labs:</p>
+<ul>
+<li>
+<p>The "A" path is for developers with apps that are already based on Azure Active Directory. The starting app uses Azure Active Directory and the Microsoft Authentication Library (MSAL).</p>
+</li>
+<li>
+<p>the "B" path is for developers with apps that use some other identity system. It includes a simple (and not secure!) cookie-based auth system based on the Employees table in the Northwind database. You will use an identity mapping scheme to allow your existing users to log in directly or via Azure AD Single Sign-On.</p>
+</li>
+</ul>
+</details>
+<p>In this lab you will begin with the completed  with the application in folder <code>A02-after-teams-sso</code>, make changes as per the steps below to achieve what is in the folder <code>A03-after-apply-styling</code>.</p>
+<ul>
+<li><a href="../A01-begin-app/">A01-begin-app: Setting up the application with Azure AD</a> </li>
+<li><a href="../A02-after-teams-sso/">A02-after-teams-sso: Creating a Teams app with Azure ADO SSO</a></li>
+<li><a href="./">A03-after-apply-styling: Teams styling and themes</a>(📍You are here)</li>
+</ul>
+<p>In this lab you will learn to:</p>
+<ul>
+<li>Apply styles based on the <a href="https://www.figma.com/community/file/916836509871353159" target="_blank">Microsoft Teams figma</a> to make your application look like it belongs in Microsoft Teams</li>
+<li>Display your application with the same color theme the user has selected in Microsoft Teams</li>
+<li>Switch your application's theme when the user changes the Microsoft Teams theme setting</li>
+</ul>
+<details class="info" open="open">
+<summary>Video briefing</summary>
+<p><div class="video">
+  <iframe src="//www.youtube.com/embed/pHm_pt5HewQ" frameborder="0" allowfullscreen></iframe>
+  <div>Lab A03 Briefing</div>
+</div></p>
+</details>
+<details class="note">
+<summary>Table of Contents (open to display ►)</summary>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#exercise-1-add-css">Exercise 1: Add CSS</a></li>
+<li><a href="#step-1-create-a-css-file-for-teams-theme-styles">Step 1: Create a CSS file for Teams theme styles</a></li>
+<li><a href="#step-2-import-the-new-css">Step 2: Import the new CSS</a></li>
+<li><a href="#exercise-2-update-and-run-the-project">Exercise 2: Update and run the project</a></li>
+<li><a href="#step-1-modify-modulesteamshelpersjs">Step 1: Modify modules\teamsHelpers.js</a></li>
+<li><a href="#step-2-start-your-local-project">Step 2: Start your local project</a></li>
+<li><a href="#step-3-run-the-application-in-teams-client">Step 3: Run the application in Teams client</a></li>
+<li><a href="#next-steps">Next steps</a></li>
+</ul>
+</details>
+<h2 id="features">Features</h2>
+<ul>
+<li>Apply teams styling and themes to your existing application.</li>
+<li>Display and update themes along with the Microsoft Teams client</li>
+</ul>
+<h3 id="project-structure">Project structure</h3>
+<details class="note">
+<summary>Project files before and after this lab (open to display ►)</summary>
+<p>The project structure when you start of this lab and end of this lab is as follows.
+Use this depiction for comparison.
+On your left is the contents of folder  <code>A03-TeamsSSO</code> and on your right is the contents of folder <code>A04-StyleAndThemes</code>.</p>
+<ul>
+<li>
+<p>🆕 New files/folders</p>
+</li>
+<li>
+<p>🔺Files changed</p>
+</li>
+</ul>
+<p><table>
+<tr>
+<th >Project Structure Before </th>
+<th>Project Structure After</th>
+</tr>
+<tr>
+<td valign="top" >
+<pre>
+A02-after-teams-sso
+    ├── client
+    │   ├── components
+    │       ├── navigation.js
+    │   └── identity
+    │       ├── identityClient.js
+    │       └── userPanel.js
+    ├── modules
+    │   └── env.js
+    │   └── northwindDataService.js
+    │   └── 🔺teamsHelpers.js
+    ├── pages
+    │   └── categories.html
+    │   └── categories.js
+    │   └── categoryDetails.html
+    │   └── categoryDetails.js
+    │   └── myOrders.html
+    │   └── orderDetail.html
+    │   └── orderDetail.js
+    │   └── privacy.html
+    │   └── productDetail.html
+    │   └── productDetail.js
+    │   └── termsofuse.html
+    ├── index.html
+    ├── index.js
+    ├── 🔺northwind.css
+    ├── manifest
+    │   └── makePackage.js
+    │   └── 🔺manifest.template.json
+    │   └── northwind32.png
+    │   └── northwind192.png
+    │   └── constants.js
+    │   └── identityService.js
+    │   └── northwindDataService.js
+    │   └── server.js
+    ├── .env_Sample
+    ├── .gitignore
+    ├── package.json
+    ├── README.md
+</pre>
+</td>
+<td>
+<pre>
+A03-after-apply-styling
+    ├── client
+    │   ├── components
+    │       ├── navigation.js
+    │   └── identity
+    │       ├── identityClient.js
+    │       └── userPanel.js
+    ├── modules
+    │   └── env.js
+    │   └── northwindDataService.js
+    │   └── 🔺teamsHelpers.js
+    ├── pages
+    │   └── categories.html
+    │   └── categories.js
+    │   └── categoryDetails.html
+    │   └── categoryDetails.js
+    │   └── myOrders.html
+    │   └── orderDetail.html
+    │   └── orderDetail.js
+    │   └── privacy.html
+    │   └── productDetail.html
+    │   └── productDetail.js
+    │   └── termsofuse.html
+    ├── index.html
+    ├── index.js
+    ├── 🔺northwind.css
+    ├── 🆕teamstyle.css
+    ├── manifest
+    │   └── makePackage.js
+    │   └── 🔺manifest.template.json
+    │   └── northwind32.png
+    │   └── northwind192.png
+    │   └── constants.js
+    │   └── identityService.js
+    │   └── northwindDataService.js
+    │   └── server.js
+    ├── .env_Sample
+    ├── .gitignore
+    ├── package.json
+    ├── README.md
+</pre>
+</td>
+</tr>
+</table></p>
+<p>In the project structure, on the right under <code>A03-after-apply-styling</code>, you will see emoji 🆕 near the files &amp; folders.
+They are the new files and folders that you need to add into the project structure.</p>
+</details>
+<h2 id="exercise-1-add-css">Exercise 1: Add CSS</h2>
+<h3 id="step-1-create-a-css-file-for-teams-theme-styles">Step 1: Create a CSS file for Teams theme styles</h3>
+<p>Create a file <code>teamstyle.css</code> in the <code>client</code> folder and copy below code block into it. These styles are based on the <a href="https://www.figma.com/community/file/916836509871353159">Teams UI Toolkit Figma</a>. If you're working in React, you may want to use the <a href="https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/design/design-teams-app-ui-templates?WT.mc_id=m365-58890-cxa">Teams UI Toolkit React Components</a>.</p>
+<pre><code class="language-css">:root {
+  /* common */
+  --brand-color: #6264A7;
+  --button-color: #6264A7;
+  --button-text-color: #fff;
+  --button-hover-color: rgb(88, 90, 150);
+  --button-hover-text-color: #fff;
+  --button-active-color: rgb(70, 71, 117);
+  --button-active-text-color: #fff;
+  --button-border: 1px solid hsla(0,0%,100%,.04);
+  --button-shadow: rgb(0 0 0 / 25%) 0px 0.2rem 0.4rem -0.075rem;
+  --button2-color: #fff;
+  --button2-text-color: rgb(37, 36, 35);
+  --button2-hover-color: rgb(237, 235, 233);
+  --button2-active-color: rgb(225, 223, 221);
+  --button2-border: 1px solid rgb(225, 223, 221);
+  --button2-shadow: rgb(0 0 0 / 10%) 0px 0.2rem 0.4rem -0.075rem;
+  --button-disabled-color: rgb(237, 235, 233);
+  --button-disabled-text-color: rgb(200, 198, 196);
+  --input-background-color: rgb(243, 242, 241);
+  --input-border-color: transparent;
+  --input-border-width: 0 0 0.1429rem 0;
+  --input-focus-border-color: transparent;
+  --input-focus-border-bottom-color: #6264A7;
+  --table-color: transparent;
+  --table-border: 1px solid rgb(237, 235, 233);
+  --border-color: rgb(237, 235, 233);
+
+  /* light theme */
+  --font-color: rgb(37, 36, 35);
+  --background-color: #fff;
+  --link-color: #6264A7;
+  --border-color: #E1DFDD;
+  --warning-color: #C4314B;
+}
+
+[data-theme=&quot;dark&quot;] {
+  --font-color: #fff;
+  --background-color: transparent;
+  --link-color: #A6A7DC;
+  --border-color: #605E5C;
+  --warning-color: #F9526B;
+}
+
+[data-theme=&quot;contrast&quot;] {
+  --brand-color: #ffff01;
+  --font-color: #fff;
+  --link-color: #ffff01;
+  --background-color: transparent;
+  --border-color: #fff;
+  --button-color: transparent;
+  --button-text-color: #fff;
+  --button-hover-color: #ffff01;
+  --button-hover-text-color: #000;
+  --button-active-color: #1aebff;
+  --button-active-text-color: #000;
+  --button-border: .2rem solid #fff;
+  --input-background-color: transparent;
+  --input-border-color: #fff;
+  --input-border-width: 1px;
+  --input-focus-border-color: #1aebff;
+  --input-focus-border-bottom-color: #1aebff;
+  --warning-color: #ffff01;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--font-color);
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+a, a:visited {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  text-decoration: underline;
+}
+
+table, caption, tbody, tfoot, thead, tr, th, td { /*reset */
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: middle;
+  border-collapse: collapse;
+}
+table {
+  display: table;
+  background-color: var(--table-color);
+  border-spacing: 0;
+}
+tr {
+  display: table-row;
+  border-bottom: var(--table-border);
+}
+th, td {
+  display: table-cell;
+  height: 3.4286rem;
+  padding: 0 0.5714rem;
+}
+
+th{
+  font-weight: 600;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button {
+  min-width: 6rem;
+  font-weight: 600;
+  height: 2rem;
+  padding: 0 1.25rem;
+  vertical-align: middle;
+  border-radius: 2px;
+  background-color: var(--button-color);
+  color: var(--button-text-color);
+  border: var(--button-border);
+  box-shadow: var(--button-shadow);
+  overflow: visible;
+}
+button:hover {
+  background-color: var(--button-hover-color);
+  color: var(--button-active-text-color);
+}
+button:active {
+  background-color: var(--button-active-color);
+  color: var(--button-active-text-color);
+  box-shadow: none;
+}
+button[disabled] {
+  background-color: var(--button-disabled-color);
+  color: var(--button-disabled-text-color);
+  box-shadow: none;
+}
+button:not(:last-child) {
+    margin-right: 0.5rem;
+}
+
+button.secondary {
+  background: var(--button2-color);
+  border: var(--button2-border);
+  color: var(--button2-text-color);
+  box-shadow: var(--button2-shadow);
+}
+button.secondary:hover {
+  background-color: var(--button2-hover-color);
+}
+button.secondary:active {
+  background-color: var(--button2-active-color);
+}
+
+label {
+  margin: 0 0.7143rem 0.2857rem 0;
+}
+
+input {
+  background-color: var(--input-background-color);
+  padding: 0.3571rem 0.8571rem;
+  line-height: unset;
+  border-width: var(--input-border-width);
+  border-radius: 0.2143rem 0.2143rem 0.1429rem 0.1429rem;
+  border-color: var(--input-border-color);
+  outline-style: none;
+  overflow: visible;
+  margin-bottom: 1.4286rem;
+}
+input:focus {
+  border-color: var(--input-focus-border-color);
+  border-bottom-color: var(--input-focus-border-bottom-color);
+}
+
+[type=checkbox], [type=radio] {
+  padding: 0;
+  margin-right: 0.5rem;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--border-color);
+}
+
+/* Text styling classes */
+
+.medium {
+  font-size: 1rem;
+}
+.small {
+  font-size: 0.8571rem;
+}
+.smaller {
+  font-size: 0.7143rem;
+}
+.large {
+  font-size: 1.2857rem;
+}
+.larger {
+  font-size: 1.7143rem;
+}
+.danger, .warning, .alert, .error {
+  color: var(--warning-color);
+}
+
+
+/* Font */
+
+@font-face {
+  font-family: 'Segoe UI Web';
+  src: url('https://static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-westeuropean/segoeui-regular.woff2') format('woff2'), url('https://static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-westeuropean/segoeui-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Segoe UI', 'Segoe UI Web', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
+}
+</code></pre>
+<p>This CSS contains basic stylings for Teams UI. After applying the styles, the existing web app gets more consistent look-and-feel to Teams client.</p>
+<p>The CSS also includes dark and high-contrast mode. The color switch is done with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/var()">CSS variables</a>. In the next exercise, you will enable the theme switching functionality in JavaScript.</p>
+<h3 id="step-2-import-the-new-css">Step 2: Import the new CSS</h3>
+<p>To import the <code>teamstyle.css</code> so it is loaded in all pages, add this statement at the top of your northwind.css file.</p>
+<pre><code class="language-javascript">@import &quot;teamstyle.css&quot;;
+</code></pre>
+<h2 id="exercise-2-update-and-run-the-project">Exercise 2: Update and run the project</h2>
+<h3 id="step-1-modify-modulesteamshelpersjs">Step 1: Modify modules\teamsHelpers.js</h3>
+<p>The Teams client supports three themes: light mode, dark mode, and high contrast mode, which is an acceissibility feature for users with low visual acuity. As the users switch the themes, your application should also switch its theme so as to blend in. To detect theme switching in Teams client we'll have to use the global <code>microsoftTeams</code>'s context.</p>
+<p>We 'll add a function <code>setTheme()</code> to switch the css between the application's native style and the team's themes. Add this code to teamsHelpers.js:</p>
+<pre><code class="language-javascript">// Set the CSS to reflect the desired theme
+function setTheme(theme) {
+    const el = document.documentElement;
+    el.setAttribute('data-theme', theme);
+};
+</code></pre>
+<p>In order to display the application in a particular theme, <code>setTheme()</code> applies a data-theme value in the root of the content, like, <code>&lt;html data-theme='dark'&gt;</code>, so the <code>teamstyle.css</code> will use a correct set of colors &amp; styles for each theme. The color change is done with the CSS variables.</p>
+<p>Now add in-line code into teamsHelpers.js to detect current context with <code>getContext()</code> and set the theme to match the current theme in Microsoft Teams. The code also registers an event handler that updates the application's theme when a user changes the theme in Microsoft Teams. Note that some browsers and the Teams desktop client will not honor the <code>await</code> keyword for inline code; therefore this code has been wrapped in an <a href="https://developer.mozilla.org/en-US/docs/Glossary/IIFE">immediately-invoked function expression</a>.</p>
+<p>Copy and paste below code block for this purpose:</p>
+<pre><code class="language-javascript">// Inline code to set theme on any page using teamsHelpers
+(async () =&gt; {
+    await ensureTeamsSdkInitialized();
+    const context = await microsoftTeams.app.getContext();
+    setTheme(context.app.theme);
+
+    // When the theme changes, update the CSS again
+    microsoftTeams.registerOnThemeChangeHandler((theme) =&gt; {
+        setTheme(theme);
+    });    
+})();
+</code></pre>
+<h3 id="step-2-start-your-local-project">Step 2: Start your local project</h3>
+<p>Now it's time to run your updated application and run it in Microsoft Teams. Start the application by running below command: </p>
+<pre><code class="language-nodejs">npm start
+</code></pre>
+<h3 id="step-3-run-the-application-in-teams-client">Step 3: Run the application in Teams client</h3>
+<p>Once the teams tab app is added, the personal tab will open <code>My Orders</code> tab. The application will now have the team's native look and feel.</p>
+<p><img src="/app-camp/assets/screenshots/04-002-tabstyle.png" alt="Teams tab style"></p>
+<p>Here's how to <a href="https://support.microsoft.com/office/customize-your-teams-theme-51f24f07-1209-4f9d-8788-c0da4d98aede?WT.mc_id=m365-58890-cxa">change themes in teams client.</a> Notice how the teams tab app also detects and changes its theme.</p>
+<p><img src="/app-camp/assets/screenshots/04-003-changetheme.gif" alt="Change theme"></p>
+<script language="javascript">
+    function showCompletionPopup() {
+        let path = window.location.pathname;
+        path = path.endsWith('/') ? path.slice(0, -1) : path;
+        let pathArray = path.split('/');
+        let leafFolder = pathArray[pathArray.length-1];
+
+        let height = window.outerHeight / 1.5;
+        let width = window.outerWidth / 2;
+
+        window.open(`${window.origin}/app-camp/congrats/${leafFolder}`,
+                    'Congratulations!',
+                    `width=${width}, height=${height}, left=100, top=100,`);
+    }
+</script>
+
+<h2 id="congratulations">Congratulations!</h2>
+<p><button type="button" onclick="showCompletionPopup();" class="largeButton">When you have finished this lab,<br />please click this button to let us know!</button></p>
+<p>No personal information is collected; we only want to count how many people have completed the labs so we can continue to fund this work!</p>
+
+<h2 id="next-steps">Next steps</h2>
+<p>Congratulations! You have completed all core application development labs in <strong>path A</strong>. It's time to choose your own adventure! Please continue with any of the following labs.</p>
+<ul>
+<li><a href="/app-camp/aad/ConfigurableTab">Add a Configurable Tab</a></li>
+<li><a href="/app-camp/aad/Deeplink">Add a Deep link to a personal Tab</a></li>
+<li><a href="/app-camp/aad/Dialog">Add a Dialog </a></li>
+<li><a href="/app-camp/aad/MeetingConfigurableTab">Add a Meeting app</a></li>
+<li><a href="/app-camp/aad/MessagingExtension">Add a Message Extension</a></li>
+<li><a href="/app-camp/aad/Monetization">Selling Your SaaS-based Teams Extension</a></li>
+<li><a href="/app-camp/aad/ExtendTeamsApp">Extend your Teams app to Outlook and Microsoft365 app</a></li>
+</ul>
+<p><img src="https://pnptelemetry.azurewebsites.net/app-camp/labs/a03" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

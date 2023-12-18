@@ -1,0 +1,2010 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://microsoft.github.io/app-camp/new-adventure/05-add-sso/">
+      
+      
+        <link rel="prev" href="../04-add-ai/">
+      
+      
+        <link rel="next" href="../06-run-in-outlook/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+    
+    
+      
+        <title>5 - Single Sign-on and Microsoft Graph - Teams App Camp</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/labStyles.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#35258F" data-md-color-accent="#091F2C">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-5-single-sign-on-and-microsoft-graph" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Teams App Camp" class="md-header__button md-logo" aria-label="Teams App Camp" data-md-component="logo">
+      
+  <img src="../../assets/microsoftteams_appcamp-webheader3.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Teams App Camp
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5 - Single Sign-on and Microsoft Graph
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/microsoft/app-camp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/app-camp
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00-welcome/" class="md-tabs__link">
+          
+  
+  New Adventure
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../aad/A01-begin-app/" class="md-tabs__link">
+          
+  
+  A Path
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../bespoke/B01-begin-app/" class="md-tabs__link">
+          
+  
+  B Path
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../aad/ExtendedLabs/" class="md-tabs__link">
+          
+  
+  Extended labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Resources/" class="md-tabs__link">
+          
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Teams App Camp" class="md-nav__button md-logo" aria-label="Teams App Camp" data-md-component="logo">
+      
+  <img src="../../assets/microsoftteams_appcamp-webheader3.png" alt="logo">
+
+    </a>
+    Teams App Camp
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/microsoft/app-camp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/app-camp
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    New Adventure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            New Adventure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-welcome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to another App Camp adventure!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-create-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 - Create a new app with Teams Toolkit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-integrate-web-service/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 - Integrate business data with your app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-add-link-unfurling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 - Link Unfurling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-add-ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4 - Action message extensions with Open AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    5 - Single Sign-on and Microsoft Graph
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    5 - Single Sign-on and Microsoft Graph
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-1-set-up-your-project-for-azure-ad-single-sign-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 1: Set up your project for Azure AD Single Sign-on
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 1: Set up your project for Azure AD Single Sign-on">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-add-an-azure-ad-app-manifest-file-to-define-the-azure-ad-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Add an Azure AD App manifest file to define the Azure AD Application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-update-teams-toolkit-configuration-file-to-create-the-azure-ad-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Update Teams Toolkit configuration file to create the Azure AD App
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-2-update-your-teams-app-manifest-for-sso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 2: Update your Teams app manifest for SSO
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-3-optional-update-the-project-for-azure-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 3: (Optional) Update the project for Azure deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 3: (Optional) Update the project for Azure deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-update-teams-toolkit-configuration-file-to-create-the-azure-ad-app-during-azure-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Update Teams Toolkit configuration file to create the Azure AD App during Azure deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-add-azure-ad-configuration-values-to-the-azure-parameters-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Add Azure AD configuration values to the Azure parameters file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-update-the-bicep-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Update the Bicep file
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-4-update-the-application-code-for-sso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 4: Update the application code for SSO
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 4: Update the application code for SSO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-provide-html-pages-for-the-consent-dialog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Provide HTML pages for the consent dialog
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-install-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Install packages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-update-your-indexjs-file-to-handle-sso-interactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Update your index.js file to handle SSO interactions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-5-add-the-contacts-message-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 5: Add the Contacts message extension
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 5: Add the Contacts message extension">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-add-the-contacts-message-extension-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Add the Contacts message extension code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-modify-the-bot-to-displatch-messages-to-the-contacts-message-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Modify the bot to displatch messages to the Contacts message extension
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-add-the-contacts-message-extension-to-the-teams-app-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Add the Contacts message extension to the Teams app manifest
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-6-run-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 6: Run the application
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 6: Run the application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-enter-test-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Enter test data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Run the application
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congratulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Congratulations!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known issues
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-run-in-outlook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6 - Run your app in Microsoft Outlook
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    A Path
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            A Path
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/A01-begin-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A01 - Start with Azure Active Directory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/A02-after-teams-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A02 - Create a Teams app with Azure AD Teams SSO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/A03-after-apply-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A03 - Teams styling and themes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    B Path
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            B Path
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B01-begin-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B01 - Start with a non-Azure Active Directory Identity System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B02-after-teams-login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B02 - Teams App with Bespoke Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B03-after-teams-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B03 - Enable Azure AD Single Sign-On
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B04-after-apply-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B04 - Teams styling and themes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Extended labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Extended labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/ExtendedLabs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Choose your own adventure!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/ConfigurableTab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a configurable tab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/Deeplink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Deep link to a personal Tab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/Dialog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Dialog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/MeetingConfigurableTab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Meeting app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/MessagingExtension/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Message Extension
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/Monetization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selling Your SaaS-based Teams Extension
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/ExtendTeamsApp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extend teams app to Outlook and Microsoft365 app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    More Information
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-a-box/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lead your own App Camp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<!--
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "dfh6fjbr5x");
+</script>
+-->
+
+<p><img alt="Teams App Camp" src="/app-camp/assets/new-adventure/app-camp-new-adventure-sm.png" /></p>
+<h1 id="lab-5-single-sign-on-and-microsoft-graph">Lab 5: Single Sign-on and Microsoft Graph</h1>
+<details class="info" open="open">
+<summary>Lab Outline</summary>
+<ul>
+<li><strong><a href="../01-create-app/">Lab 1 - Create your first app with Teams Toolkit</a></strong>
+In this lab, you'll set up Teams Toolkit and create a Teams message extension.</li>
+<li><strong><a href="../02-integrate-web-service/">Lab 2 - Integrate business data with your application</a></strong>
+In this lab, you'll brand your new app as "Northwind Suppliers", and will provide the ability to insert data from the Northwind Traders sample database in a Microsoft Teams conversation. You'll also learn how to create and send adaptive cards with your message extension.</li>
+<li><strong><a href="../03-add-link-unfurling/">Lab 3 - Add link unfurling</a></strong>
+In this lab, you'll learn how to use Link Unfurling, which provides a custom summary when a user includes your URL in a conversation</li>
+<li><strong><a href="../04-add-ai/">Lab 4 - Action message extensions with Open AI</a></strong>
+In this lab, you'll learn how to build "Action" message extensions which can be launched directly
+or in the context menu of another Teams message to take action on it. The labs use the Open AI
+commercial web services (in Azure or using an Open AI account) to generate messages.</li>
+<li><img src="/app-camp/assets/new-adventure/arrow-this-lab.png"
+         style="height: 36pt; margin-bottom: -14pt;"><a href="./">Lab 5 - Single Sign-on and Microsoft Graph</a>__
+In this lab, you'll learn how to authenticate users with Azure AD Single Sign-On, and to call the
+Microsoft Graph API. This same process would be used when calling any
+web service that's secured with Azure AD on behalf of the logged-in user.</li>
+<li><strong><a href="../06-run-in-outlook/">Lab 6 - Run the app in Outlook</a></strong>
+In this lab, you'll run the Northwind Suppliers application in Microsoft Outlook.</li>
+</ul>
+</details>
+<h2 id="overview">Overview</h2>
+<p>In this lab you will learn to:</p>
+<ul>
+<li>Add Azure Active Directory single sign-on (SSO) to your app so users can seamlessly log into your app with the same account they use in Microsoft Teams</li>
+<li>Access a REST service that's secured with Azure Active Directory from a Teams message extension or bot</li>
+<li>Access the <a href="https://learn.microsoft.com/graph/use-the-api" target="_blank">Microsoft Graph API</a> to access user content in Microsoft 365. Your app will act on behalf of the logged-in user so they can securely access their own content within your application.</li>
+</ul>
+<h2 id="features">Features</h2>
+<p>In this lab, you'll build a Search message extension that queries a user's personal contact list and allows them to share a contact in a Teams conversation.</p>
+<h2 id="exercise-1-set-up-your-project-for-azure-ad-single-sign-on">Exercise 1: Set up your project for Azure AD Single Sign-on</h2>
+<p>Applications secured with Azure Active Directory must be <em>registered</em> and granted <em>permission</em>. Teams Toolkit will do this work for you, but you have to update your project to make that happen. In this exercise, you'll modify the Teams Toolkit project files to provision your app registration in Azure AD.</p>
+<details class="info" open="open">
+<summary>More information</summary>
+<p><div class="tinyVideo">
+  <iframe src="//www.youtube.com/embed/SaBbfVgqZHc" frameborder="0" allowfullscreen></iframe>
+  <div>Understanding Single Sign-On (SSO) with Azure AD</div>
+</div>
+<div class="tinyVideo">
+  <iframe src="//www.youtube.com/embed/RjGVOFm39j0" frameborder="0" allowfullscreen></iframe>
+  <div>Learn about multi-tenant applications</div>
+</div></p>
+</details>
+<h3 id="step-1-add-an-azure-ad-app-manifest-file-to-define-the-azure-ad-application">Step 1: Add an Azure AD App manifest file to define the Azure AD Application</h3>
+<p>In this step, you'll add a file that defines the application that Teams Toolkit will register for your application. The AAD manifest allows you to customize various aspects of your application registration. For example, this one sets up <code>contacts.read</code> permission on the Microsoft Graph API so your app can read the user's contacts.</p>
+<p>Create a file <strong>aad.manifest.json</strong> in the root of your project folder, and paste in this JSON:</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;${{AAD_APP_OBJECT_ID}}&quot;,
+  &quot;appId&quot;: &quot;${{AAD_APP_CLIENT_ID}}&quot;,
+  &quot;name&quot;: &quot;NorthwindSuppliers-AAD&quot;,
+  &quot;accessTokenAcceptedVersion&quot;: 2,
+  &quot;signInAudience&quot;: &quot;AzureADMyOrg&quot;,
+  &quot;optionalClaims&quot;: {
+      &quot;idToken&quot;: [],
+      &quot;accessToken&quot;: [
+          {
+              &quot;name&quot;: &quot;idtyp&quot;,
+              &quot;source&quot;: null,
+              &quot;essential&quot;: false,
+              &quot;additionalProperties&quot;: []
+          }
+      ],
+      &quot;saml2Token&quot;: []
+  },
+  &quot;requiredResourceAccess&quot;: [
+      {
+          &quot;resourceAppId&quot;: &quot;Microsoft Graph&quot;,
+          &quot;resourceAccess&quot;: [
+              {
+                  &quot;id&quot;: &quot;Contacts.Read&quot;,
+                  &quot;type&quot;: &quot;Scope&quot;
+              }
+          ]
+      }
+  ],
+  &quot;oauth2Permissions&quot;: [
+      {
+          &quot;adminConsentDescription&quot;: &quot;Allows Teams to call the app's web APIs as the current user.&quot;,
+          &quot;adminConsentDisplayName&quot;: &quot;Teams can access app's web APIs&quot;,
+          &quot;id&quot;: &quot;${{AAD_APP_ACCESS_AS_USER_PERMISSION_ID}}&quot;,
+          &quot;isEnabled&quot;: true,
+          &quot;type&quot;: &quot;User&quot;,
+          &quot;userConsentDescription&quot;: &quot;Enable Teams to call this app's web APIs with the same rights that you have&quot;,
+          &quot;userConsentDisplayName&quot;: &quot;Teams can access app's web APIs and make requests on your behalf&quot;,
+          &quot;value&quot;: &quot;access_as_user&quot;
+      }
+  ],
+  &quot;preAuthorizedApplications&quot;: [
+      {
+          &quot;appId&quot;: &quot;1fec8e78-bce4-4aaf-ab1b-5451cc387264&quot;,
+          &quot;permissionIds&quot;: [
+              &quot;${{AAD_APP_ACCESS_AS_USER_PERMISSION_ID}}&quot;
+          ]
+      },
+      {
+          &quot;appId&quot;: &quot;5e3ce6c0-2b1f-4285-8d4b-75ee78787346&quot;,
+          &quot;permissionIds&quot;: [
+              &quot;${{AAD_APP_ACCESS_AS_USER_PERMISSION_ID}}&quot;
+          ]
+      },
+      {
+          &quot;appId&quot;: &quot;d3590ed6-52b3-4102-aeff-aad2292ab01c&quot;,
+          &quot;permissionIds&quot;: [
+              &quot;${{AAD_APP_ACCESS_AS_USER_PERMISSION_ID}}&quot;
+          ]
+      },
+      {
+          &quot;appId&quot;: &quot;00000002-0000-0ff1-ce00-000000000000&quot;,
+          &quot;permissionIds&quot;: [
+              &quot;${{AAD_APP_ACCESS_AS_USER_PERMISSION_ID}}&quot;
+          ]
+      },
+      {
+          &quot;appId&quot;: &quot;bc59ab01-8403-45c6-8796-ac3ef710b3e3&quot;,
+          &quot;permissionIds&quot;: [
+              &quot;${{AAD_APP_ACCESS_AS_USER_PERMISSION_ID}}&quot;
+          ]
+      },
+      {
+          &quot;appId&quot;: &quot;0ec893e0-5785-4de6-99da-4ed124e5296c&quot;,
+          &quot;permissionIds&quot;: [
+              &quot;${{AAD_APP_ACCESS_AS_USER_PERMISSION_ID}}&quot;
+          ]
+      },
+      {
+          &quot;appId&quot;: &quot;4765445b-32c6-49b0-83e6-1d93765276ca&quot;,
+          &quot;permissionIds&quot;: [
+              &quot;${{AAD_APP_ACCESS_AS_USER_PERMISSION_ID}}&quot;
+          ]
+      },
+      {
+          &quot;appId&quot;: &quot;4345a7b9-9a63-4910-a426-35363201d503&quot;,
+          &quot;permissionIds&quot;: [
+              &quot;${{AAD_APP_ACCESS_AS_USER_PERMISSION_ID}}&quot;
+          ]
+      }
+  ],
+  &quot;identifierUris&quot;: [
+    &quot;api://botid-${{BOT_ID}}&quot;
+  ],
+  &quot;replyUrlsWithType&quot;: [
+    {
+      &quot;url&quot;: &quot;https://${{BOT_DOMAIN}}/auth-end.html&quot;,
+      &quot;type&quot;: &quot;Web&quot;
+    }
+  ]
+}
+</code></pre>
+<h3 id="step-2-update-teams-toolkit-configuration-file-to-create-the-azure-ad-app">Step 2: Update Teams Toolkit configuration file to create the Azure AD App</h3>
+<p>Open the <strong>teamsapp.local.yml</strong> file. This is a YAML file that defines the steps Teams Toolkit takes to run your project. These steps are done 3 steps, as shown in the "LIFECYCLE" section of the Teams Toolkit user interface.</p>
+<ul>
+<li>
+<p>Provision - In this phase, any infrastructure needed by your app is provisioned. This includes things like the bot registration, the Teams app package, and, in this case, the Azure AD app registration</p>
+</li>
+<li>
+<p>Deploy - In this phase, the code is built and run locally, or uploaded to Azure for environments other than "local"</p>
+</li>
+<li>
+<p>Publish - In this phase, the app package is published to Microsoft Teams</p>
+</li>
+</ul>
+<p>To provision your Azure AD app, add these lines to <strong>teamsapp.local.yml</strong>. You can put them directly below the <code>provision:</code> line; if you know YAML you can put them anywhere before the [teamsApp/validateManifest] directive, since the Azure AD application information is needed in validating the manifest.</p>
+<pre><code class="language-yaml">  - uses: aadApp/create
+    with:
+      name: &quot;NorthwindSuppliers-AAD&quot;
+      generateClientSecret: true
+      signInAudience: &quot;AzureADMyOrg&quot;
+    writeToEnvironmentFile:
+      clientId: AAD_APP_CLIENT_ID
+      clientSecret: SECRET_AAD_APP_CLIENT_SECRET
+      objectId: AAD_APP_OBJECT_ID
+      tenantId: AAD_APP_TENANT_ID
+      authority: AAD_APP_OAUTH_AUTHORITY
+      authorityHost: AAD_APP_OAUTH_AUTHORITY_HOST
+
+  - uses: aadApp/update
+    with:
+      manifestPath: &quot;./aad.manifest.json&quot;
+      outputFilePath : ./build/aad.manifest.${{TEAMSFX_ENV}}.json
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Indentation can be tricky in YAML</p>
+<p>YAML  requires proper indentation; each level in the object hierarchy must be indented to indicate the structure. 2 spaces (not tabs) is a good choice. Visual Studio Code will help you here, and will underline any syntax errors in red. You'll know you got it right when the red lines disappear!</p>
+</div>
+<p>Now scroll down and find the <code>file/createOrUpdateEnvironmentFile</code> directive in the <code>deploy</code> phase. Add these variables to the <code>envs:</code> collection, right below the ones you added in the previous lab:</p>
+<pre><code class="language-yaml">      M365_CLIENT_ID: ${{AAD_APP_CLIENT_ID}}
+      M365_CLIENT_SECRET: ${{SECRET_AAD_APP_CLIENT_SECRET}}
+      M365_TENANT_ID: ${{AAD_APP_TENANT_ID}}
+      INITIATE_LOGIN_ENDPOINT: ${{BOT_ENDPOINT}}/auth-start.html
+      M365_AUTHORITY_HOST: ${{AAD_APP_OAUTH_AUTHORITY_HOST}}
+      M365_APPLICATION_ID_URI: api://botid-${{BOT_ID}}
+</code></pre>
+<h2 id="exercise-2-update-your-teams-app-manifest-for-sso">Exercise 2: Update your Teams app manifest for SSO</h2>
+<p>In the single sign-on process, Teams will hand your code an Azure AD access token for your application. This access token can be used to authorize calls to your own back-end service(s), or it can be exchanged for an access token that's used with another back-end service such as the Microsoft Graph.</p>
+<p>Teams can't provide this access token, however, unless it knows about your application; specifically, it needs to know the application (client) ID and the ID of the bot that's connected to Teams. So you need to add this information to your Teams app manifest.</p>
+<p>Find the Teams app manifest template in <strong>./appPackage/manifest.json</strong> and add the following:</p>
+<pre><code class="language-json">    &quot;webApplicationInfo&quot;: {
+      &quot;id&quot;: &quot;${{AAD_APP_CLIENT_ID}}&quot;,
+      &quot;resource&quot;: &quot;api://botid-${{BOT_ID}}&quot;
+    }
+</code></pre>
+<p>Add it below the <code>"validDomains"</code> object, with a comma in between.</p>
+<p>While we're here, we need to tell Teams to display web pages from your bot's domain, which allows access to the <strong>auth-start.html</strong> and <strong>auth-end.html</strong> pages used for user consent to call the Microsoft Graph. This only happens the first time a user accesses the message extension.</p>
+<p>So you need to add your bot's domain, <code>${{BOT_DOMAIN}}</code> to the <code>validDomains</code> array. 
+After making these changes, the end of your <strong>manifest.json</strong> file should look like this:</p>
+<pre><code class="language-json">    &quot;validDomains&quot;: [ &quot;adaptivecards.io&quot;, &quot;${{BOT_DOMAIN}}&quot;
+    ],
+    &quot;webApplicationInfo&quot;: {
+        &quot;id&quot;: &quot;${{AAD_APP_CLIENT_ID}}&quot;,
+        &quot;resource&quot;: &quot;api://botid-${{BOT_ID}}&quot;
+  }
+}
+</code></pre>
+<h2 id="exercise-3-optional-update-the-project-for-azure-deployment">Exercise 3: (Optional) Update the project for Azure deployment</h2>
+<p>If you want to be able to deploy your project to Microsoft Azure, you'll need to make a few more changes so Teams Toolkit will set up SSO there as well as for your local environment. If you don't plan to deploy to Microsoft Azure, you can skip to the next exercise.</p>
+<h3 id="step-1-update-teams-toolkit-configuration-file-to-create-the-azure-ad-app-during-azure-deployment">Step 1: Update Teams Toolkit configuration file to create the Azure AD App during Azure deployment</h3>
+<p>Open the <strong>teamsapp.yml</strong> file. This is a YAML file that defines the steps Teams Toolkit takes when provisioning your project in Microsoft Azure. You'll make the same modifications here that you made in <strong>teamsapp.local.yml</strong> earlier.</p>
+<p>Specifically, you need to add these lines to <strong>teamsapp.yml</strong>. You can put them directly below the <code>provision:</code> line; if you know YAML you can put them anywhere before the [teamsApp/validateManifest] directive, since the Azure AD application information is needed in validating the manifest.</p>
+<pre><code class="language-yaml">  - uses: aadApp/create
+    with:
+      name: &quot;NorthwindSuppliers-AAD&quot;
+      generateClientSecret: true
+      signInAudience: &quot;AzureADMyOrg&quot;
+    writeToEnvironmentFile:
+      clientId: AAD_APP_CLIENT_ID
+      clientSecret: SECRET_AAD_APP_CLIENT_SECRET
+      objectId: AAD_APP_OBJECT_ID
+      tenantId: AAD_APP_TENANT_ID
+      authority: AAD_APP_OAUTH_AUTHORITY
+      authorityHost: AAD_APP_OAUTH_AUTHORITY_HOST
+
+  - uses: aadApp/update
+    with:
+      manifestPath: &quot;./aad.manifest.json&quot;
+      outputFilePath : ./build/aad.manifest.${{TEAMSFX_ENV}}.json
+</code></pre>
+<h3 id="step-2-add-azure-ad-configuration-values-to-the-azure-parameters-file">Step 2: Add Azure AD configuration values to the Azure parameters file</h3>
+<p>Open the <strong>infra/azure.parameters.json</strong> file and add these properties to the <code>parameters</code> object. Remember to add a comma after the <code>"botDisplayName"</code> property to separate it from these new properties.</p>
+<pre><code class="language-json">    &quot;m365ClientId&quot;: {
+      &quot;value&quot;: &quot;${{AAD_APP_CLIENT_ID}}&quot;
+    },
+    &quot;m365ClientSecret&quot;: {
+      &quot;value&quot;: &quot;${{SECRET_AAD_APP_CLIENT_SECRET}}&quot;
+    },
+    &quot;m365TenantId&quot;: {
+      &quot;value&quot;: &quot;${{AAD_APP_TENANT_ID}}&quot;
+    },
+    &quot;m365OauthAuthorityHost&quot;: {
+      &quot;value&quot;: &quot;${{AAD_APP_OAUTH_AUTHORITY_HOST}}&quot;
+    }
+</code></pre>
+<h3 id="step-3-update-the-bicep-file">Step 3: Update the Bicep file</h3>
+<p>Teams Toolkit uses <a href="https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview" target="_blank">Bicep</a> to deploy applications to Microsoft Azure. In this step, you'll update the bicep file to set the Azure AD settings in the Azure App Service that will host your application.</p>
+<p>Open the <strong>infra/azure.bicep</strong> file and find this line:</p>
+<pre><code class="language-bicep">param location string = resourceGroup().location
+</code></pre>
+<p>Add these lines below that line.</p>
+<pre><code class="language-bicep">    param m365ClientId string
+    param m365TenantId string
+    param m365OauthAuthorityHost string
+    param m365ApplicationIdUri string = 'api://botid-${botAadAppClientId}'
+    @secure() param m365ClientSecret string
+</code></pre>
+<p>Now scroll to the bottom of the bicep file; notice the <code>output</code> lines are at the bottom. Just before them, insert the following lines to set the properties of the app service:</p>
+<pre><code class="language-bicep">resource webAppSettings 'Microsoft.Web/sites/config@2021-02-01' = {
+    name: '${webAppName}/appsettings'
+    properties: {
+    M365_CLIENT_ID: m365ClientId
+    M365_CLIENT_SECRET: m365ClientSecret
+    INITIATE_LOGIN_ENDPOINT: uri('https://${webApp.properties.defaultHostName}', 'auth-start.html')
+    M365_AUTHORITY_HOST: m365OauthAuthorityHost
+    M365_TENANT_ID: m365TenantId
+    M365_APPLICATION_ID_URI: m365ApplicationIdUri
+    BOT_ID: botAadAppClientId
+    BOT_PASSWORD: botAadAppClientSecret
+    RUNNING_ON_AZURE: '1'
+    }
+}
+</code></pre>
+<h2 id="exercise-4-update-the-application-code-for-sso">Exercise 4: Update the application code for SSO</h2>
+<p>In this exercise, you'll modify the code to accomodate the SSO process. These steps would be used for any message extension; the new functionality to share personal contacts will be added in Exercise 5.</p>
+<h3 id="step-1-provide-html-pages-for-the-consent-dialog">Step 1: Provide HTML pages for the consent dialog</h3>
+<p>The first time a user accesses your application, they may need to consent to giving the app permission to read their personal contacts. This is performed by the <a href="" target="_blank">TeamsFx library</a>, which we'll add shortly. TeamsFx will display a pop-up window; these HTML pages are to be displayed in that pop-up, and will redirect to Azure AD to do the actual consent.</p>
+<p>Create a new folder at the project root called <strong>public</strong>. </p>
+<p>Create a file <strong>auth-start.html</strong> and paste in the contents <a href="https://github.com/OfficeDev/TeamsFx/blob/main/packages/fx-core/templates/plugins/resource/aad/auth/bot/js/public/auth-start.html" target="_blank">from Teams Toolkit</a></p>
+<p>Create a file <strong>auth-end.html</strong> and paste in the contents <a href="https://github.com/OfficeDev/TeamsFx/blob/main/packages/fx-core/templates/plugins/resource/aad/auth/bot/js/public/auth-end.html" target="_blank">from Teams Toolkit</a></p>
+<details class="note" open="open">
+<summary>Quick way to copy from Github</summary>
+<p>There is a "Copy raw contents" button in the upper left corner that will copy the file contents with one click.
+<img alt="Copy raw contents button in GitHub" src="../../assets/new-adventure/Lab05-001-DownloadAADAppManifestTemplate.png" /></p>
+</details>
+<h3 id="step-2-install-packages">Step 2: Install packages</h3>
+<p>The application will use two npm packages as part of the SSO process:
+  * <a href="https://www.npmjs.com/package/isomorphic-fetch" target="_blank">isomorphic-fetch</a> - This is used to make a web service call to Azure Active Directory when exchanging the app's own access token for a Microsoft Graph access token
+  * <a href="https://learn.microsoft.com/microsoftteams/platform/toolkit/teamsfx-sdk" target="_blank">@microsoft/teamsfx</a> - This package will simplify the SSO code, and handle launching the consent dialog if needed</p>
+<p>Enter the following command line in the root of your project folder.</p>
+<pre><code class="language-sh">npm install @microsoft/teamsfx isomorphic-fetch
+</code></pre>
+<h3 id="step-3-update-your-indexjs-file-to-handle-sso-interactions">Step 3: Update your index.js file to handle SSO interactions</h3>
+<p>Open the <strong>index.js</strong> file; this is the main entry point for your bot's web service. Add these lines at the top:</p>
+<pre><code class="language-javascript">require(&quot;isomorphic-fetch&quot;);
+const path = require(&quot;path&quot;);
+</code></pre>
+<p>Find the code which handles messages for the bot:</p>
+<pre><code class="language-javascript">// Listen for incoming requests.
+server.post(&quot;/api/messages&quot;, async (req, res) =&gt; {
+  await adapter.process(req, res, async (context) =&gt; {
+    await bot.run(context);
+  });
+});
+</code></pre>
+<p>Replace this code with the following. The new code adds the ability to detect a [412] ;<a href="https://http.cat" target="_blank">HTTP status code</a>, "Precondition not met", which is thrown within TeamsFx if the user has not consented to the permissions requested. This is the situation that triggers the consent dialog to appear, and our code must not catch that error or execution will stop and the dialog code in TeamsFx won't run.</p>
+<p>The new code also adds a <code>get</code> request handler to serve up the authentication HTML pages we added earlier.</p>
+<pre><code class="language-javascript">// Listen for incoming requests.
+server.post(&quot;/api/messages&quot;, async (req, res) =&gt; {
+    await adapter.process(req, res, async (context) =&gt; {
+    await bot.run(context);
+    }).catch((err) =&gt; {
+    // Error message including &quot;412&quot; means it is waiting for user's consent, which is a normal process of SSO, shouldn't throw this error.
+    if(!err.message.includes(&quot;412&quot;)) {
+        throw err;
+        }
+    })
+});
+
+server.get(
+    &quot;/auth-:name(start|end).html&quot;,
+    restify.plugins.serveStatic({
+    directory: path.join(__dirname, &quot;public&quot;),
+    })
+);
+</code></pre>
+<h2 id="exercise-5-add-the-contacts-message-extension">Exercise 5: Add the Contacts message extension</h2>
+<p>Now that we've laid the groundwork for single sign-on, we'll implement the new Contacts message extension, which calls the Microsoft Graph API to access the user's personal contacts so they can share them in Teams.</p>
+<h3 id="step-1-add-the-contacts-message-extension-code">Step 1: Add the Contacts message extension code</h3>
+<p>Add a new file, <strong>contactME.js</strong> within the <strong>messageExtensions</strong> directory, and paste in this code:</p>
+<pre><code class="language-javascript">const axios = require(&quot;axios&quot;);
+const ACData = require(&quot;adaptivecards-templating&quot;);
+const { CardFactory } = require(&quot;botbuilder&quot;);
+
+const {
+    createMicrosoftGraphClientWithCredential,
+    OnBehalfOfUserCredential,
+    handleMessageExtensionQueryWithSSO
+} = require(&quot;@microsoft/teamsfx&quot;);
+require(&quot;isomorphic-fetch&quot;);
+
+const oboAuthConfig = {
+    authorityHost: process.env.M365_AUTHORITY_HOST,
+    clientId: process.env.M365_CLIENT_ID,
+    tenantId: process.env.M365_TENANT_ID,
+    clientSecret: process.env.M365_CLIENT_SECRET,
+};
+const initialLoginEndpoint = process.env.INITIATE_LOGIN_ENDPOINT;
+
+class ContactME {
+
+    // Get contacts given a query
+    async handleTeamsMessagingExtensionQuery (context, query) {
+        return await handleMessageExtensionQueryWithSSO(context, oboAuthConfig, initialLoginEndpoint,
+            &quot;Contacts.Read&quot;,
+            async (token) =&gt; {
+              return await this.#queryContacts(context, query, token);
+            });
+    }
+
+    // Get contacts given a query and an access token for the Microsoft Graph
+    async #queryContacts (context, query, token) {
+
+        try {
+
+            // Init OnBehalfOfUserCredential instance with SSO token
+            const credential = new OnBehalfOfUserCredential(token.ssoToken, oboAuthConfig);
+
+            // Add scope for your Azure AD app. For example: Mail.Read, etc.
+            const graphClient = createMicrosoftGraphClientWithCredential(credential, &quot;Contacts.Read&quot;);
+
+            // Call graph api use `graph` instance to get user profile information.
+            const response = await graphClient.api(&quot;/me/contacts?$select=id,displayName,emailAddresses&quot;).get();
+
+            // Since Graph doesn't allow sorting and filtering of contacts, do it here
+            // TODO: Handle multiple pages of contacts
+            let contacts = response.value.filter( contact =&gt; 
+                contact.displayName.toLowerCase().includes(query.toLowerCase()));
+
+            // Sort contacts by display name
+            contacts = contacts.sort((a, b) =&gt; (a.displayName &gt; b.displayName) ? 1 : -1);
+
+            const attachments = [];
+            contacts.forEach((contact) =&gt; {
+
+                const itemAttachment = CardFactory.heroCard(contact.displayName,);
+                const previewAttachment = CardFactory.thumbnailCard(contact.displayName);
+
+                previewAttachment.content.tap = {
+                    type: &quot;invoke&quot;,
+                    value: {    // Values passed to selectItem when an item is selected
+                        queryType: 'contactME',
+                        id: contact.id,
+                        displayName: contact.displayName,
+                        email: contact.emailAddresses[0]?.address
+                    },
+                };
+                const attachment = { ...itemAttachment, preview: previewAttachment };
+                attachments.push(attachment);
+            });
+
+            return {
+                composeExtension: {
+                    type: &quot;result&quot;,
+                    attachmentLayout: &quot;list&quot;,
+                    attachments: attachments,
+                }
+            };
+
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    handleTeamsMessagingExtensionSelectItem (context, item) {
+
+        const resultCard = CardFactory.heroCard(item.displayName, item.email);
+
+        return {
+            composeExtension: {
+                type: &quot;result&quot;,
+                attachmentLayout: &quot;list&quot;,
+                attachments: [resultCard]
+            },
+        };
+    };
+}
+
+module.exports.ContactME = new ContactME();
+</code></pre>
+<details class="note" open="open">
+<summary>Code walk-through</summary>
+<p>Take a moment to examine the code you just added.</p>
+<p>The <code>handleTeamsMessagingExtensionQuery()</code> function is called when a user enters a query into the message extension. To satisfy this request, we need an access token, so we return a call to the TeamsFx function <code>handleTeamsMessagingExtensionQueryWithSSO()</code>. This function takes care of the displaying a consent dialog if the user hasn't consented to the permissions. </p>
+<p>It includes an argument, <code>oboAuthConfig</code>, which contains the information needed to exchange the access token provided by Teams with an access token for a web service owned by some other application (such as the Microsoft Graph). This is used by <code>handleTeamsMessagingExtensionQueryWithSSO() and by the call to</code>OnBehalfOfUserCredential()`, which we call to get a Graph client to call the Microsoft Graph.</p>
+<p>Once you have the Graph client, it's simple to call the Graph API and get the list of clients. To try this and other Graph API calls interactively, try the <a href="https://developer.microsoft.com/graph/graph-explorer" target="_blank">Graph Explorer</a>. This is a great place to start when writing code to call the Microsoft Graph.</p>
+</details>
+<h3 id="step-2-modify-the-bot-to-displatch-messages-to-the-contacts-message-extension">Step 2: Modify the bot to displatch messages to the Contacts message extension</h3>
+<p>Open <strong>teamsBot.js</strong> and add calls to the contact message extension to the <code>switch</code> statements for query message extensions.</p>
+<p>Near the top of the file, add a <code>require</code> statement to import the contact message extension module:</p>
+<pre><code class="language-javascript">const { ContactME } = require(&quot;./messageExtensions/contactME&quot;);
+</code></pre>
+<p>In the <code>handleTeamsMessagingExtensionQuery</code> function, add another case to the switch statement:</p>
+<pre><code class="language-javascript">    case &quot;contactME&quot;:  // Search for contacts
+        return await ContactME.handleTeamsMessagingExtensionQuery(context, searchQuery);
+</code></pre>
+<p>In the <code>handleTeamsMessagingExtensionSelectItem</code> function, add another case to the switch statement:</p>
+<pre><code class="language-javascript">      case &quot;contactME&quot;:  // Search for contacts
+        return ContactME.handleTeamsMessagingExtensionSelectItem(context, item);
+</code></pre>
+<h3 id="step-3-add-the-contacts-message-extension-to-the-teams-app-manifest">Step 3: Add the Contacts message extension to the Teams app manifest</h3>
+<p>Edit <strong>appPackage/manifest.json</strong> and add a new entry to the <code>commands</code> array after the <code>replyToMessage</code> command.</p>
+<pre><code class="language-json">{ 
+        &quot;id&quot;: &quot;searchContacts&quot;, 
+        &quot;context&quot;: [ 
+            &quot;compose&quot;, 
+            &quot;commandBox&quot; 
+        ], 
+        &quot;description&quot;: &quot;Share a contact&quot;, 
+        &quot;title&quot;: &quot;Contact search&quot;, 
+        &quot;type&quot;: &quot;query&quot;, 
+        &quot;parameters&quot;: [ 
+            { 
+                &quot;name&quot;: &quot;contactME&quot;, 
+                &quot;title&quot;: &quot;Contact search&quot;, 
+                &quot;description&quot;: &quot;Type name or company&quot;, 
+                &quot;inputType&quot;: &quot;text&quot; 
+            } 
+        ] 
+} 
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If all the nested brackets are a bit confusing, feel free to copy the entire updated <strong>manifest.json</strong> file <a href="https://github.com/microsoft/app-camp/blob/main/src/teams-toolkit/Lab05-Lab05-ConsumeGraphAPI/NorthwindSuppliers/appPackage/manifest.json" target="_blank">from here</a></p>
+</div>
+<h2 id="exercise-6-run-the-application">Exercise 6: Run the application</h2>
+<h3 id="step-1-enter-test-data">Step 1: Enter test data</h3>
+<p>Your message extension won't be able to display contacts if you don't have any! So take a moment to ensure you've got a few contacts in Microsoft 365.</p>
+<p>1️⃣ From Microsoft Teams, click the "waffle" menu</p>
+<p>2️⃣ Select Microsoft Outlook</p>
+<p><img alt="User opens Microsoft Outlook" src="../../assets/new-adventure/Lab05-002-EnterTestData1.png" /></p>
+<p>1️⃣ Within Outlook, click the "Contacts" button</p>
+<p>2️⃣ Enter some new contacts</p>
+<p>The app is simple, and will only display the person or company name and email address. 
+If you want to play along with the business scenario, make them sound like suppliers. </p>
+<p><img alt="User creates contacts" src="../../assets/new-adventure/Lab05-003-EnterTestData2.png" /></p>
+<h3 id="step-2-run-the-application">Step 2: Run the application</h3>
+<p>Click F5, use the "Run" menu, or click the Run arrow in Teams Toolkit. When the browser opens and the installation dialog opens, add the application.</p>
+<p><img alt="Running the application" src="../../assets/new-adventure/Lab05-004-Run1.png" /></p>
+<p>Now the message extension will have two tabs for searching.</p>
+<p>1️⃣ Click the "Contact search" tab</p>
+<p>2️⃣ Enter one or more letters contained in the contact names you entered in Step 1</p>
+<p>The first time you do this, TeamsFx will realize that nobody has consented to the app permissions, and will display a message inviting you to sign in. </p>
+<p>3️⃣ Click the sign-in link to proceed</p>
+<p><img alt="Running the application" src="../../assets/new-adventure/Lab05-005-Run2.png" /></p>
+<p>Since you're running locally with <a href="https://code.visualstudio.com/docs/remote/tunnels" target="_blank">Developer Tunnels</a>, you'll see a warning screen. Users won't see this when your app is deployed.</p>
+<p><img alt="Running the application" src="../../assets/new-adventure/Lab05-006-Run3.png" /></p>
+<p>Click "Continue" and you'll be redirected to Azure AD, where you'll be asked to consent to the app's permissions. (You were directed there by <strong>public/auth-start.html</strong>), which TeamsFx displayed when it found you hadn't consented). Since you're a Microsoft 365 administrator, you're also given the option to "Consent on behalf of your organization" which will consent for every user in your tenant. </p>
+<p>Click "Accept" to consent to the permissions and run the message extension</p>
+<p><img alt="Running the application" src="../../assets/new-adventure/Lab05-007-Run4.png" /></p>
+<p>Now you should see a list of contacts which contain the search string.</p>
+<p><img alt="Running the application" src="../../assets/new-adventure/Lab05-008-Run5.png" /></p>
+<p>Click on one of the contacts to insert a Hero card with the contact information into the Teams conversation.</p>
+<p><img alt="Running the application" src="../../assets/new-adventure/Lab05-009-Run6.png" /></p>
+<h2 id="next-steps">Next steps</h2>
+<p><a href="/app-camp/new-adventure/06-run-in-outlook/">
+<img src="/app-camp/assets/new-adventure/arrow-next-step.png"
+             style="height: 36pt; margin-bottom: -14pt;">
+</a>
+At this point, you've mostly completed the labs. In <a href="../06-run-in-outlook/">the next lab</a>, you will run the Northwind Suppliers app in Microsoft Outlook. No code changes are required.</p>
+<script language="javascript">
+    function showCompletionPopup() {
+        let path = window.location.pathname;
+        path = path.endsWith('/') ? path.slice(0, -1) : path;
+        let pathArray = path.split('/');
+        let leafFolder = pathArray[pathArray.length-1];
+
+        let height = window.outerHeight / 1.5;
+        let width = window.outerWidth / 2;
+
+        window.open(`${window.origin}/app-camp/congrats/${leafFolder}`,
+                    'Congratulations!',
+                    `width=${width}, height=${height}, left=100, top=100,`);
+    }
+</script>
+
+<h2 id="congratulations">Congratulations!</h2>
+<p><button type="button" onclick="showCompletionPopup();" class="largeButton">When you have finished this lab,<br />please click this button to let us know!</button></p>
+<p>No personal information is collected; we only want to count how many people have completed the labs so we can continue to fund this work!</p>
+
+<h2 id="known-issues">Known issues</h2>
+<p>For the latest issues, or to file a bug report, see the <a href="https://github.com/microsoft/app-camp/issues" target="_blank">GitHub issues list</a> for this repository.</p>
+<p><img src="https://pnptelemetry.azurewebsites.net/app-camp/new-adventure/Lab05" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

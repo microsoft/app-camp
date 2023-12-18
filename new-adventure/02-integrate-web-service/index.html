@@ -1,0 +1,1890 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://microsoft.github.io/app-camp/new-adventure/02-integrate-web-service/">
+      
+      
+        <link rel="prev" href="../01-create-app/">
+      
+      
+        <link rel="next" href="../03-add-link-unfurling/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+    
+    
+      
+        <title>2 - Integrate business data with your app - Teams App Camp</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/labStyles.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#35258F" data-md-color-accent="#091F2C">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-2-integrate-business-data-with-your-app" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Teams App Camp" class="md-header__button md-logo" aria-label="Teams App Camp" data-md-component="logo">
+      
+  <img src="../../assets/microsoftteams_appcamp-webheader3.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Teams App Camp
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2 - Integrate business data with your app
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/microsoft/app-camp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/app-camp
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00-welcome/" class="md-tabs__link">
+          
+  
+  New Adventure
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../aad/A01-begin-app/" class="md-tabs__link">
+          
+  
+  A Path
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../bespoke/B01-begin-app/" class="md-tabs__link">
+          
+  
+  B Path
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../aad/ExtendedLabs/" class="md-tabs__link">
+          
+  
+  Extended labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Resources/" class="md-tabs__link">
+          
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Teams App Camp" class="md-nav__button md-logo" aria-label="Teams App Camp" data-md-component="logo">
+      
+  <img src="../../assets/microsoftteams_appcamp-webheader3.png" alt="logo">
+
+    </a>
+    Teams App Camp
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/microsoft/app-camp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/app-camp
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    New Adventure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            New Adventure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-welcome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to another App Camp adventure!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-create-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 - Create a new app with Teams Toolkit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2 - Integrate business data with your app
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    2 - Integrate business data with your app
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-1-update-the-app-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 1: Update the App Manifest
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 1: Update the App Manifest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-download-new-app-icons-and-place-them-in-the-apppackage-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Download new app icons and place them in the appPackage folder.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-update-the-manifestjson-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Update the manifest.json file
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-2-add-new-message-extension-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 2: Add new Message Extension code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 2: Add new Message Extension code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-add-message-extension-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Add Message Extension logic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-add-the-adaptive-card-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Add the adaptive card file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-install-the-adaptivecards-templating-npm-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Install the adaptivecards-templating npm package
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-update-the-teams-bot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Update the Teams Bot
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-3-run-the-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 3: Run the app
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-4-optional-add-stage-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 4 (Optional): Add Stage View
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 4 (Optional): Add Stage View">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-update-the-adaptive-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Update the adaptive card
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-add-to-the-valid-domains-in-the-app-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Add to the valid domains in the app manifest
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-run-the-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Run the app
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known issues
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-add-link-unfurling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 - Link Unfurling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-add-ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4 - Action message extensions with Open AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-add-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5 - Single Sign-on and Microsoft Graph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-run-in-outlook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6 - Run your app in Microsoft Outlook
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    A Path
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            A Path
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/A01-begin-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A01 - Start with Azure Active Directory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/A02-after-teams-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A02 - Create a Teams app with Azure AD Teams SSO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/A03-after-apply-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A03 - Teams styling and themes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    B Path
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            B Path
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B01-begin-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B01 - Start with a non-Azure Active Directory Identity System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B02-after-teams-login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B02 - Teams App with Bespoke Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B03-after-teams-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B03 - Enable Azure AD Single Sign-On
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B04-after-apply-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B04 - Teams styling and themes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Extended labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Extended labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/ExtendedLabs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Choose your own adventure!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/ConfigurableTab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a configurable tab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/Deeplink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Deep link to a personal Tab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/Dialog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Dialog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/MeetingConfigurableTab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Meeting app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/MessagingExtension/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Message Extension
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/Monetization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selling Your SaaS-based Teams Extension
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/ExtendTeamsApp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extend teams app to Outlook and Microsoft365 app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    More Information
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-a-box/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lead your own App Camp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<!--
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "dfh6fjbr5x");
+</script>
+-->
+
+<p><img alt="Teams App Camp" src="/app-camp/assets/new-adventure/app-camp-new-adventure-sm.png" /></p>
+<h1 id="lab-2-integrate-business-data-with-your-app">Lab 2: Integrate business data with your app</h1>
+<details class="info" open="open">
+<summary>Lab Outline</summary>
+<ul>
+<li><strong><a href="../01-create-app/">Lab 1 - Create your first app with Teams Toolkit</a></strong>
+In this lab, you'll set up Teams Toolkit and create a Teams message extension.</li>
+<li><strong><img src="/app-camp/assets/new-adventure/arrow-this-lab.png"
+         style="height: 36pt; margin-bottom: -14pt;"><a href="./">Lab 2 - Integrate business data with your application</a></strong>
+In this lab, you'll brand your new app as "Northwind Suppliers", and will provide the ability to insert data from the Northwind Traders sample database in a Microsoft Teams conversation. You'll also learn how to create and send adaptive cards with your message extension.</li>
+<li><strong><a href="../03-add-link-unfurling/">Lab 3 - Add link unfurling</a></strong>
+In this lab, you'll learn how to use Link Unfurling, which provides a custom summary when a user includes your URL in a conversation</li>
+<li><strong><a href="../04-add-ai/">Lab 4 - Action message extensions with Open AI</a></strong>
+In this lab, you'll learn how to build "Action" message extensions which can be launched directly
+or in the context menu of another Teams message to take action on it. The labs use the Open AI
+commercial web services (in Azure or using an Open AI account) to generate messages.</li>
+<li><strong><a href="../05-add-sso/">Lab 5 - Single Sign-on and Microsoft Graph</a></strong>
+In this lab, you'll learn how to authenticate users with Azure AD Single Sign-On, and to call the
+Microsoft Graph API. This same process would be used when calling any
+web service that's secured with Azure AD on behalf of the logged-in user.## Overview</li>
+<li><strong><a href="../06-run-in-outlook/">Lab 6 - Run the app in Outlook</a></strong>
+In this lab, you'll run the Northwind Suppliers application in Microsoft Outlook.</li>
+</ul>
+</details>
+<p>In the previous lab, you created and ran a Search Message Extension using Teams Toolkit for Visual Studio Code. This is a fairly generic message extension that searches npm packages. In this lab, you'll learn how to brand your application, use it to call an enterprise web service, and update it to send an adaptive card instead of a simpler Hero card.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>App will be listed as Northwind Suppliers with an appropriate app logo</li>
+<li>App will query the Northwind Suppliers database and allow searching for suppliers by name</li>
+<li>When a supplier is selected, the app will insert an adaptive card into the conversation</li>
+</ul>
+<h2 id="exercise-1-update-the-app-manifest">Exercise 1: Update the App Manifest</h2>
+<h3 id="step-1-download-new-app-icons-and-place-them-in-the-apppackage-folder">Step 1: Download new app icons and place them in the <strong>appPackage</strong> folder.</h3>
+<ul>
+<li>
+<p>The large icon should be in color and 192x192 pixels:
+   <a href="/app-camp/assets/new-adventure/northwind-suppliers-192.png" target="_blank">northwind-suppliers-192.png</a> </p>
+<p><img src="/app-camp/assets/new-adventure/northwind-suppliers-192.png" alt="Large icon" width="192" height="192" /></p>
+</li>
+<li>
+<p>The small icon should be monochrome and 32x32 pixels:
+   <a href="/app-camp/assets/new-adventure/northwind-suppliers-32.png" target="_blank">northwind-suppliers-32.png</a> </p>
+<p><img src="/app-camp/assets/new-adventure/northwind-suppliers-32.png" alt="Large icon" width="32" height="32" /></p>
+</li>
+</ul>
+<h3 id="step-2-update-the-manifestjson-file">Step 2: Update the <strong>manifest.json</strong> file</h3>
+<p>Close the browser to stop debugging your project. Then, in Visual Studio Code, open the Teams manifest template, <strong>manifest.json</strong>, which is also in the <strong>appPackage</strong> folder. Replace the icon file names with the new file names.</p>
+<pre><code class="language-json">&quot;icons&quot;: {
+    &quot;color&quot;: &quot;northwind-suppliers-192.png&quot;,
+    &quot;outline&quot;: &quot;northwind-suppliers-32.png&quot;
+},
+</code></pre>
+<p>Scroll down and update the name and description fields in the manifest; these will be shown to users when they view your application in Teams. Note that the token ${{TEAMSFX_ENV}}` be expanded to indicate the Teams Toolkit current development environment, which is currently "LOCAL". Later if you wish you can create additional environments such as "DEV", "STAGING", etc.</p>
+<pre><code class="language-json">&quot;name&quot;: {
+    &quot;short&quot;: &quot;Northwind Suppliers-${{TEAMSFX_ENV}}&quot;,
+    &quot;full&quot;: &quot;Northwind Suppliers - Teams App Camp New Adventure&quot;
+},
+&quot;description&quot;: {
+    &quot;short&quot;: &quot;Access and share Northwind data in Microsoft Teams&quot;,
+    &quot;full&quot;: &quot;Sample application from Teams App Camp, New Adventure&quot;
+},
+</code></pre>
+<p>While you're there, change the accent color to a lighter shade of blue in the same hue as the large icon:</p>
+<pre><code class="language-json">&quot;accentColor&quot;: &quot;#9EDBF9&quot;,
+</code></pre>
+<p>Continuing to scroll down, under <code>composeExtensions:</code> <code>commands:</code>, edit the title and description of the message extension command. These are the settings that control how the search box is presented to the user.</p>
+<pre><code class="language-json">    &quot;commands&quot;: [
+        {
+            &quot;id&quot;: &quot;searchQuery&quot;,
+            &quot;context&quot;: [
+                &quot;compose&quot;,
+                &quot;commandBox&quot;
+            ],
+            &quot;description&quot;: &quot;Look up a Northwind supplier&quot;,
+            &quot;title&quot;: &quot;Supplier search&quot;,
+            &quot;type&quot;: &quot;query&quot;,
+            &quot;parameters&quot;: [
+                {
+                    &quot;name&quot;: &quot;searchQuery&quot;,
+                    &quot;title&quot;: &quot;Supplier search&quot;,
+                    &quot;description&quot;: &quot;Look up a Northwind supplier&quot;,
+                    &quot;inputType&quot;: &quot;text&quot;
+                }
+            ]
+        }
+    ]
+</code></pre>
+<p>Now start your application again - in fact, if it's running, you should stop and start it so Teams Toolkit builds an updated app manifest. Now it should look a lot more "Northwindy", but of course it still just queries the npm data.</p>
+<p><img alt="App is now branded" src="../../assets/new-adventure/Lab02-001-Install-Branded-App.png" /></p>
+<p><img alt="Enter a search query" src="../../assets/new-adventure/Lab02-002-Run%20Branded%20App.png" /></p>
+<h2 id="exercise-2-add-new-message-extension-code">Exercise 2: Add new Message Extension code</h2>
+<p>In this and the labs that follow, we'll be adding multiple different message extensions to the Northwind Suppliers application. For that reason, we'll put the code for each message extension in separate modules instead of placing it in-line in the <a href="" target="_blank">teamsBot.js</a> file.</p>
+<h3 id="step-1-add-message-extension-logic">Step 1: Add Message Extension logic</h3>
+<p>To begin, create a folder in the <strong>NorthwindSuppliers</strong> directory called <strong>messageExtensions</strong>. Then create a new file in the <strong>messageExtensions</strong> folder called <strong>supplierME.js</strong> and copy in the following code:</p>
+<pre><code class="language-javascript">const axios = require(&quot;axios&quot;);
+const ACData = require(&quot;adaptivecards-templating&quot;);
+const { CardFactory } = require(&quot;botbuilder&quot;);
+
+class SupplierME {
+
+    // Get suppliers given a query
+    async handleTeamsMessagingExtensionQuery (context, query) {
+
+        try {
+            const response = await axios.get(
+                `https://services.odata.org/V4/Northwind/Northwind.svc/Suppliers` +
+                `?$filter=contains(tolower(CompanyName),tolower('${query}'))` +
+                `&amp;$orderby=CompanyName&amp;$top=8`
+            );
+
+            const attachments = [];
+            response.data.value.forEach((supplier) =&gt; {
+
+                // Free flag images from https://flagpedia.net/
+                const flagUrl = this.#getFlagUrl(supplier.Country);
+                const imageUrl = `https://picsum.photos/seed/${supplier.SupplierID}/300`;
+
+                const itemAttachment = CardFactory.heroCard(supplier.CompanyName);
+                const previewAttachment = CardFactory.thumbnailCard(supplier.CompanyName,
+                    `${supplier.City}, ${supplier.Country}`, [flagUrl]);
+
+                previewAttachment.content.tap = {
+                    type: &quot;invoke&quot;,
+                    value: {    // Values passed to selectItem when an item is selected
+                        queryType: 'supplierME',
+                        SupplierID: supplier.SupplierID,
+                        flagUrl: flagUrl,
+                        imageUrl: imageUrl,
+                        Address: supplier.Address || &quot;&quot;,
+                        City: supplier.City || &quot;&quot;,
+                        CompanyName: supplier.CompanyName || &quot;unknown&quot;,
+                        ContactName: supplier.ContactName || &quot;&quot;,
+                        ContactTitle: supplier.ContactTitle || &quot;&quot;,
+                        Country: supplier.Country || &quot;&quot;,
+                        Fax: supplier.Fax || &quot;&quot;,
+                        Phone: supplier.Phone || &quot;&quot;,
+                        PostalCode: supplier.PostalCode || &quot;&quot;,
+                        Region: supplier.Region || &quot;&quot;
+                    },
+                };
+                const attachment = { ...itemAttachment, preview: previewAttachment };
+                attachments.push(attachment);
+            });
+
+            return {
+                composeExtension: {
+                    type: &quot;result&quot;,
+                    attachmentLayout: &quot;list&quot;,
+                    attachments: attachments,
+                }
+            };
+
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    handleTeamsMessagingExtensionSelectItem (context, selectedValue) {
+
+        // Read card from JSON file
+        const templateJson = require('../cards/supplierCard.json');
+        const template = new ACData.Template(templateJson);
+        const card = template.expand({
+            $root: selectedValue
+        });
+
+        const resultCard = CardFactory.adaptiveCard(card);
+
+        return {
+            composeExtension: {
+                type: &quot;result&quot;,
+                attachmentLayout: &quot;list&quot;,
+                attachments: [resultCard]
+            },
+        };
+
+    };
+
+    // Get a flag image URL given a country name
+    // Thanks to https://flagpedia.net for providing flag images
+    #getFlagUrl (country) {
+
+        const COUNTRY_CODES = {
+            &quot;australia&quot;: &quot;au&quot;,
+            &quot;brazil&quot;: &quot;br&quot;,
+            &quot;canada&quot;: &quot;ca&quot;,
+            &quot;denmark&quot;: &quot;dk&quot;,
+            &quot;france&quot;: &quot;fr&quot;,
+            &quot;germany&quot;: &quot;de&quot;,
+            &quot;finland&quot;: &quot;fi&quot;,
+            &quot;italy&quot;: &quot;it&quot;,
+            &quot;japan&quot;: &quot;jp&quot;,
+            &quot;netherlands&quot;: &quot;nl&quot;,
+            &quot;norway&quot;: &quot;no&quot;,
+            &quot;singapore&quot;: &quot;sg&quot;,
+            &quot;spain&quot;: &quot;es&quot;,
+            &quot;sweden&quot;: &quot;se&quot;,
+            &quot;uk&quot;: &quot;gb&quot;,
+            &quot;usa&quot;: &quot;us&quot;
+        };
+
+        return `https://flagcdn.com/32x24/${COUNTRY_CODES[country.toLowerCase()]}.png`;
+
+    };
+}
+
+module.exports.SupplierME = new SupplierME();
+</code></pre>
+<details class="note" open="open">
+<summary>Code walk-through</summary>
+<p>Here are some highlights about the code you just copied:</p>
+<ul>
+<li>
+<p><u><code>handleTeamsMessagingExtensionQuery (context, query)</code></u> - This function will be called when someone types something into the search box in your message extension. That means you might get partial queries. You can also tell Teams to call your message extension as soon as the user opens it up - with an empty query - using the <a href="https://learn.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema#composeextensionscommands" target="_blank"><code>initialRun</code> parameter</a> in the manifest.</p>
+<p>Notice that this function is calling a public web service, which is a sample <a href="https://www.odata.org/odata-services/#3" target="_blank">OData database</a> hosted by the <a href="https://www.odata.org/" target="_blank">OData team</a>  and including an <a href="https://www.odata.org/getting-started/basic-tutorial/#queryData" target="_blank">OData filter</a> to select suppliers containing the user's query. It's worth learning OData because it's used on the <a href="https://developer.microsoft.com/graph" target="_blank">Microsoft Graph</a>, which is the server-side API for Microsoft 365 and Microsoft Teams.</p>
+<p>The function returns an array of <a href="https://learn.microsoft.com/azure/bot-service/bot-builder-howto-add-media-attachments?view=azure-bot-service-4.0&amp;tabs=javascript" target="_blank">attachments</a>. Each of these attachments includes an <code>itemAttachment</code> (which will be shown by default if the user selects an item), a <code>previewAttachment</code>, which is shown in the search results list, and a <code>value</code> which is passed to the <code>handleTeamsMessagingExtensionSelectItem</code> when someone selects an item in the search results</p>
+</li>
+<li>
+<p><u><code>handleTeamsMessagingExtensionSelectItem (context, selectedValue)</code></u> - This function will be called when a user clicks an item in the query search results. The <code>value</code> for that item (from the previous function) is passed in, so we can hand ourselves the data we need to create the adaptive card.</p>
+<p>The code binds this value to the adaptive card template with this code:</p>
+<pre><code>const templateJson = require('./supplierCard.json');
+const template = new ACData.Template(templateJson);
+const card = template.expand({
+    $root: selectedValue
+});
+</code></pre>
+<p>The function returns the adaptive card for insertion in the compose box in Microsoft Teams.</p>
+</li>
+<li>
+<p><u><code>#getFlagUrl (country)</code></u> - The cards were boring without any pictures, so this private function finds a flag image for each supplier based on its country. Thanks to <a href="https://flagpedia.net" target="_blank">https://flagpedia.net</a> for the wonderful collection of national flags!</p>
+</li>
+</ul>
+</details>
+<h3 id="step-2-add-the-adaptive-card-file">Step 2: Add the adaptive card file</h3>
+<p>The new message extension will use an adaptive card to display supplier data. Adaptive cards are JSON structures defining the card to be displayed; we'll use <a href="https://learn.microsoft.com/en-us/adaptive-cards/templating/" target="_blank">adaptive card templating</a> so we can keep the JSON in its own file and inject the data at runtime.</p>
+<p>Begin by creating a new folder <strong>cards</strong> under the <strong>NorthwindSuppliers</strong> folder. Then create a file, <strong>supplierCard.json</strong> in the <strong>cards</strong> folder and paste in the following JSON:</p>
+<pre><code class="language-json">{
+    &quot;type&quot;: &quot;AdaptiveCard&quot;,
+    &quot;$schema&quot;: &quot;http://adaptivecards.io/schemas/adaptive-card.json&quot;,
+    &quot;version&quot;: &quot;1.4&quot;,
+    &quot;body&quot;: [
+        {
+            &quot;type&quot;: &quot;ColumnSet&quot;,
+            &quot;columns&quot;: [
+                {
+                    &quot;type&quot;: &quot;Column&quot;,
+                    &quot;width&quot;: &quot;50px&quot;,
+                    &quot;verticalContentAlignment&quot;: &quot;center&quot;,
+                    &quot;items&quot;: [
+                        {
+                            &quot;type&quot;: &quot;Container&quot;,
+                            &quot;items&quot;: [
+                                {
+                                    &quot;type&quot;: &quot;Image&quot;,
+                                    &quot;horizontalAlignment&quot;: &quot;center&quot;,
+                                    &quot;url&quot;: &quot;${flagUrl}&quot;,
+                                    &quot;altText&quot;: &quot;${Country} flag&quot;
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    &quot;type&quot;: &quot;Column&quot;,
+                    &quot;items&quot;: [
+                        {
+                            &quot;type&quot;: &quot;Container&quot;,
+                            &quot;items&quot;: [
+                                {
+                                    &quot;type&quot;: &quot;TextBlock&quot;,
+                                    &quot;size&quot;: &quot;extraLarge&quot;,
+                                    &quot;weight&quot;: &quot;lighter&quot;,
+                                    &quot;text&quot;: &quot;${CompanyName}&quot;,
+                                    &quot;wrap&quot;: true
+                                }
+                            ],
+                            &quot;bleed&quot;: true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            &quot;type&quot;: &quot;ColumnSet&quot;,
+            &quot;columns&quot;: [
+                {
+                    &quot;type&quot;: &quot;Column&quot;,
+                    &quot;items&quot;: [
+                        {
+                            &quot;type&quot;: &quot;Container&quot;,
+                            &quot;spacing&quot;: &quot;none&quot;,
+                            &quot;style&quot;: &quot;emphasis&quot;,
+                            &quot;items&quot;: [
+                                {
+                                    &quot;type&quot;: &quot;TextBlock&quot;,
+                                    &quot;spacing&quot;: &quot;small&quot;,
+                                    &quot;text&quot;: &quot;${Address}&quot;,
+                                    &quot;wrap&quot;: true
+                                },
+                                {
+                                    &quot;type&quot;: &quot;TextBlock&quot;,
+                                    &quot;spacing&quot;: &quot;none&quot;,
+                                    &quot;text&quot;: &quot;${City} ${Region} ${PostalCode} ${Country}&quot;,
+                                    &quot;wrap&quot;: true
+                                },
+                                {
+                                    &quot;type&quot;: &quot;TextBlock&quot;,
+                                    &quot;spacing&quot;: &quot;none&quot;,
+                                    &quot;text&quot;: &quot;${Phone}&quot;,
+                                    &quot;wrap&quot;: true
+                                },
+                                {
+                                    &quot;type&quot;: &quot;TextBlock&quot;,
+                                    &quot;spacing&quot;: &quot;large&quot;,
+                                    &quot;text&quot;: &quot;Contact:&quot;,
+                                    &quot;wrap&quot;: true
+                                },
+                                {
+                                    &quot;type&quot;: &quot;TextBlock&quot;,
+                                    &quot;spacing&quot;: &quot;none&quot;,
+                                    &quot;text&quot;: &quot;${ContactName}&quot;,
+                                    &quot;wrap&quot;: true
+                                },
+                                {
+                                    &quot;type&quot;: &quot;TextBlock&quot;,
+                                    &quot;spacing&quot;: &quot;none&quot;,
+                                    &quot;text&quot;: &quot;${ContactTitle}&quot;,
+                                    &quot;wrap&quot;: true
+                                }
+                            ],
+                            &quot;bleed&quot;: true,
+                            &quot;height&quot;: &quot;stretch&quot;
+                        }
+                    ],
+                    &quot;width&quot;: 45
+                },
+                {
+                    &quot;type&quot;: &quot;Column&quot;,
+                    &quot;items&quot;: [
+                        {
+                            &quot;type&quot;: &quot;Container&quot;,
+                            &quot;height&quot;: &quot;stretch&quot;,
+                            &quot;items&quot;: [
+                                {
+                                    &quot;type&quot;: &quot;ColumnSet&quot;,
+                                    &quot;columns&quot;: [
+                                        {
+                                            &quot;type&quot;: &quot;Column&quot;,
+                                            &quot;verticalContentAlignment&quot;: &quot;center&quot;,
+                                            &quot;items&quot;: [
+                                                {
+                                                    &quot;type&quot;: &quot;Image&quot;,
+                                                    &quot;url&quot;: &quot;${imageUrl}&quot;
+                                                }
+                                            ],
+                                            &quot;width&quot;: &quot;stretch&quot;
+                                        }
+                                    ]
+                                },
+                                {
+                                    &quot;type&quot;: &quot;ActionSet&quot;,
+                                    &quot;separator&quot;: true,
+                                    &quot;actions&quot;: [
+                                        {
+                                            &quot;type&quot;: &quot;Action.OpenUrl&quot;,
+                                            &quot;title&quot;: &quot;Web site&quot;,
+                                            &quot;url&quot;: &quot;https://adaptivecards.io&quot;
+                                        }
+                                    ],
+                                    &quot;spacing&quot;: &quot;medium&quot;
+                                }
+                            ]
+                        }
+                    ],
+                    &quot;width&quot;: 55
+                }
+            ],
+            &quot;height&quot;: &quot;stretch&quot;
+        }
+    ]
+}
+</code></pre>
+<details class="note" open="open">
+<summary>Code walk-through</summary>
+<p>Visit <a href="https://adaptivecards.io" target="_blank">https://adaptivecards.io</a> to learn all about adaptive cards. There are a ton of samples and also an <a href="https://adaptivecards.io/designer/" target="_blank">adaptive card designer</a>. The card used in this lab was created using this designer.</p>
+<p>The JSON includes data binding expressions using the <a href="https://learn.microsoft.com/adaptive-cards/templating/language" target="_blank">Adaptive Cards Template Language</a>. For example, the expression <code>${flagUrl}</code> inserts the value of <code>selectedValue.flagUrl</code> in the message extension code.</p>
+</details>
+<h3 id="step-3-install-the-adaptivecards-templating-npm-package">Step 3: Install the adaptivecards-templating npm package</h3>
+<p>The templating won't work without the adaptive card templates library, so go to a command line and, within the <strong>NorthwindSuppliers</strong> folder run this command to install it.</p>
+<pre><code class="language-shell">npm install adaptivecards-templating
+</code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Easy way to open a command line in Visual Studio Code</p>
+<p>You can open a command line right in Visual Studio code, even if Teams Toolkit is alredy using the terminal window. Just go to the Terminal menu and select "New Terminal" or, on Windows, type "ctrl+shift+back tick". Notice that there are tiny tabs to the right of the terminal window that allow you to select which one you're looking at - and Teams Toolkit sometimes has a few of them running!</p>
+</div>
+<h2 id="step-4-update-the-teams-bot">Step 4: Update the Teams Bot</h2>
+<p>Recall that message extensions are web services that use the Azure Bot Framework to communicate with Microsoft Teams. So of course, there is a bot; Teams Toolkit generated the bot code in a file that's aptly called <strong>teamsBot.js</strong>.</p>
+<p>In this step, we'll remove the call to the npm library and instead call the message extension code we just added. We'll set up a couple of switch statements that will make it easier to add more message extensions in the labs that follow.</p>
+<p>Edit <strong>teamsBot.js</strong> and replace the <code>require</code> statements at the top with these:</p>
+<pre><code class="language-javascript">const { TeamsActivityHandler } = require(&quot;botbuilder&quot;);
+const { SupplierME } = require(&quot;./messageExtensions/supplierME&quot;);
+</code></pre>
+<p>This gives us a reference to the supplierME message extension, and drops the requirement for axios and the card actory since they're being handled in the supplierME code.</p>
+<p>Next, replace the <code>handleTeamsMessagingExtensionQuery()</code> function with this shorter version:</p>
+<pre><code class="language-javascript">  async handleTeamsMessagingExtensionQuery(context, query) {
+
+    const queryName = query.parameters[0].name;
+    const searchQuery = query.parameters[0].value;
+
+    switch (queryName) {
+      case &quot;searchQuery&quot;:  // Search for suppliers
+        return await SupplierME.handleTeamsMessagingExtensionQuery(context, searchQuery);
+      default:
+        return null;
+    }
+  }
+</code></pre>
+<p>Notice that the switch statement uses the <code>queryName</code> "searchQuery" to determine that the request is for our new SupplierME message extension. This is because the parameter <code>searchQuery</code> was specified in this message extension command back in Exercise 1 Step 2.</p>
+<p><img alt="Screen shot of code" src="../../assets/new-adventure/Lab02-003-Message-extenion-parameter-name.png" /></p>
+<p>Finally, replace the <code>handleTeamsMessagingExtensionSelectItem()</code> with this version, which will dispatch SelectItem events to our message extension.</p>
+<pre><code class="language-javascript">  async handleTeamsMessagingExtensionSelectItem(context, item) {
+
+    switch (item.queryType) {
+      case &quot;supplierME&quot;:  // Search for suppliers
+        return SupplierME.handleTeamsMessagingExtensionSelectItem(context, item);
+      default:
+        return null;
+    }
+
+  }
+</code></pre>
+<h2 id="exercise-3-run-the-app">Exercise 3: Run the app</h2>
+<p>It's time to run the app once again and test your message extension. </p>
+<p>1️⃣ After the initial run, you can access you app in whatever conversation it was installed in by clicking the "..." in the compose box </p>
+<p>2️⃣ Select the application to open the search box</p>
+<p><img alt="Open search message extension" src="../../assets/new-adventure/Lab02-005-Run2.png" /></p>
+<p>1️⃣ Enter a search query and you'll be presented with a list of Northwind suppliers, complete with their national flags</p>
+<p>2️⃣ Select a flag to insert an adaptive card into the conversation</p>
+<p><img alt="Enter a query, select a result" src="../../assets/new-adventure/Lab02-006-Run3.png" /></p>
+<p>At this point you can edit the message as you wish to add some more information along with the adaptive card.</p>
+<p><img alt="Adaptive card appears in message" src="../../assets/new-adventure/Lab02-007-Run4.png" /></p>
+<p>The card stays in the conversation, providing information and the ability to take action.</p>
+<p><img alt="Adaptive card is in the conversation" src="../../assets/new-adventure/Lab02-008-Run5.png" /></p>
+<div class="admonition check">
+<p class="admonition-title">Challenge</p>
+<p>Here's something to try on your own! Here is a <a href="../../aad/MessagingExtension/" target="_blank">message extension lab</a> that generates a card that can update the back-end data, so users can take action directly from the adaptive card. It was written without Teams Toolkit, but the code will be about the same.</p>
+<p>See if you can figure out how to add a feature that sends data back to the
+Northwind Suppliers app. To do that, you'll need to:</p>
+<ul>
+<li>
+<p>Update the adaptive card to include one or more input controls and a submit button</p>
+</li>
+<li>
+<p>Add code to <strong>TeamsBot.js</strong> that will run when a card is submitted (hint: it's another override of an ActivityHandler method)</p>
+</li>
+</ul>
+<p>You shouldn't need to change the Teams manifest, but you might have a challenge finding a place to write the data out to since we don't really have a database. But it's still worth experimenting with!</p>
+</div>
+<h2 id="exercise-4-optional-add-stage-view">Exercise 4 (Optional): Add Stage View</h2>
+<p>You may notice that the adaptive card you added has a "View" button which launches a web browser view of the <a href="https://adaptivecards.io" target="_blank">Adaptive Cards web site</a>. This uses the "OpenUrl" action, which opens a web page.</p>
+<p>While this is reasonable, it leads users away from Microsoft Teams and your application running there! An easy solution is to display the web site in <a href="https://learn.microsoft.com/microsoftteams/platform/tabs/tabs-link-unfurling#invoke-stage-view-from-adaptive-card">stage view</a>.</p>
+<p>In this optional exercise you'll add another vbutton to the card which displays the same web site in Stage View.</p>
+<h3 id="step-1-update-the-adaptive-card">Step 1: Update the adaptive card</h3>
+<p>Open the <strong>cards/supplierCard.json</strong> file you added earlier in this lab. Scroll down to the <code>"type": "ActionSet"</code> element and add another action to the <code>"actions"</code> array before the <code>"type": "Action.OpenUrl"</code> action.</p>
+<pre><code class="language-json">    {
+        &quot;type&quot;: &quot;Action.Submit&quot;,
+        &quot;title&quot;: &quot;Stage view&quot;,
+        &quot;data&quot;: {
+            &quot;msteams&quot;: {
+                &quot;type&quot;: &quot;invoke&quot;,
+                &quot;value&quot;: {
+                    &quot;type&quot;: &quot;tab/tabInfoAction&quot;,
+                    &quot;tabInfo&quot;: {
+                        &quot;contentUrl&quot;: &quot;https://adaptivecards.io&quot;,
+                        &quot;websiteUrl&quot;: &quot;https://adaptivecards.io&quot;,
+                        &quot;name&quot;: &quot;WebView&quot;,
+                        &quot;entityId&quot;: &quot;entityId&quot;
+                    }
+                }
+            }
+        }
+    },
+
+</code></pre>
+<h3 id="step-2-add-to-the-valid-domains-in-the-app-manifest">Step 2: Add to the valid domains in the app manifest</h3>
+<p>The action you just added doesn't require any supporting code, but it will fail if the <code>"contentUrl"</code> is not included in the Teams app manifest. This is a security feature - as an app developer, you decide what web servers are valid for your app, and Teams blocks any others.</p>
+<p>To add this, open the <strong>appPackage/manifest.json</strong> file. Scroll down to find the <code>"validDomains"</code> object and add <code>"adaptivecards.io"</code> so the web page can be displayed in Teams.</p>
+<pre><code class="language-json">&quot;validDomains&quot;: [
+    &quot;adaptivecards.io&quot;
+],
+</code></pre>
+<h3 id="step-3-run-the-app">Step 3: Run the app</h3>
+<p>Stop and restart your application in Teams Toolkit to force the app manifest to be updated. When you run the app, you will see a second button on each adaptive card, "Stage View".</p>
+<p><img alt="Stageview button" src="../../assets/new-adventure/Lab01-015-StageView1.png" /></p>
+<p>When you click the button, the Adaptive Cards web site will appear in a pop-up window in Teams.</p>
+<p><img alt="Adaptive card web site appears in stage view" src="../../assets/new-adventure/Lab01-016-StageView2.png" /></p>
+<p>Note that this won't work if the target web site includes code that prohibits running in an IFrame. Since Teams renders these pages in an IFrame, this requires changes to the target web site. Such a web site could check the `window.ref</p>
+<h2 id="next-steps">Next steps</h2>
+<p><a href="/app-camp/new-adventure/03-add-link-unfurling/">
+<img src="/app-camp/assets/new-adventure/arrow-next-step.png"
+             style="height: 36pt; margin-bottom: -14pt;">
+</a>
+After completing this lab, you may continue to the next lab in this learning path, <a href="../03-add-link-unfurling/">Lab 3 - Add link unfurling</a>.</p>
+<h2 id="known-issues">Known issues</h2>
+<p>For the latest issues, or to file a bug report, see the <a href="https://github.com/microsoft/app-camp/issues" target="_blank">GitHub issues list</a> for this repository.</p>
+<p><img src="https://pnptelemetry.azurewebsites.net/app-camp/new-adventure/Lab02" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

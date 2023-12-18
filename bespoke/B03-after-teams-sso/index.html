@@ -1,0 +1,2088 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://microsoft.github.io/app-camp/bespoke/B03-after-teams-sso/">
+      
+      
+        <link rel="prev" href="../B02-after-teams-login/">
+      
+      
+        <link rel="next" href="../B04-after-apply-styling/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+    
+    
+      
+        <title>B03 - Enable Azure AD Single Sign-On - Teams App Camp</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/labStyles.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#35258F" data-md-color-accent="#091F2C">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-b03-enable-azure-ad-single-sign-on" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Teams App Camp" class="md-header__button md-logo" aria-label="Teams App Camp" data-md-component="logo">
+      
+  <img src="../../assets/microsoftteams_appcamp-webheader3.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Teams App Camp
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              B03 - Enable Azure AD Single Sign-On
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/microsoft/app-camp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/app-camp
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../new-adventure/00-welcome/" class="md-tabs__link">
+          
+  
+  New Adventure
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../aad/A01-begin-app/" class="md-tabs__link">
+          
+  
+  A Path
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../B01-begin-app/" class="md-tabs__link">
+          
+  
+  B Path
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../aad/ExtendedLabs/" class="md-tabs__link">
+          
+  
+  Extended labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Resources/" class="md-tabs__link">
+          
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Teams App Camp" class="md-nav__button md-logo" aria-label="Teams App Camp" data-md-component="logo">
+      
+  <img src="../../assets/microsoftteams_appcamp-webheader3.png" alt="logo">
+
+    </a>
+    Teams App Camp
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/microsoft/app-camp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/app-camp
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    New Adventure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            New Adventure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/00-welcome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to another App Camp adventure!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/01-create-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 - Create a new app with Teams Toolkit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/02-integrate-web-service/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 - Integrate business data with your app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/03-add-link-unfurling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 - Link Unfurling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/04-add-ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4 - Action message extensions with Open AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/05-add-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5 - Single Sign-on and Microsoft Graph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/06-run-in-outlook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6 - Run your app in Microsoft Outlook
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    A Path
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            A Path
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/A01-begin-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A01 - Start with Azure Active Directory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/A02-after-teams-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A02 - Create a Teams app with Azure AD Teams SSO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/A03-after-apply-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A03 - Teams styling and themes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    B Path
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            B Path
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../B01-begin-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B01 - Start with a non-Azure Active Directory Identity System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../B02-after-teams-login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B02 - Teams App with Bespoke Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    B03 - Enable Azure AD Single Sign-On
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    B03 - Enable Azure AD Single Sign-On
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-b03-enable-azure-ad-single-sign-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab B03: Enable Azure AD Single Sign-On
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab B03: Enable Azure AD Single Sign-On">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-register-your-application-with-azure-ad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 1: Register your application with Azure AD
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 1: Register your application with Azure AD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-register-your-application-in-azure-active-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Register your application in Azure Active Directory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-grant-your-application-permission-to-call-the-microsoft-graph-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Grant your application permission to call the Microsoft Graph API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-expose-an-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Expose an API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-authorize-microsoft-teams-to-log-users-into-your-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Authorize Microsoft Teams to log users into your application
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-2-update-the-teams-application-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 2: Update the Teams application package
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 2: Update the Teams application package">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-add-the-azure-ad-information-to-the-env-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Add the Azure AD information to the .env file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-add-the-azure-ad-information-to-your-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Add the Azure AD information to your manifest
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-modify-the-packaging-code-to-include-the-client_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Modify the packaging code to include the CLIENT_ID
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-rebuild-the-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Rebuild the package
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-3-update-the-application-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 3: Update the application source code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 3: Update the application source code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-update-your-packagejson-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Update your package.json file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-add-an-identity-mapping-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Add an identity mapping screen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-return-the-username-and-password-from-the-login-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Return the username and password from the login page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-modify-the-logoff-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Modify the logoff code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-nodify-the-identity-server-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Nodify the identity server code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-4-test-your-application-in-microsoft-teams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 4: Test your application in Microsoft Teams
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 4: Test your application in Microsoft Teams">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-start-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Start the application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-upload-the-app-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Upload the app package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-run-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Run the application
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congratulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Congratulations!
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Congratulations!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../B04-after-apply-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B04 - Teams styling and themes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Extended labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Extended labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/ExtendedLabs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Choose your own adventure!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/ConfigurableTab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a configurable tab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/Deeplink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Deep link to a personal Tab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/Dialog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Dialog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/MeetingConfigurableTab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Meeting app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/MessagingExtension/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Message Extension
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/Monetization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selling Your SaaS-based Teams Extension
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aad/ExtendTeamsApp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extend teams app to Outlook and Microsoft365 app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    More Information
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-a-box/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lead your own App Camp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>B03 - Enable Azure AD Single Sign-On</h1>
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "dfh6fjbr5x");
+</script>
+
+<p><img alt="Teams App Camp" src="/app-camp/assets/code-lab-banner.png" /></p>
+<h2 id="lab-b03-enable-azure-ad-single-sign-on">Lab B03: Enable Azure AD Single Sign-On</h2>
+<p>This is parth of Path B, which begins with an application that uses an authorization system other than Azure AD.</p>
+<details class="note">
+<summary>Are you on the right path? Expand these notes to find out!</summary>
+<p>There are two options for doing the labs:</p>
+<ul>
+<li>
+<p>The "A" path is for developers with apps that are already based on Azure Active Directory. The starting app uses Azure Active Directory and the Microsoft Authentication Library (MSAL).</p>
+</li>
+<li>
+<p>the "B" path is for developers with apps that use some other identity system. It includes a simple (and not secure!) cookie-based auth system based on the Employees table in the Northwind database. You will use an identity mapping scheme to allow your existing users to log in directly or via Azure AD Single Sign-On.</p>
+</li>
+</ul>
+</details>
+<p>In this lab you will build the application you created in Lab B01 into a Microsoft Teams application. This application will still use the Northwind authentication, but since the Northwind login page won't work in the Teams tab IFrame, we'll use the Teams JavaScript SDK to show it in a pop-up.</p>
+<p>Note that as you complete the labs, the original app should still work outside of Teams! This is often a requirement of ISV's who have an app in market and need to serve an existing customer base outside of Teams.</p>
+<ul>
+<li><a href="../B01-begin-app/">B01-begin-app: Setting up the application</a> </li>
+<li><a href="../B02-after-teams-login/">B02-after-teams-login: Creating a Teams application</a></li>
+<li><a href="./">B03-after-teams-sso: Adding Azure AD SSO to your app</a>(📍You are here)</li>
+<li><a href="../B04-after-apply-styling/">B04-after-apply-styling: Teams styling and themes</a></li>
+</ul>
+<p>In this lab you will learn to:</p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app?WT.mc_id=m365-58890-cxa" target="_blank">Register an application with the Microsoft identity platform</a></li>
+<li>Configure ans Azure AD app registration to allow Teams to issue tokens on behalf of your application</li>
+<li>Use the Microsoft Teams JavaScript SDK to request an Azure AD access token</li>
+<li>How to validate an <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens?WT.mc_id=m365-58890-cxa" target="_blank">Azure AD access token</a> in a NodeJS application</li>
+</ul>
+<details class="info">
+<summary>Video briefing</summary>
+<p><div class="video">
+  <iframe src="//www.youtube.com/embed/gzzvp9EyQkg" frameborder="0" allowfullscreen></iframe>
+  <div>"B Path" Lab Briefing</div>
+</div></p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This lab uses the account linking strategy explained in <a href="https://devblogs.microsoft.com/microsoft365dev/account-linking-with-microsoft-teams-single-sign-on/" target="_blank">this blog article</a>. Please check it out for more details. In addition, the author has created <a href="https://github.com/OfficeDev/Microsoft-Teams-Samples/tree/main/samples/account-linking/csharp" target="_blank">a .NET sample</a> showing this principle, so if you're a .NET developer this can give you a head start!</p>
+</div>
+<h3 id="features">Features</h3>
+<ul>
+<li>Microsoft Teams personal tab application transparently logs the user in</li>
+<li>The first time a user accesses the application, it prompts them for their Northwind credentials and writes their Northwind employee ID into the user's profile in Azure AD</li>
+<li>After that, the application reads the employee ID from Azure AD to decide which orders to show</li>
+</ul>
+<h3 id="project-structure">Project structure</h3>
+<details class="note">
+<summary>Project files before and after this lab (open to display ►)</summary>
+<p>The project structure when you start of this lab and end of this lab is as follows.
+Use this depiction for comparison.</p>
+<p>On your left is the contents of folder  <code>B02-after-teams-login</code> and on your right is the contents of folder <code>B03-after-teams-sso</code>.
+- 🆕 New files/folders</p>
+<ul>
+<li>🔺Files changed
+<table>
+<tr>
+<th >Project Structure Before </th>
+<th>Project Structure After</th>
+</tr>
+<tr>
+<td valign="top" >
+<pre>
+B02-after-teams-login
+    ├── client
+    │   ├── components
+    │       ├── navigation.js
+    │   └── identity
+    │       ├── 🔺identityClient.js
+    │       └── login.html
+    │       └── 🔺login.js
+    │       └── teamsLoginLauncher.html
+    │       └── teamsLoginLauncher.js
+    │       └── userPanel.js
+    ├── modules
+    │   └── env.js
+    │   └── northwindDataService.js
+    │   └── teamsHelpers.js
+    ├── pages
+    │   └── categories.html
+    │   └── categories.js
+    │   └── categoryDetails.html
+    │   └── categoryDetails.js
+    │   └── myOrders.html
+    │   └── orderDetail.html
+    │   └── orderDetail.js
+    │   └── privacy.html
+    │   └── productDetail.html
+    │   └── productDetail.js
+    │   └── termsofuse.html
+    ├── index.html
+    ├── index.js
+    ├── northwind.css
+    ├── manifest
+    │   └── 🔺makePackage.js
+    │   └── 🔺manifest.template.json
+    │   └── northwind32.png
+    │   └── northwind192.png
+    ├── server
+    │   └── constants.js
+    │   └── 🔺identityService.js
+    │   └── northwindDataService.js
+    │   └── server.js
+    ├── 🔺.env_Sample
+    ├── .gitignore
+    ├── 🔺package.json
+    ├── README.md
+</pre>
+</td>
+<td>
+<pre>
+B03-after-teams-sso
+    ├── client
+    │   ├── components
+    │       ├── navigation.js
+    │   └── identity
+    │       ├── 🆕aadLogin.html
+    │       └── 🆕aadLogin.js
+    │       ├── 🔺identityClient.js
+    │       └── login.html
+    │       └── 🔺login.js
+    │       └── teamsLoginLauncher.html
+    │       └── teamsLoginLauncher.js
+    │       └── userPanel.js
+    ├── modules
+    │   └── env.js
+    │   └── northwindDataService.js
+    │   └── teamsHelpers.js
+    ├── pages
+    │   └── categories.html
+    │   └── categories.js
+    │   └── categoryDetails.html
+    │   └── categoryDetails.js
+    │   └── myOrders.html
+    │   └── orderDetail.html
+    │   └── orderDetail.js
+    │   └── privacy.html
+    │   └── productDetail.html
+    │   └── productDetail.js
+    │   └── termsofuse.html
+    ├── index.html
+    ├── index.js
+    ├── northwind.css
+    ├── manifest
+    │   └── 🔺makePackage.js
+    │   └── 🔺manifest.template.json
+    │   └── northwind32.png
+    │   └── northwind192.png
+    ├── server
+    │   └── constants.js
+    │   └── 🔺identityService.js
+    │   └── northwindDataService.js
+    │   └── server.js
+    ├── 🔺.env_Sample
+    ├── .gitignore
+    ├── 🔺package.json
+    ├── README.md
+</pre>
+</td>
+</tr>
+</table></li>
+</ul>
+</details>
+<h3 id="exercise-1-register-your-application-with-azure-ad">Exercise 1: Register your application with Azure AD</h3>
+<p>In order for users to log into your application with Azure AD, you need to register it. In this exercise you will register your application directly in the tenant you created in Lab B02, however we'll set it up so it can be used from other tenants, such as those of customers who purchase your application in the Microsoft Teams store.</p>
+<details class="info" open="open">
+<summary>More information</summary>
+<p><div class="tinyVideo">
+  <iframe src="//www.youtube.com/embed/RjGVOFm39j0" frameborder="0" allowfullscreen></iframe>
+  <div>Learn about multi-tenant applications</div>
+</div></p>
+</details>
+<h4 id="step-1-register-your-application-in-azure-active-directory">Step 1: Register your application in Azure Active Directory</h4>
+<ul>
+<li>
+<p>Navigate to the Microsoft 365 admin center at https://admin.microsoft.com/ and log in as the administrator of your developer tenant.</p>
+</li>
+<li>
+<p>In the left navigation, click "Show More" to reveal the full list of admin centers, and then click "Azure Active Directory". This will bring you to the <a href="https://aad.portal.azure.com/" target="_blank">Azure AD admin center</a>.</p>
+</li>
+</ul>
+<p><img alt="Navigating to the M365 Admin site" src="/app-camp/assets/screenshots/01-009-RegisterAADApp-1.png" /></p>
+<ul>
+<li>Click "Azure Active Directory" again in the left navigation bar.</li>
+</ul>
+<p><img alt="Navigating to the M365 Admin site" src="/app-camp/assets/screenshots/01-010-RegisterAADApp-2.png" /></p>
+<ul>
+<li>This will bring you to the overview of your Azure AD tenant. Note that a "tenant" is a single instance of Azure Active Directory, with its own users, groups, and app registrations. Verify that you're in the developer tenant you just created, and click "App Registrations" in the navigation bar.</li>
+</ul>
+<p><img alt="Opening App Registrations" src="/app-camp/assets/screenshots/01-011-RegisterAADApp-3.png" /></p>
+<ul>
+<li>You will be shown a list of applications (if any) registered in the tenant. Click "+ New Registration" at the top to register a new application.</li>
+</ul>
+<p><img alt="Adding a registration" src="/app-camp/assets/screenshots/01-012-RegisterAADApp-4.png" /></p>
+<p>You will be presented with the "Register an application" form.</p>
+<p><img alt="Register an application form" src="/app-camp/assets/screenshots/01-013-RegisterAADApp-5.png" /></p>
+<ul>
+<li>Enter a name for your application 1️⃣.</li>
+<li>Under "Supported account types" select "Accounts in any organizational directory" 2️⃣. This will allow your application to be used in your customer's tenants.</li>
+<li>Under "Redirect URI", select "Single-page application (SPA)" 3️⃣ and enter the ngrok URL you saved earlier 4️⃣.</li>
+<li>Click the "Register" button 5️⃣</li>
+</ul>
+<p>You will be presented with the application overview. There are two values on this screen you need to copy for use later on; those are the Application (client) ID 1️⃣ and the Directory (tenant) ID 2️⃣.</p>
+<p><img alt="Application overview screen" src="/app-camp/assets/screenshots/01-014-RegisterAADApp-6.png" /></p>
+<p>When you've recorded these values, navigate to "Certificates &amp; secrets" 3️⃣.</p>
+<p><img alt="Adding a secret" src="/app-camp/assets/screenshots/01-015-RegisterAADApp-7.png" /></p>
+<p>Now you will create a client secret, which is like a password for your application to use when it needs to authenticate with Azure AD.</p>
+<ul>
+<li>Click "+ New client secret" 1️⃣</li>
+<li>Enter a description 2️⃣ and select an expiration date 3️⃣ for your secret </li>
+<li>Click "Add" to add your secret. 4️⃣</li>
+</ul>
+<p>The secret will be displayed just this once on the "Certificates and secrets" screen. Copy it now and store it in a safe place.</p>
+<p><img alt="Copy the app secret" src="/app-camp/assets/screenshots/01-016-RegisterAADApp-8.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Managing app secrets is an ongoing responsibility</p>
+<p>App secrets have a limited lifetime, and if they expire your application may stop working. You can have multiple secrets, so plan to roll them over as you would with a digital certificate.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Keep your secrets secret!</p>
+<p>Give each developer a free developer tenant and register their apps in their tenants so each developer has his or her own app secrets. Limit who has access to app secrets for production. If you're running in Microsoft Azure, a great place to store your secrets is <a href="https://azure.microsoft.com/en-us/services/key-vault/" target="_blank">Azure KeyVault</a>. You could deploy an app just like this one and store sensitive application settings in Keyvault. See <a href="https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references?WT.mc_id=m365-58890-cxa" target="_blank">this article</a> for more information.</p>
+</div>
+<h4 id="step-2-grant-your-application-permission-to-call-the-microsoft-graph-api">Step 2: Grant your application permission to call the Microsoft Graph API</h4>
+<p>The app registration created an identity for your application; now we need to give it permission to call the Microsoft Graph API. The Microsoft Graph is a RESTful API that allows you to access data in Azure AD and Microsoft 365, including Microsoft Teams.</p>
+<ul>
+<li>While still in the app registration, navigate to "API Permissions" 1️⃣. Notice that User.Read delegated permission for the Microsoft Graph API has automatically been placed on the list 2️⃣; this is exactly the permission we need to read the user's profile.</li>
+</ul>
+<p><img alt="Confirm the permission" src="/app-camp/assets/screenshots/01-017-RegisterAADApp-9a.png" /></p>
+<ul>
+<li>The permission was added automatically, but nobody has consented to it 1️⃣. To fix this, click the "Grant admin consent for <tenant>" button and then agree to grant the consent 2️⃣. When this is complete, the message "Granted for <tenant>" should be displayed for each permission.</li>
+</ul>
+<p><img alt="Grant consent" src="/app-camp/assets/screenshots/01-024-RegisterAADApp-15.png" /></p>
+<h4 id="step-3-expose-an-api">Step 3: Expose an API</h4>
+<p>The Northwind Orders app is a full stack application, with code running in the web browser and web server. The browser application accesses data by calling a web API on the server side. To allow this, we need to expose an API in our Azure AD application. This will allow the server to validate Azure AD access tokens from the web browser.</p>
+<p>Click "Expose an API" 1️⃣ and then "Add a scope"2️⃣. Scopes expose an application's permissions; what you're doing here is adding a permission that your application's browser code can use it when calling the server. </p>
+<p><img alt="Expose an API" src="/app-camp/assets/screenshots/01-021-RegisterAADApp-12.png" /></p>
+<p>On the "Add a scope" flyout, edit the Application ID URI to include your ngrok URL between the "api://" and the client ID. Click the "Save and continue" button to proceed.</p>
+<p><img alt="Set the App URI" src="/app-camp/assets/screenshots/01-022-RegisterAADApp-13.png" /></p>
+<p>Now that you've defined the application URI, the "Add a scope" flyout will allow you to set up the new permission scope. Fill in the form as follows:
+- Scope name: access_as_user
+- Who can consent: Admins only
+- Admin consent display name: Access as the logged in user
+- Admin consent description: Access Northwind services as the logged in user
+- (skip User consent fields)
+- Ensure the State is set to "Enabled"
+- Click "Add scope"</p>
+<p><img alt="Add the scope" src="/app-camp/assets/screenshots/01-023-RegisterAADApp-14.png" /></p>
+<h4 id="step-4-authorize-microsoft-teams-to-log-users-into-your-application">Step 4: Authorize Microsoft Teams to log users into your application</h4>
+<p>Microsoft Teams provides a Single Sign-On (SSO) capability so users are silently logged into your application using the same credentials they used to log into Microsoft Teams. This requires giving Microsoft Teams permission to issue Azure AD tokens on behalf of your application. In this step, you'll provide that permission.</p>
+<p>Click "Expose an API" 1️⃣ and then "+ Add a client application" 2️⃣.</p>
+<p><img alt="Open the Expose an API screen" src="/app-camp/assets/screenshots/03-002-AppRegistrationUpdate-2.png" /></p>
+<p>Paste the ID for the Teams mobile or desktop app, <code>1fec8e78-bce4-4aaf-ab1b-5451cc387264</code> into the flyout 1️⃣ and check the scope you created earlier 2️⃣ to allow Teams to issue tokens for that scope. Then click "Add application" 3️⃣ to save your work.</p>
+<p>Repeat the process for the Teams web application, <code>5e3ce6c0-2b1f-4285-8d4b-75ee78787346</code>.</p>
+<p><img alt="Add a client application" src="/app-camp/assets/screenshots/03-003-AppRegistrationUpdate-3.png" /></p>
+<h3 id="exercise-2-update-the-teams-application-package">Exercise 2: Update the Teams application package</h3>
+<p>You've given Microsoft Teams permission to issue an Azure AD access token to your application (single sign-on), but Microsoft Teams doesn't know about that. To provide the information Teams needs, we need to update the Teams Application package.</p>
+<h4 id="step-1-add-the-azure-ad-information-to-the-env-file">Step 1: Add the Azure AD information to the .env file</h4>
+<p>Open the .env file in your working directory and add these lines, filling in the information you saved during the app registration:</p>
+<pre><code class="language-text">TENANT_ID=00000000-0000-0000-0000-000000000000
+CLIENT_ID=00000000-0000-0000-0000-000000000000
+CLIENT_SECRET=xxxxx
+</code></pre>
+<h4 id="step-2-add-the-azure-ad-information-to-your-manifest">Step 2: Add the Azure AD information to your manifest</h4>
+<p>In your working directory, edit the manifest/manifest.template.json file.</p>
+<p>Update the revision number to a larger version number:</p>
+<pre><code class="language-json">  &quot;version&quot;: &quot;1.3.0&quot;,
+</code></pre>
+<p>Add a comma after the validDomains property and then add a new property, <code>webApplicationInfo</code>.</p>
+<pre><code class="language-json">  &quot;webApplicationInfo&quot;: {
+      &quot;id&quot;: &quot;&lt;CLIENT_ID&gt;&quot;,
+      &quot;resource&quot;: &quot;api://&lt;HOST_NAME&gt;/&lt;CLIENT_ID&gt;&quot;
+  }
+</code></pre>
+<p>This provides the Azure AD app registration information to Microsoft Teams for use in the SSO process. The <a href="https://github.com/microsoft/app-camp/blob/main/src/create-core-app/bespoke/B03-after-teams-sso/manifest/manifest.template.json" target="_blank">finished manifest.template.json file is here</a> for your reference.</p>
+<h4 id="step-3-modify-the-packaging-code-to-include-the-client_id">Step 3: Modify the packaging code to include the CLIENT_ID</h4>
+<p>Open the file manifest/makePackage.js in your code editor. Notice that the code only makes a few of the environment variables available when it creates manifest.json. We just added some references to <code>CLIENT_ID</code>, so we need to handle them in the makePackage.js code.</p>
+<p>In the <code>if</code> statement where the code checks for the <code>TEAMS_APP_ID</code> and <code>HOST_NAME</code> environment variables, add the <code>CLIENT_ID</code> as well like this:</p>
+<pre><code class="language-javascript">    Object.keys(process.env).forEach((key) =&gt; {
+        if (key.indexOf('TEAMS_APP_ID') === 0 ||
+            key.indexOf('HOST_NAME') === 0 ||
+            key.indexOf('CLIENT_ID') === 0) {
+            data = data.split(`&lt;${key}&gt;`).join(process.env[key]);
+            console.log (`Inserted ${key} value of ${process.env[key]}`);
+        }
+    });
+</code></pre>
+<h4 id="step-4-rebuild-the-package">Step 4: Rebuild the package</h4>
+<p>Now you can build a new package at any time with this command:</p>
+<pre><code class="language-shell">npm run package
+</code></pre>
+<p>Go ahead and run it, and two files, manifest.json and northwind.zip (the app package) should be updated in your manifest folder.</p>
+<h3 id="exercise-3-update-the-application-source-code">Exercise 3: Update the application source code</h3>
+<h4 id="step-1-update-your-packagejson-file">Step 1: Update your package.json file</h4>
+<p>The updated code will use two new npm packages on the server side:</p>
+<ul>
+<li>@azure/msal-node: Allows login to Azure AD from your web server; this is needed when calling the Microsoft Graph API to read and write the user's employee ID.</li>
+<li>azure-ad-jwt: Validates an Azure AD access token sent by the client side code</li>
+</ul>
+<p>To accommodate this, open the <strong>package.json</strong> file in your working directory and update the <code>dependencies</code> property to include these packages like this:</p>
+<pre><code class="language-json">  &quot;dependencies&quot;: {
+    &quot;@azure/msal-node&quot;: &quot;^1.5.0&quot;,
+    &quot;azure-ad-jwt&quot;: &quot;^1.1.0&quot;,
+    &quot;cookie-parser&quot;: &quot;^1.4.6&quot;,
+    &quot;dotenv&quot;: &quot;^10.0.0&quot;,
+    &quot;express&quot;: &quot;^4.17.1&quot;,
+    &quot;node-fetch&quot;: &quot;^3.1.1&quot;,
+    &quot;request&quot;: &quot;^2.88.0&quot;
+  },
+</code></pre>
+<p>Then, from a command line in your working directory, install the package by typing</p>
+<pre><code class="language-shell">npm install
+</code></pre>
+<h4 id="step-2-add-an-identity-mapping-screen">Step 2: Add an identity mapping screen</h4>
+<p>When a user logs into the app for the first time, we will log them into <em>both</em> Azure AD and the Northwind login scheme and save their Northwind employee ID in the Azure AD user profile. This is just one of many approaches; an application could save the Azure AD user ID and another system's user ID in a database, or it could save the Azure AD user ID in the user's profile within the other authentication. Any way you do it, the idea is to create a linkage between each Azure AD user and their user profile in the other identity service.</p>
+<p>In this step, you'll add a new web page to handle this identity mapping. If the application reads the Azure AD user's employee ID and it's blank, the user will be redirected here.</p>
+<p>In your working folder, create a file /client/identity/aadLogin.html and paste in this markup:</p>
+<pre><code class="language-html">&lt;!doctype html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;title&gt;Northwind Login Page&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/northwind.css&quot; /&gt;
+    &lt;link rel=&quot;icon&quot; href=&quot;data:;base64,=&quot;&gt; &lt;!-- Suppress favicon error --&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;div id=&quot;teamsLoginLauncher&quot; style=&quot;display:none&quot;&gt;
+        &lt;h2&gt;Northwind Login (AAD Mapping)&lt;/h2&gt;
+        &lt;br /&gt;
+        &lt;p&gt;Please log in using your Northwind employee login it to link your Microsoft Teams login.&lt;/p&gt;
+        &lt;button id=&quot;teamsLoginLauncherButton&quot;&gt;Log in&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;message&quot; class=&quot;errorMessage&quot;&gt;&lt;/div&gt;
+
+    &lt;script type=&quot;module&quot; src=&quot;/identity/aadLogin.js&quot;&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<p>Now create another file, /client/identity/aadLogin.js and insert this code:</p>
+<pre><code class="language-javascript">import 'https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js';
+import { ensureTeamsSdkInitialized } from '../modules/teamsHelpers.js';
+import { setLoggedinEmployeeId } from './identityClient.js';
+
+(async () =&gt; {
+
+    const teamsLoginLauncher = document.getElementById('teamsLoginLauncher');
+    const teamsLoginLauncherButton = document.getElementById('teamsLoginLauncherButton');
+
+    await ensureTeamsSdkInitialized();
+    const authToken = await microsoftTeams.authentication.getAuthToken();
+
+    const response = await fetch(`/api/validateAadLogin`, {
+        &quot;method&quot;: &quot;post&quot;,
+        &quot;headers&quot;: {
+            &quot;content-type&quot;: &quot;application/json&quot;,
+            &quot;authorization&quot;: `Bearer ${authToken}`
+        },
+        &quot;body&quot;: JSON.stringify({
+            &quot;employeeId&quot;: 0
+        }),
+        &quot;cache&quot;: &quot;no-cache&quot;
+    });
+    if (response.ok) {
+        const data = await response.json();
+        if (data.employeeId) {
+            // If here, AAD user was mapped to a Northwind employee ID
+            setLoggedinEmployeeId(data.employeeId);
+            window.location.href = document.referrer;
+        }
+    } else if (response.status === 404) {
+
+        // If here, AAD user logged in but there was no mapping to an employee ID.
+        // Get one now using the bespoke authentication
+        teamsLoginLauncherButton.addEventListener('click', async ev =&gt; {
+
+            // First, launch the original login page to get the user credentials
+            const northwindCredentials = await
+                microsoftTeams.authentication.authenticate({
+                    url: `${window.location.origin}/identity/login.html?teams=true`,
+                    width: 600,
+                    height: 535
+                });
+
+            // Now call the server with BOTH the Azure AD and original credentials
+            // Server is responsible for linking them in its database for next time
+            const response = await fetch(`/api/validateAadLogin`, {
+                &quot;method&quot;: &quot;post&quot;,
+                &quot;headers&quot;: {
+                    &quot;content-type&quot;: &quot;application/json&quot;,
+                    &quot;authorization&quot;: `Bearer ${authToken}`
+                },
+                &quot;body&quot;: JSON.stringify({
+                    &quot;username&quot;: northwindCredentials.username,
+                    &quot;password&quot;: northwindCredentials.password
+                }),
+                &quot;cache&quot;: &quot;no-cache&quot;
+            });
+
+            // Now log the user in with the bespoke system
+            setLoggedinEmployeeId(northwindCredentials.employeeId);
+            window.location.href = document.referrer;
+        });
+
+        teamsLoginLauncher.style.display = &quot;inline&quot;;
+
+    } else {
+
+        console.log(`Error ${response.status} on /api/validateAadLogin: ${response.statusText}`);
+
+    }
+
+})();
+</code></pre>
+<p>This code uses the Teams JavaScript SDK to obtain an Azure AD token using <code>microsoftTeams.authentication.getAuthToken()</code>, and then it calls the server side at /api/validateAadLogin using this token. The server will read the user's employeeId and return it. If the employee ID is not found, the server returns an HTTP 404 error and the code prompts the user to log in via the Northwind login page. When the user logs in, the code passes his or her credentials back to /api/validateAadLogin, which looks up the employeeId and writes it to the user's profile.</p>
+<h4 id="step-3-return-the-username-and-password-from-the-login-page">Step 3: Return the username and password from the login page</h4>
+<p>Open the file /client/identity/login.js in your code editor, and find the call to <code>notifySuccess()</code>. Modify it to return the username and password so the aadLogin.html page can provide it to the server.</p>
+<pre><code class="language-javascript">    microsoftTeams.authentication.notifySuccess({
+        username: usernameInput.value,
+        password: passwordInput.value,
+        employeeId: employeeId
+    });
+</code></pre>
+<p>The completed login script is <a href="https://github.com/microsoft/app-camp/blob/main/src/create-core-app/bespoke/B03-after-teams-sso/client/identity/login.js" target="_blank">here at B03-after-teams-sso/client/identity/login.js</a></p>
+<h4 id="step-4-modify-the-logoff-code">Step 4: Modify the logoff code</h4>
+<p>Logging off in this new version of the Teams app will be a very transitory thing, because the user will immediately be logged back on again! However we'll leave it in place for testing purposes.</p>
+<p>Open the file client/identity/identityClient.js in your code editor and change the line:</p>
+<pre><code class="language-javascript">    window.location.href = &quot;/identity/teamsLoginLauncher.html&quot;;
+</code></pre>
+<p>to: </p>
+<pre><code class="language-javascript">    window.location.href = &quot;/identity/aadLogin.html&quot;;
+</code></pre>
+<h4 id="step-5-nodify-the-identity-server-code">Step 5: Nodify the identity server code</h4>
+<p>Now that the client code has been updated, it's time to modify the server code to handle the /api/validateAadLogin call from the client. To do that, open the file /server/identityService.js in your code editor and add these lines at the top:</p>
+<pre><code class="language-javascript">import aad from 'azure-ad-jwt';
+import { dbService } from '../northwindDB/dbService.js';
+const db = new dbService();
+</code></pre>
+<p>This will import two node packages:</p>
+<ul>
+<li>azure-ad-jwt - this package validates an Azure AD access token</li>
+<li>dbService - this is the module that handles the JSON database, so we can write the mapping between Azure AD user ID's and Northwind Employee ID's there.</li>
+</ul>
+<p>Then locate the function <code>initializeIdentityService()</code> and add these lines near the bottom of the function, just above the <code>app.use('/api/', validateApiRequest);</code> statement.</p>
+<pre><code class="language-javascript">    // Web service validates an Azure AD login
+    app.post('/api/validateAadLogin', async (req, res) =&gt; {
+
+        try {
+            const employeeId = await validateAndMapAadLogin(req, res);
+            if (employeeId) {
+                res.send(JSON.stringify({ &quot;employeeId&quot;: employeeId }));
+            } else {
+                res.status(401).send('Unknown authentication failure');
+            }
+        }
+        catch (error) {
+            console.log(`Error in /api/validateAadLogin handling: ${error.statusMessage}`);
+            res.status(error.status).json({ status: error.status, statusText: error.statusMessage });
+        }
+
+    });
+</code></pre>
+<p>This code will handle the call to /api/validateAadLogin but the real work is done in another function, <code>validateAndMapAadLogin()</code>. Next, add this code at the bottom of identityService.js.</p>
+<pre><code class="language-javascript">// validateAndMapAadLogin() - Returns an employee ID of the logged in user based
+// on an existing mapping OR the username/password passed from a client login.
+// If there is no existing mapping and no username/password is specified, it will throw
+// an exception.
+async function validateAndMapAadLogin(req, res) {
+
+    const audience = `api://${process.env.HOST_NAME}/${process.env.CLIENT_ID}`;
+    const token = req.headers['authorization'].split(' ')[1];
+
+    const aadUserId = await new Promise((resolve, reject) =&gt; {
+        aad.verify(token, { audience: audience }, async (err, result) =&gt; {
+            if (result) {
+                resolve(result.oid);
+            } else {
+                reject(err);
+            }
+        });
+    });
+
+    if (aadUserId) {
+        // If here, user is logged into Azure AD
+        let employeeId = await getEmployeeIdForUser(aadUserId);
+        if (employeeId) {
+            // We found the employee ID for the AAD user
+            return employeeId;
+        } else if (req.body.username) {
+            // We did not find an employee ID for this user, try to 
+            // get one using the legacy authentication
+            const username = req.body.username;
+            const password = req.body.password;
+            const employeeId = await validateEmployeeLogin(username, password);
+            if (employeeId) {
+                // If here, user is logged into both Azure AD and the legacy
+                // authentication. Save the employee ID in the user's AAD
+                // profile for future use.
+                await setEmployeeIdForUser(aadUserId, employeeId);
+                return employeeId;
+            } else {
+                // If here, the employee login failed; throw an exception
+                throw ({ status: 401, statusMessage: &quot;Employee login failed&quot; });
+            }
+        } else {
+            // If here we don't have an employee ID and employee credentials were
+            // not provided.
+            throw ({ status: 404, statusMessage: &quot;Employee ID not found for this user&quot; });
+        }
+    } else {
+        res.status(401).send('Invalid AAD token');
+    }
+}
+
+async function getEmployeeIdForUser(aadUserId) {
+
+    const idMapDB = await db.getTable(&quot;IdentityMap&quot;, &quot;aadUserId&quot;);
+    const identity = idMapDB.item(aadUserId);
+    return identity.employeeId;
+}
+
+async function setEmployeeIdForUser(aadUserId, employeeId) {
+    try {
+
+        const identityMap = await db.getTable(&quot;IdentityMap&quot;, &quot;aadUserId&quot;);
+        if (identityMap.item(aadUserId)) {
+            // User already mapped (shouldn't happen but handle it anyway)
+            const item = identityMap.item(aadUserId);
+            item.employeeId = employeeId;
+        } else {
+            identityMap.addItem({
+                &quot;aadUserId&quot;: aadUserId,
+                &quot;employeeId&quot;: employeeId
+            });
+        }
+        await identityMap.save();
+
+    }
+    catch (error) {
+        console.log(`Error updating user mapping ${error}`);
+    }
+}
+</code></pre>
+<p><code>validateAndMapAadLogin()</code> validates the Azure AD access token sent by the client and obtains the Azure AD user ID. It then calls <code>getEmployeeIdForUser()</code> to get the employee ID for that user. <code>getEmployeeIdForUser()</code> uses MSAL to obtain an Azure AD access token for the application and then it calls the Microsoft Graph with that token.</p>
+<p>If <code>validateAndMapAadLogin()</code> fails to get an employee ID, and a username and password were provided, it looks up the employee ID and uses <code>setEmployeeIdForUser()</code> to write it to the JSON database.</p>
+<p>The finished <a href="https://github.com/microsoft/app-camp/blob/main/src/create-core-app/bespoke/B03-after-teams-sso/server/identityService.js" target="_blank">server/identityService.js file is here</a>.</p>
+<h3 id="exercise-4-test-your-application-in-microsoft-teams">Exercise 4: Test your application in Microsoft Teams</h3>
+<p>!!! danger While Azure AD is secure, the original login scheme in this sample is not!
+    The sample application uses a browser session cookie to establish who is logged in. <strong>It is not secure and would be easy to fake - do not use this in a real application!</strong> Also <strong>be aware during testing</strong> that your login will persist until you close all instances of your web browser. For example if you leave your browser logged in after this lab and then run Microsoft Teams in another instance of the same browser, your user will already be logged in when you get to the next lab.E</p>
+<h4 id="step-1-start-the-application">Step 1: Start the application</h4>
+<p>Now it's time to run your updated application and run it in Microsoft Teams. Start the application with this command:</p>
+<pre><code class="language-shell">npm start
+</code></pre>
+<h4 id="step-2-upload-the-app-package">Step 2: Upload the app package</h4>
+<p>In the Teams web or desktop UI, click "Apps" in the sidebar 1️⃣, then "Manage your apps" 2️⃣. At this point you have three choices:</p>
+<ul>
+<li>Upload a custom app (upload the app for yourself or a specific team or group chat) - this only appears if you have enabled "Upload custom apps" in your setup policy; this was a step in the previous lab</li>
+<li>Upload an app to your org's app catalog (upload the app for use within your organization) - this only appears if you are a tenant administrator</li>
+<li>Submit an app to your org (initiate a workflow asking a tenant administrator to install your app) - this appears for everyone</li>
+</ul>
+<p>In this case, choose the first option 3️⃣.</p>
+<p><img alt="Upload the app" src="/app-camp/assets/screenshots/03-005-InstallApp-1.png" /></p>
+<p>Navigate to the Northwind.zip file in your manifest directory and upload it. Although the application is already installed, you are providing a newer version so it will update the application. Click the "Add" button to install it for your personal use.</p>
+<p><img alt="Upload the app" src="/app-camp/assets/screenshots/03-006-InstallApp-2.png" /></p>
+<h4 id="step-3-run-the-application">Step 3: Run the application</h4>
+<p>The application should appear without any login prompt. The app's navigation should not be displayed; instead users can navigate to "My Orders" or "Products" using the tabs in the Teams app.</p>
+<p><img alt="Run the app" src="/app-camp/assets/screenshots/03-007-RunApp-1.png" /></p>
+<script language="javascript">
+    function showCompletionPopup() {
+        let path = window.location.pathname;
+        path = path.endsWith('/') ? path.slice(0, -1) : path;
+        let pathArray = path.split('/');
+        let leafFolder = pathArray[pathArray.length-1];
+
+        let height = window.outerHeight / 1.5;
+        let width = window.outerWidth / 2;
+
+        window.open(`${window.origin}/app-camp/congrats/${leafFolder}`,
+                    'Congratulations!',
+                    `width=${width}, height=${height}, left=100, top=100,`);
+    }
+</script>
+
+<h2 id="congratulations">Congratulations!</h2>
+<p><button type="button" onclick="showCompletionPopup();" class="largeButton">When you have finished this lab,<br />please click this button to let us know!</button></p>
+<p>No personal information is collected; we only want to count how many people have completed the labs so we can continue to fund this work!</p>
+
+<div class="admonition check">
+<p class="admonition-title">Challenge</p>
+<p>You might have noticed the logout button doesn't do anything in Teams! If you wish, hide the logout button just as you hid the navigation bar. The code is in client/identity/userPanel.js.</p>
+</div>
+<h3 id="known-issues">Known issues</h3>
+<p>For the latest issues, or to file a bug report, see the <a href="https://github.com/microsoft/app-camp/issues" target="_blank">GitHub issues list</a> for this repository.</p>
+<h3 id="references">References</h3>
+<p><a href="https://docs.microsoft.com/microsoftteams/platform/tabs/how-to/authentication/auth-aad-sso?WT.mc_id=m365-58890-cxa">Single sign-on (SSO) support for Tabs</a></p>
+<p><img src="https://pnptelemetry.azurewebsites.net/app-camp/labs/b03" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

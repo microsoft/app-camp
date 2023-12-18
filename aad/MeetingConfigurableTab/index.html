@@ -1,0 +1,1678 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://microsoft.github.io/app-camp/aad/MeetingConfigurableTab/">
+      
+      
+        <link rel="prev" href="../Dialog/">
+      
+      
+        <link rel="next" href="../MessagingExtension/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+    
+    
+      
+        <title>Add a Meeting app - Teams App Camp</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/labStyles.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#35258F" data-md-color-accent="#091F2C">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#add-a-configurable-tab-to-meetings" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Teams App Camp" class="md-header__button md-logo" aria-label="Teams App Camp" data-md-component="logo">
+      
+  <img src="../../assets/microsoftteams_appcamp-webheader3.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Teams App Camp
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Add a Meeting app
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/microsoft/app-camp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/app-camp
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../new-adventure/00-welcome/" class="md-tabs__link">
+          
+  
+  New Adventure
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../A01-begin-app/" class="md-tabs__link">
+          
+  
+  A Path
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../bespoke/B01-begin-app/" class="md-tabs__link">
+          
+  
+  B Path
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../ExtendedLabs/" class="md-tabs__link">
+          
+  
+  Extended labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Resources/" class="md-tabs__link">
+          
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Teams App Camp" class="md-nav__button md-logo" aria-label="Teams App Camp" data-md-component="logo">
+      
+  <img src="../../assets/microsoftteams_appcamp-webheader3.png" alt="logo">
+
+    </a>
+    Teams App Camp
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/microsoft/app-camp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/app-camp
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    New Adventure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            New Adventure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/00-welcome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to another App Camp adventure!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/01-create-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 - Create a new app with Teams Toolkit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/02-integrate-web-service/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 - Integrate business data with your app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/03-add-link-unfurling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 - Link Unfurling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/04-add-ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4 - Action message extensions with Open AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/05-add-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5 - Single Sign-on and Microsoft Graph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-adventure/06-run-in-outlook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6 - Run your app in Microsoft Outlook
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    A Path
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            A Path
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A01-begin-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A01 - Start with Azure Active Directory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A02-after-teams-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A02 - Create a Teams app with Azure AD Teams SSO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A03-after-apply-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A03 - Teams styling and themes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    B Path
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            B Path
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B01-begin-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B01 - Start with a non-Azure Active Directory Identity System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B02-after-teams-login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B02 - Teams App with Bespoke Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B03-after-teams-sso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B03 - Enable Azure AD Single Sign-On
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bespoke/B04-after-apply-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B04 - Teams styling and themes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Extended labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Extended labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ExtendedLabs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Choose your own adventure!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConfigurableTab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a configurable tab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deeplink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Deep link to a personal Tab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dialog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Dialog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Add a Meeting app
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Add a Meeting app
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-configurable-tab-to-meetings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a Configurable Tab to Meetings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Add a Configurable Tab to Meetings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-update-your-configurable-tab-for-use-with-meetings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 1: Update your configurable tab for use with Meetings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 1: Update your configurable tab for use with Meetings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-add-context-array-to-application-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Add context array to application manifest
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-rebuild-your-application-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Rebuild your application package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-start-your-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Start your app
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-upload-the-app-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Upload the app package
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-2-add-your-tab-to-the-pre-meeting-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 2: Add your tab to the pre-meeting stage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 2: Add your tab to the pre-meeting stage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-microsoft-teams-meeting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Create Microsoft Teams meeting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-add-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Add tab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#excercise-3-display-tab-in-meeting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Excercise 3: Display tab in Meeting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Excercise 3: Display tab in Meeting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-start-meeting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Start meeting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-display-tab-in-meeting-side-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Display tab in Meeting Side Panel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-present-tab-in-meeting-content-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Present tab in Meeting Content Stage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-4-update-tab-display-when-in-meeting-side-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 4: Update tab display when in Meeting Side Panel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 4: Update tab display when in Meeting Side Panel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-add-code-to-detect-frame-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Add code to detect Frame Context
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-add-code-to-detect-whether-tab-is-shared-to-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Add code to detect whether tab is shared to stage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-add-code-to-hide-table-columns-when-tab-is-displayed-in-meeting-side-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Add code to hide table columns when tab is displayed in Meeting Side Panel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-test-your-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Test your changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congratulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Congratulations!
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Congratulations!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MessagingExtension/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Message Extension
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Monetization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selling Your SaaS-based Teams Extension
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ExtendTeamsApp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extend teams app to Outlook and Microsoft365 app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    More Information
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-a-box/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lead your own App Camp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Add a Meeting app</h1>
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "dfh6fjbr5x");
+</script>
+
+<p><img alt="Teams App Camp" src="/app-camp/assets/code-lab-banner.png" /></p>
+<h2 id="add-a-configurable-tab-to-meetings">Add a Configurable Tab to Meetings</h2>
+<p>This lab is part of extending with capabilities for your teams app which begins with a Northwind Orders core application using the <code>AAD</code> path.</p>
+<div class="admonition important">
+<p class="admonition-title">Important!</p>
+<p>This lab builds on the completed solution to the <a href="../ConfigurableTab/">Configurable Tab</a> lab. Complete labs <a href="../A01-begin-app/">A01</a>-<a href="../A03-after-apply-styling/">A03</a> to get to the Northwind Orders core application and then complete the <a href="../ConfigurableTab/">Configurable Tab Lab</a> to add a configurable tab to your application before beginning this lab.</p>
+</div>
+<p>Following on from the previous lab where you created a Configurable Tab which could be configured to display a list products with a given category, in this lab you will extend the tab so that it can also be used in Microsoft Teams meetings.</p>
+<p>Extending tabs for use in Microsoft Teams meetings provides the meeting owner the ability to add the tab, which can be accessed by meeting participants before, during, and after the meeting. It also allows sharing the contents of the tab to the meeting content stage without the participants having to switch to another window during the meeting as the content is displayed directly in the meeting window.</p>
+<p>In this lab you will learn to:</p>
+<ul>
+<li>Configure your Configurable Tab for use with Microsoft Teams meetings</li>
+<li>Add your tab to the Microsoft Teams Meeting Pre-meeting stage</li>
+<li>Add your tab to the Microsoft Teams Meeting Side Panel during a meeting</li>
+<li>Present your tab in the Microsoft Teams Meeting Content Stage during a meeting</li>
+<li>Use the Teams JS SDK to understand the current Microsoft Teams Frame Context</li>
+<li>Use the Teams JS SDK to understand whether the tab is being shared to the Microsoft Teams Meeting Content Stage</li>
+</ul>
+<details class="info" open="open">
+<summary>Video briefing</summary>
+<p><div class="video">
+  <img src="/app-camp/assets/video-coming-soon.png"></img>
+  <div>Configurable Tabs in Microsoft Teams Meetings</div>
+</div></p>
+</details>
+<h3 id="features">Features</h3>
+<ul>
+<li>Microsoft Teams configurable tab to display a product category in during pre-meeting stage</li>
+<li>Microsoft Teams configurable tab to display a product category in the Meeting Side Panel during a Teams meeting</li>
+<li>Microsoft Teams configurable tab to display a product category and be shared to the Meeting Content Stage</li>
+</ul>
+<h3 id="exercise-1-update-your-configurable-tab-for-use-with-meetings">Exercise 1: Update your configurable tab for use with Meetings</h3>
+<h4 id="step-1-add-context-array-to-application-manifest">Step 1: Add context array to application manifest</h4>
+<p>In your code editor, open the manifest/manifest.template.json file.</p>
+<p>Update the version number so it's greater than it was; for example if your manifest was version 1.4, make it 1.4.1 or 1.5.0. This is required in order for you to update the app in Teams.</p>
+<pre><code class="language-json">&quot;version&quot;: &quot;1.5.0&quot;
+</code></pre>
+<blockquote>
+<p>NOTE: Make each new version greater than the last so you can update the application in Teams!</p>
+</blockquote>
+<p>Now, immediately under the <code>scopes</code> array, in the your configurable tab object, add a new array for defining the <code>context</code>:</p>
+<pre><code class="language-json">&quot;configurableTabs&quot;: [
+    {
+      &quot;configurationUrl&quot;: &quot;https://&lt;HOST_NAME&gt;/pages/tabConfig.html&quot;,
+      &quot;canUpdateConfiguration&quot;: true,
+      &quot;scopes&quot;: [
+        &quot;team&quot;,
+        &quot;groupchat&quot;
+      ],
+      &quot;context&quot;: [
+        &quot;meetingChatTab&quot;,
+        &quot;meetingDetailsTab&quot;,
+        &quot;meetingSidePanel&quot;,
+        &quot;meetingStage&quot;
+      ]
+    }
+  ]
+</code></pre>
+<h4 id="step-2-rebuild-your-application-package">Step 2: Rebuild your application package</h4>
+<p>Open a command line tool in your working folder and execute</p>
+<pre><code class="language-sh">npm run package
+</code></pre>
+<p>This will generate a new <code>manifest.json</code> file and a new application package (northwind.zip).</p>
+<h4 id="step-3-start-your-app">Step 3: Start your app</h4>
+<p>In your working directory execute this command to start the application</p>
+<pre><code class="language-sh">npm start
+</code></pre>
+<h4 id="step-4-upload-the-app-package">Step 4: Upload the app package</h4>
+<p>In the Teams web or desktop UI, click "Apps" in the sidebar 1️⃣, then "Manage your apps" 2️⃣. At this point you have three choices:</p>
+<ul>
+<li>Upload a custom app (upload the app for yourself or a specific team or group chat) - this only appears if you have enabled "Upload custom apps" in your setup policy; this was a step in the previous lab</li>
+<li>Upload an app to your org's app catalog (upload the app for use within your organization) - this only appears if you are a tenant administrator</li>
+<li>Submit an app to your org (initiate a workflow asking a tenant administrator to install your app) - this appears for everyone</li>
+</ul>
+<p>In this case, choose the second option 3️⃣.</p>
+<p><img alt="Upload the app" src="../../assets/screenshots/UploadToOrgAppCatalog.png" /></p>
+<p>Navigate to the Northwind.zip file in your manifest directory and upload it.</p>
+<p>Although the application is already installed, you are providing a newer version so it will update the application.</p>
+<h3 id="exercise-2-add-your-tab-to-the-pre-meeting-stage">Exercise 2: Add your tab to the pre-meeting stage</h3>
+<h4 id="step-1-create-microsoft-teams-meeting">Step 1: Create Microsoft Teams meeting</h4>
+<p>Using the Microsoft Teams desktop client, open the <code>Calendar</code> app from the sidebar and select <code>New meeting</code>in the top right corner.</p>
+<p>Enter a <code>title</code> and add at least <code>one required participant</code>, select <code>Send</code> in the top right corner to create the meeting.</p>
+<h4 id="step-2-add-tab">Step 2: Add tab</h4>
+<p>Select the meeting that you just created in the Calendar app, in the flyout, select <code>Edit</code> to open the meeting details.</p>
+<p>Select the <code>(+)</code> Add tab button in the meeting, search for <code>Northwind Orders</code> app and select it. In the tab configuration page, select a <code>Category</code> of products you want to display in the tab.</p>
+<p>The tab is added at the pre-meeting stage, so that meeting participants can view the tab content before the meeting begins, this also pre-loads the tab in to the meeting when it begins.</p>
+<p>Click <code>Close</code> in the top right corner to go back to the Calendar view.</p>
+<h3 id="excercise-3-display-tab-in-meeting">Excercise 3: Display tab in Meeting</h3>
+<h4 id="step-1-start-meeting">Step 1: Start meeting</h4>
+<p>Select the meeting that you just created in the Calendar app, in the flyout, select <code>Join</code> to open the meeting and select <code>Join now</code> to start the meeting.</p>
+<h4 id="step-2-display-tab-in-meeting-side-panel">Step 2: Display tab in Meeting Side Panel</h4>
+<p>When a tab has already been added to the meeting at the pre-meeting stage, the tab will be visible in the meeting controls shown at the top of the meeting.</p>
+<p>To display the tab in the Meeting Side Panel, select the tab icon, this will open the Meeting Side Panel displaying the tab content within it. </p>
+<p>At the moment the table is too big for the width of the side panel, but don't worry, we will come back to this and fix it in later exercise.</p>
+<h4 id="step-3-present-tab-in-meeting-content-stage">Step 3: Present tab in Meeting Content Stage</h4>
+<p>To make the tab content visible to all partipicants in the meeting, you can present the tab by sharing it to the Meeting Content Stage.</p>
+<p>Select the <code>Share</code> icon in the Meeting Side Panel to present the tab to the stage.</p>
+<h3 id="exercise-4-update-tab-display-when-in-meeting-side-panel">Exercise 4: Update tab display when in Meeting Side Panel</h3>
+<p>In the previous exercise we saw that when the tab was displayed in the Meeting Side Panel, the products table width was too wide for the space given to us by the Side Panel, to do this we need to use the Teams JS SDK v2 to help us understand the context in which our tab is running and whether it has been shared to the stage.</p>
+<h4 id="step-1-add-code-to-detect-frame-context">Step 1: Add code to detect Frame Context</h4>
+<p>We can use the Teams JS SDK <code>FrameContexts</code> capability to obtain the current <code>FrameContext</code> type from the <code>page</code> context and check whether the app is running in the <code>sidePanel</code> frame.</p>
+<p>In <code>client/modules/teamsHelpers.js</code>, add the following function.</p>
+<pre><code class="language-js">// async function returns true if app is running in side panel in a Teams meeting
+export async function inSidePanel() {
+    try {
+        await ensureTeamsSdkInitialized();
+        const { page } = await microsoftTeams.app.getContext();
+        return page.frameContext === microsoftTeams.FrameContexts.sidePanel;
+    } catch (e) {
+        console.log(`${e} from Teams SDK, may be running outside of Teams`);
+        return false;
+    }
+}
+</code></pre>
+<h4 id="step-2-add-code-to-detect-whether-tab-is-shared-to-stage">Step 2: Add code to detect whether tab is shared to stage</h4>
+<p>We can use the Teams JS SDK <code>meeting</code> capability to obtain the current state of the meeting stage.</p>
+<p>In <code>client/modules/teamsHelpers.js</code>, add the following function.</p>
+<pre><code class="language-js">// async function returns true if app has been shared to stage in a Teams meeting
+export async function sharedToStage() {
+    try {
+        await ensureTeamsSdkInitialized();
+        const { isAppSharing } = await microsoftTeams.meeting.getAppContentStageSharingState();
+        return isAppSharing;
+    } catch (e) {
+        console.log(`${e} from Teams SDK, may be running outside of Teams`);
+        return false;
+    }
+}
+</code></pre>
+<h4 id="step-3-add-code-to-hide-table-columns-when-tab-is-displayed-in-meeting-side-panel">Step 3: Add code to hide table columns when tab is displayed in Meeting Side Panel</h4>
+<p>We can use the two helper functions that we just added to hide some of the table columns when the tab is shown in the side panel, but to not remove them when the same tab is presented to the stage so we can make utilise the full width of the meeting content stage.</p>
+<p>In <code>client/pages/categoryDetail.js</code>, add the following import statement to the top of the file. </p>
+<pre><code class="language-js">import {
+    inSidePanel,
+    sharedToStage
+} from '../modules/teamsHelpers.js';
+</code></pre>
+<p>Add the following code into the <code>displayUI</code> function around line 40.</p>
+<pre><code class="language-js">if (await inSidePanel() &amp;&amp; !(await sharedToStage())) {
+    const table = document.getElementById('products');
+    table.querySelectorAll('th:nth-child(n+4)').forEach((e) =&gt; { e.style.display = 'none'; });
+    table.querySelectorAll('td:nth-child(n+4)').forEach((e) =&gt; { e.style.display = 'none'; });
+}
+</code></pre>
+<p>The <code>if</code> statement that creates the products table if a category is selected, should look like</p>
+<pre><code class="language-js">if (category) {
+
+    displayElement.innerHTML = `
+    &lt;img src=&quot;data:image/bmp;base64,${category.picture}&quot; class=&quot;categoryImage&quot;&gt;&lt;/img&gt;
+    &lt;h3&gt;${category.displayName}&lt;/h3&gt;
+    &lt;p&gt;${category.description}&lt;/p&gt;
+`;
+
+    category.products.forEach(product =&gt; {
+        const row = document.createElement('tr');
+        row.innerHTML = `&lt;tr&gt;
+    &lt;td&gt;&lt;a href=&quot;/pages/productDetail.html?productId=${product.productId}&quot;&gt;${product.productName}&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;${product.quantityPerUnit}&lt;/td&gt;
+    &lt;td&gt;${product.unitPrice}&lt;/td&gt;
+    &lt;td&gt;${product.unitsInStock}&lt;/td&gt;
+    &lt;td&gt;${product.unitsOnOrder}&lt;/td&gt;
+    &lt;td&gt;${product.supplierName} (${product.supplierCountry})&lt;/td&gt;
+&lt;/tr&gt;`;
+        productsElement.append(row);
+    });
+
+    if (await inSidePanel() &amp;&amp; !(await sharedToStage())) {
+        const table = document.getElementById('products');
+        table.querySelectorAll('th:nth-child(n+4)').forEach((e) =&gt; { e.style.display = 'none'; });
+        table.querySelectorAll('td:nth-child(n+4)').forEach((e) =&gt; { e.style.display = 'none'; });
+    }
+}
+</code></pre>
+<h4 id="step-4-test-your-changes">Step 4: Test your changes</h4>
+<p>After you have made the changes, you will need to close and re-open the app in the Meeting, you can do so by selecting the Tab icon in the meeting controls shown at the top of the meeting to close the Meeting Side Panel and again to re-open it. </p>
+<p>When you re-open the tab in the Meeting Side Panel, only three table columns will now be visible.</p>
+<script language="javascript">
+    function showCompletionPopup() {
+        let path = window.location.pathname;
+        path = path.endsWith('/') ? path.slice(0, -1) : path;
+        let pathArray = path.split('/');
+        let leafFolder = pathArray[pathArray.length-1];
+
+        let height = window.outerHeight / 1.5;
+        let width = window.outerWidth / 2;
+
+        window.open(`${window.origin}/app-camp/congrats/${leafFolder}`,
+                    'Congratulations!',
+                    `width=${width}, height=${height}, left=100, top=100,`);
+    }
+</script>
+
+<h2 id="congratulations">Congratulations!</h2>
+<p><button type="button" onclick="showCompletionPopup();" class="largeButton">When you have finished this lab,<br />please click this button to let us know!</button></p>
+<p>No personal information is collected; we only want to count how many people have completed the labs so we can continue to fund this work!</p>
+
+<h3 id="known-issues">Known issues</h3>
+<p>For the latest issues, or to file a bug report, see the <a href="https://github.com/microsoft/app-camp/issues">github issues list</a> for this repository.</p>
+<h3 id="references">References</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/microsoftteams/platform/apps-in-teams-meetings/teams-apps-in-meetings?WT.mc_id=m365-58890-cxa">Apps for Teams meetings</a></li>
+<li><a href="https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/create-tab-pages/configuration-page?WT.mc_id=m365-58890-cxa">Create a configuration page</a></li>
+<li><a href="https://docs.microsoft.com/en-us/microsoftteams/platform/apps-in-teams-meetings/enable-and-configure-your-app-for-teams-meetings?WT.mc_id=m365-58890-cx">Enable and configure your apps for Teams meetings</a></li>
+<li><a href="https://docs.microsoft.com/en-us/microsoftteams/platform/apps-in-teams-meetings/api-references?tabs=javascript&amp;WT.mc_id=m365-58890-cxa">Meeting apps API references</a></li>
+</ul>
+<h3 id="next-steps">Next steps</h3>
+<p>After completing this lab, you may continue with any of the following labs.</p>
+<ul>
+<li><a href="/app-camp/aad/ConfigurableTab">Add a Configurable Tab</a></li>
+<li><a href="/app-camp/aad/Deeplink">Add a Deep link to a personal Tab</a></li>
+<li><a href="/app-camp/aad/Dialog">Add a Dialog </a></li>
+<li><a href="/app-camp/aad/MeetingConfigurableTab">Add a Meeting app</a></li>
+<li><a href="/app-camp/aad/MessagingExtension">Add a Message Extension</a></li>
+<li><a href="/app-camp/aad/Monetization">Selling Your SaaS-based Teams Extension</a></li>
+<li><a href="/app-camp/aad/ExtendTeamsApp">Extend your Teams app to Outlook and Microsoft365 app</a></li>
+</ul>
+<p><img src="https://pnptelemetry.azurewebsites.net/app-camp/labs/meeting-tab" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>
