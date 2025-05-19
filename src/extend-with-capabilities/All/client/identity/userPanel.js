@@ -2,8 +2,6 @@ import {
     getLoggedInEmployee,
     logoff
 } from './identityClient.js';
-import { inM365 } from '../modules/teamsHelpers.js';
-import { hasValidLicense } from '../modules/northwindLicensing.js';
 class northwindUserPanel extends HTMLElement {
 
     async connectedCallback() {
@@ -16,13 +14,6 @@ class northwindUserPanel extends HTMLElement {
             logoff();
 
         } else {
-            if (await inM365()) {
-                const validLicense = await hasValidLicense();
-                if (validLicense.status && validLicense.status.toString().toLowerCase() === "failure") {
-                    window.location.href = `/pages/needLicense.html?error=${validLicense.reason}`;
-                }
-            }
-
             this.innerHTML = `<div class="userPanel">
                 <img src="data:image/bmp;base64,${employee.photo}"></img>
                 <p>${employee.displayName}</p>

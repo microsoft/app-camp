@@ -12,7 +12,8 @@ The AppSource simulator, as well as a sample license service, can be found [in t
  * A [sample license service](https://github.com/OfficeDev/office-add-in-saas-monetization-sample/tree/master/MonetizationCodeSample/SaaSSampleWebApi){target="_blank"} similar to one you need to provide for your app
  * A [web site with a landing page](https://github.com/OfficeDev/office-add-in-saas-monetization-sample/tree/master/MonetizationCodeSample/SaaSSampleWebApp){target="_blank"} similar to the one you need to provide for your app
 
-If you'd like to install these services for yourself, the instructions are [here](/app-camp/supplemental/MonetizationLabSetup), but we've also hosted these services for you. These instructions assume you're just going to use the hosted services. In any case, be aware that the [license service](https://github.com/OfficeDev/office-add-in-saas-monetization-sample/tree/master/MonetizationCodeSample/SaaSSampleWebApi){target="_blank"}  and [web site with landing page](https://github.com/OfficeDev/office-add-in-saas-monetization-sample/tree/master/MonetizationCodeSample/SaaSSampleWebApp){target="_blank"}  are only samples and that your app would need to implement something similar!
+You will need to install these services in your Azure subscription before this lab will work. You can find instructions 
+[here](/app-camp/supplemental/MonetizationLabSetup). Be aware that the [license service](https://github.com/OfficeDev/office-add-in-saas-monetization-sample/tree/master/MonetizationCodeSample/SaaSSampleWebApi){target="_blank"}  and [web site with landing page](https://github.com/OfficeDev/office-add-in-saas-monetization-sample/tree/master/MonetizationCodeSample/SaaSSampleWebApp){target="_blank"}  are only samples and that your app would need to implement something similar!
 
 ???+ info "Video briefing"
     <div class="tinyVideo">
@@ -36,19 +37,13 @@ In this exercise, you will add information to your environment file about the ho
 
 Your `.env` file on the Northwind Orders application needs to be updated to include values that will allow it to interact with the licensing service. This service is centrally located and you share it with the other lab participants. 
 
-Go back to your working directory and add the below entries into `.env` file:
+Go back to your working directory and add the below entries into `.env` file, using values from when you set up the licensing service.
 
 ```text
-# These values are TEMPORARY and may change without notice!
-SAAS_API=https://BGmonetizationwebapi.azurewebsites.net/api/Subscriptions/CheckOrActivateLicense
-SAAS_SCOPES=api://dd82efdc-c77f-49c1-9b18-ca3d76a36264/user_impersonation
-OFFER_ID=contoso_o365_addin
+SAAS_API=https://<saasmonetizationwebapi>.azurewebsites.net/api/Subscriptions/CheckOrActivateLicense
+SAAS_SCOPES=api://saasmonetizationwebapi-aad-app-clientid/user_impersonation
+OFFER_ID=<offername>
 ```
-
-!!! warning
-    THE HOSTED SERVICES ARE TEMPORARY AND LIKELY TO MOVE. 
-    Please be aware and check back here for updates.
-
 
 ## Exercise 2: Northwind Orders calls the licensing service
 
